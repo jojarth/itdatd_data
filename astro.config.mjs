@@ -8,9 +8,9 @@ export default defineConfig({
     starlight({
       title: 'In the Deep and the Dark',
       description: 'Core rules, setting reference, and compendium for ITD&TD.',
-      social: {
-        github: 'https://github.com/jojarth/itdatd_data',
-      },
+        social: [
+          { icon: 'github', label: 'GitHub', href: 'https://github.com/jojarth/itdatd_data' },
+        ],
       sidebar: [
         {
           label: "Player's Guide",
