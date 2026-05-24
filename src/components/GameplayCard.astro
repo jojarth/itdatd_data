@@ -1,0 +1,23 @@
+---
+const {
+  type = 'feature',
+  title,
+  eyebrow,
+  subtitle,
+} = Astro.props;
+
+const cardClass = `gameplay-card gameplay-card--${type}`;
+---
+
+<aside class={cardClass}>
+  {(title || eyebrow || subtitle) && (
+    <header class="gameplay-card__header">
+      {eyebrow && <div class="gameplay-card__eyebrow">{eyebrow}</div>}
+      {title && <h3>{title}</h3>}
+      {subtitle && <p>{subtitle}</p>}
+    </header>
+  )}
+  <div class="gameplay-card__body">
+    <slot />
+  </div>
+</aside>

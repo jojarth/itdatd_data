@@ -1,0 +1,154 @@
+:root {
+  --itdatd-card-radius: 8px;
+  --itdatd-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+}
+
+:root[data-theme='dark'] {
+  --itdatd-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.sl-container,
+.main-pane > main {
+  max-width: 78rem;
+}
+
+.sl-markdown-content {
+  max-width: 70rem;
+}
+
+.sl-markdown-content > table,
+.sl-markdown-content .wide-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: var(--itdatd-card-radius);
+}
+
+.sl-markdown-content table {
+  font-size: 0.9rem;
+}
+
+.sl-markdown-content th {
+  white-space: nowrap;
+  background: var(--sl-color-gray-6);
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.book-card {
+  display: block;
+  min-height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: var(--itdatd-card-radius);
+  background: var(--sl-color-gray-6);
+  color: var(--sl-color-white);
+  text-decoration: none;
+}
+
+.book-card:hover {
+  border-color: var(--sl-color-accent);
+}
+
+.book-card h2,
+.book-card h3 {
+  margin-top: 0;
+}
+
+.book-card p {
+  margin-bottom: 0;
+  color: var(--sl-color-gray-2);
+}
+
+.gameplay-card {
+  position: relative;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: var(--itdatd-card-radius);
+  background: var(--sl-color-bg);
+  box-shadow: var(--itdatd-shadow);
+}
+
+.gameplay-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  content: '';
+}
+
+.gameplay-card--class::before {
+  background: #6b7280;
+}
+
+.gameplay-card--feature::before,
+.gameplay-card--ancestry::before {
+  background: #22c55e;
+}
+
+.gameplay-card--subclass::before {
+  background: #3b82f6;
+}
+
+.gameplay-card--archetype::before {
+  background: #eab308;
+}
+
+.gameplay-card__header {
+  padding: 1rem 1.25rem 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  background: var(--sl-color-gray-6);
+}
+
+.gameplay-card__header h3 {
+  margin: 0;
+}
+
+.gameplay-card__header p {
+  margin: 0.35rem 0 0;
+  color: var(--sl-color-gray-2);
+}
+
+.gameplay-card__eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--sl-color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gameplay-card__body {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 1.25rem 1.25rem 1.5rem;
+}
+
+.gameplay-card__body > :first-child {
+  margin-top: 0;
+}
+
+.gameplay-card__body > :last-child {
+  margin-bottom: 0;
+}
+
+.feature-section {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: var(--itdatd-card-radius);
+  background: var(--sl-color-gray-6);
+}
+
+.feature-section h4 {
+  margin: 0 0 0.5rem;
+}
+
+.feature-section > :last-child {
+  margin-bottom: 0;
+}
