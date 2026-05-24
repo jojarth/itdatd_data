@@ -15,7 +15,7 @@ export default defineConfig({
         {
           label: "Player's Guide",
           items: [
-            { label: 'Overview', link: '/playersguide/' },
+            { label: 'Overview', link: '/playersguide/index.mdx' },
             { label: 'Character Creation', link: '/phb/character-creation/' },
             { label: 'Classes', link: '/phb/classes/' },
             { label: 'Equipment', link: '/phb/equipment/' },
