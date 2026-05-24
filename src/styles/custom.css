@@ -1,10 +1,22 @@
 :root {
   --itdatd-card-radius: 8px;
   --itdatd-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+  --itdatd-table-border: #b8c0cc;
+  --itdatd-table-header: #eef1f5;
+  --itdatd-table-header-text: #1f2937;
+  --itdatd-table-row: #fbfcfe;
+  --itdatd-table-row-alt: #f4f6f9;
+  --itdatd-table-hover: #e8edf3;
 }
 
 :root[data-theme='dark'] {
   --itdatd-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  --itdatd-table-border: #64748b;
+  --itdatd-table-header: #263241;
+  --itdatd-table-header-text: #eef2f7;
+  --itdatd-table-row: #151b23;
+  --itdatd-table-row-alt: #1a222d;
+  --itdatd-table-hover: #243142;
 }
 
 .sl-container,
@@ -17,21 +29,227 @@
 }
 
 .sl-markdown-content > table,
+.sl-markdown-content :is(
+  .green-table,
+  .blue-table,
+  .red-table,
+  .orange-table,
+  .grey-table,
+  .pink-table,
+  .purple-table,
+  .yellow-table
+),
 .sl-markdown-content .wide-table {
   display: block;
   width: 100%;
   overflow-x: auto;
-  border: 1px solid var(--sl-color-gray-5);
+  border: 1px solid var(--itdatd-table-border);
   border-radius: var(--itdatd-card-radius);
+  border-spacing: 0;
+}
+
+.sl-markdown-content :is(
+  .green-table,
+  .blue-table,
+  .red-table,
+  .orange-table,
+  .grey-table,
+  .pink-table,
+  .purple-table,
+  .yellow-table
+) > table {
+  display: table;
+  overflow: visible;
+  width: 100%;
 }
 
 .sl-markdown-content table {
-  font-size: 0.9rem;
+  min-width: max-content;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.sl-markdown-content th,
+.sl-markdown-content td {
+  white-space: nowrap;
 }
 
 .sl-markdown-content th {
-  white-space: nowrap;
   background: var(--sl-color-gray-6);
+}
+
+.sl-markdown-content table th {
+  border-color: var(--itdatd-table-border);
+  background: var(--itdatd-table-header);
+  color: var(--itdatd-table-header-text);
+}
+
+.sl-markdown-content table td {
+  border-color: color-mix(in srgb, var(--itdatd-table-border) 50%, transparent);
+  background: var(--itdatd-table-row);
+}
+
+.sl-markdown-content table tr:nth-child(even) td {
+  background: var(--itdatd-table-row-alt);
+}
+
+.sl-markdown-content table tr:hover td {
+  background: var(--itdatd-table-hover);
+}
+
+.sl-markdown-content table th,
+.sl-markdown-content table td {
+  padding: 0.42rem 0.58rem;
+}
+
+@media (min-width: 72rem) {
+  .sl-markdown-content table {
+    width: 100%;
+  }
+}
+
+.green-table {
+  --itdatd-table-border: #86c99b;
+  --itdatd-table-header: #d9f3df;
+  --itdatd-table-header-text: #12351f;
+  --itdatd-table-row: #f7fcf8;
+  --itdatd-table-row-alt: #eef8f0;
+  --itdatd-table-hover: #e2f4e7;
+}
+
+.blue-table {
+  --itdatd-table-border: #8bbbe8;
+  --itdatd-table-header: #dceeff;
+  --itdatd-table-header-text: #12304d;
+  --itdatd-table-row: #f7fbff;
+  --itdatd-table-row-alt: #edf6ff;
+  --itdatd-table-hover: #e0f0ff;
+}
+
+.red-table {
+  --itdatd-table-border: #e79a9a;
+  --itdatd-table-header: #ffe0e0;
+  --itdatd-table-header-text: #4a1717;
+  --itdatd-table-row: #fff9f9;
+  --itdatd-table-row-alt: #fff0f0;
+  --itdatd-table-hover: #ffe4e4;
+}
+
+.orange-table {
+  --itdatd-table-border: #e8ad73;
+  --itdatd-table-header: #ffe8cf;
+  --itdatd-table-header-text: #442407;
+  --itdatd-table-row: #fffaf4;
+  --itdatd-table-row-alt: #fff2e4;
+  --itdatd-table-hover: #ffe8cf;
+}
+
+.grey-table {
+  --itdatd-table-border: #b8c0cc;
+  --itdatd-table-header: #eef1f5;
+  --itdatd-table-header-text: #1f2937;
+  --itdatd-table-row: #fbfcfe;
+  --itdatd-table-row-alt: #f4f6f9;
+  --itdatd-table-hover: #e8edf3;
+}
+
+.pink-table {
+  --itdatd-table-border: #e7a1c1;
+  --itdatd-table-header: #ffe2ef;
+  --itdatd-table-header-text: #4a1630;
+  --itdatd-table-row: #fff9fc;
+  --itdatd-table-row-alt: #fff0f7;
+  --itdatd-table-hover: #ffe4f1;
+}
+
+.purple-table {
+  --itdatd-table-border: #b7a1e8;
+  --itdatd-table-header: #ece4ff;
+  --itdatd-table-header-text: #2e1d55;
+  --itdatd-table-row: #fbf9ff;
+  --itdatd-table-row-alt: #f3efff;
+  --itdatd-table-hover: #ebe2ff;
+}
+
+.yellow-table {
+  --itdatd-table-border: #d8c25f;
+  --itdatd-table-header: #fff5bf;
+  --itdatd-table-header-text: #3a3000;
+  --itdatd-table-row: #fffdf2;
+  --itdatd-table-row-alt: #fff8d9;
+  --itdatd-table-hover: #fff2ad;
+}
+
+:root[data-theme='dark'] .green-table {
+  --itdatd-table-border: #2f8b50;
+  --itdatd-table-header: #163f25;
+  --itdatd-table-header-text: #d8f8df;
+  --itdatd-table-row: #102018;
+  --itdatd-table-row-alt: #14281d;
+  --itdatd-table-hover: #1b3a28;
+}
+
+:root[data-theme='dark'] .blue-table {
+  --itdatd-table-border: #2f6f9e;
+  --itdatd-table-header: #173552;
+  --itdatd-table-header-text: #d9efff;
+  --itdatd-table-row: #101b26;
+  --itdatd-table-row-alt: #132232;
+  --itdatd-table-hover: #1a3148;
+}
+
+:root[data-theme='dark'] .red-table {
+  --itdatd-table-border: #9f3a3a;
+  --itdatd-table-header: #4a1b1b;
+  --itdatd-table-header-text: #ffe1e1;
+  --itdatd-table-row: #241313;
+  --itdatd-table-row-alt: #2c1717;
+  --itdatd-table-hover: #3a2020;
+}
+
+:root[data-theme='dark'] .orange-table {
+  --itdatd-table-border: #a76527;
+  --itdatd-table-header: #4a2a0f;
+  --itdatd-table-header-text: #ffe6c8;
+  --itdatd-table-row: #24180d;
+  --itdatd-table-row-alt: #2d1d0f;
+  --itdatd-table-hover: #3d2815;
+}
+
+:root[data-theme='dark'] .grey-table {
+  --itdatd-table-border: #64748b;
+  --itdatd-table-header: #263241;
+  --itdatd-table-header-text: #eef2f7;
+  --itdatd-table-row: #151b23;
+  --itdatd-table-row-alt: #1a222d;
+  --itdatd-table-hover: #243142;
+}
+
+:root[data-theme='dark'] .pink-table {
+  --itdatd-table-border: #a03c6a;
+  --itdatd-table-header: #4a1a31;
+  --itdatd-table-header-text: #ffdce9;
+  --itdatd-table-row: #24131b;
+  --itdatd-table-row-alt: #2d1722;
+  --itdatd-table-hover: #3c2030;
+}
+
+:root[data-theme='dark'] .purple-table {
+  --itdatd-table-border: #7356bb;
+  --itdatd-table-header: #2f2452;
+  --itdatd-table-header-text: #eee6ff;
+  --itdatd-table-row: #191526;
+  --itdatd-table-row-alt: #211a33;
+  --itdatd-table-hover: #2e2546;
+}
+
+:root[data-theme='dark'] .yellow-table {
+  --itdatd-table-border: #9b842d;
+  --itdatd-table-header: #40350f;
+  --itdatd-table-header-text: #fff3bf;
+  --itdatd-table-row: #211e10;
+  --itdatd-table-row-alt: #292513;
+  --itdatd-table-hover: #383219;
 }
 
 .book-grid {
