@@ -1,0 +1,52 @@
+.book-home {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.book-home h1 {
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.book-home h2 {
+  font-weight: normal;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+.book-card {
+  display: block;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.15s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--sl-color-accent);
+}
+
+.book-home {
+  font-family: var(--sl-font-system);
+}
+
+.book-home h1 {
+  font-family: Georgia, serif;
+}
+
+.book-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}

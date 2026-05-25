@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://itdatd.azureknights.net',
   integrations: [
     starlight({
-      title: 'In the Deep and the Dark',
+      title: 'ITD&TD',
       description: 'Core rules, setting reference, and compendium for ITD&TD.',
       customCss: ['./src/styles/custom.css'],
       social: [
