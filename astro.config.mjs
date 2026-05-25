@@ -14,10 +14,6 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: 'Site Reference',
-          items: [{ label: 'Writing Tools', slug: 'site-reference' }],
-        },
-        {
           label: "Player's Guide",
           items: [
             { label: 'Overview', slug: 'playersguide' },
