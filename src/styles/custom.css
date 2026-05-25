@@ -329,12 +329,12 @@
 }
 
 .gameplay-card__header p {
-  margin: 0.35rem 0 0;
+  margin: 0.1rem 0 0;
   color: var(--sl-color-gray-2);
 }
 
 .gameplay-card__eyebrow {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.1rem;
   color: var(--sl-color-accent);
   font-size: 0.75rem;
   font-weight: 700;

@@ -14,22 +14,19 @@ export default defineConfig({
       ],
       sidebar: [
         {
+          label: 'Site Reference',
+          items: [{ label: 'Writing Tools', slug: 'site-reference' }],
+        },
+        {
           label: "Player's Guide",
           items: [
             { label: 'Overview', slug: 'playersguide' },
-            { label: 'Character Creation', slug: 'playersguide/character-creation' },
-            { label: 'Classes', slug: 'playersguide/classes' },
-            { label: 'Magic-User', slug: 'playersguide/classes/magic-user' },
-            { label: 'Equipment', slug: 'playersguide/equipment' },
-            { label: 'Combat', slug: 'playersguide/combat' },
           ],
         },
         {
           label: "Game Master's Guide",
           items: [
             { label: 'Overview', slug: 'gamemastersguide' },
-            { label: 'Running the Game', slug: 'gamemastersguide/running-the-game' },
-            { label: 'Treasure', slug: 'gamemastersguide/treasure' },
           ],
         },
         {
