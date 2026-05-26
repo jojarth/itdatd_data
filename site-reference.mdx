@@ -1,0 +1,182 @@
+---
+title: Site Reference
+description: How to use the custom tables and gameplay cards in this docs site.
+---
+
+import GameplayCard from '../../components/GameplayCard.astro';
+import FeatureSection from '../../components/FeatureSection.astro';
+
+# Site Reference
+
+This page documents the custom writing tools available in the site.
+
+## Colored Tables
+
+Use a colored table by wrapping a normal Markdown table in a `<div>` with one of the table classes.
+
+Available table classes:
+
+- `green-table`
+- `blue-table`
+- `red-table`
+- `orange-table`
+- `grey-table`
+- `pink-table`
+- `purple-table`
+- `yellow-table`
+
+Example:
+
+```mdx
+<div class="green-table">
+
+| Level | XP TNL | Grit |
+|:-----:|:------:|:----:|
+| 1 | 0 | 1d4 |
+| 10 | 450,000 | 9d4 + 1 |
+
+</div>
+```
+
+Keep the blank lines between the `<div>` and the table. This helps MDX read the table correctly.
+
+Table behavior:
+
+- Rows are banded automatically.
+- Cells do not wrap, so values like `9d4 + 1` stay on one line.
+- If a table is too wide for the page, it scrolls horizontally inside its border.
+- Plain Markdown tables use the neutral grey table style.
+
+## Gameplay Cards
+
+Use `GameplayCard` for special rules boxes, class summaries, feature callouts, ancestry features, and archetype features.
+
+At the top of any `.mdx` page where you want cards, import the components:
+
+```mdx
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+```
+
+The number of `../` segments depends on where the page lives. For pages in `src/content/docs/playersguide/classes/`, the import above is correct.
+
+## Card Types
+
+Set the card color with the `type` prop:
+
+- `class`: grey accent line, for Class Gameplay cards
+- `feature`: green accent line, for Class Feature cards
+- `subclass`: blue accent line, for Sub-Class Feature cards
+- `ancestry`: green accent line, for Ancestry Feature cards
+- `archetype`: yellow accent line, for Archetype Feature cards
+
+## Basic Card
+
+```mdx
+<GameplayCard
+  type="feature"
+  eyebrow="Class Feature"
+  title="Feature Name"
+  subtitle="A short summary of what the feature does."
+>
+  Write the feature text here.
+</GameplayCard>
+```
+
+<GameplayCard
+  type="feature"
+  eyebrow="Class Feature"
+  title="Feature Name"
+  subtitle="A short summary of what the feature does."
+>
+  Write the feature text here.
+</GameplayCard>
+
+## Card With Sections
+
+Use `FeatureSection` inside a card when the feature needs separate blocks.
+
+```mdx
+<GameplayCard
+  type="subclass"
+  eyebrow="Sub-Class Feature"
+  title="Feature Name"
+  subtitle="A short summary of the feature."
+>
+  <FeatureSection title="First Section">
+    Write the first rule section here.
+  </FeatureSection>
+
+  <FeatureSection title="Second Section">
+    Write the second rule section here.
+  </FeatureSection>
+</GameplayCard>
+```
+
+<GameplayCard
+  type="subclass"
+  eyebrow="Sub-Class Feature"
+  title="Feature Name"
+  subtitle="A short summary of the feature."
+>
+  <FeatureSection title="First Section">
+    Write the first rule section here.
+  </FeatureSection>
+
+  <FeatureSection title="Second Section">
+    Write the second rule section here.
+  </FeatureSection>
+</GameplayCard>
+
+## Common Examples
+
+Class Gameplay:
+
+```mdx
+<GameplayCard
+  type="class"
+  eyebrow="Class Gameplay"
+  title="Magic-User Gameplay"
+  subtitle="A short summary of how the class plays."
+>
+  Write the class gameplay overview here.
+</GameplayCard>
+```
+
+Ancestry Feature:
+
+```mdx
+<GameplayCard
+  type="ancestry"
+  eyebrow="Ancestry Feature"
+  title="Feature Name"
+>
+  Write the ancestry feature here.
+</GameplayCard>
+```
+
+Archetype Feature:
+
+```mdx
+<GameplayCard
+  type="archetype"
+  eyebrow="Archetype Feature"
+  title="Feature Name"
+>
+  Write the archetype feature here.
+</GameplayCard>
+```
+
+## Writing Notes
+
+Use `.mdx` instead of `.md` for any page that uses components like `GameplayCard` or `FeatureSection`.
+
+Use normal `.md` or `.mdx` pages for plain chapter text and tables.
+
+## Refresh cache when diagnosing server
+
+rm -rf .astro dist
+
+## Start local test server
+cd Documents/ITDATD/
+npm run dev

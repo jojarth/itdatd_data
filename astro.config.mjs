@@ -16,7 +16,9 @@ export default defineConfig({
         {
           label: "Player's Guide",
           items: [
-            { label: 'Overview', slug: 'playersguide' },
+            { label: "Player's Guide Main Page", slug: 'playersguide' },
+            { label: "Introduction", slug: 'playersguide/00-introduction' },
+            { label: "Chapter 01: How to Play", slug: 'playersguide/01-how_to_play' },
           ],
         },
         {
