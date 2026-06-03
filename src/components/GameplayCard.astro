@@ -3,18 +3,34 @@ const {
   type = 'feature',
   title,
   eyebrow,
+  subeyebrow,
   subtitle,
+  headerOrder = ['eyebrow', 'title', 'subtitle'],
 } = Astro.props;
 
 const cardClass = `gameplay-card gameplay-card--${type}`;
+const headerFields = { eyebrow, subeyebrow, title, subtitle };
+const orderedHeaderFields = headerOrder.filter((field) => field in headerFields && headerFields[field]);
+const hasHeader = orderedHeaderFields.length > 0;
 ---
 
 <aside class={cardClass}>
-  {(title || eyebrow || subtitle) && (
+  {hasHeader && (
     <header class="gameplay-card__header">
-      {eyebrow && <div class="gameplay-card__eyebrow">{eyebrow}</div>}
-      {title && <h3>{title}</h3>}
-      {subtitle && <p>{subtitle}</p>}
+      {
+        orderedHeaderFields.map((field) => (
+          <>
+            {field === 'eyebrow' && <div class="gameplay-card__eyebrow">{headerFields[field]}</div>}
+            {field === 'subeyebrow' && (
+              <div class="gameplay-card__subeyebrow">{headerFields[field]}</div>
+            )}
+            {field === 'title' && <h3>{headerFields[field]}</h3>}
+            {field === 'subtitle' && (
+              <p class="gameplay-card__subtitle">{headerFields[field]}</p>
+            )}
+          </>
+        ))
+      }
     </header>
   )}
   <div class="gameplay-card__body">

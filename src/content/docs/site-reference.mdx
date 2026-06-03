@@ -92,6 +92,64 @@ Set the card color with the `type` prop:
   Write the feature text here.
 </GameplayCard>
 
+## Header Order
+
+Gameplay cards support four header fields:
+
+- `eyebrow`
+- `subeyebrow`
+- `title`
+- `subtitle`
+
+By default, cards render in this order:
+
+```txt
+eyebrow
+title
+subtitle
+```
+
+If you add `subeyebrow`, set `headerOrder` to choose where each field appears.
+
+```mdx
+<GameplayCard
+  type="feature"
+  eyebrow="Class Feature"
+  subeyebrow="1st Level"
+  title="Spellcasting"
+  subtitle="The core class feature for Magic-Users."
+  headerOrder={['eyebrow', 'subeyebrow', 'title', 'subtitle']}
+>
+  Write the feature text here.
+</GameplayCard>
+```
+
+<GameplayCard
+  type="feature"
+  eyebrow="Class Feature"
+  subeyebrow="1st Level"
+  title="Spellcasting"
+  subtitle="The core class feature for Magic-Users."
+  headerOrder={['eyebrow', 'subeyebrow', 'title', 'subtitle']}
+>
+  Write the feature text here.
+</GameplayCard>
+
+You can also put the title first:
+
+```mdx
+<GameplayCard
+  type="feature"
+  title="Spellcasting"
+  subtitle="The core class feature for Magic-Users."
+  eyebrow="Class Feature"
+  subeyebrow="1st Level"
+  headerOrder={['title', 'subtitle', 'eyebrow', 'subeyebrow']}
+>
+  Write the feature text here.
+</GameplayCard>
+```
+
 ## Cards In The Side Navigation
 
 To show a gameplay card title in the right-side table of contents, add the `toc` prop to the card. The card still displays its own title, and the title also appears in the side navigation.
@@ -214,3 +272,11 @@ Archetype Feature:
 Use `.mdx` instead of `.md` for any page that uses components like `GameplayCard` or `FeatureSection`.
 
 Use normal `.md` or `.mdx` pages for plain chapter text and tables.
+
+## Refresh cache when diagnosing server
+
+rm -rf .astro dist
+
+## Start local test server
+cd Documents/ITDATD/
+npm run dev
