@@ -19,7 +19,17 @@ export default defineConfig({
           items: [
             { label: "Player's Guide Main Page", slug: 'playersguide' },
             { label: "Introduction", slug: 'playersguide/00-introduction' },
-            { label: "Chapter 01: How to Play", slug: 'playersguide/01-core_rules'},
+            { label: "Chapter 01: Core Rules", slug: 'playersguide/01-core_rules'},
+            { label: "Chapter 02: Character Creation", slug: 'playersguide/02-character_creation'},
+            { label: "Chapter 03: Ancestries", slug: 'playersguide/03-ancestries'},
+            { label: "Chapter 04: Backgrounds", slug: 'playersguide/04-backgrounds'},
+            { lable: "Chapter 05: Classes", slug: 'playersguide/05-classes'},
+            { label: "Chapter 06: Equipment and Wealth", slug: 'playersguide/06-equipment_and_wealth'},
+            { label: "Chapter 07: Adventuring", slug: 'playersguide/07-adventuring'},
+            { label: "Chapter 08: Combat", slug: 'playersguide/08-combat'},
+            { label: "Chapter 09: Spellcasting", slug: 'playersguide/09-spellcasting'},
+            { label: "Chapter 10: Spell Lists", slug: 'playersguide/10-spell_lists'},
+            { label: "Chapter 11: Character Advancement", slug: 'playersguide/11-character_advancement'},
           ],
         },
         {
