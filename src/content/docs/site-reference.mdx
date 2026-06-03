@@ -92,6 +92,48 @@ Set the card color with the `type` prop:
   Write the feature text here.
 </GameplayCard>
 
+## Cards In The Side Navigation
+
+To show a gameplay card title in the right-side table of contents, add the `toc` prop to the card. The card still displays its own title, and the title also appears in the side navigation.
+
+```mdx
+<GameplayCard
+  type="feature"
+  eyebrow="Class Feature"
+  title="Spellcasting"
+  subtitle="The core class feature for Magic-Users."
+  toc
+>
+  Write the feature text here.
+</GameplayCard>
+```
+
+<GameplayCard
+  type="feature"
+  eyebrow="Class Feature"
+  title="Spellcasting"
+  subtitle="The core class feature for Magic-Users."
+  toc
+>
+  Write the feature text here.
+</GameplayCard>
+
+The `toc` prop only works when `title` is a quoted string, like `title="Spellcasting"`.
+
+By default, `toc` entries are added as level-three headings. To make a card appear as a top-level entry in the table of contents, use `tocDepth={2}`:
+
+```mdx
+<GameplayCard
+  type="class"
+  eyebrow="Class Gameplay"
+  title="Magic-User Gameplay"
+  toc
+  tocDepth={2}
+>
+  Write the class gameplay overview here.
+</GameplayCard>
+```
+
 ## Card With Sections
 
 Use `FeatureSection` inside a card when the feature needs separate blocks.

@@ -294,6 +294,24 @@
   box-shadow: var(--itdatd-shadow);
 }
 
+.sl-markdown-content :is(h2, h3, h4) + .gameplay-card {
+  margin-top: 0.75rem;
+}
+
+.sl-heading-wrapper:has(> .gameplay-card-toc-heading) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.sl-heading-wrapper:has(> .gameplay-card-toc-heading) + .gameplay-card {
+  margin-top: 1.5rem;
+}
+
 .gameplay-card::before {
   position: absolute;
   inset: 0 auto 0 0;

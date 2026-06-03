@@ -8,7 +8,32 @@ import FeatureSection from '../../../../components/FeatureSection.astro';
 
 Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
 
-## Class Table
+<GameplayCard
+  type="class"
+  title="Magic-User Gameplay"
+  toc
+  tocDepth={2}
+>
+  <FeatureSection title="Prime Requisite">
+    Your prime requsite is logic, and you gain bonus experience points based on your logic score.
+    - If your logic score is 13 or higher, you gain a +5% bonus to all experience points earned.
+    - If your logic score is 16 or higher, you gain a +10% bonus to all experience points earned.
+  </FeatureSection>
+
+  <FeatureSection title="Armor Proficiency">
+    You are proficient with ***light armor***.
+  </FeatureSection>
+  
+  <FeatureSection title="Shield Proficiency">
+    You are proficient with ***bucklers*** and ***small shields***.
+  </FeatureSection>
+
+  <FeatureSection title="Weapon Proficiency">
+    You begin play familiar with ***crossbows, light blades***, and ***staves***, and start with 2 weapon proficiency points that you can use to increase your proficiency level with any weapon, to a maximum level of proficient.
+  </FeatureSection>
+</GameplayCard>
+
+### Class Table
 
 <div class="green-table">
 
@@ -53,40 +78,14 @@ Magic-Users are characters who specialize in the casting of magical spells. Play
 
 </div>
 
-## Gameplay
-
-<GameplayCard
-  type="class"
->
-  <FeatureSection title="Requirements">
-    In order to be a magic-user, you must have a logic score of 6 or higher.
-  </FeatureSection>
-
-  <FeatureSection title="Prime Requisite">
-    Your prime requsite is logic, and you gain bonus experience points based on your logic score.
-    - If your logic score is 13 or higher, you gain a +5% bonus to all experience points earned.
-    - If your logic score is 16 or higher, you gain a +10% bonus to all experience points earned.
-  </FeatureSection>
-
-  <FeatureSection title="Armor Proficiency">
-    You are proficient with ***light armor***.
-  </FeatureSection>
-  
-  <FeatureSection title="Shield Proficiency">
-    You are proficient with ***bucklers*** and ***small shields***.
-  </FeatureSection>
-
-  <FeatureSection title="Weapon Proficiency">
-    You begin play familiar with ***crossbows, light blades***, and ***staves***, and start with 2 weapon proficiency points that you can use to increase your proficiency level with any weapon, to a maximum level of proficient.
-  </FeatureSection>
-</GameplayCard>
-
 ## Magic-User Features
+As a magic-user, you gain the following class features.
 
 <GameplayCard
   type="feature"
-  eyebrow="1st Level"
-  title="Magic-User Spellcasting"
+  eyebrow="1st Level Magic-User Feature"
+  title="Magic-User Spell Casting"
+  toc
 >
  You can cast magical spells. You must abide by the proper form of preparation and casting rules as outlined below. You can find your spell slots in the class table section located above.
   
@@ -167,8 +166,9 @@ Magic-Users are characters who specialize in the casting of magical spells. Play
 
 <GameplayCard
   type="feature"
-  eyebrow="3rd Level"
   title="Re-Preparation"
+  toc
+  eyebrow="3rd Level Magic-User Feature"
 >
 You can use this feature to change out one spell with another from a spell book you have on you. You must perform your meditation ritual, during which you select one non-empty 1st-level spell slot. You can change the spell that is in that spell slot with one that you have in your spell book.
 
