@@ -8,18 +8,27 @@ import FeatureSection from '../../../../components/FeatureSection.astro';
 
 Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
 
+## Magic-User Gameplay
+Below is a list of information needed to play a magic-user at the various levels of play.
 <GameplayCard
   type="class"
-  title="Magic-User Gameplay"
+  title="Requirements and Requisites"
   toc
-  tocDepth={2}
+  tocDepth={3}
 >
   <FeatureSection title="Prime Requisite">
     Your prime requsite is logic, and you gain bonus experience points based on your logic score.
     - If your logic score is 13 or higher, you gain a +5% bonus to all experience points earned.
     - If your logic score is 16 or higher, you gain a +10% bonus to all experience points earned.
   </FeatureSection>
+  </GameplayCard>
 
+<GameplayCard
+  type="class"
+  title="Proficiencies"
+  toc
+  tocDepth={3}
+>
   <FeatureSection title="Armor Proficiency">
     You are proficient with ***light armor***.
   </FeatureSection>
@@ -83,8 +92,9 @@ As a magic-user, you gain the following class features.
 
 <GameplayCard
   type="feature"
-  eyebrow="1st Level Magic-User Feature"
-  title="Magic-User Spell Casting"
+  title="Spellcasting"
+  subeyebrow="1st Level Magic-User Feature"
+  headerOrder={['title', 'subeyebrow']}
   toc
 >
  You can cast magical spells. You must abide by the proper form of preparation and casting rules as outlined below. You can find your spell slots in the class table section located above.
@@ -159,8 +169,6 @@ As a magic-user, you gain the following class features.
   
   <FeatureSection title="Meditation Ritual">
   All magic-users know how to perform a meditation ritual. This meditation ritual takes 1 hour, and allows a magic-user to change the cantrips they have prepared. Additionally, some magic-user features can only be done as part of this meditation ritual.
-  
-  You can perform all functions you wish during this meditation ritual.
   </FeatureSection>
 </GameplayCard>
 
@@ -168,7 +176,8 @@ As a magic-user, you gain the following class features.
   type="feature"
   title="Re-Preparation"
   toc
-  eyebrow="3rd Level Magic-User Feature"
+  subeyebrow="3rd Level Magic-User Feature"
+  headerOrder={['title', 'subeyebrow']}
 >
 You can use this feature to change out one spell with another from a spell book you have on you. You must perform your meditation ritual, during which you select one non-empty 1st-level spell slot. You can change the spell that is in that spell slot with one that you have in your spell book.
 
@@ -192,17 +201,3 @@ You can do this once, and must finish a night's rest before you can do it again.
   
 </GameplayCard>
 
-<GameplayCard
-  type="subclass"
-  eyebrow="Sub-Class Feature"
-  title="Arcane Tradition"
-  subtitle="An open-ended section for future Magic-User sub-class features."
->
-  <FeatureSection title="Tradition Feature">
-    Use this layout for sub-class features with multiple paragraphs, tables, lists, or nested feature sections.
-  </FeatureSection>
-
-  <FeatureSection title="Additional Rule">
-    This card type is intentionally open-ended so future traditions can grow without needing a new component.
-  </FeatureSection>
-</GameplayCard>
