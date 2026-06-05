@@ -8,6 +8,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'ITD&TD',
+        tableOfContents: {
+          minHeadingLevel: 2,
+          maxHeadingLevel: 5,
+        },
       description: 'Core rules, setting reference, and compendium for ITD&TD.',
       customCss: ['./src/styles/custom.css'],
       social: [
@@ -23,7 +27,7 @@ export default defineConfig({
             { label: "Chapter 02: Character Creation", slug: 'playersguide/02-character_creation'},
             { label: "Chapter 03: Ancestries", slug: 'playersguide/03-ancestries'},
             { label: "Chapter 04: Backgrounds", slug: 'playersguide/04-backgrounds'},
-            { lable: "Chapter 05: Classes", slug: 'playersguide/05-classes'},
+            { label: "Chapter 05: Classes", slug: 'playersguide/05-classes'},
             { label: "Chapter 06: Equipment and Wealth", slug: 'playersguide/06-equipment_and_wealth'},
             { label: "Chapter 07: Adventuring", slug: 'playersguide/07-adventuring'},
             { label: "Chapter 08: Combat", slug: 'playersguide/08-combat'},
