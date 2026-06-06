@@ -397,3 +397,22 @@
 .feature-section > :last-child {
   margin-bottom: 0;
 }
+
+/* Side-Bar CSS */
+
+/* 1. Target the collapsible top-level group labels */
+.sidebar-content summary .large {
+  font-size: var(--sl-text-sm) !important;
+  font-weight: 500 !important; /* Reduces heavy bolding to a medium weight */
+}
+
+/* 2. Target the nested page links inside those groups */
+.sidebar-content ul a {
+  font-size: var(--sl-text-xs) !important;
+  font-weight: 400 !important;
+}
+
+/* 3. Adjust the arrow icons next to the labels so they match the smaller text */
+.sidebar-content summary .caret {
+  font-size: 0.5rem !important;
+}
