@@ -3,6 +3,9 @@ title: Step 01. Determine Attributes
 sidebar:
   order: 2
 ---
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+
 There are 8 Attributes in ITD&TD: Brawn, Heartiness, Agility, Precision, Logic, Reason, Savvy, and Presence.
 
 Each attribute governs your characters natural abilities in that attribute. Most creatures have attributes between 8 and 12 in each attribute score, with 9 representing the average human person.
@@ -20,50 +23,274 @@ The way you role play switches around a little. You now have a block of abilitie
 ITD&TD is often much more lethal than other TTRPGs, especially at lower levels. Having a random adventurer blunts the blow of losing a character. At the same token, it allows gameplay to be a larger influence on the character's story.
 :::
   
-### What are the attributes?
-Each attribute governs a creature's natural abilities in the following ways:
+## What are the attributes?
+Each attribute governs a creature's natural abilities in the ways listed below.
 
-#### Brawn
+### Brawn
 Strength of limb, muscle, and raw might. This attribute governs when feats of strength need to be called upon. High Brawn characters tend to be strong, and thus tend to be more suited to wade into combat, swinging large weapons, breaking down doors, and lifting heavy objects. Low Brawn characters tend to be weak, struggling with heavy loads, unable to effectively use heavier equipment, and easily pushed aside in combat.
 
-Your brawn score affects your ability to attack and damage with most melee weapons. High brawn chracters can also carry more equipment on them before feeling the effects of heavy loads. Additionally, high brawn characters may find that they are able to Open Doors easier than other characters.
-
 <div class="green-table">
-| **Brawn Score** | **Attack Rolls** | **Damage Rolls** | **Encumbrance** | **Open Doors** |
-|:---------------:|:----------------:|:----------------:|:---------------:|:--------------:|
-| **1**           | -2               | -4               | -4 EP           | -              |
-| **2 - 3**       | -2               | -3               | -3 EP           | -              |
-| **4 - 5**       | -2               | -2               | -2 EP           | -              |
-| **6 - 7**       | -1               | -1               | -1 EP           | -              |
-| **8 - 12**      | +0               | +0               | 0               | -              |
-| **13 - 15**     | +0               | +1               | +1 EP           | -              |
-| **16 - 17**     | +1               | +2               | +2 EP           | +1-in-Y        |
-| **18**          | +1               | +3               | +3 EP           | +1-in-Y        |
-| **19**          | +2               | +4               | +4 EP           | +1-in-Y        |
-| **20**          | +2               | +5               | +5 EP           | +2-in-Y        |
-| **21**          | +3               | +6               | +6 EP           | +2-in-Y        |
-| **22**          | +3               | +7               | +6 EP           | +2-in-Y        |
-| **23**          | +4               | +8               | +7 EP           | +3-in-Y        |
-| **24**          | +4               | +9               | +7 EP           | +3-in-Y        |
-| **25**          | +5               | +10              | +8 EP           | +3-in-Y        |
+| **Brawn Score** | **Attack Rolls** | **Damage Rolls** | **Encumbrance** | **Force** |
+|:---------------:|:----------------:|:----------------:|:---------------:|:---------:|
+| **1**           | -2               | -4               | -4 EP           | -         |
+| **2 - 3**       | -2               | -3               | -3 EP           | -         |
+| **4 - 5**       | -2               | -2               | -2 EP           | -         |
+| **6 - 7**       | -1               | -1               | -1 EP           | -         |
+| **8 - 12**      | +0               | +0               | 0               | -         |
+| **13 - 15**     | +0               | +1               | +1 EP           | -         |
+| **16 - 17**     | +1               | +2               | +2 EP           | +1-in-Y   |
+| **18**          | +1               | +3               | +3 EP           | +1-in-Y   |
+| **19**          | +2               | +4               | +4 EP           | +1-in-Y   |
+| **20**          | +2               | +5               | +5 EP           | +2-in-Y   |
+| **21**          | +3               | +6               | +6 EP           | +2-in-Y   |
+| **22**          | +3               | +7               | +6 EP           | +2-in-Y   |
+| **23**          | +4               | +8               | +7 EP           | +3-in-Y   |
+| **24**          | +4               | +9               | +7 EP           | +3-in-Y   |
+| **25**          | +5               | +10              | +8 EP           | +3-in-Y   |
 </div>
 
-#### Heartiness
+<GameplayCard
+  type="class"
+  title="Brawn Effects"
+>
+Brawn has the following gameplay effects.
 
-#### Agility
+  <FeatureSection title="Attack Rolls">
+  When making attack rolls with most meleee weapons, you apply the bonus or penalty listed in the Attack Rolls column to your roll. For example, if you had 16 Brawn, and a Combat Bonus of +2, you gain +3 total to your attack roll (+2 from your combat bonus, +1 from your Brawn).
+  </FeatureSection>
 
-#### Precision
+  <FeatureSection title="Damage Rolls">
+  When making damage rolls with most melee weapons, you apply the bonus or penalty listed in the damage rolls column to your roll. For example, if you had 16 Brawn, and a Combat Bonus of +2, you gain a +4 total to your damage rolls (+2 from your combat bonus, +2 from your Brawn).
+  </FeatureSection>
+  
+  <FeatureSection title="Encumbrance">
+  When determining your Encumbrance, you apply the bonus or penalty listed to each encumbrance breakpoint. For example, if you had a 16 Brawn, you treat each encumbrance breakpoint as if it were 2 EP higher than listed.
+  </FeatureSection>
+  
+  <FeatureSection title="Force">
+  When attempting an X-in-Y check, and your physical force could be an asset in such a test (such as breaking down a stuck door) you can add your Force to the X value of the test. For example, if you have 16 Brawn and your GM informs you that you have a 1-in-6 chance to break down the door, you instead have a 2-in-6 chance.
+  </FeatureSection>
+</GameplayCard>
 
-#### Logic
+### Heartiness
+Stamina, endurance, and resistance to effects against the body. This attribute governs when your toughness is called upon. High Heartiness characters tend to be resilient, and thus have a higher capacity to receive damage, shrug off illness, and are not easily fatigued. Low Heartiness characters tend to be frail, sickly, or delicate. They often succumb to illness, and are quicker to tire.
 
-#### Reason
+<div class="green-table">
+| **Heartiness Score** | **Maximum Hit Points** | **Grit Contribution** |
+|:--------------------:|:----------------------:|:---------------------:|
+| **1**                | 1                      | +0                    |
+| **2 - 3**            | 1                      | +0                    |
+| **4 - 5**            | 2                      | +1                    |
+| **6 - 7**            | 3                      | +2                    |
+| **8-10**             | 4                      | +3                    |
+| **11-12**            | 5                      | +3                    |
+| **13 - 15**          | 6                      | +4                    |
+| **16 - 17**          | 7                      | +5                    |
+| **18**               | 8                      | +6                    |
+| **19**               | 9                      | +6                    |
+| **20**               | 10                     | +7                    |
+| **21**               | 10                     | +8                    |
+| **22**               | 11                     | +8                    |
+| **23**               | 11                     | +9                    |
+| **24**               | 12                     | +9                    |
+| **25**               | 12                     | +10                   |
+</div>
 
-#### Savvy
+<GameplayCard
+  type="class"
+  title="Heartiness Effects"
+>
+Heartiness has the following gameplay effects.
 
-#### Presence
+  <FeatureSection title="Maximum Hit Points">
+  Your heartiness score sets your maximum hit points to the value in this column. For example, if you had 13 heartiness, you have 6 maximum hit points.
+  </FeatureSection>
 
-### Unplayable Characters
-Generating a character should be generating an adventurer. With 4d6 drop the lowest, it should be rare that a character is unplayable. If you rolled any of the following, your character is considered unplayable, and you have the option of scraping the character and recreating. You reroll all abilities from the top.
+  <FeatureSection title="Grit Contribution">
+  Your heartiness score contributes part to your maximum grit, and the contribution is listed in this column. For example, if you had a 13 heartiness, you increase your maximum grit by +4.
+  </FeatureSection>
+</GameplayCard>
+
+### Agility
+Quickness of step, physical reflexes, and swiftness in battle. This attribute governs your ability to move your body quickly. High Agility characters tend to be quick and nimble, able to perform feats of acrobatics, avoidance, and other forms of body control. Low Agility characters tend to be slow and lumbering, stumbling when trying to move quickly, dropping things, and unable to keep their balance.
+
+<div class="green-table">
+| **Agility Score** | **Move Speed** | **Armor Class** | **Device and Breath Saves** |
+|:------------------:|:--------------:|:---------------:|:--------------------------:|
+| **1**              | -15 feet       | -2              | -                          |
+| **2 - 3**          | -10 feet       | -1              | -                          |
+| **4 - 5**          | -5 feet        | -1              | -                          |
+| **6 - 15**         | 0              | +0              | -                          |
+| **16 - 17**        | +5 feet        | +0              | -                          |
+| **18**             | +5 feet        | +1              | -                          |
+| **19**             | +5 feet        | +2              | -                          |
+| **20**             | +10 feet       | +2              | -                          |
+| **21**             | +10 feet       | +2              | -1                         |
+| **22**             | +10 feet       | +3              | -1                         |
+| **23**             | +10 feet       | +3              | -2                         |
+| **24**             | +15 feet       | +3              | -2                         |
+| **25**             | +15 feet       | +4              | -2                         |
+</div>
+
+<GameplayCard
+  type="class"
+  title="Agility Effects"
+>
+Agility has the following gameplay effects.
+
+  <FeatureSection title="Move Speed">
+  Characters with particularly high or low agility will find their move speed alterted. Simply apply this bonus or penalty to your ancestrial move speed to determine your total speed. Move Speed from Agility is applied before any reductions in move speed. For example, if you are a human (30 foot move speed) with a 5 Agility, you would have a Move Speed of 25 feet.
+  </FeatureSection>
+
+  <FeatureSection title="Armor Class">
+  When determining armor class, characters with particularly high or low agility will find that their armor class is altereted by the amount listed in the column. This amount is not limited by other armor effects. For example, if you are a human with a 5 Agility, you would calculate your Armor Class based on the armor you are wearing, then subtract 1 from the total.
+  </FeatureSection>
+</GameplayCard>
+
+### Precision
+A steady hand, keen eye, and fine control of movement. This attribute governs your ability to perform work that requires exactitude. High Precision characters tend to be good with their hands, good marksmen, precise with a light blade, and are able to tinker with their hands. Low Precision characters tend to be unsteady and careless, unable to aim properly, unsuited to detailed work, and producing poor craftsmanship.
+
+<div class="green-table">
+| **Precision Score** | **Attack Rolls** | **Damage Rolls** | **Manuipulation** |
+|:-------------------:|:----------------:|:----------------:|:-----------------:|
+| **1**               | -2               | -4               | -                 |
+| **2 - 3**           | -2               | -3               | -                 |
+| **4 - 5**           | -2               | -2               | -                 |
+| **6 - 7**           | -1               | -1               | -                 |
+| **8 - 12**          | +0               | +0               | -                 |
+| **13 - 15**         | +0               | +1               | -                 |
+| **16 - 17**         | +1               | +2               | +1-in-Y           |
+| **18**              | +1               | +3               | +1-in-Y           |
+| **19**              | +2               | +4               | +1-in-Y           |
+| **20**              | +2               | +5               | +2-in-Y           |
+| **21**              | +3               | +6               | +2-in-Y           |
+| **22**              | +3               | +7               | +2-in-Y           |
+| **23**              | +4               | +8               | +3-in-Y           |
+| **24**              | +4               | +9               | +3-in-Y           |
+| **25**              | +5               | +10              | +3-in-Y           |
+</div>
+
+<GameplayCard
+  type="class"
+  title="Precision Effects"
+>
+Precision has the following gameplay effects.
+
+  <FeatureSection title="Attack Rolls">
+  When making attack rolls with most ranged weapons, and melee weapons that have the finesse weapon property, you apply the bonus or penalty listed in the Attack Rolls column to your roll. For example, if you had 14 Precision, and a Combat Bonus of +2, you gain +2 total to your attack roll (+2 from your combat bonus, +0 from your Precision).
+  </FeatureSection>
+
+  <FeatureSection title="Damage Rolls">
+  When making damage rolls with most ranged weapons, and melee weapons that have the finesse weapon property, you apply the bonus or penalty listed in the damage rolls column to your roll. For example, if you had 14 Precision, and a Combat Bonus of +2, you gain a +3 total to your damage rolls (+2 from your combat bonus, +1 from your Precision).
+  </FeatureSection>
+  
+  <FeatureSection title="Manipulation">
+  When attempting an X-in-Y check, and your manual dexterity could be an asset in such a test (such as manipulating a fine device) you can add your Manipulation to the X value of the test. For example, if you have 14 Precision and your GM informs you that you have a 1-in-8 chance to dismantle a device, you still have a 1-in-8 chance, as your Precision isn't quite high enough to improve your chances.
+  </FeatureSection>
+</GameplayCard>
+
+### Logic
+Lore, memory, and ordered thought. This attribute governs your ability to learn and retain knowledge, your memory, and unraveling puzzles. High Logic characters tend to be able to recall and process information, solve puzzles, and master complex magical spells. Low Logic characters tend to be dull and forgetful, confusing instructions, misremembering details, and unable to recall information accurately.
+
+Many functions of Logic can be improved upon via downtime events. For example, you may start as a character who cannot read and write, and only speaks one language. However, if you are willing to put in the downtime and coin, you can end up with a character who can speak well beyond what is offered in the tables below, as well as reading and writitng more than just your native language. More information on languages and literacy can be found in chapter 7.
+
+:::tip[Literacy in ITD&TD]{icon="information"}
+  Literacy is low in ITD&TD, most characters cannot read or write. This is by design, and being able to read and write is considered a high-value skill.
+
+  There are some ancestries and classes that can interact with your Logic to determine your known languages; for example if your Logic is 8 or higher, and you are a Cleric, you become literate in one of your native languages; and if your Logic is 16 or higher, you become literate in all native languages you speak.
+:::
+
+<div class="green-table">
+| **Logic Score** | **Spoken Languages**        | **Literacy**         | **Illusion Immunity** |
+|:---------------:|:---------------------------:|:--------------------:|:---------------------:|
+| **1**           | Near Unintelligible         | Illiterate           | Always Fail Save      |
+| **2 - 3**       | Broken Speech               | Illiterate           | Always Fail Save      |
+| **4 - 5**       | Native                      | Illiterate           | -                     |
+| **6 - 7**       | Native*                     | Illiterate           | -                     |
+| **8 - 12**      | Native                      | Illiterate**         | -                     |
+| **13 - 15**     | Native                      | Illiterate           | -                     |
+| **16 - 17**     | Native                      | Native               | -                     |
+| **18**          | Native +1 additional        | Native               | -                     |
+| **19**          | Native +1 additional        | Native               | 1st-Level Illusions   |
+| **20**          | Native +2 additional        | Native               | 1st-Level Illusions   |
+| **21**          | Native +2 additional        | Native +1 additional | 1st-Level Illusions   |
+| **22**          | Native +3 additional        | Native +2 additional | 1st-Level Illusions   |
+| **23**          | Native +3 additional        | Native +3 additional | 2nd-Level Illusions   |
+| **24**          | Native +4 additional        | Native +4 additional | 2nd-Level Illusions   |
+| **25**          | Native +5 additional        | Native +5 additional | 2nd-Level Illusions   |
+</div>
+
+\* _Creatures must have at least a 6 Logic to learn additional languages via downtime events._
+
+\** _Creatures with at least an 8 Logic may be allowed to become literate at the start of play if their ancestry or class allows them to._
+
+<GameplayCard
+  type="class"
+  title="Logic Effects"
+>
+Logic has the following gameplay effects.
+
+  <FeatureSection title="Spoken Languages">
+  Characters often can only speak one language, but exceptionally low logic characters might barely even be able to do that. Exceptionally high logic characters know multiple languages.
+  
+  Note that this is column shows you what languages you can start play speaking. However, you can learn additional languages later via a downtime event. The maximum number of additional languages you can learn is equal to your Logic Score divided by 2, not counting your native language. Thus, if you started with 12 Logic, you can only speak your ancestries naitive language, but later during downtime events you can learn more, up to 6 additional languages (7 with your native language) if you are willing to put in the time.
+  
+  :::tip[Spoken Languages in ITD&TD]{icon="information"}
+  By default most intelligent species in ITD&TD only speak their own language, leading to interpreters being a highly sought after profession. Many tables will find this cumbersome, and although it is recommended that you give it a try, the GM guide has house rules for dealing with this if your table simply finds it un-fun.
+  :::
+  </FeatureSection>
+
+  <FeatureSection title="Literacy">
+  Literacy is rare in ITD&TD, and only very high logic characters, or moderate logic characters with specific training, can start play knowing how to read and write.
+  
+  Note that this column shows how literate your character is at the start of play. Yor character can learn to read and write additional languages via downtime events. The maximum number of additional languages you can learn is equal to your Logic Score divided by 2, not including your native language. Thus, if you have a 12 Logic, and had no formal training, you cannot read or write, but later during a downtime event, you could learn to read\write your native language.
+  </FeatureSection>
+  
+  <FeatureSection title="Illusion Immunity">
+  Creatures of extraoridnary logic can simply see through low-level illusions. These include magical spells that cause illusions, and effects that mimic spells, or low-level tricks. Creatures with abysmal logic automatically fail saving throws against magical illusions, regardless of their roll. If you have a 12 Logic, you gain no benefit from this.
+   </FeatureSection>
+</GameplayCard>
+
+### Reason
+Discernment, judgment, and clarity of mind. This attribute governs your ability to utilize your intuition and senses to process information. High Reason characters tend to be wise and discerning, seeing through lies, trusting their “gut”, and being highly perceptive. Low Reason characters tend to be foolish and rash, easily swayed by conspiracy, leaping to incorrect conclusions, and missing details.
+
+<div class="green-table">
+| **Reason Score** | **Mind-Altering Immunity**      | **Acuity** |
+|:----------------:|:-------------------------------:|:----------:|
+| **1**            | Always Fail                     | -          |
+| **2 - 3**        | Always Fail                     | -          |
+| **4 - 5**        | -                               | -          |
+| **6 - 7**        | -                               | -          |
+| **8 - 12**       | -                               | -          |
+| **13 - 15**      | -                               | -          |
+| **16 - 18**      | -                               | +1-in-Y    |
+| **19**           | 1st-Level Mind-Altering Spells  | +1-in-Y    |
+| **20 - 22**      | 1st-Level Mind-Altering Spells  | +2-in-Y    |
+| **23 - 25**      | 2nd-Level Mind-Altering Spells  | +3-in-Y    |
+</div>
+
+<GameplayCard
+  type="class"
+  title="Reason Effects"
+>
+Reason has the following gameplay effects.
+
+  <FeatureSection title="Mind-Altering Immunity">
+  Creatures of extraoridnary Reason are immune low-level mind altering effects. These include magical spells that affect your mind, as well as effects that mimic such spells. Creatures with abysmal Reason automatically fail saving throws against magical mind-altering effects, regardless of their roll. If you have a 17 Reason, you gain no benefit from this.
+   </FeatureSection>
+   
+  <FeatureSection title="Acuity">
+  When attempting an X-in-Y check, and your insight and reasoning could be an asset in such a test (such as tracking a creature) you can add your Acuity to the X value of the test. For example, if you have 17 Reason and your GM informs you that you have a 1-in-8 chance to track a creature, but you can apply your acuity bonus, you would have a 2-in-8 chance.
+   </FeatureSection>
+   
+</GameplayCard>
+
+### Savvy
+
+### Presence
+
+## Unplayable Characters
+Generating a character should be generating an adventurer. With 4d6 drop the lowest, it should be rare that a character is unplayable. If you rolled any of the following, your character is considered unplayable, and you have the option of scraping the character and recreating. You reroll all attributes from the top.
 
 * If you rolled any Attribute of a 3.
 * If you have 2 or more Attributes that are 6 or lower.
@@ -71,21 +298,20 @@ Generating a character should be generating an adventurer. With 4d6 drop the low
 
 A GM may have additional provisions, restrictions, or ideas on how to fix it.
 
-### Altering Ability Scores
-While creating a character, you have a few options for adjusting attribute scores before play.
+## Altering Ability Scores
+After selecting your ancestry in Step 2, you will roll for your starting age. This is quite an important step, as your starting age can have an impact on your attributes. Most characters will start play as young, or prime characters, but occasionally you might see a mature character at the start of play.
 
-#### Starting Age
-A character's starting age can also impact your attributes. During Step 2. Determining your ABCs, you will select an ancestry. Each ancestry has a table that shows you how to roll for your starting age, and what attribute adjustments you make for each age category. You apply all adjustments up to the age you are.
+After rolling your starting age, your age will present how you adjust your attributes. Note that some of these adjustments are optional, where others are not. For example, a young elf is allowed the option to increase their Agility, Precision, or Logic by 1, at the cost of reducing their Brawn, Heartiness, or Reason by 1 too. This is a choice, they can elect not to take these bonuses and penalties. However, an elf in their Prime is required to select two attributes from Agility, Precision, Logic, and Presence, and increase the selected attributes by 1 point each.
 
-Starting age adjustments will not allow attributes to go above 19 or below 6; however if you reach said age naturally while adventuring you can make said adjustments (you must have adventured for at least 1 year "in game" before being allowed to make such an adjustment).
+After rolling your age, you apply all age ability score modifiers in order from young (the order is young > prime > mature > aging > elderly). Starting age adjustments will not allow attributes to go above 19 or below 6; however if you reach said age naturally while adventuring you can make said adjustments (you must have adventured for at least 1 year "in game" before being allowed to make such an adjustment).
 
-Your starting age is based on your class keywords.
+If an adjustment would take an attribute above 19 or below a 6, and it's an optional adjustment, you must make a different choice. If it is not an optional adjustment, simply ignore it. In our elf example above, if they start play with a 6 heartiness and 17 logic, they can increase their logic to 18, but cannot select heartiness as the attribute to reduce to make this adjustment.
 
 :::note[Rolling for Age?]{icon="information"}
 
 The default rules of the game is for your characters attributes, age, height, and weight to be randomly rolled. However, many GMs find that players might wish to simply determine these factors, rather than roll them randomly.
 
-It is highly recommended that age is rolled, due to it's interactions with the game world. Height and weight can be randomly rolled, or simply selected by the player of the character.
+It is highly recommended that age is rolled, as ancestrial attribute adjustments are tied to age. Height and weight can be randomly rolled, or simply selected by the player of the character.
 
 If you wish to allow characters to select their starting age you can! But be prepared for players to select the age which would grant them the most benefit to their character with the least harmful penalties. This is one such instance where "min-maxing" a character could be applied.
 :::
