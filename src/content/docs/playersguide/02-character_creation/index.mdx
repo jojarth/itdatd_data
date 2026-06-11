@@ -66,34 +66,3 @@ If you're already familiar with creating a character, here are the quick steps i
 3. Select starting equipment
 4. Finalize gameplay math
 5. Finalize roleplay
-
-
-
-
-
-## Step 4. Finalize Gameplay Math
-At this point, we need to fill out a few things, including your offenses, defenses, spell calculations, special skills, and languages. You will need to know some information from your Attributes, Class, and Equipment to get these calculations done.
-
-It should be noted that all calculations below assume that you are proficient with the weapons and armor you are using. If you are wearing armor you are not proficient with, or using a weapon you are not, then see Chapter 6: for information on calculations.
-
-### Grit
-Grit is an abstract calculation of your character’s ability to survive. It is part skill, part luck, part willpower, and part toughness. Your grit is shown by two statistics, current grit (often just called grit), and maximum grit. Your grit can never exceed your Maximum Grit, and it can never be lower than 0. While adventuring, most sources of damage you take will be deducted from your Grit. When your Grit reaches 0, you will start to take damage to your hit points. Most healing effects restore Grit.
-
-Your maximum grit is determined by three factors: your class, your heartiness score, and your presence score. Your class will provide it's grit contribution in the form of grit dice plus a bonus, and add it to the Grit Contribution based on your Heartiness and Presence scores.
-
-<GameplayCard
-  type="class"
-  eyebrow="Grit Example"
->
-You are a level 1 fighter, and you have a 15 heartiness, and 8 Presence. As a fighter, your Grit dice is 1d8 + 3. To determine your maximum grit, you first roll 1d8, getting a 4, then add 3 for a total of 7. Then, look at your heartiness score; 15 heartiness gives you +4 grit contribution. Finally, look at your presence score. Your 8 presence gives you +3 grit contribution. 7 + 4 + 3 = 14, thus you start play with 14 grit.
-</GameplayCard>
-
-### Hit Points
-Hit points are actually how much physical damage your character can take. In combat, you lose grit first, and once you’ve exhausted your grit, you start taking hit point damage.
-
-Taking a point of hit point damage is a traumatic event, as these are actual wounds that your character suffers. Like grit, you have a hit point maximum and current hit points, and your current hit points can never be higher than your maximum. Certain injuries will reduce your maximum hit points until recovered. Hit point damage is difficult to recover from, as very little magic can actually mend the kinds of wounds that hit point damage represent. If your hit points ever reach 0, you die.
-
-Your maximum hit points is based on your heartines score, simply find the Max HP section of the heartiness table to determine your maximum hit points.
-
-### Move Speed
-Your ancestry will apply a base move speed, but it can be altered by your Agility. Simply look at the Move Speed section of your agility table to see if your high or low agility can impact your movement speed. 

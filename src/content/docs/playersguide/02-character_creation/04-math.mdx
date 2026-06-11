@@ -1,0 +1,116 @@
+---
+title: Step 04. Finalize Gameplay Math
+sidebar:
+  order: 5
+---
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+
+At this point, we need to fill out a few things, including your offenses, defenses, spell calculations, special skills, and languages. You will need to know some information from your Attributes, Class, and Equipment to get these calculations done.
+
+It should be noted that all calculations below assume that you are proficient with the weapons and armor you are using. If you are wearing armor you are not proficient with, or using a weapon you are not, then see Chapter 6: for information on calculations.
+
+## Defensive Calculations
+The following calculations are used for defensive properties of your character.
+
+### Grit
+Grit is an abstract calculation of your character’s ability to survive. It is part skill, part luck, part willpower, and part toughness. Your grit is shown by two statistics, current grit (often just refered to as grit), and maximum grit. Your grit can never exceed your Maximum Grit, and it can never be lower than 0. While adventuring, most sources of damage you take will be deducted from your Grit. When your Grit reaches 0, you will start to take damage to your hit points. Most healing effects restore Grit.
+
+Your maximum grit is determined by three factors: your class, your heartiness score, and your presence score. Your class will provide it's grit contribution in the form of grit dice plus a bonus, and add it to the Grit Contribution based on your Heartiness and Presence scores.
+
+**Note**: Characters should not start play with the maximum roll on their grit, and should actually roll the dice.
+
+### Hit Points
+Hit points are actually how much physical damage your character can take. In combat, you lose grit first, and once you’ve exhausted your grit, you start taking hit point damage.
+
+Taking a point of hit point damage is a traumatic event, as these are actual wounds that your character suffers. Like grit, you have a hit point maximum and current hit points, and your current hit points can never be higher than your maximum. Certain injuries will reduce your maximum hit points until recovered. Hit point damage is difficult to recover from, as very little magic can actually mend the kinds of wounds that hit point damage represent. If your hit points ever reach 0, you die.
+
+Your maximum hit points is based on your heartines score, simply find the Max HP section of the heartiness table to determine your maximum hit points.
+
+### Move Speed
+Your ancestry will apply a base move speed, but it can be altered by your Agility. Simply look at the Move Speed section of your agility table to see if your high or low agility can impact your movement speed.
+
+### Armor Class
+The armor you wear will dictate your armor class (AC). However, many factors can alter it. A high agility can impact your armor class (see the AC adjustment on the agility table), and wielding a shield can too.
+
+AC is listed in two different types of values, your primary source of armor class is represented by a static number (for example, 10), and a your adjustments are represented as a bonus or penalty (for example, -1). Your primary source of armor class is set, if you somehow have multiple sources of primary armor class, you must select which one to use. Bonuses and penalties apply where possible. Your Combat Bonus is added to your AC.
+
+## Offensive Calculations
+The following calculations are used for offensive properties of your character.
+
+### Weapon Proficiency Level
+You need to figure out which weapons your character can use effectively. To do this, we must determine your level of weapon proficiency. Weapon proficiency is measured in stages: Non-Proficient > Familiar > Proficient > Skilled > Expert > Master > Grand Master. However, during character creation, we only need to concern ourselves with Non-Proficient, Familiar, and Proficient.
+
+Each class starts play Familiar with specific weapon groups, as noted in their Gameplay section. Additionally, you gain a number of Weapon Proficency Points (WPPs) that you can spend on increasing your Proficency with additional weapon groups. The number of WPPs you gain are listed in your class section, but are based on your Combat Bonus. You must spend all WPPs you gain during character creation.
+
+WPPs can be spent to increase your proficiency with a weapon group. By spending 1 point, you can upgrade your proficiency with a selected weapon group. The maximum proficiency level you can reach is based on your Combat Bonus.
+
+<div class="green-table">
+| **Combat Bonus** | **Max Proficiency Level** |
+|------------------|---------------------------|
+| **+0**           | Non-Proficient            |
+| **+1**           | Familiar                  |
+| **+2**           | Proficient                |
+| **+3**           | Skilled                   |
+| **+4**           | Expert                    |
+| **+5**           | Master                    |
+| **+6**           | Grand Master              |
+</div>
+
+Users wielding weapons that they are Non-Proficient in do not gain their Combat Bonus to attack rolls or damage rolls, and can only ever roll 1 damage dice, but otherwise suffer no additional penalties.
+
+Upon reaching Familiar with a weapon, you can apply your class Combat Bonus to attack and damage rolls made with weapons.
+
+Upon reaching proficient, you can utilize the weapon features listed in the proficient column for your weapon.
+
+For additional information on increasing your weapon proficiency, see chapter 11.
+
+### Attack Rolls
+Attack rolls are used to determine if your attack is effective enough to deal damage. Attack Rolls are a d20 roll made against a target's Armor Class, your total roll with all of your bonuses must meet or beat your target's AC. A failed attack roll doesn't always mean you "missed" your attack, it could have been a glancing blow, or rolled off the defender’s armor.
+
+As long as you are at least familiar with the weapon you are wielding, you can add your class combat bonus to the roll. Additionally, melee and thrown weapons apply apply a bonus or penalty to the attack roll based on your your Brawn, and most ranged weapons your Precision. Some weapons have the Finesse weapon property, which allows you to use your Precision with melee and thrown weapons instead.
+
+### Weapon Damage and Damage Dice
+When your attack roll is successful, you deal your weapon’s damage dice + your damage roll bonus.
+
+Your weapon’s damage dice is listed in the weapon's section of the weapon table, for example an Arming Sword deals d6 damage. The number of d6s you roll is based on your class Combat Bonus.
+
+<div class="green-table">
+| **Combat Bonus** | **Number of Damage Dice** |
+|------------------|---------------------------|
+| **+0**           | 1                         |
+| **+1**           | 1                         |
+| **+2**           | 1                         |
+| **+3**           | 1                         |
+| **+4**           | 2                         |
+| **+5**           | 2                         |
+| **+6**           | 2                         |
+| **+7**           | 2                         |
+| **+8**           | 3                         |
+</div>
+
+Thus, if your Combat Bonus is +3, and you successfully deal damage with an Arming Sword, you deal 1d6 + 3 to damage. Upon reaching a level where your Combat Bonus if +4, you instead deal 2d6 + 4 damage.
+
+## Languages and Other
+The following calculations are used for other properties of your character.
+
+### Speaking Languages
+Your character will likely (Logic Score 3 or higher) know how to speak at least the native language of your ancestry. You must have at least a 6 Logic score to learn additional languages via downtime.
+
+Characters with a logic score of 2 speak in their language, but their speach is broken, and they can only understand simple concepts. Characters with a 1 logic score has speach that is near unintelligible, and only understands very basic commands.
+
+Creatures wishing to learn additional languages can do so using their downtime.
+
+### Reading and Writing
+Most characters in ITD&TD are illiterate, and the ability to read and write is rare indeed. If your logic score is 16 or higher, you can read and write your native language, regardless of your class. However, some classes grant the ability for characters with at least 8 Logic to learn to read and write at the sstart of play.
+
+Creatures wishing to learn to read and write can do so using their downtime.
+
+### Language List
+
+Common
+Elvish
+Dwarvish
+Lannish
+Beast-men
+
