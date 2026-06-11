@@ -1,0 +1,192 @@
+---
+// src/components/WeaponTable.astro
+import WL from './WeaponLookup.astro';
+import weapons from '../content/data/weapondata/weaponlist.json';
+
+interface Props {
+  colorTheme?: 'blue-table' | 'green-table' | 'red-table' | 'orange-table' | 'grey-table' | 'pink-table' | 'purple-table' | 'yellow-table';
+  group?: string;
+}
+
+const { colorTheme = 'blue-table', group } = Astro.props;
+
+const filteredWeapons = group
+  ? weapons.filter(w => {
+      const weaponGroup = w.group || w.Group;
+      return weaponGroup && weaponGroup.toLowerCase().trim() === group.toLowerCase().trim();
+    })
+  : weapons;
+---
+
+<div class={`weapon-matrix-scroll-pane ${colorTheme}`}>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Group</th>
+        <th>Cost</th>
+        <th>EP</th>
+        <th>Damage</th>
+        <th>Speed</th>
+        <th>Range</th>
+        <th>Properties</th>
+        <th>Proficient</th>
+        <th>Skilled</th>
+        <th>Expert</th>
+        <th>Master</th>
+        <th>Grand Master</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredWeapons.map((weapon) => (
+        <tr>
+          <td><strong>{weapon.name}</strong></td>
+          <td>{weapon.group}</td>
+          <td>{weapon.cost}</td>
+          <td>{weapon.ep}</td>
+          <td>{weapon.damage}</td>
+          <td>{weapon.speed}</td>
+          <td>{weapon.range}</td>
+          <td>
+            {(() => {
+              if (!weapon.properties || weapon.properties.length === 0) return '—';
+              const propArray = Array.isArray(weapon.properties) ? weapon.properties : [weapon.properties];
+              return propArray.map(propId => <WL id={propId} type="property" />).reduce((p, c) => [p, ', ', c]);
+            })()}
+          </td>
+          <td>{weapon.proficient?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
+          <td>{weapon.skilled?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
+          <td>{weapon.expert?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
+          <td>{weapon.master?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
+          <td>{weapon.grandmaster?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style is:global>
+  /* Outer scroll container block utilizing Starlight's standard scroll architecture */
+  .weapon-matrix-scroll-pane {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important; /* FIX: Permits the breakout behavior */
+    margin: 2rem 0 !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Force table layout calculations to track text bounds natively */
+  .weapon-matrix-scroll-pane table {
+    display: table !important;
+    width: max-content !important;
+    min-width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+  }
+
+  /* --- Paint your exact color variables natively on top of the elements --- */
+  .blue-table table, .green-table table, .red-table table, .orange-table table,
+  .grey-table table, .pink-table table, .purple-table table, .yellow-table table {
+    border: 1px solid var(--itdatd-table-border) !important;
+    border-radius: var(--itdatd-card-radius) !important;
+  }
+
+  .blue-table th, .green-table th, .red-table th, .orange-table th,
+  .grey-table th, .pink-table th, .purple-table th, .yellow-table th {
+    background: var(--itdatd-table-header) !important;
+    color: var(--itdatd-table-header-text) !important;
+    border-color: var(--itdatd-table-border) !important;
+    padding: 0.5rem 1rem !important;
+    white-space: nowrap !important;
+  }
+
+  .blue-table td, .green-table td, .red-table td, .orange-table td,
+  .grey-table td, .pink-table td, .purple-table td, .yellow-table td {
+    background: var(--itdatd-table-row) !important;
+    border-color: color-mix(in srgb, var(--itdatd-table-border) 50%, transparent) !important;
+    padding: 0.5rem 1rem !important;
+    white-space: nowrap !important;
+    /* FIX: Stripped position: relative to break constraints cleanly! */
+  }
+
+  .blue-table tr:nth-child(even) td, .green-table tr:nth-child(even) td, .red-table tr:nth-child(even) td, .orange-table tr:nth-child(even) td,
+  .grey-table tr:nth-child(even) td, .pink-table tr:nth-child(even) td, .purple-table tr:nth-child(even) td, .yellow-table tr:nth-child(even) td {
+    background: var(--itdatd-table-row-alt) !important;
+  }
+
+  .blue-table tr:hover td, .green-table tr:hover td, .red-table tr:hover td, .orange-table tr:hover td,
+  .grey-table tr:hover td, .pink-table tr:hover td, .purple-table tr:hover td, .yellow-table tr:hover td {
+    background: var(--itdatd-table-hover) !important;
+  }
+</style>
+<script>
+  // This executes safely inside the client browser framework
+  function initGlobalTooltips() {
+    // Prevent creating duplicate tooltips if the page re-renders
+    if (document.getElementById('global-weapon-tooltip')) return;
+
+    // 1. Create a single master tooltip element mounted directly to the HTML body
+    const tooltip = document.createElement('div');
+    tooltip.id = 'global-weapon-tooltip';
+    
+    // Style it using your exact custom theme dashboard tokens
+    Object.assign(tooltip.style, {
+      position: 'fixed',
+      pointerEvents: 'none',
+      visibility: 'hidden',
+      backgroundColor: 'var(--itdatd-table-hover, #243142)',
+      /* FIX: Wrapped in quotes so JavaScript reads it as a string string track 👇 */
+      color: 'var(--itdatd-table-header-text, #ffffff)',
+      padding: '10px',
+      borderRadius: '6px',
+      border: '1px solid var(--itdatd-table-border, #64748b)',
+      width: '240px',
+      fontSize: '0.78rem',
+      whiteSpace: 'normal',
+      wordWrap: 'break-word',
+      zIndex: '9999999',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
+      transform: 'translate(-50%, calc(-100% - 14px))', // Centers box cleanly over mouse pointer
+      transition: 'opacity 0.15s ease'
+    });
+
+    document.body.appendChild(tooltip);
+
+    // 2. Set up mouse event delegation tracking across the document
+    document.addEventListener('mouseover', (e) => {
+      const target = e.target as HTMLElement;
+      const trigger = target?.closest('.weapon-tooltip-trigger');
+      
+      if (trigger) {
+        const text = trigger.getAttribute('data-tip');
+        if (text) {
+          tooltip.textContent = text;
+          tooltip.style.visibility = 'visible';
+          tooltip.style.opacity = '1';
+        }
+      }
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (tooltip.style.visibility === 'visible') {
+        // Track your cursor viewport positions fluidly
+        tooltip.style.left = `${e.clientX}px`;
+        tooltip.style.top = `${e.clientY}px`;
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const target = e.target as HTMLElement;
+      if (target?.closest('.weapon-tooltip-trigger')) {
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.opacity = '0';
+      }
+    });
+  }
+
+  // Fire engine activation smoothly on standard load and Starlight SPA page switches
+  initGlobalTooltips();
+  document.addEventListener('astro:page-load', initGlobalTooltips);
+</script>

@@ -1,7 +1,67 @@
-//
-//  Untitled.swift
-//  
-//
-//  Created by Jourdan Leach on 6/11/26.
-//
-
+[
+    {
+        "id": "dart",
+        "name": "Dart",
+        "description": "This weapon is a thrown weapon for all intents and purposes. However, it was not meant to be a melee weapon. If you attack with it in melee, you reduce the damage dice by 1 dice step, and you attack at triple the speed factor of the weapon."
+    },
+    {
+        "id": "finesse",
+        "name": "Finesse",
+        "description": "You may use your Precision in place of your Brawn for attack and damage rolls with this weapon."
+    },
+    {
+        "id": "hand_and_a_half",
+        "name": "Hand and a Half",
+        "description": "Medium sized creatures can weild this weapon in two-hands, increasing the damage dice by 1 dice step. Small sized creatures treat Hand and a Half weapons as if they had the two-handed property instead."
+    },
+    {
+        "id": "heavy",
+        "name": "Heavy",
+        "description": "Small sized creatures cannot wield this weapon."
+    },
+    {
+        "id": "horseback",
+        "name": "Horseback",
+        "description": "If you attack with this weapon while ridding a steed, you can ignore the two-handed property of the weapon, and increase the damage dice by 1 step."
+    },
+    {
+        "id": "lashing",
+        "name": "Lashing",
+        "description": "Lashing weapons damage dice changes when dealing damage to creatures wearing certain armors: increase the damage dice by 2 steps if your target is unarmored, decrease the damage dice by 1 step if the target is wearing medium armor, decreased the damage dice by 2 steps if the creature is wearing heavy armor. Creatures wearing plate armor are immune to lashing weapon damage."
+    },
+    {
+        "id": "light",
+        "name": "Light",
+        "description": "In order to engage in two-weapon fighting, both weapons you are weilding must be light. Weapons must also have a bundled EP value for a small creature to utilize this proeprty."
+    },
+    {
+        "id": "non_lethal",
+        "name": "Non Leathal",
+        "description": "If you deliver a subduing attack with a weapon that has the Non-Lethal property, you do not suffer penalties on your attack rolls."
+    },
+    {
+        "id": "reach",
+        "name": "Reach",
+        "description": "When wielding a weapon with the Reach property, your melee range with that weapon is 10 feet. However: you reduce your damage dice by 1 dice step if you attack a creature within 5 feet of you, and do not threaten squares 5 feet out from you either."
+    },
+    {
+        "id": "reload",
+        "name": "Reload",
+        "description": "After firing a projectile with this weapon, you must spend 1 Action reloading the weapon before you can fire it again. Weapons with both Reload and Two-Handed require 2 actions to reload."
+    },
+    {
+        "id": "sneaky",
+        "name": "Sneaky",
+        "description": "When you deal ambush damage, increase the dice step of this weapon, as well as dice rolled for ambush damage by 1 dice step."
+    },
+    {
+        "id": "thrown",
+        "name": "Thrown",
+        "description": "You can throw this weapon, the range of which is listed in the range column. When you do so, you attack at 1/2 the speed factor listed for the weapon, and reduce the damage dice by 1 dice step."
+    },
+    {
+        "id": "two-handed",
+        "name": "Two-Handed",
+        "description": "Medium sized creatures must wield this weapon in two hands. Small sized creatures treat this weapon as if it had the Heavy Property."
+    }
+]

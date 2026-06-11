@@ -416,3 +416,51 @@
 .sidebar-content summary .caret {
   font-size: 0.5rem !important;
 }
+
+/* 1. Keep the table container bounded to the viewport width */
+.sl-markdown .table-container {
+  width: 100%;
+  width: max-content;
+  overflow-x: auto; /* Forces scrolling inside the block instead of breaking sidebars */
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 2rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 4px;
+}
+
+/* 2. Reset table layout constraints */
+.sl-markdown table {
+  display: table !important; /* Overrides default block formatting */
+  width: max-content; /* Forces table to stretch naturally without breaking container rules */
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+/* 3. Force cells to handle stacking clean */
+.sl-markdown th,
+.sl-markdown td {
+  white-space: nowrap; /* Keeps your weapon stats on a single row */
+  position: relative; /* Crucial layer anchor point for your tooltips */
+}
+
+/* Make the first column stick to the left side during horizontal scrolling */
+.sl-markdown table tr th:first-child,
+.sl-markdown table tr td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: var(--sl-color-gray-6) !important; /* Matches your background color */
+  z-index: 20; /* Layered above other sliding cells */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Soft shadow divider edge */
+}
+
+/* FORCE STARLIGHT CONTENT ROW TO NOT CALCULATE GHOST SCROLL SPACE */
+[data-wide-layout="true"] .main-pane {
+  display: block !important; /* Changes from grid/flex to block layout execution */
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+[data-wide-layout="true"] .content-panel {
+  padding-right: 0 !important; /* Removes trailing page padding tracks */
+}

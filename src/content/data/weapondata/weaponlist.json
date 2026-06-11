@@ -1,0 +1,2129 @@
+[
+  {
+    "name": "Battle Axe",
+    "group": "Axes",
+    "cost": "5 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Celt",
+    "group": "Axes",
+    "cost": "5 Copper",
+    "ep": 1,
+    "damage": "d4 B",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "light"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "bold"
+    ]
+  },
+  {
+    "name": "Great Axe",
+    "group": "Axes",
+    "cost": "20 Silver",
+    "ep": 2,
+    "damage": "d10 S",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "bold"
+    ]
+  },
+  {
+    "name": "Hand Axe",
+    "group": "Axes",
+    "cost": "1 Silver",
+    "ep": 1,
+    "damage": "d4 S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "light"
+    ],
+    "proficient": [
+      "breaching"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Hatchet",
+    "group": "Axes",
+    "cost": "1 Silver",
+    "ep": 1,
+    "damage": "d4 S",
+    "speed": 6,
+    "range": "20/40",
+    "properties": [
+      "light",
+      "thrown"
+    ],
+    "proficient": [
+      "breaching"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Tomahawk",
+    "group": "Axes",
+    "cost": "1 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 6,
+    "range": "15/30",
+    "properties": [
+      "thrown"
+    ],
+    "proficient": [
+      "breaching"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "swift"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Woodsman's Axe",
+    "group": "Axes",
+    "cost": "15 Silver",
+    "ep": 2,
+    "damage": "d8 S",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "two-handed"
+    ],
+    "proficient": [
+      "breaching"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "engaging"
+    ],
+    "grandmaster": [
+      "oppress"
+    ]
+  },
+  {
+    "name": "Club",
+    "group": "Bludgeons",
+    "cost": "-",
+    "ep": 1,
+    "damage": "d4 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Great Club",
+    "group": "Bludgeons",
+    "cost": "-",
+    "ep": 2,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "two-handed"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Maul",
+    "group": "Bludgeons",
+    "cost": "4 Silver",
+    "ep": 2,
+    "damage": "d10 B",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Sap",
+    "group": "Bludgeons",
+    "cost": "50 Copper",
+    "ep": 1,
+    "damage": "d4 B",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "light",
+      "non-leathal",
+      "sneaky"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Spiked Club",
+    "group": "Bludgeons",
+    "cost": "6 Silver",
+    "ep": 1,
+    "damage": "d6 B & P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "War Hammer",
+    "group": "Bludgeons",
+    "cost": "2 Silver",
+    "ep": 1,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "harsh"
+    ]
+  },
+  {
+    "name": "Long Bow",
+    "group": "Bows",
+    "cost": "75 Silver",
+    "ep": 2,
+    "damage": "d6 P",
+    "speed": 2,
+    "range": "150/300",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Recurve Bow",
+    "group": "Bows",
+    "cost": "100 Silver",
+    "ep": 2,
+    "damage": "d6 P",
+    "speed": 2,
+    "range": "200/400",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "meticulous"
+    ]
+  },
+  {
+    "name": "Short Bow",
+    "group": "Bows",
+    "cost": "30 Silver",
+    "ep": 2,
+    "damage": "d4 P",
+    "speed": 2,
+    "range": "125/250",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Hand Crossbow",
+    "group": "Crossbows",
+    "cost": "150 Silver",
+    "ep": 1,
+    "damage": "d4 P",
+    "speed": 6,
+    "range": "30/60",
+    "properties": [
+      ""
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Heavy Crossbow",
+    "group": "Crossbows",
+    "cost": "50 Silver",
+    "ep": 2,
+    "damage": "d8 P",
+    "speed": 8,
+    "range": "100/200",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Light Crossbow",
+    "group": "Crossbows",
+    "cost": "35 Silver",
+    "ep": 1,
+    "damage": "d6 P",
+    "speed": 7,
+    "range": "75/150",
+    "properties": [
+      "two-handed"
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "overwatch"
+    ],
+    "grandmaster": [
+      "brutal"
+    ]
+  },
+  {
+    "name": "Cutlass",
+    "group": "Curved Blades",
+    "cost": "12 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Falchion",
+    "group": "Curved Blades",
+    "cost": "17 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "leverage"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Khopesh",
+    "group": "Curved Blades",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "tripping"
+    ],
+    "proficient": [
+      "parry"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "critical"
+    ]
+  },
+  {
+    "name": "Kriegsmesser",
+    "group": "Curved Blades",
+    "cost": "50 Silver",
+    "ep": 2,
+    "damage": "d8 S",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "two-handed"
+    ],
+    "proficient": [
+      "brace"
+    ],
+    "skilled": [
+      "cleave"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "parry"
+    ],
+    "grandmaster": [
+      "savage"
+    ]
+  },
+  {
+    "name": "Shashka",
+    "group": "Curved Blades",
+    "cost": "2 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "horseback"
+    ],
+    "proficient": [
+      "breaching"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "swift"
+    ],
+    "grandmaster": [
+      "critical"
+    ]
+  },
+  {
+    "name": "Sickle",
+    "group": "Curved Blades",
+    "cost": "2 Silver",
+    "ep": 1,
+    "damage": "d4 S",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "light"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "wrapping"
+    ],
+    "grandmaster": [
+      "savage"
+    ]
+  },
+  {
+    "name": "Simitar",
+    "group": "Curved Blades",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d4 S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "light"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "harsh"
+    ]
+  },
+  {
+    "name": "Barbed Dart",
+    "group": "Darts",
+    "cost": "1 Copper",
+    "ep": "B (8)",
+    "damage": "d4 P",
+    "speed": 2,
+    "range": "10/20",
+    "properties": [
+      "finesse",
+      "light",
+      "thrown"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "oppress"
+    ],
+    "grandmaster": [
+      "meticulous"
+    ]
+  },
+  {
+    "name": "Dart",
+    "group": "Darts",
+    "cost": "5 Copper",
+    "ep": "B (8)",
+    "damage": "d4 P",
+    "speed": 2,
+    "range": "20/40",
+    "properties": [
+      "finesse",
+      "light",
+      "thrown"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Shuriken",
+    "group": "Darts",
+    "cost": "3 Copper",
+    "ep": "B (8)",
+    "damage": "d4 P",
+    "speed": 2,
+    "range": "15/30",
+    "properties": [
+      "finesse",
+      "light",
+      "thrown"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "oppress"
+    ],
+    "grandmaster": [
+      "meticulous"
+    ]
+  },
+  {
+    "name": "Epee",
+    "group": "Fencing Blades",
+    "cost": "16 Silver",
+    "ep": 1,
+    "damage": "d6 P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "finesse"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "swift"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Epee de Combat",
+    "group": "Fencing Blades",
+    "cost": "20 Silver",
+    "ep": "",
+    "damage": "",
+    "speed": 7,
+    "range": "",
+    "properties": [
+      "finesse"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "swift"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Foil",
+    "group": "Fencing Blades",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d4 P",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "sneaky"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "parry"
+    ],
+    "grandmaster": [
+      "opening"
+    ]
+  },
+  {
+    "name": "Sabre",
+    "group": "Fencing Blades",
+    "cost": "17 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      ""
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "leverage"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Footman's Flail",
+    "group": "Flails",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Great Flail",
+    "group": "Flails",
+    "cost": "25 Silver",
+    "ep": 2,
+    "damage": "d10 B",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "wrapping"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Horseman's Flail",
+    "group": "Flails",
+    "cost": "8 Silver",
+    "ep": 1,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "horseback"
+    ],
+    "proficient": [
+      "wrapping"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "deadly"
+    ]
+  },
+  {
+    "name": "Spiked Footman's Flail",
+    "group": "Flails",
+    "cost": "20 Silver",
+    "ep": 1,
+    "damage": "d6 B & P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Spiked Great Flail",
+    "group": "Flails",
+    "cost": "30 Silver",
+    "ep": 2,
+    "damage": "d10 B & P",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "wrapping"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Spiked Horseman's Flail",
+    "group": "Flails",
+    "cost": "13 Silver",
+    "ep": 1,
+    "damage": "d6 B & P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "horseback"
+    ],
+    "proficient": [
+      "wrapping"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "deadly"
+    ]
+  },
+  {
+    "name": "Arming Sword",
+    "group": "Heavy Blades",
+    "cost": "20 Silver",
+    "ep": 1,
+    "damage": "d6 S or P",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "leverage"
+    ],
+    "grandmaster": [
+      "harsh"
+    ]
+  },
+  {
+    "name": "Bastard Sword",
+    "group": "Heavy Blades",
+    "cost": "25 Silver",
+    "ep": 1,
+    "damage": "d6 S or P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "harsh"
+    ]
+  },
+  {
+    "name": "Great Sword",
+    "group": "Heavy Blades",
+    "cost": "45 Silver",
+    "ep": 2,
+    "damage": "d10 S",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "cleave"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Two-Handed Sword",
+    "group": "Heavy Blades",
+    "cost": "50 Silver",
+    "ep": 2,
+    "damage": "d10 S or P",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "heavy",
+      "two-handed"
+    ],
+    "proficient": [
+      "brace"
+    ],
+    "skilled": [
+      "cleave"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Viking Sword",
+    "group": "Heavy Blades",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "brace"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Heavy Lance",
+    "group": "Lances",
+    "cost": "20 Silver",
+    "ep": 2,
+    "damage": "d10 P",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "heavy",
+      "horseback",
+      "two-handed"
+    ],
+    "proficient": [
+      "brace"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "overwatch"
+    ],
+    "grandmaster": [
+      "savage"
+    ]
+  },
+  {
+    "name": "Light Lance",
+    "group": "Lances",
+    "cost": "15 Silver",
+    "ep": 2,
+    "damage": "d8 P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "horseback",
+      "two-handed"
+    ],
+    "proficient": [
+      "brace"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "leverage"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Broadsword",
+    "group": "Light Blades",
+    "cost": "30 Silver",
+    "ep": 1,
+    "damage": "d6 P or S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "cleave"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "swift"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Dagger",
+    "group": "Light Blades",
+    "cost": "2 Silver",
+    "ep": "B (3)",
+    "damage": "d4 P",
+    "speed": 5,
+    "range": "20/40",
+    "properties": [
+      "finesse",
+      "light",
+      "sneaky",
+      "thrown"
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "meticulous"
+    ]
+  },
+  {
+    "name": "Main Gauche",
+    "group": "Light Blades",
+    "cost": "3 Silver",
+    "ep": "B (2)",
+    "damage": "d4 P",
+    "speed": 5,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "light"
+    ],
+    "proficient": [
+      "parry"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "meticulous"
+    ]
+  },
+  {
+    "name": "Rapier",
+    "group": "Light Blades",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d46 P or S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "leverage"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Short Sword",
+    "group": "Light Blades",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d4 P or S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "light",
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Flanged Mace",
+    "group": "Maces",
+    "cost": "10 Silver",
+    "ep": 1,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Heavy Mace",
+    "group": "Maces",
+    "cost": "15 Silver",
+    "ep": 1,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Light Mace",
+    "group": "Maces",
+    "cost": "5 Silver",
+    "ep": 1,
+    "damage": "d4 B",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "light"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "bold"
+    ]
+  },
+  {
+    "name": "Morning Star",
+    "group": "Maces",
+    "cost": "8 Silver",
+    "ep": 1,
+    "damage": "d6 B & P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Man catcher",
+    "group": "Man-Catchers",
+    "cost": "30 Silver",
+    "ep": 2,
+    "damage": "d4 B",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "non-leathal",
+      "two-handed"
+    ],
+    "proficient": [
+      "grapple"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Sasumata",
+    "group": "Man-Catchers",
+    "cost": "40 Silver",
+    "ep": 2,
+    "damage": "d6 P",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "reach",
+      "two-handed"
+    ],
+    "proficient": [
+      "grapple"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "opening"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Sodegarami",
+    "group": "Man-Catchers",
+    "cost": "50 Silver",
+    "ep": 2,
+    "damage": "d6 P",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "reach",
+      "two-handed"
+    ],
+    "proficient": [
+      "grapple"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "leverage"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Footman's Pick",
+    "group": "Picks",
+    "cost": "8 Silver",
+    "ep": 1,
+    "damage": "d6 P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Horseman's Pick",
+    "group": "Picks",
+    "cost": "7 Silver",
+    "ep": 1,
+    "damage": "d4 P",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "light",
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "denting"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "press"
+    ],
+    "grandmaster": [
+      "bold"
+    ]
+  },
+  {
+    "name": "Glaive",
+    "group": "Polearms",
+    "cost": "6 Silver",
+    "ep": 2,
+    "damage": "d8 S",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "reach",
+      "two-handed"
+    ],
+    "proficient": [
+      "brace"
+    ],
+    "skilled": [
+      "brutal"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "cleave"
+    ],
+    "grandmaster": [
+      "exact"
+    ]
+  },
+  {
+    "name": "Halberd",
+    "group": "Polearms",
+    "cost": "10 Silver",
+    "ep": 2,
+    "damage": "d8 P or S",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "reach",
+      "two-handed"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "cleave"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "swift"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Lucerne Hammer",
+    "group": "Polearms",
+    "cost": "7 Silver",
+    "ep": 2,
+    "damage": "d8 P or B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "reach",
+      "two-handed"
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "harsh"
+    ],
+    "master": [
+      "denting"
+    ],
+    "grandmaster": [
+      "brutal"
+    ]
+  },
+  {
+    "name": "Ranseur",
+    "group": "Polearms",
+    "cost": "6 Silver",
+    "ep": 2,
+    "damage": "d8 P",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "reach",
+      "two-handed"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "oppress"
+    ],
+    "grandmaster": [
+      "ruthless"
+    ]
+  },
+  {
+    "name": "Sling",
+    "group": "Slings",
+    "cost": "5 Copper",
+    "ep": "B (4)",
+    "damage": "d4 B",
+    "speed": 2,
+    "range": "60/120",
+    "properties": [
+      "sneaky"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "crtical"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Sling Staff",
+    "group": "Slings",
+    "cost": "10 Copper",
+    "ep": 2,
+    "damage": "d6 B",
+    "speed": 3,
+    "range": "100/200",
+    "properties": [
+      "two-handed"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "crtical"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "meticulous"
+    ]
+  },
+  {
+    "name": "Javelin",
+    "group": "Spears",
+    "cost": "5 Copper",
+    "ep": 1,
+    "damage": "d6 P",
+    "speed": 7,
+    "range": "40/80",
+    "properties": [
+      "thrown"
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "deadly"
+    ]
+  },
+  {
+    "name": "Long Spear",
+    "group": "Spears",
+    "cost": "1 Silver",
+    "ep": 2,
+    "damage": "d8 P",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "reach",
+      "two-handed"
+    ],
+    "proficient": [
+      "brace"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "mighty"
+    ],
+    "grandmaster": [
+      "exact"
+    ]
+  },
+  {
+    "name": "Spear",
+    "group": "Spears",
+    "cost": "15 Copper",
+    "ep": 1,
+    "damage": "d6 P",
+    "speed": 7,
+    "range": "20/40",
+    "properties": [
+      "thrown",
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "harsh"
+    ]
+  },
+  {
+    "name": "Quarterstaff",
+    "group": "Staves",
+    "cost": "50 Copper",
+    "ep": 2,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "finesse"
+    ],
+    "proficient": [
+      "parry"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "harsh"
+    ]
+  },
+  {
+    "name": "Shepherd's Crook",
+    "group": "Staves",
+    "cost": "2 Silver",
+    "ep": 2,
+    "damage": "d6 B",
+    "speed": 7,
+    "range": "-",
+    "properties": [
+      "hand_and_a_half"
+    ],
+    "proficient": [
+      "overwatch"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "harsh"
+    ]
+  },
+  {
+    "name": "Bagh nakh",
+    "group": "Unarmed",
+    "cost": "2 Silver",
+    "ep": "B (2)",
+    "damage": "d4 P",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "light"
+    ],
+    "proficient": [
+      "puncture"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "brutal"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Cestus",
+    "group": "Unarmed",
+    "cost": "2 Silver",
+    "ep": "B (2)",
+    "damage": "d4 B",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "light"
+    ],
+    "proficient": [
+      "disorienting"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "deadly"
+    ],
+    "master": [
+      "oppress"
+    ],
+    "grandmaster": [
+      "critcal"
+    ]
+  },
+  {
+    "name": "Katar",
+    "group": "Unarmed",
+    "cost": "4 Silver",
+    "ep": 1,
+    "damage": "d4 S",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "light"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "savage"
+    ],
+    "grandmaster": [
+      "critical"
+    ]
+  },
+  {
+    "name": "Unarmed Strike",
+    "group": "Unarmed",
+    "cost": "-",
+    "ep": "-",
+    "damage": "1 B",
+    "speed": 6,
+    "range": "-",
+    "properties": [
+      "finesse"
+    ],
+    "proficient": [
+      "engaging"
+    ],
+    "skilled": [
+      "press"
+    ],
+    "expert": [
+      "critical"
+    ],
+    "master": [
+      "smash"
+    ],
+    "grandmaster": [
+      "pinpoint"
+    ]
+  },
+  {
+    "name": "Scourge",
+    "group": "Whips",
+    "cost": "5 Silver",
+    "ep": 1,
+    "damage": "d6 S",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "lashing"
+    ],
+    "proficient": [
+      "wrapping"
+    ],
+    "skilled": [
+      "savage"
+    ],
+    "expert": [
+      "bold"
+    ],
+    "master": [
+      "swift"
+    ],
+    "grandmaster": [
+      "cruel"
+    ]
+  },
+  {
+    "name": "Whip",
+    "group": "Whips",
+    "cost": "3 Silver",
+    "ep": 1,
+    "damage": "d4 S",
+    "speed": 8,
+    "range": "-",
+    "properties": [
+      "finesse",
+      "lashing",
+      "light"
+    ],
+    "proficient": [
+      "parry"
+    ],
+    "skilled": [
+      "oppress"
+    ],
+    "expert": [
+      "exact"
+    ],
+    "master": [
+      "wrapping"
+    ],
+    "grandmaster": [
+      "press"
+    ]
+  }
+]
