@@ -25,6 +25,7 @@ export default defineConfig({
       sidebar: [
         {
           label: "Player's Guide",
+          collapsed: true,
           items: [
             {
               label: "Welcome to ITD&TD",
