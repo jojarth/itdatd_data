@@ -1,4 +1,15 @@
 ---
+type HeaderField = 'eyebrow' | 'subeyebrow' | 'title' | 'subtitle';
+
+interface Props {
+  type?: string;
+  title?: string;
+  eyebrow?: string;
+  subeyebrow?: string;
+  subtitle?: string;
+  headerOrder?: HeaderField[];
+}
+
 const {
   type = 'feature',
   title,
@@ -6,11 +17,13 @@ const {
   subeyebrow,
   subtitle,
   headerOrder = ['eyebrow', 'title', 'subtitle'],
-} = Astro.props;
+} = Astro.props as Props;
 
 const cardClass = `gameplay-card gameplay-card--${type}`;
-const headerFields = { eyebrow, subeyebrow, title, subtitle };
-const orderedHeaderFields = headerOrder.filter((field) => field in headerFields && headerFields[field]);
+const headerFields: Record<HeaderField, string | undefined> = { eyebrow, subeyebrow, title, subtitle };
+const orderedHeaderFields = (headerOrder as HeaderField[]).filter(
+  (field): field is HeaderField => field in headerFields && Boolean(headerFields[field]),
+);
 const hasHeader = orderedHeaderFields.length > 0;
 ---
 
@@ -18,7 +31,7 @@ const hasHeader = orderedHeaderFields.length > 0;
   {hasHeader && (
     <header class="gameplay-card__header">
       {
-        orderedHeaderFields.map((field) => (
+        orderedHeaderFields.map((field: HeaderField) => (
           <>
             {field === 'eyebrow' && <div class="gameplay-card__eyebrow">{headerFields[field]}</div>}
             {field === 'subeyebrow' && (

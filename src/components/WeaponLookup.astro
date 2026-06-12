@@ -17,6 +17,7 @@ const targetPage = ''; // Links to the same page anchors
 const match = hasValidId ? dataSource.find(item => item.id === id) : null;
 const displayName = match ? match.name : id;
 const description = match ? match.description : 'Description not found.';
+const tooltipText = Array.isArray(description) ? description.join('\n\n') : description;
 ---
 
 {hasValidId ? (
@@ -24,7 +25,7 @@ const description = match ? match.description : 'Description not found.';
   <a
     href={`${targetPage}#${id}`}
     class="weapon-tooltip-trigger"
-    data-tip={description}
+    data-tip={tooltipText}
   >
     {displayName}
   </a>

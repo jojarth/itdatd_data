@@ -3,7 +3,23 @@ title: Character Creation Example
 sidebar:
   order: 7
 ---
-import GameplayCard from '../../../../components/GameplayCard.astro';
-import FeatureSection from '../../../../components/FeatureSection.astro';
 
-Test
+import GameplayCard from "../../../../components/GameplayCard.astro";
+import FeatureSection from "../../../../components/FeatureSection.astro";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+The 4 example characters (Astril, Brynjolf, Cerrig, and Derrian) have been included below to see character creation being done for a variety of classes. Use the tabs below to navigate to each character's class.
+
+<Tabs>
+  <TabItem label="Astril the Half-Elven Cleric">Astril's section should say stuff.</TabItem>
+
+<TabItem label="Brynjolf the Human Fighter">
+  Bryn's section should say stuff.
+</TabItem>
+
+<TabItem label="Cerrig the Dwarven Thief">
+  Cerrig's section should say stuff.
+</TabItem>
+
+  <TabItem label="Derrian the Halfling Magic-User">Derrian's section should say stuff.</TabItem>
+</Tabs>

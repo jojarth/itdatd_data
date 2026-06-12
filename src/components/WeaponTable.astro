@@ -11,8 +11,8 @@ interface Props {
 const { colorTheme = 'blue-table', group } = Astro.props;
 
 const filteredWeapons = group
-  ? weapons.filter(w => {
-      const weaponGroup = w.group || w.Group;
+  ? weapons.filter((w) => {
+      const weaponGroup = (w as { group?: string; Group?: string }).group || (w as { group?: string; Group?: string }).Group;
       return weaponGroup && weaponGroup.toLowerCase().trim() === group.toLowerCase().trim();
     })
   : weapons;
@@ -155,14 +155,29 @@ const filteredWeapons = group
     document.body.appendChild(tooltip);
 
     // 2. Set up mouse event delegation tracking across the document
-    document.addEventListener('mouseover', (e) => {
-      const target = e.target as HTMLElement;
-      const trigger = target?.closest('.weapon-tooltip-trigger');
-      
+    function escapeHtml(s: string) {
+      const map: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+      };
+      return s.replace(/[&<>\"]/g, (c: string) => map[c] || c);
+    }
+
+    document.addEventListener('mouseover', (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      const trigger = target?.closest ? target.closest('.weapon-tooltip-trigger') : null;
+
       if (trigger) {
         const text = trigger.getAttribute('data-tip');
         if (text) {
-          tooltip.textContent = text;
+          if (text.includes('\n\n')) {
+            const parts = text.split('\n\n').map(p => `<p style="margin:0 0 0.35rem 0">${escapeHtml(p.trim())}</p>`).join('');
+            tooltip.innerHTML = parts;
+          } else {
+            tooltip.textContent = text;
+          }
           tooltip.style.visibility = 'visible';
           tooltip.style.opacity = '1';
         }
