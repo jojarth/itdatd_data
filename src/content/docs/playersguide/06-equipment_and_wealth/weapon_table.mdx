@@ -1,21 +1,29 @@
 ---
-title: Weapon Table
+title: Weapons
 ---
-import GameplayCard from '../../../../components/GameplayCard.astro';
-import FeatureSection from '../../../../components/FeatureSection.astro';
-import WeaponTable from '../../../../components/WeaponTable.astro';
-import WL from '../../../../components/WeaponLookup.astro';
-import weapons from '../../../../content/data/weapondata/weaponlist.json';
-import properties from '../../../../content/data/weapondata/properties.json';
-import features from '../../../../content/data/weapondata/features.json';
+
+import GameplayCard from "../../../../components/GameplayCard.astro";
+import FeatureSection from "../../../../components/FeatureSection.astro";
+import WeaponTable from "../../../../components/WeaponTable.astro";
+import WL from "../../../../components/WeaponLookup.astro";
+import weapons from "../../../../content/data/weapondata/weaponlist.json";
+import properties from "../../../../content/data/weapondata/properties.json";
+import features from "../../../../content/data/weapondata/features.json";
 
 ## Axes
+
 Scroll table to the right to see more information.
+
 <WeaponTable group="axes" colorTheme="blue-table" />
 
+## Bows
+
+<WeaponTable group="bows" colorTheme="green-table" />
+
 {properties.map((prop) => (
+
   <section id={prop.id} class="property-block" style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
-    <h3>{prop.name}</h3>
+    <h4>{prop.name}</h4>
     <p>{prop.description}</p>
   </section>
 ))}

@@ -9,7 +9,7 @@
   --itdatd-table-hover: #e8edf3;
 }
 
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   --itdatd-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
   --itdatd-table-border: #64748b;
   --itdatd-table-header: #263241;
@@ -29,16 +29,17 @@
 }
 
 .sl-markdown-content > table,
-.sl-markdown-content :is(
-  .green-table,
-  .blue-table,
-  .red-table,
-  .orange-table,
-  .grey-table,
-  .pink-table,
-  .purple-table,
-  .yellow-table
-),
+.sl-markdown-content
+  :is(
+    .green-table,
+    .blue-table,
+    .red-table,
+    .orange-table,
+    .grey-table,
+    .pink-table,
+    .purple-table,
+    .yellow-table
+  ),
 .sl-markdown-content .wide-table {
   display: block;
   width: 100%;
@@ -48,16 +49,18 @@
   border-spacing: 0;
 }
 
-.sl-markdown-content :is(
-  .green-table,
-  .blue-table,
-  .red-table,
-  .orange-table,
-  .grey-table,
-  .pink-table,
-  .purple-table,
-  .yellow-table
-) > table {
+.sl-markdown-content
+  :is(
+    .green-table,
+    .blue-table,
+    .red-table,
+    .orange-table,
+    .grey-table,
+    .pink-table,
+    .purple-table,
+    .yellow-table
+  )
+  > table {
   display: table;
   overflow: visible;
   width: 100%;
@@ -180,7 +183,7 @@
   --itdatd-table-hover: #fff2ad;
 }
 
-:root[data-theme='dark'] .green-table {
+:root[data-theme="dark"] .green-table {
   --itdatd-table-border: #2f8b50;
   --itdatd-table-header: #163f25;
   --itdatd-table-header-text: #d8f8df;
@@ -189,7 +192,7 @@
   --itdatd-table-hover: #1b3a28;
 }
 
-:root[data-theme='dark'] .blue-table {
+:root[data-theme="dark"] .blue-table {
   --itdatd-table-border: #2f6f9e;
   --itdatd-table-header: #173552;
   --itdatd-table-header-text: #d9efff;
@@ -198,7 +201,7 @@
   --itdatd-table-hover: #1a3148;
 }
 
-:root[data-theme='dark'] .red-table {
+:root[data-theme="dark"] .red-table {
   --itdatd-table-border: #9f3a3a;
   --itdatd-table-header: #4a1b1b;
   --itdatd-table-header-text: #ffe1e1;
@@ -207,7 +210,7 @@
   --itdatd-table-hover: #3a2020;
 }
 
-:root[data-theme='dark'] .orange-table {
+:root[data-theme="dark"] .orange-table {
   --itdatd-table-border: #a76527;
   --itdatd-table-header: #4a2a0f;
   --itdatd-table-header-text: #ffe6c8;
@@ -216,7 +219,7 @@
   --itdatd-table-hover: #3d2815;
 }
 
-:root[data-theme='dark'] .grey-table {
+:root[data-theme="dark"] .grey-table {
   --itdatd-table-border: #64748b;
   --itdatd-table-header: #263241;
   --itdatd-table-header-text: #eef2f7;
@@ -225,7 +228,7 @@
   --itdatd-table-hover: #243142;
 }
 
-:root[data-theme='dark'] .pink-table {
+:root[data-theme="dark"] .pink-table {
   --itdatd-table-border: #a03c6a;
   --itdatd-table-header: #4a1a31;
   --itdatd-table-header-text: #ffdce9;
@@ -234,7 +237,7 @@
   --itdatd-table-hover: #3c2030;
 }
 
-:root[data-theme='dark'] .purple-table {
+:root[data-theme="dark"] .purple-table {
   --itdatd-table-border: #7356bb;
   --itdatd-table-header: #2f2452;
   --itdatd-table-header-text: #eee6ff;
@@ -243,7 +246,7 @@
   --itdatd-table-hover: #2e2546;
 }
 
-:root[data-theme='dark'] .yellow-table {
+:root[data-theme="dark"] .yellow-table {
   --itdatd-table-border: #9b842d;
   --itdatd-table-header: #40350f;
   --itdatd-table-header-text: #fff3bf;
@@ -316,7 +319,7 @@
   position: absolute;
   inset: 0 auto 0 0;
   width: 5px;
-  content: '';
+  content: "";
 }
 
 .gameplay-card--class::before {
@@ -398,6 +401,11 @@
   margin-bottom: 0;
 }
 
+/* Headings injected for TOC only — hide visually */
+.sl-markdown-content .toc-only {
+  display: none;
+}
+
 /* Side-Bar CSS */
 
 /* 1. Target the collapsible top-level group labels */
@@ -449,7 +457,9 @@
 .sl-markdown table tr td:first-child {
   position: sticky;
   left: 0;
-  background-color: var(--sl-color-gray-6) !important; /* Matches your background color */
+  background-color: var(
+    --sl-color-gray-6
+  ) !important; /* Matches your background color */
   z-index: 20; /* Layered above other sliding cells */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Soft shadow divider edge */
 }
