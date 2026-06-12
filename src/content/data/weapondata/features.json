@@ -1,168 +1,237 @@
 [
-    {
-      "id": "advantageous",
-      "name": "Advantageous",
-      "description": "When you deal damage to a foe suffering from any negative condition, increase the damage dice by 1 step."
-    },
-    {
-      "id": "bold",
-      "name": "Bold",
-      "description": "When you deal a critical hit to a creature, you can choose to treat the roll as a critical threat instead. If you confirm the critical threat, you roll your damage dice 3 times (instead of twice) for your critical hit. You cannot use the Bold weapon property against a foe who is already benefitting from Critical Protection."
-    },
+  {
+    "id": "advantageous",
+    "name": "Advantageous",
+    "description": [
+      "When you deal damage to a foe suffering from any negative condition, increase the damage dice by 1 step."
+    ]
+  },
+  {
+    "id": "bold",
+    "name": "Bold",
+    "description": [
+      "When you deal a critical hit to a creature, you can choose to treat the roll as a critical threat instead. If you confirm the critical threat, you roll your damage dice 3 times (instead of twice) for your critical hit. You cannot use the Bold weapon property against a foe who is already benefitting from Critical Protection."
+    ]
+  },
   {
     "id": "brace",
     "name": "Brace",
-    "description": "When a creature uses a Charge or Fly By Attack actions in combat, you can make an opportunity attack against the creature when they enter your threat range. You must be aware of the attacker at the start of the round to be able to do so."
+    "description": [
+      "When a creature uses a Charge or Fly By Attack actions in combat, you can make an opportunity attack against the creature when they enter your threat range. You must be aware of the attacker at the start of the round to be able to do so."
+    ]
   },
   {
     "id": "breaching",
     "name": "Breaching",
-    "description": "When a creature uses a wooden shield to perform a Shield Block against your attack, increase the break chance by 1. Any weapon with the Breaching Feature can be used as a tool to chop down trees without penalty."
+    "description": [
+      "When a creature uses a wooden shield to perform a Shield Block against your attack, increase the break chance by 1. Any weapon with the Breaching Feature can be used as a tool to chop down trees without penalty."
+    ]
   },
   {
     "id": "brutal",
     "name": "Brutal",
-    "description": "When you deal damage with this weapon, the minimum result you can roll on a damage dice is increased. If you roll lower than this minimum result, treat the damage dice as if it were the result. If your damage dice is a d4, the minimum is 2. If your damage dice is d6 or d8, the minimum is 3. If your damage dice is d10 or d12, the minimum is 4."
+    "description": [
+      "When you deal damage with this weapon, the minimum result you can roll on a damage dice is increased. If you roll lower than this minimum result, treat the damage dice as if it were the result. If your damage dice is a d4, the minimum is 2. If your damage dice is d6 or d8, the minimum is 3. If your damage dice is d10 or d12, the minimum is 4."
+    ]
   },
   {
     "id": "cleave",
     "name": "Cleave",
-    "description": "When you drop a creature to 0 hit points or lower, you can immediately make another attack with the same weapon against a creature in range, but you decrease the damage dice by 1 step. You can cleave a maximum number of times equal to the number of damage dice you roll, but decrease the damage dice by 1 dice step for each cleave you perform."
+    "description": [
+      "When you successfully kill a creature, you can immediately make another attack with the same weapon against a creature in range, but you decrease the damage dice by 1 step.You can cleave a maximum number of times equal to the number of damage dice you roll, but decrease the damage dice by 1 dice step for each cleave you perform."
+    ]
   },
   {
     "id": "critical",
     "name": "Critical",
-    "description": "Attacks with this weapon critically hit on a roll of 19 or 20 on the attack roll."
+    "description": [
+      "Attacks with this weapon critically hit on a roll of 19 or 20 on the attack roll."
+    ]
   },
   {
     "id": "cruel",
     "name": "Cruel",
-    "description": "If you successfully critically hit a creature benefiting from critical protection, increase your damage dice by 1 dice step."
+    "description": [
+      "If you successfully critically hit a creature benefiting from critical protection, increase your damage dice by 1 dice step."
+    ]
   },
   {
     "id": "deadly",
     "name": "Deadly",
-    "description": "When you successfully critically hit a creature, after you roll your damage dice, select one of the dice you rolled for damage. Treat this dice as if it rolled the maximum result of the dice."
+    "description": [
+      "When you successfully critically hit a creature, after you roll your damage dice, select one of the dice you rolled for damage. Treat this dice as if it rolled the maximum result of the dice."
+    ]
   },
   {
     "id": "denting",
     "name": "Denting",
-    "description": "When a creature wielding a Metal Shield attempts to Shield Block your attack, increase the Break Chance by 1. Gain a +1 to attack rolls against creatures wearing plate armor."
+    "description": [
+      "When a creature wielding a Metal Shield attempts to Shield Block your attack, increase the Break Chance by 1. Gain a +1 to attack rolls against creatures wearing plate armor."
+    ]
   },
   {
     "id": "disorienting",
     "name": "Disorienting",
-    "description": "After dealing damage to a creature, that creature cannot take Opportunity Attacks against you for moving out of their threat range until this phase next round."
+    "description": [
+      "After dealing damage to a creature, that creature cannot take Opportunity Attacks against you for moving out of their threat range until this phase next round."
+    ]
   },
   {
     "id": "engaging",
     "name": "Engaging",
-    "description": "As part of the action used to attack with this weapon, you can move up to 5 feet before making the attack roll. This is a normal move, and thus provokes certain opportunity actions for moving, and cannot be used if you are starting in, or moving into, difficult terrain."
+    "description": [
+      "As part of the action used to attack with this weapon, you can move up to 5 feet before making the attack roll. This is a normal move, and thus provokes certain opportunity actions for moving, and cannot be used if you are starting in, or moving into, difficult terrain."
+    ]
   },
   {
     "id": "exact",
     "name": "Exact",
-    "description": "When you deal a Critical Threat, you can automatically confirm the threat, but you reduce the damage dice by 2 steps. Using a weapon with the Exact Feature has a special interaction with weapons who's dice step would be lowered below a d4 (if damage dice could be). If your weapon damage dice could be reduced below a d4 when you use this feature, you treat results of 4 on the dice as if they were a 3 instead."
+    "description": [
+      "When you deal a Critical Threat, you can automatically confirm the threat, but you reduce the damage dice by 2 steps.",
+
+      "Using a weapon with the Exact Feature has a special interaction with weapons who's dice step would be lowered below a d4 (if damage dice could be). If your weapon damage dice could be reduced below a d4 when you use this feature, you treat results of 4 on the dice as if they were a 3 instead."
+    ]
   },
   {
     "id": "fleche",
     "name": "Fléche",
-    "description": "This feature must be paired with a weapon that has the Engaging feature. You can threaten out 10 feet instead of 5, and if a creature provokes opportunity actions, you can use the movement provided by the Engaging feature to reach them for the opportunity action."
+    "description": [
+      "This feature must be paired with a weapon that has the Engaging feature. You can threaten out 10 feet instead of 5, and if a creature provokes opportunity actions, you can use the movement provided by the Engaging feature to reach them for the opportunity action."
+    ]
   },
   {
     "id": "grappling",
     "name": "Grappling",
-    "description": "You can attempt to Grapple a foe using this weapon, and you can use your proficiency with this weapon as opposed to your Unarmed Strike proficiency."
+    "description": [
+      "You can attempt to Grapple a foe using this weapon, and you can use your proficiency with this weapon as opposed to your Unarmed Strike proficiency."
+    ]
   },
   {
     "id": "harsh",
     "name": "Harsh",
-    "description": "When you deal a critical hit, increase the damage dice by 1 dice step."
+    "description": [
+      "When you deal a critical hit, increase the damage dice by 1 dice step."
+    ]
   },
   {
     "id": "leverage",
     "name": "Leverage",
-    "description": "This feature must be paired with a weapon that has the Engaging weapon feature, or Reach weapon property. When you attack a creature after utilizing the movement provided by the Engaging Feature, increase the damage dice by 1 dice step. Additionally, you do not suffer penalties for attacking a creature within 5 feet of you with a weapon that has the Reach Property."
+    "description": [
+      "This feature must be paired with a weapon that has the Engaging weapon feature, or Reach weapon property. When you attack a creature after utilizing the movement provided by the Engaging Feature, increase the damage dice by 1 dice step. Additionally, you do not suffer penalties for attacking a creature within 5 feet of you with a weapon that has the Reach Property."
+    ]
   },
   {
     "id": "meticulous",
     "name": "Meticulous",
-    "description": "If you successfully critically hit a creature, you gain a bonus to damage equal to the number of damage dice you rolled. If your critical hit included ambush damage, you can add the number of ambush dice rolled to this bonus as well."
+    "description": [
+      "If you successfully critically hit a creature, you gain a bonus to damage equal to the number of damage dice you rolled. If your critical hit included ambush damage, you can add the number of ambush dice rolled to this bonus as well."
+    ]
   },
   {
     "id": "mighty",
     "name": "Mighty",
-    "description": "If you successfully deal damage at least 2 phases after your weapons speed factor, increase the damage dice by 1 dice step."
+    "description": [
+      "If you successfully deal damage at least 2 phases after your weapons speed factor, increase the damage dice by 1 dice step."
+    ]
   },
   {
     "id": "opening",
     "name": "Opening",
-    "description": "If you successfully deal damage to a creature who has not also attacked you this round, including the current phase, increase your damage dice by 1 dice step."
+    "description": [
+      "If you successfully deal damage to a creature who has not also attacked you this round, including the current phase, increase your damage dice by 1 dice step."
+    ]
   },
   {
     "id": "oppress",
     "name": "Oppress",
-    "description": "After succesfully dealing damage to a creature with this weapon, your next attack against that creature with the same weapon has it's damage dice increased by 1 dice step. This continues until you miss with an attack, attack with a different weapon, or attack a different creature."
+    "description": [
+      "After succesfully dealing damage to a creature with this weapon, your next attack against that creature with the same weapon has it's damage dice increased by 1 dice step. This continues until you miss with an attack, attack with a different weapon, or attack a different creature."
+    ]
   },
   {
     "id": "overwatch",
     "name": "Overwatch",
-    "description": "Your opportunity actions that attack with this weapon, as well as any attacks with this weapon that you make as part of a readied action, have the damage dice increased by 1 Step."
+    "description": [
+      "Your opportunity actions that attack with this weapon, as well as any attacks with this weapon that you make as part of a readied action, have the damage dice increased by 1 Step."
+    ]
   },
   {
     "id": "parry",
     "name": "Parry",
-    "description": "While wielding this weapon, you gain a +1 bonus to AC. This AC bonus does not stack with the AC bonus provided by a Shield, nor another weapon with the parry feature."
+    "description": [
+      "While wielding this weapon, you gain a +1 bonus to AC. This AC bonus does not stack with the AC bonus provided by a Shield, nor another weapon with the parry feature."
+    ]
   },
   {
     "id": "pinpoint",
     "name": "Pinpoint",
-    "description": "Whenever you must confirm a critical threat, you can roll the attack roll to confirm twice, and use the better result."
+    "description": [
+      "Whenever you must confirm a critical threat, you can roll the attack roll to confirm twice, and use the better result."
+    ]
   },
   {
     "id": "press",
     "name": "Press",
-    "description": "Whenver you attack a creature while you have a circumstance bonus to your attack rolls, increase your damage dice by 1 dice step."
+    "description": [
+      "Whenver you attack a creature while you have a circumstance bonus to your attack rolls, increase your damage dice by 1 dice step."
+    ]
   },
   {
     "id": "puncture",
     "name": "Puncture",
-    "description": "You gain a +1 to attack rolls when attacking a creature wearing heavy or plate armor."
+    "description": [
+      "You gain a +1 to attack rolls when attacking a creature wearing heavy or plate armor."
+    ]
   },
   {
     "id": "ruthless",
     "name": "Ruthless",
-    "description": "If you fail to confirm a critical hit against a creature with critical protection, increase your damage dice by 1 dice step for your normal damage roll."
+    "description": [
+      "If you fail to confirm a critical hit against a creature with critical protection, increase your damage dice by 1 dice step for your normal damage roll."
+    ]
   },
   {
     "id": "savage",
     "name": "Savage",
-    "description": "After rolling for damage, select 1 of the damage dice you rolled. You can reroll that damage dice. When your combat bonus is high enough to roll additional damage dice, the selected dice can also be increased by 1 dice step. If you critically hit, you can select a second dice to reroll."
+    "description": [
+      "After rolling for damage, select 1 of the damage dice you rolled. You can reroll that damage dice. When your combat bonus is high enough to roll additional damage dice, the selected dice can also be increased by 1 dice step. If you critically hit, you can select a second dice to reroll."
+    ]
   },
   {
     "id": "smash",
     "name": "Smash",
-    "description": "When you make an attack with this weapon, if you had preformed no other actions this round, you increase your damage dice by 1 dice step."
+    "description": [
+      "When you make an attack with this weapon, if you had preformed no other actions this round, you increase your damage dice by 1 dice step."
+    ]
   },
   {
     "id": "swift",
     "name": "Swift",
-    "description": "You can treat the Speed Factor of this weapon as if it were 2 points lower than it's value, but if you succesfully deal damage you reduce your weapon damage dice by 1 dice step. Using a weapon with the Swift Feature has a special interaction with weapons who's dice step would be lowered below a d4 (if damage dice could be). If your weapon damage dice could be reduced below a d4 when you use this feature, you treat results of 4 on the dice as if they were a 3 instead."
+    "description": [
+      "You can treat the Speed Factor of this weapon as if it were 2 points lower than it's value, but if you succesfully deal damage you reduce your weapon damage dice by 1 dice step.",
+
+      "Using a weapon with the Swift Feature has a special interaction with weapons who's dice step would be lowered below a d4 (if damage dice could be). If your weapon damage dice could be reduced below a d4 when you use this feature, you treat results of 4 on the dice as if they were a 3 instead."
+    ]
   },
   {
     "id": "tripping",
     "name": "Tripping",
-    "description": "You can attempt to trip a foe using this weapon, and you can use your proficiency with this weapon as opposed to your Unarmed Strike proficiency."
+    "description": [
+      "You can attempt to trip a foe using this weapon, and you can use your proficiency with this weapon as opposed to your Unarmed Strike proficiency."
+    ]
   },
   {
     "id": "victorious",
     "name": "Victorious",
-    "description": "When you deal damage to a foe that you hold Combat Supremacy against, increase the damage dice by 1 step."
+    "description": [
+      "When you deal damage to a foe that you hold Combat Supremacy against, increase the damage dice by 1 step."
+    ]
   },
   {
     "id": "wrapping",
     "name": "Wrapping",
-    "description": "When attacking a foe using a shield, you can choose to ignore the AC bonus the Shield provides to your target's AC. When you do this, you reduce the damage dice by 1 step. Your opponent can still Shield Block the attack, even if you ignored the AC Bonus of their shield."
+    "description": [
+      "When attacking a foe using a shield, you can choose to ignore the AC bonus the Shield provides to your target's AC. When you do this, you reduce the damage dice by 1 step. Your opponent can still Shield Block the attack, even if you ignored the AC Bonus of their shield."
+    ]
   }
 ]
-
