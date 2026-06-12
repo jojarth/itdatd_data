@@ -132,14 +132,17 @@ export default defineConfig({
         },
         {
           label: "Game Master's Guide",
+          collapsed: true,
           items: [{ label: "Overview", slug: "gamemastersguide" }],
         },
         {
           label: "Folio of Fiends",
+          collapsed: true,
           items: [{ label: "Overview", slug: "foliooffiends" }],
         },
         {
           label: "World of Cerrix",
+          collapsed: true,
           items: [{ label: "Overview", slug: "worldofcerrix" }],
         },
       ],
