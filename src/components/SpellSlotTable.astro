@@ -1,0 +1,142 @@
+---
+import spellSlots from '../content/data/spelldata/spell_slots/spell_slots.json';
+
+interface Props {
+  rank?: 'A' | 'B' | 'C' | 'D' | 'E';
+  colorTheme?:
+    | 'blue-table'
+    | 'green-table'
+    | 'red-table'
+    | 'orange-table'
+    | 'grey-table'
+    | 'pink-table'
+    | 'purple-table'
+    | 'yellow-table';
+  title?: string;
+  caption?: string;
+}
+
+const { rank = 'A', colorTheme = 'blue-table', title, caption } = Astro.props as Props;
+const rankKey = String(rank).trim().toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E';
+
+type SpellSlotRow = { 'Class Level': number } & Record<string, string | number>;
+
+const rows = (spellSlots[rankKey] ?? []) as SpellSlotRow[];
+
+if (!rows.length) {
+  throw new Error(`SpellSlotTable: no data found for rank ${rankKey}.`);
+}
+
+const columnKeys = Object.keys(rows[0])
+  .filter((key) => key !== 'Class Level')
+  .sort((left, right) => {
+    const leftMatch = left.match(/(\d+)/);
+    const rightMatch = right.match(/(\d+)/);
+    const leftNum = leftMatch ? Number(leftMatch[1]) : 0;
+    const rightNum = rightMatch ? Number(rightMatch[1]) : 0;
+    return leftNum - rightNum;
+  });
+
+const columns: Array<{ key: string; label: string; align: 'left' | 'center' | 'right' }> = [
+  { key: 'Class Level', label: 'Class Level', align: 'center' },
+  ...columnKeys.map((key) => ({ key, label: key, align: 'center' as const })),
+];
+
+const numberFormatter = new Intl.NumberFormat('en-US', {
+  maximumFractionDigits: 20,
+});
+
+function formatCellValue(value: any): string {
+  if (value === null || value === undefined || value === '') {
+    return '-';
+  }
+
+  if (typeof value === 'number') {
+    return numberFormatter.format(value);
+  }
+
+  return String(value).trim() || '-';
+}
+---
+
+<div class={`spell-slot-table ${colorTheme}`}>
+  {title && <p class="spell-slot-table-title"><strong>{title}</strong></p>}
+
+  <div class="spell-slot-table-scroll">
+    <table>
+      <thead>
+        <tr>
+          {columns.map((column) => (
+            <th style={`text-align: ${column.align}`}>
+              {column.label}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr>
+            {columns.map((column) => (
+              <td style={`text-align: ${column.align}`}>
+                {formatCellValue(row[column.key])}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  {caption && <p class="spell-slot-table-caption">{caption}</p>}
+</div>
+
+<style>
+  .spell-slot-table {
+    margin: 2rem 0;
+  }
+
+  .spell-slot-table-title,
+  .spell-slot-table-caption {
+    margin: 0.75rem 0 0.5rem;
+    font-size: 0.95rem;
+    color: inherit;
+  }
+
+  .spell-slot-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .spell-slot-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: max-content;
+  }
+
+  .spell-slot-table th,
+  .spell-slot-table td {
+    border: 1px solid var(--itdatd-table-border);
+    padding: 0.6rem 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .spell-slot-table th {
+    background: var(--itdatd-table-header);
+    color: var(--itdatd-table-header-text);
+  }
+
+  .spell-slot-table td {
+    background: var(--itdatd-table-row);
+  }
+
+  .spell-slot-table tr:nth-child(even) td {
+    background: var(--itdatd-table-row-alt);
+  }
+
+  .spell-slot-table tr:hover td {
+    background: var(--itdatd-table-hover);
+  }
+</style>
