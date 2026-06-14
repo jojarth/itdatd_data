@@ -2,29 +2,17 @@
   {
     "name": "Battle Axe",
     "group": "Axes",
-    "cost": "5 Silver",
+    "cost": "25 Silver",
     "ep": 1,
     "damage": "d6 S",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["engaging"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["swift"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Celt",
@@ -34,24 +22,12 @@
     "damage": "d4 B",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "light"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "bold"
-    ]
+    "properties": ["light"],
+    "proficient": ["denting"],
+    "skilled": ["brutal"],
+    "expert": ["deadly"],
+    "master": ["opening"],
+    "grandmaster": ["bold"]
   },
   {
     "name": "Great Axe",
@@ -61,25 +37,12 @@
     "damage": "d10 S",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "bold"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["overwatch"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["smash"],
+    "grandmaster": ["bold"]
   },
   {
     "name": "Hand Axe",
@@ -89,24 +52,12 @@
     "damage": "d4 S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "light"
-    ],
-    "proficient": [
-      "breaching"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["light"],
+    "proficient": ["breaching"],
+    "skilled": ["press"],
+    "expert": ["deadly"],
+    "master": ["brutal"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Hatchet",
@@ -116,25 +67,12 @@
     "damage": "d4 S",
     "speed": 6,
     "range": "20/40",
-    "properties": [
-      "light",
-      "thrown"
-    ],
-    "proficient": [
-      "breaching"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["light", "thrown"],
+    "proficient": ["breaching"],
+    "skilled": ["brutal"],
+    "expert": ["critical"],
+    "master": ["opening"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Tomahawk",
@@ -144,51 +82,27 @@
     "damage": "d6 S",
     "speed": 6,
     "range": "15/30",
-    "properties": [
-      "thrown"
-    ],
-    "proficient": [
-      "breaching"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "swift"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["thrown"],
+    "proficient": ["breaching"],
+    "skilled": ["savage"],
+    "expert": ["exact"],
+    "master": ["swift"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Woodsman's Axe",
     "group": "Axes",
-    "cost": "15 Silver",
+    "cost": "5 Silver",
     "ep": 2,
     "damage": "d8 S",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "two-handed"
-    ],
-    "proficient": [
-      "breaching"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "engaging"
-    ],
-    "grandmaster": [
-      "oppress"
-    ]
+    "properties": ["two-handed"],
+    "proficient": ["breaching"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["mighty"],
+    "grandmaster": ["oppress"]
   },
   {
     "name": "Club",
@@ -198,24 +112,12 @@
     "damage": "d4 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["disorienting"],
+    "skilled": ["savage"],
+    "expert": ["harsh"],
+    "master": ["brutal"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Great Club",
@@ -225,24 +127,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "two-handed"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["two-handed"],
+    "proficient": ["disorienting"],
+    "skilled": ["savage"],
+    "expert": ["harsh"],
+    "master": ["brutal"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Maul",
@@ -252,25 +142,12 @@
     "damage": "d10 B",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["denting"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["smash"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Sap",
@@ -280,26 +157,12 @@
     "damage": "d4 B",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "light",
-      "non-leathal",
-      "sneaky"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["light", "non-leathal", "sneaky"],
+    "proficient": ["disorienting"],
+    "skilled": ["brutal"],
+    "expert": ["bold"],
+    "master": ["opening"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Spiked Club",
@@ -309,24 +172,12 @@
     "damage": "d6 B & P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["denting"],
+    "skilled": ["savage"],
+    "expert": ["exact"],
+    "master": ["smash"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "War Hammer",
@@ -336,24 +187,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "harsh"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["denting"],
+    "skilled": ["brutal"],
+    "expert": ["critical"],
+    "master": ["savage"],
+    "grandmaster": ["harsh"]
   },
   {
     "name": "Long Bow",
@@ -363,25 +202,12 @@
     "damage": "d6 P",
     "speed": 2,
     "range": "150/300",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["bold"],
+    "master": ["brutal"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Recurve Bow",
@@ -391,25 +217,12 @@
     "damage": "d6 P",
     "speed": 2,
     "range": "200/400",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "meticulous"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["deadly"],
+    "master": ["savage"],
+    "grandmaster": ["meticulous"]
   },
   {
     "name": "Short Bow",
@@ -419,25 +232,12 @@
     "damage": "d4 P",
     "speed": 2,
     "range": "125/250",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["harsh"],
+    "master": ["opening"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Hand Crossbow",
@@ -447,24 +247,12 @@
     "damage": "d4 P",
     "speed": 6,
     "range": "30/60",
-    "properties": [
-      ""
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": [""],
+    "proficient": ["puncture"],
+    "skilled": ["oppress"],
+    "expert": ["critical"],
+    "master": ["opening"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Heavy Crossbow",
@@ -474,25 +262,12 @@
     "damage": "d8 P",
     "speed": 8,
     "range": "100/200",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["puncture"],
+    "skilled": ["savage"],
+    "expert": ["bold"],
+    "master": ["brutal"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Light Crossbow",
@@ -502,24 +277,12 @@
     "damage": "d6 P",
     "speed": 7,
     "range": "75/150",
-    "properties": [
-      "two-handed"
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "overwatch"
-    ],
-    "grandmaster": [
-      "brutal"
-    ]
+    "properties": ["two-handed"],
+    "proficient": ["puncture"],
+    "skilled": ["press"],
+    "expert": ["deadly"],
+    "master": ["overwatch"],
+    "grandmaster": ["brutal"]
   },
   {
     "name": "Cutlass",
@@ -529,24 +292,12 @@
     "damage": "d6 S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["finesse"],
+    "proficient": ["disorienting"],
+    "skilled": ["savage"],
+    "expert": ["bold"],
+    "master": ["brutal"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Falchion",
@@ -556,24 +307,12 @@
     "damage": "d6 S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "leverage"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["engaging"],
+    "skilled": ["savage"],
+    "expert": ["critical"],
+    "master": ["leverage"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Khopesh",
@@ -583,25 +322,12 @@
     "damage": "d6 S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse",
-      "tripping"
-    ],
-    "proficient": [
-      "parry"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "critical"
-    ]
+    "properties": ["finesse", "tripping"],
+    "proficient": ["parry"],
+    "skilled": ["press"],
+    "expert": ["bold"],
+    "master": ["savage"],
+    "grandmaster": ["critical"]
   },
   {
     "name": "Kriegsmesser",
@@ -611,24 +337,12 @@
     "damage": "d8 S",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "two-handed"
-    ],
-    "proficient": [
-      "brace"
-    ],
-    "skilled": [
-      "cleave"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "parry"
-    ],
-    "grandmaster": [
-      "savage"
-    ]
+    "properties": ["two-handed"],
+    "proficient": ["brace"],
+    "skilled": ["cleave"],
+    "expert": ["deadly"],
+    "master": ["parry"],
+    "grandmaster": ["savage"]
   },
   {
     "name": "Shashka",
@@ -638,24 +352,12 @@
     "damage": "d6 S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "horseback"
-    ],
-    "proficient": [
-      "breaching"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "swift"
-    ],
-    "grandmaster": [
-      "critical"
-    ]
+    "properties": ["horseback"],
+    "proficient": ["breaching"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["swift"],
+    "grandmaster": ["critical"]
   },
   {
     "name": "Sickle",
@@ -665,25 +367,12 @@
     "damage": "d4 S",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "finesse",
-      "light"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "wrapping"
-    ],
-    "grandmaster": [
-      "savage"
-    ]
+    "properties": ["finesse", "light"],
+    "proficient": ["disorienting"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["wrapping"],
+    "grandmaster": ["savage"]
   },
   {
     "name": "Simitar",
@@ -693,24 +382,12 @@
     "damage": "d4 S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "light"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "harsh"
-    ]
+    "properties": ["light"],
+    "proficient": ["disorienting"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["opening"],
+    "grandmaster": ["harsh"]
   },
   {
     "name": "Barbed Dart",
@@ -720,26 +397,12 @@
     "damage": "d4 P",
     "speed": 2,
     "range": "10/20",
-    "properties": [
-      "finesse",
-      "light",
-      "thrown"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "oppress"
-    ],
-    "grandmaster": [
-      "meticulous"
-    ]
+    "properties": ["finesse", "light", "thrown"],
+    "proficient": ["overwatch"],
+    "skilled": ["savage"],
+    "expert": ["harsh"],
+    "master": ["oppress"],
+    "grandmaster": ["meticulous"]
   },
   {
     "name": "Dart",
@@ -749,26 +412,12 @@
     "damage": "d4 P",
     "speed": 2,
     "range": "20/40",
-    "properties": [
-      "finesse",
-      "light",
-      "thrown"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["finesse", "light", "thrown"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["brutal"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Shuriken",
@@ -778,26 +427,12 @@
     "damage": "d4 P",
     "speed": 2,
     "range": "15/30",
-    "properties": [
-      "finesse",
-      "light",
-      "thrown"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "oppress"
-    ],
-    "grandmaster": [
-      "meticulous"
-    ]
+    "properties": ["finesse", "light", "thrown"],
+    "proficient": ["engaging"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["oppress"],
+    "grandmaster": ["meticulous"]
   },
   {
     "name": "Epee",
@@ -807,24 +442,12 @@
     "damage": "d6 P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "finesse"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "swift"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["finesse"],
+    "proficient": ["engaging"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["swift"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Epee de Combat",
@@ -834,24 +457,12 @@
     "damage": "",
     "speed": 7,
     "range": "",
-    "properties": [
-      "finesse"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "swift"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["finesse"],
+    "proficient": ["overwatch"],
+    "skilled": ["swift"],
+    "expert": ["harsh"],
+    "master": ["mighty"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Foil",
@@ -861,25 +472,12 @@
     "damage": "d4 P",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse",
-      "sneaky"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "parry"
-    ],
-    "grandmaster": [
-      "opening"
-    ]
+    "properties": ["finesse", "sneaky"],
+    "proficient": ["engaging"],
+    "skilled": ["oppress"],
+    "expert": ["critical"],
+    "master": ["parry"],
+    "grandmaster": ["opening"]
   },
   {
     "name": "Sabre",
@@ -889,24 +487,12 @@
     "damage": "d6 S",
     "speed": 7,
     "range": "-",
-    "properties": [
-      ""
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "leverage"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": [""],
+    "proficient": ["engaging"],
+    "skilled": ["savage"],
+    "expert": ["critical"],
+    "master": ["leverage"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Footman's Flail",
@@ -916,24 +502,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["deadly"],
+    "master": ["smash"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Great Flail",
@@ -943,25 +517,12 @@
     "damage": "d10 B",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "wrapping"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["wrapping"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["mighty"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Horseman's Flail",
@@ -971,24 +532,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "horseback"
-    ],
-    "proficient": [
-      "wrapping"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "deadly"
-    ]
+    "properties": ["horseback"],
+    "proficient": ["wrapping"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["savage"],
+    "grandmaster": ["deadly"]
   },
   {
     "name": "Spiked Footman's Flail",
@@ -998,24 +547,12 @@
     "damage": "d6 B & P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["deadly"],
+    "master": ["smash"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Spiked Great Flail",
@@ -1025,25 +562,12 @@
     "damage": "d10 B & P",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "wrapping"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["wrapping"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["mighty"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Spiked Horseman's Flail",
@@ -1053,24 +577,12 @@
     "damage": "d6 B & P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "horseback"
-    ],
-    "proficient": [
-      "wrapping"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "deadly"
-    ]
+    "properties": ["horseback"],
+    "proficient": ["wrapping"],
+    "skilled": ["brutal"],
+    "expert": ["harsh"],
+    "master": ["savage"],
+    "grandmaster": ["deadly"]
   },
   {
     "name": "Arming Sword",
@@ -1080,24 +592,12 @@
     "damage": "d6 S or P",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "leverage"
-    ],
-    "grandmaster": [
-      "harsh"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["engaging"],
+    "skilled": ["press"],
+    "expert": ["bold"],
+    "master": ["leverage"],
+    "grandmaster": ["harsh"]
   },
   {
     "name": "Bastard Sword",
@@ -1107,24 +607,12 @@
     "damage": "d6 S or P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "harsh"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["overwatch"],
+    "skilled": ["savage"],
+    "expert": ["bold"],
+    "master": ["brutal"],
+    "grandmaster": ["harsh"]
   },
   {
     "name": "Great Sword",
@@ -1134,25 +622,12 @@
     "damage": "d10 S",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "cleave"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["overwatch"],
+    "skilled": ["cleave"],
+    "expert": ["deadly"],
+    "master": ["brutal"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Two-Handed Sword",
@@ -1162,25 +637,12 @@
     "damage": "d10 S or P",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "heavy",
-      "two-handed"
-    ],
-    "proficient": [
-      "brace"
-    ],
-    "skilled": [
-      "cleave"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["heavy", "two-handed"],
+    "proficient": ["brace"],
+    "skilled": ["cleave"],
+    "expert": ["deadly"],
+    "master": ["mighty"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Viking Sword",
@@ -1190,24 +652,12 @@
     "damage": "d6 S",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "brace"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["brace"],
+    "skilled": ["brutal"],
+    "expert": ["bold"],
+    "master": ["smash"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Heavy Lance",
@@ -1217,26 +667,12 @@
     "damage": "d10 P",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "heavy",
-      "horseback",
-      "two-handed"
-    ],
-    "proficient": [
-      "brace"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "overwatch"
-    ],
-    "grandmaster": [
-      "savage"
-    ]
+    "properties": ["heavy", "horseback", "two-handed"],
+    "proficient": ["brace"],
+    "skilled": ["brutal"],
+    "expert": ["exact"],
+    "master": ["overwatch"],
+    "grandmaster": ["savage"]
   },
   {
     "name": "Light Lance",
@@ -1246,25 +682,12 @@
     "damage": "d8 P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "horseback",
-      "two-handed"
-    ],
-    "proficient": [
-      "brace"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "leverage"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["horseback", "two-handed"],
+    "proficient": ["brace"],
+    "skilled": ["oppress"],
+    "expert": ["exact"],
+    "master": ["leverage"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Broadsword",
@@ -1274,25 +697,12 @@
     "damage": "d6 P or S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse",
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "cleave"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "swift"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["finesse", "hand_and_a_half"],
+    "proficient": ["disorienting"],
+    "skilled": ["cleave"],
+    "expert": ["exact"],
+    "master": ["swift"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Dagger",
@@ -1302,27 +712,12 @@
     "damage": "d4 P",
     "speed": 5,
     "range": "20/40",
-    "properties": [
-      "finesse",
-      "light",
-      "sneaky",
-      "thrown"
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "meticulous"
-    ]
+    "properties": ["finesse", "light", "sneaky", "thrown"],
+    "proficient": ["puncture"],
+    "skilled": ["press"],
+    "expert": ["deadly"],
+    "master": ["opening"],
+    "grandmaster": ["meticulous"]
   },
   {
     "name": "Main Gauche",
@@ -1332,25 +727,12 @@
     "damage": "d4 P",
     "speed": 5,
     "range": "-",
-    "properties": [
-      "finesse",
-      "light"
-    ],
-    "proficient": [
-      "parry"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "meticulous"
-    ]
+    "properties": ["finesse", "light"],
+    "proficient": ["parry"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["mighty"],
+    "grandmaster": ["meticulous"]
   },
   {
     "name": "Rapier",
@@ -1360,24 +742,12 @@
     "damage": "d46 P or S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "leverage"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["finesse"],
+    "proficient": ["engaging"],
+    "skilled": ["oppress"],
+    "expert": ["critical"],
+    "master": ["leverage"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Short Sword",
@@ -1387,26 +757,12 @@
     "damage": "d4 P or S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse",
-      "light",
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["finesse", "light", "hand_and_a_half"],
+    "proficient": ["disorienting"],
+    "skilled": ["oppress"],
+    "expert": ["bold"],
+    "master": ["opening"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Flanged Mace",
@@ -1416,24 +772,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["denting"],
+    "skilled": ["brutal"],
+    "expert": ["deadly"],
+    "master": ["mighty"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Heavy Mace",
@@ -1443,24 +787,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["overwatch"],
+    "skilled": ["brutal"],
+    "expert": ["deadly"],
+    "master": ["smash"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Light Mace",
@@ -1470,24 +802,12 @@
     "damage": "d4 B",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "light"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "bold"
-    ]
+    "properties": ["light"],
+    "proficient": ["denting"],
+    "skilled": ["press"],
+    "expert": ["harsh"],
+    "master": ["opening"],
+    "grandmaster": ["bold"]
   },
   {
     "name": "Morning Star",
@@ -1497,24 +817,12 @@
     "damage": "d6 B & P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["puncture"],
+    "skilled": ["oppress"],
+    "expert": ["harsh"],
+    "master": ["smash"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Man catcher",
@@ -1524,25 +832,12 @@
     "damage": "d4 B",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "non-leathal",
-      "two-handed"
-    ],
-    "proficient": [
-      "grapple"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["non-leathal", "two-handed"],
+    "proficient": ["grapple"],
+    "skilled": ["oppress"],
+    "expert": ["harsh"],
+    "master": ["opening"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Sasumata",
@@ -1552,25 +847,12 @@
     "damage": "d6 P",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "reach",
-      "two-handed"
-    ],
-    "proficient": [
-      "grapple"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "opening"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["reach", "two-handed"],
+    "proficient": ["grapple"],
+    "skilled": ["press"],
+    "expert": ["harsh"],
+    "master": ["opening"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Sodegarami",
@@ -1580,25 +862,12 @@
     "damage": "d6 P",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "reach",
-      "two-handed"
-    ],
-    "proficient": [
-      "grapple"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "leverage"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["reach", "two-handed"],
+    "proficient": ["grapple"],
+    "skilled": ["oppress"],
+    "expert": ["exact"],
+    "master": ["leverage"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Footman's Pick",
@@ -1608,24 +877,12 @@
     "damage": "d6 P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["denting"],
+    "skilled": ["brutal"],
+    "expert": ["deadly"],
+    "master": ["savage"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Horseman's Pick",
@@ -1635,25 +892,12 @@
     "damage": "d4 P",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "light",
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "denting"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "press"
-    ],
-    "grandmaster": [
-      "bold"
-    ]
+    "properties": ["light", "hand_and_a_half"],
+    "proficient": ["denting"],
+    "skilled": ["savage"],
+    "expert": ["harsh"],
+    "master": ["press"],
+    "grandmaster": ["bold"]
   },
   {
     "name": "Glaive",
@@ -1663,25 +907,12 @@
     "damage": "d8 S",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "reach",
-      "two-handed"
-    ],
-    "proficient": [
-      "brace"
-    ],
-    "skilled": [
-      "brutal"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "cleave"
-    ],
-    "grandmaster": [
-      "exact"
-    ]
+    "properties": ["reach", "two-handed"],
+    "proficient": ["brace"],
+    "skilled": ["brutal"],
+    "expert": ["critical"],
+    "master": ["cleave"],
+    "grandmaster": ["exact"]
   },
   {
     "name": "Halberd",
@@ -1691,25 +922,12 @@
     "damage": "d8 P or S",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "reach",
-      "two-handed"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "cleave"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "swift"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["reach", "two-handed"],
+    "proficient": ["overwatch"],
+    "skilled": ["cleave"],
+    "expert": ["exact"],
+    "master": ["swift"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Lucerne Hammer",
@@ -1719,25 +937,12 @@
     "damage": "d8 P or B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "reach",
-      "two-handed"
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "harsh"
-    ],
-    "master": [
-      "denting"
-    ],
-    "grandmaster": [
-      "brutal"
-    ]
+    "properties": ["reach", "two-handed"],
+    "proficient": ["puncture"],
+    "skilled": ["press"],
+    "expert": ["harsh"],
+    "master": ["denting"],
+    "grandmaster": ["brutal"]
   },
   {
     "name": "Ranseur",
@@ -1747,25 +952,12 @@
     "damage": "d8 P",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "reach",
-      "two-handed"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "oppress"
-    ],
-    "grandmaster": [
-      "ruthless"
-    ]
+    "properties": ["reach", "two-handed"],
+    "proficient": ["engaging"],
+    "skilled": ["savage"],
+    "expert": ["bold"],
+    "master": ["oppress"],
+    "grandmaster": ["ruthless"]
   },
   {
     "name": "Sling",
@@ -1775,24 +967,12 @@
     "damage": "d4 B",
     "speed": 2,
     "range": "60/120",
-    "properties": [
-      "sneaky"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "crtical"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["sneaky"],
+    "proficient": ["overwatch"],
+    "skilled": ["savage"],
+    "expert": ["crtical"],
+    "master": ["mighty"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Sling Staff",
@@ -1802,24 +982,12 @@
     "damage": "d6 B",
     "speed": 3,
     "range": "100/200",
-    "properties": [
-      "two-handed"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "crtical"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "meticulous"
-    ]
+    "properties": ["two-handed"],
+    "proficient": ["engaging"],
+    "skilled": ["savage"],
+    "expert": ["crtical"],
+    "master": ["smash"],
+    "grandmaster": ["meticulous"]
   },
   {
     "name": "Javelin",
@@ -1829,24 +997,12 @@
     "damage": "d6 P",
     "speed": 7,
     "range": "40/80",
-    "properties": [
-      "thrown"
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "deadly"
-    ]
+    "properties": ["thrown"],
+    "proficient": ["puncture"],
+    "skilled": ["press"],
+    "expert": ["critical"],
+    "master": ["smash"],
+    "grandmaster": ["deadly"]
   },
   {
     "name": "Long Spear",
@@ -1856,25 +1012,12 @@
     "damage": "d8 P",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "reach",
-      "two-handed"
-    ],
-    "proficient": [
-      "brace"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "mighty"
-    ],
-    "grandmaster": [
-      "exact"
-    ]
+    "properties": ["reach", "two-handed"],
+    "proficient": ["brace"],
+    "skilled": ["oppress"],
+    "expert": ["critical"],
+    "master": ["mighty"],
+    "grandmaster": ["exact"]
   },
   {
     "name": "Spear",
@@ -1884,25 +1027,12 @@
     "damage": "d6 P",
     "speed": 7,
     "range": "20/40",
-    "properties": [
-      "thrown",
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "harsh"
-    ]
+    "properties": ["thrown", "hand_and_a_half"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["exact"],
+    "master": ["brutal"],
+    "grandmaster": ["harsh"]
   },
   {
     "name": "Quarterstaff",
@@ -1912,24 +1042,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "finesse"
-    ],
-    "proficient": [
-      "parry"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "harsh"
-    ]
+    "properties": ["finesse"],
+    "proficient": ["parry"],
+    "skilled": ["oppress"],
+    "expert": ["critical"],
+    "master": ["brutal"],
+    "grandmaster": ["harsh"]
   },
   {
     "name": "Shepherd's Crook",
@@ -1939,24 +1057,12 @@
     "damage": "d6 B",
     "speed": 7,
     "range": "-",
-    "properties": [
-      "hand_and_a_half"
-    ],
-    "proficient": [
-      "overwatch"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "harsh"
-    ]
+    "properties": ["hand_and_a_half"],
+    "proficient": ["overwatch"],
+    "skilled": ["press"],
+    "expert": ["bold"],
+    "master": ["savage"],
+    "grandmaster": ["harsh"]
   },
   {
     "name": "Bagh nakh",
@@ -1966,25 +1072,12 @@
     "damage": "d4 P",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse",
-      "light"
-    ],
-    "proficient": [
-      "puncture"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "brutal"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["finesse", "light"],
+    "proficient": ["puncture"],
+    "skilled": ["savage"],
+    "expert": ["critical"],
+    "master": ["brutal"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Cestus",
@@ -1994,25 +1087,12 @@
     "damage": "d4 B",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse",
-      "light"
-    ],
-    "proficient": [
-      "disorienting"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "deadly"
-    ],
-    "master": [
-      "oppress"
-    ],
-    "grandmaster": [
-      "critcal"
-    ]
+    "properties": ["finesse", "light"],
+    "proficient": ["disorienting"],
+    "skilled": ["press"],
+    "expert": ["deadly"],
+    "master": ["oppress"],
+    "grandmaster": ["critcal"]
   },
   {
     "name": "Katar",
@@ -2022,25 +1102,12 @@
     "damage": "d4 S",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse",
-      "light"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "savage"
-    ],
-    "grandmaster": [
-      "critical"
-    ]
+    "properties": ["finesse", "light"],
+    "proficient": ["engaging"],
+    "skilled": ["oppress"],
+    "expert": ["exact"],
+    "master": ["savage"],
+    "grandmaster": ["critical"]
   },
   {
     "name": "Unarmed Strike",
@@ -2050,24 +1117,12 @@
     "damage": "1 B",
     "speed": 6,
     "range": "-",
-    "properties": [
-      "finesse"
-    ],
-    "proficient": [
-      "engaging"
-    ],
-    "skilled": [
-      "press"
-    ],
-    "expert": [
-      "critical"
-    ],
-    "master": [
-      "smash"
-    ],
-    "grandmaster": [
-      "pinpoint"
-    ]
+    "properties": ["finesse"],
+    "proficient": ["engaging"],
+    "skilled": ["press"],
+    "expert": ["critical"],
+    "master": ["smash"],
+    "grandmaster": ["pinpoint"]
   },
   {
     "name": "Scourge",
@@ -2077,25 +1132,12 @@
     "damage": "d6 S",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "finesse",
-      "lashing"
-    ],
-    "proficient": [
-      "wrapping"
-    ],
-    "skilled": [
-      "savage"
-    ],
-    "expert": [
-      "bold"
-    ],
-    "master": [
-      "swift"
-    ],
-    "grandmaster": [
-      "cruel"
-    ]
+    "properties": ["finesse", "lashing"],
+    "proficient": ["wrapping"],
+    "skilled": ["savage"],
+    "expert": ["bold"],
+    "master": ["swift"],
+    "grandmaster": ["cruel"]
   },
   {
     "name": "Whip",
@@ -2105,25 +1147,11 @@
     "damage": "d4 S",
     "speed": 8,
     "range": "-",
-    "properties": [
-      "finesse",
-      "lashing",
-      "light"
-    ],
-    "proficient": [
-      "parry"
-    ],
-    "skilled": [
-      "oppress"
-    ],
-    "expert": [
-      "exact"
-    ],
-    "master": [
-      "wrapping"
-    ],
-    "grandmaster": [
-      "press"
-    ]
+    "properties": ["finesse", "lashing", "light"],
+    "proficient": ["parry"],
+    "skilled": ["oppress"],
+    "expert": ["exact"],
+    "master": ["wrapping"],
+    "grandmaster": ["press"]
   }
 ]

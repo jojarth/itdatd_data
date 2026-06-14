@@ -31,7 +31,8 @@
     "id": "brutal",
     "name": "Brutal",
     "description": [
-      "When you deal damage with this weapon, the minimum result you can roll on a damage dice is increased. If you roll lower than this minimum result, treat the damage dice as if it were the result. If your damage dice is a d4, the minimum is 2. If your damage dice is d6 or d8, the minimum is 3. If your damage dice is d10 or d12, the minimum is 4."
+      "When you deal damage with this weapon, the minimum result you can roll on a damage dice is increased. If you roll lower than this minimum result, treat the damage dice as if it were the result.",
+      "If your damage dice is a d4, the minimum is 2. If your damage dice is d6 or d8, the minimum is 3. If your damage dice is d10 or d12, the minimum is 4."
     ]
   },
   {
