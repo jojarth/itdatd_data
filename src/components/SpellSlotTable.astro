@@ -19,15 +19,19 @@ interface Props {
 const { rank = 'A', colorTheme = 'blue-table', title, caption } = Astro.props as Props;
 const rankKey = String(rank).trim().toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E';
 
-type SpellSlotRow = { 'Class Level': number } & Record<string, string | number>;
+type SpellSlotRow = { 'Class Level': string | number | null } & Record<string, string | number | null>;
 
-const rows = (spellSlots[rankKey] ?? []) as SpellSlotRow[];
+type RawSpellSlotColumn = Array<string | number | null | undefined>;
+type RawSpellSlotRank = Record<string, RawSpellSlotColumn>;
 
-if (!rows.length) {
+const rawRankData = (spellSlots[rankKey] ?? []) as Array<RawSpellSlotRank>;
+
+if (!rawRankData.length) {
   throw new Error(`SpellSlotTable: no data found for rank ${rankKey}.`);
 }
 
-const columnKeys = Object.keys(rows[0])
+const rawRankRow = rawRankData[0];
+const columnKeys = Object.keys(rawRankRow)
   .filter((key) => key !== 'Class Level')
   .sort((left, right) => {
     const leftMatch = left.match(/(\d+)/);
@@ -36,6 +40,25 @@ const columnKeys = Object.keys(rows[0])
     const rightNum = rightMatch ? Number(rightMatch[1]) : 0;
     return leftNum - rightNum;
   });
+
+const rowCount = Math.max(
+  ...Object.values(rawRankRow).map((column) => (Array.isArray(column) ? column.length : 0))
+);
+
+const rows = Array.from({ length: rowCount }, (_, index) => {
+  const row: Record<string, string | number | null | undefined> = {};
+
+  for (const key of ['Class Level', ...columnKeys]) {
+    const column = rawRankRow[key];
+    row[key] = Array.isArray(column) ? column[index] : undefined;
+  }
+
+  return row as SpellSlotRow;
+});
+
+if (!rows.length) {
+  throw new Error(`SpellSlotTable: no data found for rank ${rankKey}.`);
+}
 
 const columns: Array<{ key: string; label: string; align: 'left' | 'center' | 'right' }> = [
   { key: 'Class Level', label: 'Class Level', align: 'center' },
@@ -102,17 +125,26 @@ function formatCellValue(value: any): string {
     color: inherit;
   }
 
+  .spell-slot-table {
+    margin: 2rem 0;
+    width: 100%;
+  }
+
   .spell-slot-table-scroll {
     width: 100%;
+    display: block;
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
   }
 
   .spell-slot-table table {
-    width: 100%;
+    display: table !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100%;
     border-collapse: collapse;
-    min-width: max-content;
+    table-layout: fixed;
   }
 
   .spell-slot-table th,

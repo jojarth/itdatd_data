@@ -3,6 +3,7 @@ title: Magic-User
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
 
 Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
 
@@ -64,24 +65,33 @@ Below is a list of information needed to play a magic-user at the various levels
 ### Spell Slot Table
 
 <div class="blue-table">
-| **Class Level** | **1st Lvl** | **2nd Lvl** | **3rd Lvl** | **4th Lvl** | **5th Lvl** | **6th Lvl** |
-|:-------------------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-| **1**               | 2           | -           | -           | -           | -           | -           |
-| **2**               | 3           | -           | -           | -           | -           | -           |
-| **3**               | 3           | 2           | -           | -           | -           | -           |
-| **4**               | 3           | 3           | -           | -           | -           | -           |
-| **5**               | 3           | 3           | 2           | -           | -           | -           |
-| **6**               | 3           | 3           | 3           | -           | -           | -           |
-| **7**               | 4           | 3           | 3           | 2           | -           | -           |
-| **8**               | 4           | 3           | 3           | 3           | -           | -           |
-| **9**               | 4           | 4           | 3           | 3           | 1           | -           |
-| **10**              | 4           | 4           | 3           | 3           | 2           | -           |
-| **11**              | 5           | 4           | 4           | 3           | 3           | 1           |
-| **12**              | 5           | 4           | 4           | 3           | 3           | 2           |
-| **13**              | 5           | 5           | 4           | 4           | 3           | 3           |
-| **14**              | 5           | 5           | 4           | 4           | 3           | 3           |
-
+| **Class Level** | **Level 1** | **Level 2** | **Level 3** | **Level 4** | **Level 5** | **Level 6** |
+|:---------------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
+| **1**           | 2           | -           | -           | -           | -           | -           |
+| **2**           | 3           | -           | -           | -           | -           | -           |
+| **3**           | 3           | 2           | -           | -           | -           | -           |
+| **4**           | 3           | 3           | -           | -           | -           | -           |
+| **5**           | 3           | 3           | 2           | -           | -           | -           |
+| **6**           | 3           | 3           | 3           | -           | -           | -           |
+| **7**           | 4           | 3           | 3           | 2           | -           | -           |
+| **8**           | 4           | 3           | 3           | 3           | -           | -           |
+| **9**           | 4           | 4           | 3           | 3           | 1           | -           |
+| **10**          | 4           | 4           | 3           | 3           | 2           | -           |
+| **11**          | 5           | 4           | 4           | 3           | 3           | 1           |
+| **12**          | 5           | 4           | 4           | 3           | 3           | 2           |
+| **13**          | 5           | 5           | 4           | 4           | 3           | 3           |
+| **14**          | 5           | 5           | 4           | 4           | 3           | 3           |
 </div>
+
+<SpellSlotTable rank="A" colorTheme="blue-table" />
+
+<SpellSlotTable rank="B" colorTheme="blue-table" />
+
+<SpellSlotTable rank="C" colorTheme="blue-table" />
+
+<SpellSlotTable rank="D" colorTheme="blue-table" />
+
+<SpellSlotTable rank="E" colorTheme="blue-table" />
 
 ## Magic-User Features
 As a magic-user, you gain the following class features.
