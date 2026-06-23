@@ -64,7 +64,7 @@
     "id": "reload",
     "name": "Reload",
     "description": [
-      "After firing a projectile with this weapon, you must spend 1 Action reloading the weapon before you can fire it again. Weapons with both Reload and Two-Handed require 2 actions to reload."
+      "After firing a projectile with this weapon, you must spend 1 Action reloading the weapon before you can fire it again. Weapons with both the Reload and Heavy properties require 2 actions to reload."
     ]
   },
   {
