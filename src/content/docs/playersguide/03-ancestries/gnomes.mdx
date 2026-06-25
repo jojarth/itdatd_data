@@ -3,17 +3,15 @@ title: Gnomes
 ---
 import FeatureSection from '../../../../components/FeatureSection.astro';
 
-Gnomes are a very strange race, one that shares many similarities to both dwarves and elves. In fact, some scholars state, but cannot prove, that gnomes are descended from dwarves and gnomes copulating.  They tend to value the same scholarly pursuits as elves, but with a much more serious and dour outlook. 
+Gnomes are a curious people, sharing many similarities with both dwarves and elves. Some scholars have even suggested that gnomes may share a common ancestry with one or both peoples, although no evidence has ever been found to support such claims. Like elves, gnomes place a great value on knowledge and learning, but unlike their woodland cousins, gnomes tend to approach these pursuits with a practical and serious outlook.
 
-Gnomes are short, rarely reaching 4 feet tall. Their culture promotes the needs of the self, rather than that of the community, so many gnomes end up being very selfish and vain, often doing what they need to do to get themselves ahead at the cost of others. This selfishness doesn't extend to their friends, as they are a very loyal to those who show them loyalty, which may be their saving grace. Thus, a gnomish employer would actually treat their loyal employees very well, right down to the smallest jobs. However, they would treat the workers of for a different employer with a large amount of disdain. They aren't a cruel people, but they aren't kind either.  This outlook has caused most races to only reach out to gnomes rarely, which is just fine by gnomes. However, once you prove yourself to a gnome, you've made a friend that would take a crossbow bolt for you. 
+Gnomes are short folk, rarely standing more than four feet tall. Their culture places great value on individual achievement and personal success. While dwarves often focus on strengthening their communities, and elves often focus on broad education, gnomes tend to focus on improving themselves and their own circumstances. Because of this, many gnomes are ambitious, competitive, and highly motivated. To outsiders this can sometimes appear selfish, but gnomes generally see it as simple self-reliance. Despite this focus on the individual, gnomes are fiercely loyal to those who have earned their trust. A gnome may have little concern for a stranger, but they will often go to great lengths to aid a friend, family member, or trusted associate.
 
-Gnome civilizations tend to value the freedom of the individual, and any attempt to manipulate these freedoms is seen as taboo. Because of this, gnome societies tend to breed more criminal activity than dwarven or elven cultures, but not as much as human ones either. Law abiding gnomes tend to get upset at the inconvenience a criminal causes, rather than the actual criminal acts they perform. Gnomes only deal with other races out of necessity in most cases, however some gnomes have a good thing going with other races, and see the value in cooperation, if only for their own gain. Gnomes aren't necessarily evil, nor is gnomish culture, but it's easy to see why people would think it from the outside looking in. 
+Gnomish societies value personal freedoms highly, and attempts to restrict those freedoms are often met with suspicion. Their laws tend to be fewer than those of dwarven societies, and are generally concerned with protecting property, contracts, and personal rights. Because of this outlook, gnomish settlements tend to experience more crime than dwarven or elven communities, although usually less than human ones. Law-abiding gnomes are often more frustrated by the inconvenience and disruption caused by criminals than by the crimes themselves. Gnomes rarely seek close relationships with other peoples unless there is a mutual benefit to be gained, although many have learned that cooperation can be every bit as profitable as competition.
 
-Like elves, much of what is known about how the world works is due to a gnomish scholars, whose incredible focus allows them to concentrate on tasks that others simply cannot. Although gnomes don't make great craftsmen, they make great scholars, and business owners, and ruthless entrepreneurs.   
+Like elves, much of what is known about the natural world comes from gnomish scholars and researchers. Gnomes possess an incredible ability to focus on a single subject for long periods of time, allowing them to achieve insights that others might overlook. While gnomes are not especially known for craftsmanship, they are widely respected for their intellect, business acumen, and ability to organize large ventures.
 
-Gnomes men and women are vain, valuing physical appearance much more than most. Their faces are rarely blemished, their hair always combed. Gnome men grow facial hair, with fantastic moustaches, but less than stellar beards, and like their dwarven brethren, they keep their facial hair well-kempt. Since their beards tend to be (although not always) patchy, many male gnomes keep their face clean shaven, but take great pains to keep their moustaches up to date with the latest styles. Gnome women like to “show off the goods” as it's known, dressing in modest, but form-fitting dress. All gnomes tend to dress lavishly, and even poor gnomes will spend much of their silver on clothing that doesn't befit their lifestyle.
-
-Since gnome culture values the individual so much, they tend to be self-sufficient, intelligent and hearty. Gnome adventurers tend to be scholarly, or brought along for their various known skills, often for more than a fair share of the treasure
+Gnomes place great importance on personal appearance. Their hair is carefully maintained, their clothing kept clean, and their appearance rarely left to chance. Gnome men often grow impressive moustaches, although their beards tend to be less remarkable than those of dwarves. Many choose to shave their beards entirely while maintaining elaborate facial hairstyles that follow the latest fashions. Gnome women are equally conscious of appearance, often favoring clothing tailored to flatter their figure. Wealthy and poor gnomes alike tend to dress above their station, and it is not uncommon to find a gnome spending their last few silver pieces on fashionable clothing rather than practical necessities. To a gnome, appearances matter, and making a good impression is often considered an investment rather than an indulgence.
 
 ## Gnome Gameplay
 All Gnomes share the following gameplay elements.
@@ -27,7 +25,11 @@ All Gnomes share the following gameplay elements.
     </FeatureSection>
 
     <FeatureSection title="Size">
-    You are a small sized creature.
+    You are a small sized creature. Small sized creatures have a few weapon restrictions over medium-sized creatures, including:
+    - Small sized creatures cannot use weapons with the _heavy_ weapon property at all.
+    - Small sized creatures treat weapons with the _two-handed_ weapon property as if they had the _heavy_ weapon property if a feature requires it.
+    - Small sized creatures treat weapons with the _hand-and-a-half_ weapon property as if they had the _two-handed_ weapon property, and thus cannot use them one-handed.
+    - In order to engage in two-weapon fighting, a small sized creature must be wielding weapons that have both the _light_ weapon property and have a bundled EP value.
     </FeatureSection>
 
     <FeatureSection title="Native Langauges">
@@ -42,11 +44,15 @@ All Gnomes share the following gameplay elements.
 As a gnome, you automatically gain access to all features below.
 
     <FeatureSection title="Gnome Fortitude">
-    As a gnome, your physiology leaves you highly resistant to affects of the body, giving you a +2 bonus to Saving Throws vs Doom. Additionally, you are Resistant to poison damage.
+    As a gnome, your physiology leaves you highly resistant to affects of the body, giving you a +2 bonus to Saving Throws vs Doom.
     </FeatureSection>
 
     <FeatureSection title="Magical Aptitude">
     As a gnome, you gain a +1 bonus to all Saving Throws vs Spells.
+    </FeatureSection>
+
+    <FeatureSection title="Poor Warriors">
+    If a class you select has the _soldier_ keyword, you have a -5% penalty to XP gains for that class. 
     </FeatureSection>
 
 ## Class Keyword Features
@@ -92,29 +98,60 @@ After determining your age, you apply all age factors below for your current age
 
 As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so. 
 
-Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 120 is both Young and Prime. Once you reach 120, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 120 and 121 you can decide to apply the attribute adjustments, but it must be done by the time you turn 121, or it is done the first rest you have once you turn 121. 
+Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 40 is both Young and Prime. Once you reach 40, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 40 and 41 you can decide to apply the attribute adjustments, but it must be done by the time you turn 41, or it is done the first rest you have once you turn 41. 
 
 ### Young Gnomes (20 - 40)
 Young gnomes are viewed as disruptive apprentices; tolerated for potential, but closely supervised due to curiosity and unpredictability.
 
-Young gnomes are allowed to increase either their Agility, Precision, or Logic attributes by 1, but if they do so, they must reduce either their Brawn, Heartiness, or Reason by 1. 
+As a young gnome, you have the option to make the following attribute adjustments. If you do, you must apply all of the adjustments listed.
+
+    <FeatureSection>
+    * Select one attribute from the following list: **Agility**, **Precision**, and **Logic**. Increase the selected attribute by +1.
+    * Select one attribute from the following list: **Brawn**, **Heartiness**, and **Reason**. **Reduce the selected attribute by -1.
+    </FeatureSection>
 
 ### Prime Gnomes (40 - 75)
 Gnomes in their prime are valued creators, inventors, and problem-solvers; expected to produce results, even when their methods are unconventional.
 
-Gnomes in their prime must select two attributes from Agility, Precision, Logic, and Reason, and increase the selected attributes by 1 point each. 
+As an gnome in your prime, you have the option to make the following attribute adjustments.     
+
+    <FeatureSection>
+    * Select two attributes from the following list: **Agility**, **Precision**, **Logic**, and **Reason**. Increase the selected attributes by +1.
+    </FeatureSection>
 
 ### Mature Gnomes (75 - 125)
 Mature gnomes are respected eccentrics and specialists; their insight is sought, though their reasoning is not always followed.
 
-Gnomes who reach a mature age must increase their Precision, Logic, and Savvy by 1 point each. However, their Brawn is reduced by 1 point as well.
+As a mature gnome, you must make the following attribute adjustments.
+
+    <FeatureSection>
+    * Your **Precision**, **Logic**, and **Savvy** attributes are increased by +1.
+    * Your **Brawn** attribute is reduced by -1. 
+    </FeatureSection>
 
 ### Aging Gnomes (125 - 175)
 Aging gnomes are seen as increasingly strange but useful; communities consult them carefully, often through intermediaries.
 
-Gnomes who reach this age will increase their Precision, Logic, Reason, and Savvy by 1 point each. However, their Brawn, Heartiness, and Presence are reduced by 1 points each. 
+As an aging gnome, you must make the following attribute adjustments.
 
-### Elderly Elves (175+)
+    <FeatureSection>
+    * Your **Precision**, **Logic**, and **Savvy** attributes are increased by +1.
+    * Your **Brawn** attribute is reduced by -2.
+    * Your **Heartiness** attribute is reduced by -1.
+    </FeatureSection>
+
+### Elderly Gnomes (175+)
 Upon reaching the Elderly age, roll 10d10 and note the result. Add this result to 175, and you find the age you will die of old age. Elderly gnomes are treated as near-mythic minds; either revered as geniuses or quietly avoided depending on temperament and reputation.
 
-Gnomes who reach this age will increase their Logic, Reason, Savvy, and Presence by 1 point each. However, their Brawn, Heartiness, Agility, and Precision are reduced by 1 points each. 
+As an elderly gnome, you must make the following attribute adjustments.
+
+    <FeatureSection>
+    * Your **Logic**, **Reason**, **Savvy**, and **Presence** attributes are increased by +1.
+    * Your **Brawn** and **Heartiness** attributes are reduced by -2. 
+    * Your **Agility** and **Precision** attributes are reduced by -1.
+    </FeatureSection>
+
+## Height and Weight
+To randomly determine your character's height and weight, start by rolling 2d6, record the total as “extra inches” and then roll a 1d4. Multiple your “extra inches” result by the result of the 2d4 roll to get your “extra weight”.
+
+For males, add your “extra inches” to 32 inches to get how tall you are in inches, additionally, add the “extra weight” to 30 lbs. to get your starting weight. If you are female, add your “extra inches” to 30 inches, and add your “extra weight” to 25 lbs.

@@ -71,7 +71,7 @@
     "id": "sneaky",
     "name": "Sneaky",
     "description": [
-      "When you deal ambush damage, increase the dice step of this weapon, as well as dice rolled for ambush damage by 1 dice step."
+      "When you deal ambush damage with this weapon, increase the damage dice of the weapon by 1 dice step."
     ]
   },
   {
