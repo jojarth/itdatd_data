@@ -1,0 +1,177 @@
+---
+title: Thief
+---
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+
+Thieves are specialists in stealth, infiltration, and the exploitation of weakness—whether in locks, systems, or people. They avoid fair fights when possible, relying instead on precision, planning, and opportunism. 
+
+## Thief Gameplay
+Below is a list of information needed to play a thief at the various levels of play.
+<GameplayCard
+  type="class"
+  title="Requirements and Requisites"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Class Keywords">
+  As a thief, you have the _adept_ class keyword.
+  </FeatureSection>
+
+  <FeatureSection title="Prime Requisite">
+    Your prime requsite is precision, and you gain bonus experience points based on your precision score.
+    - If your precision score is 13 or higher, you gain a +5% bonus to all experience points earned.
+    - If your precision score is 16 or higher, you gain a +10% bonus to all experience points earned.
+  </FeatureSection>
+  </GameplayCard>
+
+<GameplayCard
+  type="class"
+  title="Proficiencies"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Armor Proficiency">
+    You are proficient with **light** and **medium armor**.
+  </FeatureSection>
+  
+  <FeatureSection title="Shield Proficiency">
+    You are proficient with **buckers** and **small shields**.
+  </FeatureSection>
+
+  <FeatureSection title="Weapon Proficiency">
+    You begin play familiar with **bludgeons, crossbows, darts, light blades, maces**, and **slings**.
+  </FeatureSection>
+</GameplayCard>
+
+### Class Table
+
+<div class="green-table">
+| **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
+|:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
+| **1**     | 0               | +1d6 + 1 |  +2        | +0        | 12       | 14         | 14          | 14         | 12        |
+| **2**     | 900             | +1d6 + 1 |  +2        | +0        | 12       | 14         | 14          | 14         | 12        |
+| **3**     | 1,800           | +1d6 + 1 |  +2        | +0        | 12       | 13         | 14          | 14         | 12        |
+| **4**     | 4,500           | +1d6 + 1 |  +3        |  +1       | 11       | 13         | 13          | 13         | 11        |
+| **5**     | 9,000           | +1d6 + 1 |  +3        |  +1       | 11       | 12         | 13          | 13         | 11        |
+| **6**     | 18,000          | +1d6 + 1 |  +3        |  +1       | 11       | 12         | 12          | 13         | 11        |
+| **7**     | 45,000          | +1d6 + 1 |  +4        |  +1       | 10       | 11         | 12          | 12         | 10        |
+| **8**     | 90,000          | +1d6 + 1 |  +4        |  +2       | 10       | 11         | 12          | 12         | 10        |
+| **9**     | 180,000         | +1d6 + 1 |  +4        |  +2       | 10       | 10         | 11          | 12         | 10        |
+| **10**    | 270,000         | +1       |  +5        |  +2       | 9        | 10         | 11          | 11         | 9         |
+| **11**    | 360,000         | +1       |  +5        |  +2       | 9        | 9          | 10          | 11         | 9         |
+| **12**    | 450,000         | +1       |  +5        |  +3       | 9        | 9          | 10          | 11         | 9         |
+| **13**    | 675,000         | +1       |  +6        |  +3       | 8        | 8          | 10          | 10         | 8         |
+| **14**    | 900,000         | +1       |  +6        |  +3       | 8        | 8          | 9           | 10         | 8         |
+</div>
+
+## Thief Features
+As a thief, you gain the following class features.
+
+<GameplayCard
+  type="feature"
+  title="Thief Skills"
+  subeyebrow="1st Level Thief Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+As a thief, you are are able to ***Pick Locks*** and ***Disarm Fine Traps.***
+
+Additionally, when you make an Attribute Test to accomplish feats of stealth, legerdemain, or infiltration, increase your Skill Bonus by 1 for that test.
+</GameplayCard>
+
+<GameplayCard
+  type="feature"
+  title="Backstab"
+  subeyebrow="1st Level Thief Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+When you attack with a one-handed melee weapon or a ranged weapon that lacks the Heavy property, you deal an additional 1d4 Ambush damage if either of the following is true:
+
+* You have Combat Supremacy over the target.
+* The target is adjacent to one of your allies.
+
+When making a ranged or thrown attack, the target must also be within 30 feet or the weapon's first range increment, whichever is shorter.
+
+    <FeatureSection title="5th Level">
+    Increase the additional Ambush damage to **2d4**.
+    </FeatureSection>
+
+    <FeatureSection title="10th Level">
+    Increase the additional Ambush damage to **3d4**.
+    </FeatureSection>
+</GameplayCard>
+
+<GameplayCard
+  type="feature"
+  title="Hide in Naught but Shadow"
+  subeyebrow="3rd Level Thief Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 3rd level, Thieves have learned to utilize darkness and shadows to their greatest extent. While other allies can be stealthy, and hide behind objects, all a Thief needs to be able to hide is shadows and darkness. Thieves must be wearing light or no armor that is dark in color to perform this action, and must remain stationary once hidden. 
+
+This action does not allow a Thief to disappear into a shadow, and follows the normal rules of stealth, but allows Thieves to hide in situations that others would not be able to. 
+</GameplayCard>
+
+    :::tip[Thief Skills]{icon="information"}
+    A thief utilizing the Hide in Naught but Shadow, Move in Utter Silence, and Climb Sheer Surfaces features do not automatically succeed at these tests. A GM should still make the call for attribute tests of stealth.
+
+    However, this let's thieves perform functions above and beyond what other classes can. For example, a fighter simply cannot hide in a shadow, a fighter can move with stealth, but not so silently they make no noise, and a fighter can climb a sheer surface, but only if they have a rope or other means of climbing available to them. 
+
+    Effectively these thief skills allow a thief to preform above and beyond other classes for stealth and infiltration, but does not negate the need to test the thief on them.
+    :::
+
+<GameplayCard
+  type="feature"
+  title="Magic Item Aptitude"
+  subeyebrow="3rd Level Thief Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Starting at 3rd level, you learn to decipher and activate magical items beyond the limits of your training. You can use spell scrolls of 1st level or lower. You are treated as having any ancestry for the purpose of using magical items.
+    <FeatureSection title="5th Level">
+    You can utilize 2nd-level Spell Scrolls.
+    </FeatureSection>
+
+    <FeatureSection title="7th Level">
+    You can utilize 3rd-level Spell Scrolls. You are treated as having any class for the purpose of using magical items.
+    </FeatureSection>
+
+    <FeatureSection title="9th Level">
+    You can utilize 4th-level Spell Scrolls.
+    </FeatureSection>
+
+    <FeatureSection title="11th Level">
+    You can utilize 5th-level Spell Scrolls. You immediately recognize when an item is cursed before its effect takes hold. You may choose to stop interacting with the item before the curse applies.
+    </FeatureSection>
+
+    <FeatureSection title="13th Level">
+    You can utilize 6th-level Spell Scrolls
+    </FeatureSection>
+</GameplayCard>
+
+<GameplayCard
+  type="feature"
+  title="Move in Utter Silence"
+  subeyebrow="5th Level Thief Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 5th level, while attempting to be stealthy, a Thief can move so utterly silent that they make no noise. While other allies can be stealthy and quiet, Thieves make absolutely no perceptible noises. Thieves must lightly encumbered or less to perform this action, can must be wearing light or no armor.
+
+Thieves who meet these conditions can stealth around while making absolutely no noise, and cannot be discovered by means of noise detection
+</GameplayCard>
+
+<GameplayCard
+  type="feature"
+  title="Climb Sheer Surfaces"
+  subeyebrow="7th Level Thief Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 7th level, a Thief can climb upon surfaces that seemingly have no hand-holds. While other allies may be able to scale walls, Thieves only need the smallest of hand-holds to be able to scale a wall. Thieves must be wearing light or no armor, and be lightly encumbered or less to perform this action. 
+
+Thieves who meet these conditions can climb any walls. They must follow all other rules for climbing, but are able to scale surfaces thought to be impossible to scale unless by magic.
+</GameplayCard>

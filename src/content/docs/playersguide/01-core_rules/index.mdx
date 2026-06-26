@@ -119,19 +119,31 @@ You are a level 1 fighter, and your Save vs Spell is a 15. A magic-user attempts
 </GameplayCard>
 
 ### Attribute Test
-Attribute Tests are made when your character is attempting to do almost anything in the world. You are simply making a test against your natural abilities, although your background and choice of class can grant you a bonus. Attributes Tests will use your Attributes, but you may be able to apply your class Skill Bonus if your ancestry, background, or class allows it.
+Attribute Tests are used when your character attempts tasks that rely on natural ability. Your attributes represent your raw capability, while your background, ancestry, or class may grant additional training.
 
-To make an Attribute Test, your GM will tell you which attribute to test. In order to succeed, you roll a d20, and must roll equal to your Attribute Score or lower. A GM may ascribe bonuses or penalties, to apply them, you adjust your Attribute Score by the bonus or penalty acribed. Thus, if you had a Score of 10, but you get a +2, you now treat your Score as a 12 for that test.
+To make an Attribute Test, the GM will tell you which Attribute to use. Roll a d20. You succeed if you roll **equal to or lower than your modified Attribute Score**.
 
-If your ancestry, background, or class put you in a situation where you may gain specialized training in the task an attribute test is attempting to resolve, you can apply your class Skill Bonus to the test. Some attribute tests can only be attempted by a class with specialzied training, and characters without such training will always fair regardless of their roll.
+#### Modifiers
+The GM may apply modifiers to an Attribute Test. All modifiers adjust your Attribute Score for the duration of the test.
 
-Attribute Tests are gone over in more detail in Chapter 07 - Adventuring.
+A **+X modifier** increases your Attribute Score by X.
+
+A **-X modifier** decreases your Attribute Score by X.
+
+For example, a character with a Precision of 10 who receives a +2 modifier treats their Precision as 12 for that test.
+
+#### Skill Bonus
+If your ancestry, background, or class grants training relevant to the task, you may add your **Skill Bonus** to the Attribute Score for the test. Some tasks require such training; characters without it automatically fail regardless of their roll.
+
+Attribute Tests are detailed further in Chapter 07: Adventuring.
 
 <GameplayCard
   type="class"
   title="Attribute Test Example"
 >
-You are a level 4 thief, and your Precision attribute is 13. You are attempting to pick a lock. The GM has decided that this lock is difficult, and ascribes a -2 penalty to the test. However, since you are a level 4 thief, your GM notes that you can apply your +1 Skill Bonus to this test as well. To find what you need to roll, you take your base Precision (13), subtract your penalties (-2 equaling 11), and add your bonuses (+1 equaling 12). To make this test, you must roll a 12 or lower on a D20 test.
+  You are a 4th-level Thief with a Precision of 13. You attempt to pick a difficult lock. The GM applies a -2 modifier to the test. Because you are a Thief, you also add your +1 Skill Bonus.
+
+Your modified Attribute Score is 12 (13 - 2 + 1), thus you must roll a 12 or lower on a d20 to succeed.
 </GameplayCard>
 
 ### X-in-Y Check
@@ -160,8 +172,12 @@ Weapons, and only weapons, have a scaling proficiency level. Rather than just be
 
 Proficiency levels in order from worst to best are: Non-Proficient, Familiar, Proficient, Skilled, Expert, Master, Grand Master. Proficiency with weapons, armors and shields are gone over in more detail in Chapter 02 - Character Creation, but improving your proficiency level with weapons are gone over in more detail in Chapter 11 - Character Advancement.
 
-## Static Bonus Types
-Bonuses are added to d20 rolls when you make them. And there are a fair number of different types of bonuses. When you have multiple bonus types, they add (or subtract!) together. However, if you have multiple sources of the same bonus type, you simply use the highest result. Thus, if you have a +1 magic bonus and a +2 magic bonus, you apply only the +2. However, if you have a +1 Ancestry bonus and a +2 Magic bonus, you gain a +3 to the roll in question.
+## Static Bonus Types (d20 Rolls)
+Some effects grant typed modifiers. The four modifier types are **Skill**, **Magic**, **Situation**, and **Ancestry**.
+
+If multiple modifiers of the same type apply to a roll or Attribute Test, only the highest bonus of that type and the greatest penalty of that type apply. Modifiers of different types stack normally.
+
+Some modifiers are applied directly to a dice roll (such as Attack Rolls and Saving Throws), while others modify the target number of an Attribute Test. In all cases, modifiers follow the same stacking rules above.
 
 ### Adding Dice
 Occasionally, you will be instructed to add dice to a roll, for example “add an extra dice of damage” or “add an extra dice of healing”, or “add two extra dice of damage”. When you come across this, you roll the added number of dice, in addition to the dice you would have otherwise rolled. For example, if you deal 2d8 points of healing, and a feature allows you to add an extra dice of healing, you roll 3d8.

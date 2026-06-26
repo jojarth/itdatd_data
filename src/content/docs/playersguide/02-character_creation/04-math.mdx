@@ -39,11 +39,18 @@ AC is listed in two different types of values, your primary source of armor clas
 The following calculations are used for offensive properties of your character.
 
 ### Weapon Proficiency Level
-You need to figure out which weapons your character can use effectively. To do this, we must determine your level of weapon proficiency. Weapon proficiency is measured in stages: Non-Proficient > Familiar > Proficient > Skilled > Expert > Master > Grand Master. However, during character creation, we only need to concern ourselves with Non-Proficient, Familiar, and Proficient.
+Weapon Proficiency determines how effectively your character can wield different weapon groups. Weapon Proficiency is measured in the following ranks:
+ 
+> **Non-Proficient → Familiar → Proficient → Skilled → Expert → Master → Grand Master**
 
-Each class starts play Familiar with specific weapon groups, as noted in their Gameplay section. Additionally, you gain a number of Weapon Proficency Points (WPPs) that you can spend on increasing your Proficency with additional weapon groups. The number of WPPs you gain are listed in your class section, but are based on your Combat Bonus. You must spend all WPPs you gain during character creation.
+During character creation, you will normally only encounter the first three ranks.
 
-WPPs can be spent to increase your proficiency with a weapon group. By spending 1 point, you can upgrade your proficiency with a selected weapon group. The maximum proficiency level you can reach is based on your Combat Bonus.
+#### Gaining Weapon Proficiency
+Each class begins play Familiar with specific weapon groups, as described in its Gameplay section. In addition, you gain Weapon Proficiency Points (WPPs) equal to twice your Combat Bonus (minimum 2). You must spend all WPPs gained during character creation.
+
+Each WPP increases a weapon group's proficiency by one rank. For example, spending one WPP increases a weapon group from Non-Proficient to Familiar, while spending two WPPs increases it from Non-Proficient to Proficient.
+
+The highest proficiency rank you may attain is determined by your Combat Bonus.
 
 <div class="green-table">
 | **Combat Bonus** | **Max Proficiency Level** |
@@ -57,16 +64,20 @@ WPPs can be spent to increase your proficiency with a weapon group. By spending 
 | **+6**           | Grand Master              |
 </div>
 
-Users wielding weapons that they are Non-Proficient in do not gain their Combat Bonus to attack rolls or damage rolls, and can only ever roll 1 damage dice, but otherwise suffer no additional penalties.
+<FeatureSection title="Non-Proficient">
+You do not add your Combat Bonus to attack or damage rolls made with the weapon. In addition, attacks made with a weapon in which you are Non-Proficient can never roll more than one damage die.
+</FeatureSection>
 
-Upon reaching Familiar with a weapon, you can apply your class Combat Bonus to attack and damage rolls made with weapons.
+<FeatureSection title="Familiar">
+You add your Combat Bonus to attack and damage rolls made with the weapon.
+</FeatureSection>
 
-Upon reaching proficient, you can utilize the weapon features listed in the proficient column for your weapon.
-
-For additional information on increasing your weapon proficiency, see chapter 11.
+<FeatureSection title="Proficient">
+You gain access to the weapon's **Proficient** features.
+</FeatureSection>
 
 ### Attack Rolls
-Attack rolls are used to determine if your attack is effective enough to deal damage. Attack Rolls are a d20 roll made against a target's Armor Class, your total roll with all of your bonuses must meet or beat your target's AC. A failed attack roll doesn't always mean you "missed" your attack, it could have been a glancing blow, or rolled off the defender’s armor.
+Attack rolls are used to determine if your attack is effective enough to deal damage. Attack Rolls are a d20 roll made against a target's Armor Class, your total roll with all of your bonuses must meet or beat your target's AC. A failed attack roll doesn't always mean you "missed" your attack, it could have been a glancing blow, or rolled off the defender's armor.
 
 As long as you are at least familiar with the weapon you are wielding, you can add your class combat bonus to the roll. Additionally, melee and thrown weapons apply apply a bonus or penalty to the attack roll based on your your Brawn, and most ranged weapons your Precision. Some weapons have the Finesse weapon property, which allows you to use your Precision with melee and thrown weapons instead.
 
@@ -78,15 +89,9 @@ Your weapon’s damage dice is listed in the weapon's section of the weapon tabl
 <div class="green-table">
 | **Combat Bonus** | **Number of Damage Dice** |
 |------------------|---------------------------|
-| **+0**           | 1                         |
-| **+1**           | 1                         |
-| **+2**           | 1                         |
-| **+3**           | 1                         |
-| **+4**           | 2                         |
-| **+5**           | 2                         |
-| **+6**           | 2                         |
-| **+7**           | 2                         |
-| **+8**           | 3                         |
+| **+0** -  **+3**           | 1                    |
+| **+4** - **+7**           | 2                    |
+| **+8** - **+12**                | 3                    |
 </div>
 
 Thus, if your Combat Bonus is +3, and you successfully deal damage with an Arming Sword, you deal 1d6 + 3 to damage. Upon reaching a level where your Combat Bonus if +4, you instead deal 2d6 + 4 damage.
