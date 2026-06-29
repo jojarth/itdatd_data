@@ -1,0 +1,175 @@
+---
+title: Cleric
+---
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+
+Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
+
+## Magic-User Gameplay
+Below is a list of information needed to play a magic-user at the various levels of play.
+<GameplayCard
+  type="class"
+  title="Requirements and Requisites"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Class Keywords">
+  As a cleric, you have the _priest_ class keyword.
+  </FeatureSection>
+
+  <FeatureSection title="Prime Requisite">
+    Your prime requsite is reason, and you gain bonus experience points based on your reason score.
+    - If your reason score is 13 or higher, you gain a +5% bonus to all experience points earned.
+    - If your reason score is 16 or higher, you gain a +10% bonus to all experience points earned.
+  </FeatureSection>
+  </GameplayCard>
+
+<GameplayCard
+  type="class"
+  title="Proficiencies"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Armor Proficiency">
+    You are proficient with **all armor**.
+  </FeatureSection>
+  
+  <FeatureSection title="Shield Proficiency">
+    You are proficient with **all shields**.
+  </FeatureSection>
+
+  <FeatureSection title="Weapon Proficiency">
+  You begin play Familiar with **bludgeons, crossbows, flails, maces** and **staves**.
+  </FeatureSection>
+</GameplayCard>
+
+### Class Table
+
+<div class="green-table">
+| **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
+|:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
+| **1**     | 0               | +1d6 + 2 |  +2        | +0        | 12       | 14         | 12          | 14         | 12        |
+| **2**     | 950             | +1d6 + 2 |  +2        | +0        | 12       | 14         | 12          | 14         | 12        |
+| **3**     | 1,900           | +1d6 + 2 |  +2        | +0        | 11       | 13         | 12          | 13         | 12        |
+| **4**     | 4,750           | +1d6 + 2 |  +3        | +0        | 11       | 13         | 11          | 13         | 11        |
+| **5**     | 9,500           | +1d6 + 2 |  +3        | +0        | 10       | 12         | 11          | 12         | 11        |
+| **6**     | 19,000          | +1d6 + 2 |  +3        |  +1       | 10       | 12         | 11          | 12         | 10        |
+| **7**     | 47,500          | +1d6 + 2 |  +4        |  +1       | 9        | 11         | 10          | 11         | 10        |
+| **8**     | 95,000          | +1d6 + 2 |  +4        |  +1       | 9        | 11         | 10          | 11         | 10        |
+| **9**     | 190,000         | +1d6 + 2 |  +4        |  +1       | 8        | 10         | 10          | 10         | 9         |
+| **10**    | 285,000         | +2       |  +5        |  +1       | 8        | 10         | 9           | 10         | 9         |
+| **11**    | 380,000         | +2       |  +5        |  +1       | 7        | 9          | 9           | 9          | 8         |
+| **12**    | 475,000         | +2       |  +5        |  +2       | 7        | 9          | 9           | 9          | 8         |
+| **13**    | 712,500         | +2       |  +6        |  +2       | 6        | 8          | 8           | 8          | 8         |
+| **14**    | 950,000         | +2       |  +6        |  +2       | 6        | 8          | 8           | 8          | 7         |
+</div>
+
+### Spell Slot Table
+
+<SpellSlotTable rank="C" colorTheme="blue-table" />
+
+## Cleric Features
+As a cleric, you gain the following class features.
+
+<GameplayCard
+  type="feature"
+  title="Holy Symbol"
+  subeyebrow="1st Level Cleric Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Many of your class features require you to present your holy symbol. A holy symbol is a physical representation of your faith and devotion, and may take nearly any form, such as an amulet, prayer beads, a reliquary, or another relic sacred to your beliefs.
+
+To present your holy symbol, you must hold it aloft in clear view. This requires a free hand. Alternatively, you may emblazon your holy symbol upon a shield. Presenting such a shield fulfills any requirement to present your holy symbol.
+</GameplayCard>
+
+<GameplayCard
+  type="feature"
+  title="Turn Undead"
+  subeyebrow="1st Level Cleric Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Clerics can channel sacred power to drive back the undead. To use this ability, you must openly present a symbol of your faith. **Turn Undead** requires **1 Master Action** and may be performed beginning in **Phase 1**. You must present your holy symbol to turn undead. 
+
+#### Determine Highest Level
+When you attempt to Turn Undead, first determine the highest-level undead creature you can affect.
+
+Roll **1d20** and compare the result to your **Presence** Attribute using the table below. The result determines the highest creature level that can be affected by this attempt.
+
+Undead creatures **5 or more levels higher** than your Cleric Level cannot be affected. Likewise, undead creatures **5 or more levels lower** than your Cleric Level are always affected, regardless of your roll.
+
+<div class="yellow-table">
+|        **d20 Result**        | **Highest Creature Level** |
+| :-------------------------- | :------------------------: |
+|     Presence +8 or higher    |       Cleric Level -4      |
+|       Presence +6 to +7      |       Cleric Level -3      |
+|       Presence +4 to +5      |       Cleric Level -2      |
+|       Presence +2 to +3      |       Cleric Level -1      |
+|    Presence to Presence +1   |        Cleric Level        |
+|  Presence -1 to Presence -3  |       Cleric Level +1      |
+|  Presence -4 to Presence -6  |       Cleric Level +2      |
+|  Presence -7 to Presence -9  |       Cleric Level +3      |
+| Presence -10 to Presence -12 |       Cleric Level +4      |
+</div>
+
+#### Determine Turning Capacity
+Next, determine the total number of creature levels you can affect. Roll **2d6** and add **half your Cleric Level** (rounded down). The result is your **Turning Capacity**.
+
+#### Effect
+Beginning with the lowest-level eligible undead within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
+
+Affected undead immediately flee from you by the safest available route. Instead of fleeing, undead that are **5 or more levels lower** than your Cleric Level are instantly destroyed, crumbling to dust.
+</GameplayCard>
+
+<GameplayCard
+  type="feature"
+  title="Spellcasting"
+  subeyebrow="2nd Level Cleric Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Through prayer and unwavering faith, you have learned to prepare sacred miracles within your mind. Each miracle is a divine blessing that can be held only temporarily. When invoked, that blessing is expended and slips from memory until it is prepared again through prayer.
+
+Cleric spells are considered clerical spells. 
+
+  <FeatureSection title="Meditation Ritual">
+  You may perform a Meditation Ritual, which requires one uninterrupted hour of quiet spiritual devotion. This ritual often takes the form of prayer, contemplation, reciting sacred rites, or another act of worship.
+
+  Some class features require you to complete a Meditation Ritual.
+
+  A Meditation Ritual does not prepare spells. Spells may only be prepared immediately after completing a Safe Rest.
+  </FeatureSection>
+  
+  <FeatureSection title="Spell Preparation">
+  Immediately after completing a Safe Rest, you may perform a Meditation Ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Clerics may prepare any spell on the Cleric spell list, so long as they have the correct level of spell slot. 
+
+  For example, a 4th-level Cleric prepares three 1st-level spells and two 2nd-level spells. Preparing the same spell multiple times allows you to cast it multiple times before resting again. Prepared spells remain in memory until cast.
+  
+  Spell Preparation can only be done immediately following a Safe Rest.
+
+  :::tip[Spellcasting in Cerrix]{icon="information"}
+  It is by design that spell casters prepare their spells once per adventure, not per day (with the exception of minor spells, such as Cantrips).
+  :::
+  </FeatureSection>
+  
+  <FeatureSection title="Casting Spells">
+  To cast a prepared spell, you must:
+  
+  * Have the spell prepared.
+  * Be able to present your holy symbol.
+  * Be able to speak clearly.
+ 
+  Some spells also require material components. If so, the required component is used in place of your holy symbol when casting the spell.
+  
+  After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
+  </FeatureSection>
+  
+  <FeatureSection title="Cantrips">
+  Cantrips are simple magical formulae that occupy little space within your mind. Whenever you perform a Meditation Ritual, choose three cantrips from your spell list to prepare. Upon reaching 5th level, you can prepare four cantrips, and upon reaching 10th level, you can prepare 5. 
+  
+  You may cast your prepared cantrips a combined number of times before you must rest. Each time you cast a prepared cantrip, you expend one cantrip use from your shared pool, regardless of which cantrip you cast. The size of this pool is equal to your Cleric Level + 1 (three uses at 2nd level). You regain all expended cantrip uses whenever you complete a night's rest.
+  </FeatureSection>
+</GameplayCard>
