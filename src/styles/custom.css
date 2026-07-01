@@ -322,21 +322,52 @@
   content: "";
 }
 
-.gameplay-card--class::before {
-  background: #961380;
+.gameplay-card--red::before {
+  background: #ef4444;
 }
 
-.gameplay-card--feature::before,
-.gameplay-card--ancestry::before {
+.gameplay-card--orange::before {
+  background: #f97316;
+}
+
+.gameplay-card--yellow::before {
+  background: #eab308;
+}
+
+.gameplay-card--green::before {
   background: #22c55e;
 }
 
-.gameplay-card--subclass::before {
+.gameplay-card--blue::before {
   background: #3b82f6;
 }
 
-.gameplay-card--archetype::before {
-  background: #eab308;
+.gameplay-card--indigo::before {
+  background: #6366f1;
+}
+
+.gameplay-card--violet::before {
+  background: #8b5cf6;
+}
+
+.gameplay-card--grey::before {
+  background: #6b7280;
+}
+
+.gameplay-card--black::before {
+  background: #111827;
+}
+
+.gameplay-card--brown::before {
+  background: #92400e;
+}
+
+.gameplay-card--azure::before {
+  background: #0ea5e9;
+}
+
+.gameplay-card--purple::before {
+  background: #a855f7;
 }
 
 .gameplay-card__header {

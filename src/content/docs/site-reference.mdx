@@ -60,21 +60,22 @@ import FeatureSection from '../../../../components/FeatureSection.astro';
 
 The number of `../` segments depends on where the page lives. For pages in `src/content/docs/playersguide/classes/`, the import above is correct.
 
-## Card Types
+## Card Colors
 
-Set the card color with the `type` prop:
+Set the card color with the `color` prop:
 
-- `class`: grey accent line, for Class Gameplay cards
-- `feature`: green accent line, for Class Feature cards
-- `subclass`: blue accent line, for Sub-Class Feature cards
-- `ancestry`: green accent line, for Ancestry Feature cards
-- `archetype`: yellow accent line, for Archetype Feature cards
+- `green`: for class or summary cards
+- `purple`: for feature cards
+- `blue`: for subclass cards
+- `indigo`: for ancestry cards
+- `yellow`: for archetype cards
+- `red`, `orange`, `violet`, `grey`, `black`, `brown`, and `azure` are also available
 
 ## Basic Card
 
 ```mdx
 <GameplayCard
-  type="feature"
+  color="purple"
   eyebrow="Class Feature"
   title="Feature Name"
   subtitle="A short summary of what the feature does."
@@ -84,7 +85,7 @@ Set the card color with the `type` prop:
 ```
 
 <GameplayCard
-  type="feature"
+  color="purple"
   eyebrow="Class Feature"
   title="Feature Name"
   subtitle="A short summary of what the feature does."
@@ -113,7 +114,7 @@ If you add `subeyebrow`, set `headerOrder` to choose where each field appears.
 
 ```mdx
 <GameplayCard
-  type="feature"
+  color="purple"
   eyebrow="Class Feature"
   subeyebrow="1st Level"
   title="Spellcasting"
@@ -125,7 +126,7 @@ If you add `subeyebrow`, set `headerOrder` to choose where each field appears.
 ```
 
 <GameplayCard
-  type="feature"
+  color="purple"
   eyebrow="Class Feature"
   subeyebrow="1st Level"
   title="Spellcasting"
@@ -139,7 +140,7 @@ You can also put the title first:
 
 ```mdx
 <GameplayCard
-  type="feature"
+  color="purple"
   title="Spellcasting"
   subtitle="The core class feature for Magic-Users."
   eyebrow="Class Feature"
@@ -156,7 +157,7 @@ To show a gameplay card title in the right-side table of contents, add the `toc`
 
 ```mdx
 <GameplayCard
-  type="feature"
+  color="purple"
   eyebrow="Class Feature"
   title="Spellcasting"
   subtitle="The core class feature for Magic-Users."
@@ -167,7 +168,7 @@ To show a gameplay card title in the right-side table of contents, add the `toc`
 ```
 
 <GameplayCard
-  type="feature"
+  color="purple"
   eyebrow="Class Feature"
   title="Spellcasting"
   subtitle="The core class feature for Magic-Users."
@@ -182,7 +183,7 @@ By default, `toc` entries are added as level-three headings. To make a card appe
 
 ```mdx
 <GameplayCard
-  type="class"
+  color="green"
   eyebrow="Class Gameplay"
   title="Magic-User Gameplay"
   toc
@@ -198,7 +199,7 @@ Use `FeatureSection` inside a card when the feature needs separate blocks.
 
 ```mdx
 <GameplayCard
-  type="subclass"
+  color="blue"
   eyebrow="Sub-Class Feature"
   title="Feature Name"
   subtitle="A short summary of the feature."
@@ -214,7 +215,7 @@ Use `FeatureSection` inside a card when the feature needs separate blocks.
 ```
 
 <GameplayCard
-  type="subclass"
+  color="blue"
   eyebrow="Sub-Class Feature"
   title="Feature Name"
   subtitle="A short summary of the feature."
@@ -234,7 +235,7 @@ Class Gameplay:
 
 ```mdx
 <GameplayCard
-  type="class"
+  color="green"
   eyebrow="Class Gameplay"
   title="Magic-User Gameplay"
   subtitle="A short summary of how the class plays."
@@ -247,7 +248,7 @@ Ancestry Feature:
 
 ```mdx
 <GameplayCard
-  type="ancestry"
+  color="indigo"
   eyebrow="Ancestry Feature"
   title="Feature Name"
 >
@@ -259,7 +260,7 @@ Archetype Feature:
 
 ```mdx
 <GameplayCard
-  type="archetype"
+  color="yellow"
   eyebrow="Archetype Feature"
   title="Feature Name"
 >

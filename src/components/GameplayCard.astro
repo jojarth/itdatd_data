@@ -2,6 +2,7 @@
 type HeaderField = 'eyebrow' | 'subeyebrow' | 'title' | 'subtitle';
 
 interface Props {
+  color?: string;
   type?: string;
   title?: string;
   eyebrow?: string;
@@ -11,7 +12,8 @@ interface Props {
 }
 
 const {
-  type = 'feature',
+  color,
+  type,
   title,
   eyebrow,
   subeyebrow,
@@ -19,7 +21,30 @@ const {
   headerOrder = ['eyebrow', 'title', 'subtitle'],
 } = Astro.props as Props;
 
-const cardClass = `gameplay-card gameplay-card--${type}`;
+const normalizeColorName = (value: string) => {
+  const lower = value.toLowerCase().trim();
+  const aliases: Record<string, string> = {
+    gray: 'grey',
+    grey: 'grey',
+    purple: 'purple',
+    viloet: 'violet',
+  };
+
+  return aliases[lower] ?? lower.replace(/\s+/g, '-');
+};
+
+const legacyTypeMap: Record<string, string> = {
+  class: 'green',
+  feature: 'purple',
+  subclass: 'blue',
+  ancestry: 'indigo',
+  archetype: 'yellow',
+};
+
+const resolvedColor = normalizeColorName(
+  legacyTypeMap[(type ?? '').toLowerCase()] ?? color ?? 'purple',
+);
+const cardClass = `gameplay-card gameplay-card--${resolvedColor}`;
 const headerFields: Record<HeaderField, string | undefined> = { eyebrow, subeyebrow, title, subtitle };
 const orderedHeaderFields = (headerOrder as HeaderField[]).filter(
   (field): field is HeaderField => field in headerFields && Boolean(headerFields[field]),
