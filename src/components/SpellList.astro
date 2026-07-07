@@ -56,7 +56,7 @@ const filtered = (entries ?? [])
   {filtered.length === 0 ? (
     <p>No spells matched the current filters.</p>
   ) : (
-    <div class="spell-list-grid">
+    <div class="spell-list-stack">
       {filtered.map((entry) => (
         <SpellCard
           entry={entry}
@@ -71,11 +71,5 @@ const filtered = (entries ?? [])
 
 <style>
 .spell-list { margin: 1rem 0; }
-.spell-list-grid { display: grid; gap: 1rem; }
-@media (min-width: 640px) {
-  .spell-list-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (min-width: 960px) {
-  .spell-list-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
+.spell-list-stack { display: flex; flex-direction: column; gap: 0.25rem; }
 </style>

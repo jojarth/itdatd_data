@@ -1,12 +1,11 @@
 ---
 import { getCollection, render } from "astro:content";
-
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("data");
   return entries.map((entry) => ({
     params: {
-      // Use the stored id string as the route param so Astro receives a string
       slug: entry.id,
     },
     props: { id: entry.id },
@@ -16,7 +15,7 @@ export async function getStaticPaths() {
 const slugParam = Astro.params.slug;
 const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
 const entries = await getCollection("data");
-const entry = entries.find((item) => item.id === slug || item.id === slug);
+const entry = entries.find((item) => item.id === slug);
 
 if (!entry) {
   throw new Error(`No data entry found for slug: ${slug}`);
@@ -24,18 +23,130 @@ if (!entry) {
 
 const renderResult = await render(entry);
 const { Content } = renderResult ?? {};
+
+const detailFields = [
+  {
+    key: "level",
+    label: "Level",
+    value: entry.data.level !== undefined ? `${entry.data.level}` : undefined,
+  },
+  {
+    key: "school",
+    label: "School",
+    value: entry.data.school,
+  },
+  {
+    key: "classes",
+    label: "Classes",
+    value:
+      Array.isArray(entry.data.classes) && entry.data.classes.length > 0
+        ? entry.data.classes.join(", ")
+        : undefined,
+  },
+  {
+    key: "range",
+    label: "Range",
+    value: entry.data.range,
+  },
+  {
+    key: "duration",
+    label: "Duration",
+    value: entry.data.duration,
+  },
+  {
+    key: "actioncost",
+    label: "Action Cost",
+    value: entry.data.actioncost,
+  },
+  {
+    key: "castspeed",
+    label: "Cast Speed",
+    value: entry.data.castspeed !== undefined ? `${entry.data.castspeed}` : undefined,
+  },
+];
+
+const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefined;
 ---
 
-<main>
-  <h1>{entry.data.title}</h1>
-  <p><strong>Level:</strong> {entry.data.level}</p>
-  <p><strong>School:</strong> {entry.data.school}</p>
-  {Content ? (
-    <Content />
-  ) : (
-    <div class="warning">
-      <p>Unable to render Content for entry <strong>{entry.id}</strong>.</p>
-      <pre>{JSON.stringify({ id: entry.id, filePath: entry.filePath, data: entry.data }, null, 2)}</pre>
+<StarlightPage
+  frontmatter={{
+    title: entry.data.title,
+    description,
+  }}
+>
+  <article class="spell-detail">
+    {description ? <p class="spell-lead">{description}</p> : null}
+
+    <div class="spell-metadata">
+      {detailFields.map((field) =>
+        field.value ? (
+          <span class="spell-metadata-item">
+            <span class="spell-metadata-label">{field.label}</span>
+            <span class="spell-metadata-value">{field.value}</span>
+          </span>
+        ) : null
+      )}
     </div>
-  )}
-</main>
+
+    {Content ? (
+      <div class="spell-body">
+        <Content />
+      </div>
+    ) : (
+      <div class="warning">
+        <p>Unable to render Content for entry <strong>{entry.id}</strong>.</p>
+        <pre>{JSON.stringify({ id: entry.id, filePath: entry.filePath, data: entry.data }, null, 2)}</pre>
+      </div>
+    )}
+  </article>
+</StarlightPage>
+
+<style>
+.spell-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.spell-lead {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--sl-color-text-accent, #374151);
+}
+
+.spell-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  margin: 0;
+}
+
+.spell-metadata-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.spell-metadata-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sl-color-gray-4, #6b7280);
+}
+
+.spell-metadata-value {
+  color: var(--sl-color-text, #111827);
+}
+
+.spell-body {
+  margin-top: 0.5rem;
+}
+
+.warning {
+  border: 1px solid var(--sl-color-red, #dc2626);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--sl-color-red, #dc2626) 8%, transparent);
+}
+</style>
