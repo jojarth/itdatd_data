@@ -1,0 +1,81 @@
+---
+import SpellCard from "./SpellCard.astro";
+
+const props = Astro.props as {
+  entries?: any[];
+  datatype?: string;
+  level?: number;
+  className?: string;
+  tag?: string;
+  sortBy?: string;
+  sortDir?: "asc" | "desc";
+  title?: string;
+  showHeading?: boolean;
+  displayFields?: Array<"level" | "school" | "classes" | "excerpt" | "shortDescription">;
+};
+
+const {
+  entries = [],
+  datatype = "spell",
+  level,
+  className,
+  tag,
+  sortBy = "title",
+  sortDir = "asc",
+  title = "Spell List",
+  showHeading = true,
+  displayFields = ["level", "school", "classes", "excerpt"],
+} = props;
+
+const filtered = (entries ?? [])
+  .filter((entry) => {
+    if (!entry?.data) return false;
+    if (datatype && entry.data.datatype !== datatype) return false;
+    if (level !== undefined && entry.data.level !== level) return false;
+    if (className && !Array.isArray(entry.data.classes)) return false;
+    if (className && !entry.data.classes.includes(className)) return false;
+    if (tag && (!Array.isArray(entry.data.tags) || !entry.data.tags.includes(tag))) return false;
+    return true;
+  })
+  .sort((a, b) => {
+    if (sortBy === "level") {
+      return sortDir === "desc"
+        ? (b.data.level ?? 0) - (a.data.level ?? 0)
+        : (a.data.level ?? 0) - (b.data.level ?? 0);
+    }
+
+    const left = String(a.data.title).toLowerCase();
+    const right = String(b.data.title).toLowerCase();
+    if (left === right) return 0;
+    if (sortDir === "desc") return right < left ? -1 : 1;
+    return left < right ? -1 : 1;
+  });
+---
+<section class="spell-list">
+  {showHeading ? <h2>{title}</h2> : null}
+  {filtered.length === 0 ? (
+    <p>No spells matched the current filters.</p>
+  ) : (
+    <div class="spell-list-grid">
+      {filtered.map((entry) => (
+        <SpellCard
+          entry={entry}
+          to={`/data/${entry.id}`}
+          excerpt={entry.data?.excerpt}
+          displayFields={displayFields}
+        />
+      ))}
+    </div>
+  )}
+</section>
+
+<style>
+.spell-list { margin: 1rem 0; }
+.spell-list-grid { display: grid; gap: 1rem; }
+@media (min-width: 640px) {
+  .spell-list-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 960px) {
+  .spell-list-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+</style>

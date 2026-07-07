@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+
+const allEntries = await getCollection("data");
+---
+<main>
+  <h1>Debug Spell Data</h1>
+  <p>Total data entries: {allEntries.length}</p>
+  <ul>
+    {allEntries.map((entry) => (
+      <li>
+        <strong>{entry.id}</strong>
+        <pre>{JSON.stringify(entry.data, null, 2)}</pre>
+      </li>
+    ))}
+  </ul>
+</main>

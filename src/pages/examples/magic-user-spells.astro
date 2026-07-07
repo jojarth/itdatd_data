@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import SpellList from "../../components/SpellList.astro";
+
+const allEntries = await getCollection("data");
+---
+
+<main>
+  <h1>Magic-User Spell Demo</h1>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={0}
+    className="Magic-User"
+    sortBy="title"
+    sortDir="asc"
+    title="Cantrips for Magic-User"
+  />
+</main>

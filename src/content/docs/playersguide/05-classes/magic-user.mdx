@@ -4,6 +4,10 @@ title: Magic-User
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+export const allEntries = await getCollection("data");
 
 Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
 
@@ -160,3 +164,35 @@ Upon reaching 3rd level, select one 1st-level spell recorded in your spell books
 
 You gain one additional 1st-level spell slot. This slot may only be used to prepare the chosen spell.
 </GameplayCard>
+
+## Magic-User Spell List
+<Tabs>
+  <TabItem label="Cantrips">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={0}
+    className="Magic-User"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="1st-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={1}
+    className="Magic-User"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+</Tabs>

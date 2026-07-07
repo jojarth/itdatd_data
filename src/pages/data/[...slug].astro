@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from "astro:content";
+
+
+export async function getStaticPaths() {
+  const entries = await getCollection("data");
+  return entries.map((entry) => ({
+    params: {
+      // Use the stored id string as the route param so Astro receives a string
+      slug: entry.id,
+    },
+    props: { id: entry.id },
+  }));
+}
+
+const slugParam = Astro.params.slug;
+const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+const entries = await getCollection("data");
+const entry = entries.find((item) => item.id === slug || item.id === slug);
+
+if (!entry) {
+  throw new Error(`No data entry found for slug: ${slug}`);
+}
+
+const renderResult = await render(entry);
+const { Content } = renderResult ?? {};
+---
+
+<main>
+  <h1>{entry.data.title}</h1>
+  <p><strong>Level:</strong> {entry.data.level}</p>
+  <p><strong>School:</strong> {entry.data.school}</p>
+  {Content ? (
+    <Content />
+  ) : (
+    <div class="warning">
+      <p>Unable to render Content for entry <strong>{entry.id}</strong>.</p>
+      <pre>{JSON.stringify({ id: entry.id, filePath: entry.filePath, data: entry.data }, null, 2)}</pre>
+    </div>
+  )}
+</main>

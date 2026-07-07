@@ -1,0 +1,28 @@
+---
+// Props:
+// - entry: a ContentEntry from astro:content
+// - to: optional string URL for the detail page
+// - excerpt: optional short string summary
+const { entry, to, excerpt } = Astro.props;
+---
+<article class="spell-summary">
+  <h3 class="spell-title">
+    {to ? <a href={to}>{entry.data.title}</a> : entry.data.title}
+  </h3>
+  <div class="spell-meta">
+    {entry.data.level !== undefined && <span>Level {entry.data.level}</span>}
+    {entry.data.school && <span> · {entry.data.school}</span>}
+    {Array.isArray(entry.data.classes) && (
+      <span> · {entry.data.classes.join(', ')}</span>
+    )}
+  </div>
+  {excerpt ? (
+    <p class="spell-excerpt">{excerpt}</p>
+  ) : null}
+</article>
+<style>
+.spell-summary { padding: 0.5rem 0; }
+.spell-title { margin: 0 0 0.25rem 0; font-size: 1.05rem; }
+.spell-meta { color: #6b7280; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.spell-excerpt { margin: 0; }
+</style>
