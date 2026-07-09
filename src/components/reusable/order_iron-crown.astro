@@ -1,0 +1,57 @@
+---
+import FeatureSection from '../FeatureSection.astro';
+
+type Tradition = 'Military' | 'Devotional' | 'Stewardship';
+
+interface Props {
+  include?: Array<Tradition | string>;
+}
+
+const { include = ['Military', 'Devotional', 'Stewardship'] } = Astro.props as Props;
+
+const traditionAliases: Record<string, Tradition> = {
+  martial: 'Military',
+  military: 'Military',
+  devotional: 'Devotional',
+  devotion: 'Devotional',
+  stewardship: 'Stewardship',
+};
+
+const includedTraditions = include
+  .map((tradition) => traditionAliases[String(tradition).trim().toLowerCase()])
+  .filter((tradition): tradition is Tradition => Boolean(tradition));
+
+const shouldShow = (tradition: Tradition) => includedTraditions.includes(tradition);
+---
+
+<FeatureSection title="Order of the Iron Crown">
+    <p style="margin-top: 0;"><small><i>Order is the foundation of peace</i></small></p>
+
+      <p>Members of the Order of the Iron Crown uphold the virtues of authority, command, and discipline. They believe strength and conviction are necessary to guide society, and that those entrusted with power have a responsibility to protect the common folk. Their methods often bring them into conflict with rulers and nobles, though they maintain that their cause is just.</p>
+
+  {shouldShow('Military') && (
+    <>
+      <h6>The Commanders (Military Tradition)</h6>
+        <p style="margin-top: 0;"><small><i>Commanding Presence</i></small></p>
+
+        <p>If your allies can see and hear you, they can utilize the Help Activity 1 Phase earlier than normal. Additionally, such allies increase the bonuses provided by taking the Focus on Defense action by +1.</p>
+    </>
+  )}
+
+  {shouldShow('Devotional') && (
+    <>
+      <h6>The Voices of Authority (Devotional Tradition)</h6>
+        <p style="margin-top: 0;"><small><i>Unyielding Authority</i></small></p>
+        <p>When an adjacent ally fails a Saving Throw against fear, charm, or an effect that would compel them to act against their beliefs, you may use your Reaction to allow them to reroll the Saving Throw.</p>
+    </>
+  )}
+
+  {shouldShow('Stewardship') && (
+    <>
+      <h6>The Seneschals (Stewardship Tradition)</h6>
+        <p style="margin-top: 0;"><small><i>Voice of the Iron Crown</i></small></p>
+        <p>You gain a bonus to your maximum henchmen and your hencmen's loyalty base equal to 1/2 your class level.</p>
+    </>
+  )}
+</FeatureSection>
+

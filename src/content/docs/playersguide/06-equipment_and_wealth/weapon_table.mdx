@@ -1,5 +1,5 @@
 ---
-title: Weapons
+title: Weapons and Properties
 ---
 
 import GameplayCard from "../../../../components/GameplayCard.astro";
@@ -10,42 +10,36 @@ import weapons from "../../../../content/data/weapondata/weaponlist.json";
 import properties from "../../../../content/data/weapondata/properties.json";
 import features from "../../../../content/data/weapondata/features.json";
 
-## Weapon Properties and Features
+Scroll tables to the right to see more information.
 
-All weapons have properties and features that define their behavior and capabilities.
+### Axes
+<WeaponTable group="axes" colorTheme="blue-table" />
 
-### Weapon Properties
+### Bows
+<WeaponTable group="bows" colorTheme="green-table" />
+
+### Crossbows
+<WeaponTable group="crossbows" colorTheme="yellow-table" />
+
+## Weapon Properties
 
 Weapon properties provide a base on how a weapon functions. Weapon properties are applied regardless of your proficiency level with the weapon.
 
 {properties.map((prop) => (
 
   <section id={prop.id} class="property-block" style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
-    <h4>{prop.name}</h4>
+    <h3>{prop.name}</h3>
     <p>{prop.description}</p>
   </section>
 ))}
 
-### Weapon Features
+## Weapon Features
 
 {features.map((prop) => (
 
   <section id={prop.id} class="property-block" style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
-    <h4>{prop.name}</h4>
+    <h3>{prop.name}</h3>
     <p>{prop.description}</p>
   </section>
 ))}
 
-## Axes
-
-Scroll table to the right to see more information.
-
-<WeaponTable group="axes" colorTheme="blue-table" />
-
-## Bows
-
-<WeaponTable group="bows" colorTheme="green-table" />
-
-## Crossbows
-
-<WeaponTable group="crossbows" colorTheme="yellow-table" />

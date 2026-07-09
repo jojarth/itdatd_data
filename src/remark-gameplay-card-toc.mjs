@@ -35,6 +35,7 @@ function getNumericAttribute(node, name, fallback) {
 
 const reusableTocTitles = {
   ArchetypeFeatureCard: 'Archetype Feature',
+  OrderFeatureCard: 'Order',
 };
 
 function getTocTitle(child) {

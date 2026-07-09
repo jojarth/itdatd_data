@@ -4,12 +4,22 @@ title: Cleric
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+export const allEntries = await getCollection("data");
 import ArchetypeFeatureCard from '../../../../components/reusable/ArchetypeFeatureCard.astro';
+import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.astro';
+import AshenCrossOrder from '../../../../components/reusable/order_ashen-cross.astro';
+import BlackLionOrder from '../../../../components/reusable/order_black-lion.astro';
+import IronCrownOrder from '../../../../components/reusable/order_iron-crown.astro';
 
-Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
 
-## Magic-User Gameplay
-Below is a list of information needed to play a magic-user at the various levels of play.
+
+Through unwavering faith, clerics call upon divine power to heal the wounded, shield the innocent, and smite the wicked.
+
+## Cleric Gameplay
+Below is a list of information needed to play a Cleric at the various levels of play.
 <GameplayCard
   color="green"
   title="Requirements and Requisites"
@@ -34,7 +44,7 @@ Below is a list of information needed to play a magic-user at the various levels
   tocDepth={3}
 >
   <FeatureSection title="Armor Proficiency">
-    You are proficient with **light, medium, **and **heavy armor**.
+    You are proficient with **light, medium,** and **heavy armor**.
   </FeatureSection>
   
   <FeatureSection title="Shield Proficiency">
@@ -86,6 +96,16 @@ Many of your class features require you to present your holy symbol. A holy symb
 To present your holy symbol, you must hold it aloft in clear view. This requires a free hand. Alternatively, you may emblazon your holy symbol upon a shield. Presenting such a shield fulfills any requirement to present your holy symbol.
 </GameplayCard>
 
+<OrderFeatureCard
+  className="Cleric"
+  traditions={['Military', 'Devotional']}
+  toc
+>
+  <AshenCrossOrder include={['Military', 'Devotional']} />
+  <BlackLionOrder include={['Military', 'Devotional']} />
+  <IronCrownOrder include={['Military', 'Devotional']} />
+</OrderFeatureCard>
+
 <GameplayCard
   color="purple"
   title="Turn Undead"
@@ -95,31 +115,34 @@ To present your holy symbol, you must hold it aloft in clear view. This requires
 >
 Clerics can channel sacred power to drive back the undead. To use this ability, you must openly present a symbol of your faith. **Turn Undead** requires **1 Master Action** and may be performed beginning in **Phase 1**. You must present your holy symbol to turn undead. 
 
-#### Determine Highest Level
-When you attempt to Turn Undead, first determine the highest-level undead creature you can affect.
+  <FeatureSection title="Determine Highest Level">
+    When you attempt to Turn Undead, first determine the highest-level undead creature you can affect.
 
-Roll **1d20** and compare the result to your **Presence** Attribute using the table below. The result determines the highest creature level that can be affected by this attempt.
+    Roll **1d20** and compare the result to your **Presence** Attribute using the table below. The result determines the highest creature level that can be affected by this attempt.
 
-Undead creatures **4 or more levels higher** than your Cleric Level cannot be affected. Likewise, undead creatures **3 or more levels lower** than your Cleric Level are always affected, regardless of your roll.
+    Undead creatures **4 or more levels higher** than your Cleric Level cannot be affected. Likewise, undead creatures **3 or more levels lower** than your Cleric Level are always affected, regardless of your roll.
 
-<div class="yellow-table">
-|        **d20 Result**        | **Highest Creature Level** |
-| :-------------------------- | :------------------------: |
-| **Presence +6** | Cleric Level -2 |
-| **Presence +3** | Cleric Level -1 |
-| **Presence**    | Cleric Level    |
-| **Presence -3** | Cleric Level +1 |
-| **Presence -6** | Cleric Level +2 |
-| **Presence -9** | Cleric Level +3 |
-</div>
+    <div class="yellow-table">
+    |        **d20 Result**        | **Highest Creature Level** |
+    | :-------------------------- | :------------------------: |
+    | **Presence +6** | Cleric Level -2 |
+    | **Presence +3** | Cleric Level -1 |
+    | **Presence**    | Cleric Level    |
+    | **Presence -3** | Cleric Level +1 |
+    | **Presence -6** | Cleric Level +2 |
+    | **Presence -9** | Cleric Level +3 |
+    </div>
+  </FeatureSection>
 
-#### Determine Turning Capacity
-Next, determine the total number of creature levels you can affect. Roll **2d6** and add **half your Cleric Level** (rounded down). The result is your **Turning Capacity**.
+  <FeatureSection title="Determine Turning Capacity">
+    Next, determine the total number of creature levels you can affect. Roll **2d6** and add **half your Cleric Level** (rounded down). The result is your **Turning Capacity**.
+  </FeatureSection>
 
-#### Effect
-Beginning with the lowest-level eligible undead within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
+  <FeatureSection title="Turn Undead Effect">
+    Beginning with the lowest-level eligible undead within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
 
-Affected undead immediately flee from you by the safest available route. Instead of fleeing, undead that are **5 or more levels lower** than your Cleric Level are instantly destroyed, crumbling to dust.
+    Affected undead immediately flee from you by the safest available route. Instead of fleeing, undead that are **5 or more levels lower** than your Cleric Level are instantly destroyed, crumbling to dust.
+  </FeatureSection>
 </GameplayCard>
 
 <GameplayCard
@@ -173,3 +196,91 @@ Cleric spells are considered clerical spells.
 </GameplayCard>
 
 <ArchetypeFeatureCard toc />
+
+## Cleric Spell List
+<Tabs>
+  <TabItem label="Cantrips">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={0}
+    className="Cleric"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="1st-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={1}
+    className="Cleric"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="2nd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={2}
+    className="Cleric"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="3rd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={3}
+    className="Cleric"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="4th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={4}
+    className="Cleric"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="5th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={5}
+    className="Cleric"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+</Tabs>

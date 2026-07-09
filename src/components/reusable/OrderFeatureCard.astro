@@ -1,0 +1,61 @@
+---
+import GameplayCard from '../GameplayCard.astro';
+
+interface Props {
+  className: string;
+  traditions: string[];
+  level?: number;
+  color?: string;
+  toc?: boolean;
+  tocDepth?: number;
+}
+
+const {
+  className,
+  traditions,
+  level = 1,
+  color = 'purple',
+  toc = false,
+  tocDepth,
+} = Astro.props as Props;
+
+const classLabel = className.trim();
+const classText = classLabel.toLowerCase();
+const traditionList = new Intl.ListFormat('en-US', {
+  style: 'long',
+  type: 'conjunction',
+}).format(traditions);
+
+function ordinal(value: number): string {
+  const remainder = value % 100;
+  if (remainder >= 11 && remainder <= 13) return `${value}th`;
+
+  switch (value % 10) {
+    case 1:
+      return `${value}st`;
+    case 2:
+      return `${value}nd`;
+    case 3:
+      return `${value}rd`;
+    default:
+      return `${value}th`;
+  }
+}
+---
+
+<GameplayCard
+  color={color}
+  title="Order"
+  subeyebrow={`${ordinal(level)} Level ${classLabel} Feature`}
+  headerOrder={['title', 'subeyebrow']}
+  toc={toc}
+  tocDepth={tocDepth}
+>
+  <p>You belong to an Order: an organization, fellowship, or tradition dedicated to a shared purpose. Your chosen Order grants you unique features based on its teachings, practices, and methods. When you select an Order, you must also select one of its available Traditions. Your chosen Tradition determines the features you gain.</p>
+
+  <p>As a {classText}, you can select from the {traditionList} Traditions.</p>
+
+  <p>You can find a list of Orders and their available Traditions in your campaign guides. However, the Orders and Traditions listed below are available in any generic campaign.</p>
+
+  <slot />
+</GameplayCard>

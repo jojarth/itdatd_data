@@ -44,6 +44,18 @@ Example usage:
 <ArchetypeFeatureCard toc />
 ```
 
+Props let reusable blocks vary the class-specific parts of the text.
+
+```mdx
+import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.astro';
+
+<OrderFeatureCard
+  className="Cleric"
+  traditions={['Military', 'Devotional', 'Stewardship']}
+  toc
+/>
+```
+
 Reusable blocks should render the exact markup they mean to insert. For example, use `<p>` tags for paragraphs inside `.astro` components instead of relying on Markdown paragraph parsing.
 
 For reusable gameplay cards that should appear in the page table of contents, pass `toc` and optionally `tocDepth`.
