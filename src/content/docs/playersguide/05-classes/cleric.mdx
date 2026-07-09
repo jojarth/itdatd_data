@@ -4,6 +4,7 @@ title: Cleric
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+import ArchetypeFeatureCard from '../../../../components/reusable/ArchetypeFeatureCard.astro';
 
 Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
 
@@ -68,7 +69,7 @@ Below is a list of information needed to play a magic-user at the various levels
 
 ### Spell Slot Table
 
-<SpellSlotTable rank="C" colorTheme="blue-table" />
+<SpellSlotTable rank="C" colorTheme="blue-table" boldColumn={1} boldHeader />
 
 ## Cleric Features
 As a cleric, you gain the following class features.
@@ -110,8 +111,6 @@ Undead creatures **4 or more levels higher** than your Cleric Level cannot be af
 | **Presence -3** | Cleric Level +1 |
 | **Presence -6** | Cleric Level +2 |
 | **Presence -9** | Cleric Level +3 |
-
-
 </div>
 
 #### Determine Turning Capacity
@@ -172,3 +171,5 @@ Cleric spells are considered clerical spells.
   You may cast your prepared cantrips a combined number of times before you must rest. Each time you cast a prepared cantrip, you expend one cantrip use from your shared pool, regardless of which cantrip you cast. The size of this pool is equal to your Cleric Level + 1 (three uses at 2nd level). You regain all expended cantrip uses whenever you complete a night's rest.
   </FeatureSection>
 </GameplayCard>
+
+<ArchetypeFeatureCard toc />

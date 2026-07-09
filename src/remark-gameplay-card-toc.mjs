@@ -33,16 +33,32 @@ function getNumericAttribute(node, name, fallback) {
   return Number.isInteger(value) && value >= 2 && value <= 4 ? value : fallback;
 }
 
+const reusableTocTitles = {
+  ArchetypeFeatureCard: 'Archetype Feature',
+};
+
+function getTocTitle(child) {
+  if (child.name === 'GameplayCard') {
+    return getStringAttribute(child, 'title');
+  }
+
+  return (
+    getStringAttribute(child, 'tocTitle') ??
+    getStringAttribute(child, 'title') ??
+    reusableTocTitles[child.name]
+  );
+}
+
 function visitChildren(parent) {
   if (!Array.isArray(parent.children)) return;
 
   for (let index = 0; index < parent.children.length; index += 1) {
     const child = parent.children[index];
 
-    if (child.type === 'mdxJsxFlowElement' && child.name === 'GameplayCard') {
-      const title = getStringAttribute(child, 'title');
+    if (child.type === 'mdxJsxFlowElement' && hasTruthyAttribute(child, 'toc')) {
+      const title = getTocTitle(child);
 
-      if (title && hasTruthyAttribute(child, 'toc')) {
+      if (title) {
         parent.children.splice(index, 0, {
           type: 'heading',
           depth: getNumericAttribute(child, 'tocDepth', 3),

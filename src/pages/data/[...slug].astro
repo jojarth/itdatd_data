@@ -27,21 +27,18 @@ const { Content } = renderResult ?? {};
 const detailFields = [
   {
     key: "level",
-    label: "Level",
+    label: "Spell Level",
     value: entry.data.level !== undefined ? `${entry.data.level}` : undefined,
   },
   {
-    key: "school",
-    label: "School",
-    value: entry.data.school,
+    key: "actioncost",
+    label: "Action Cost",
+    value: entry.data.actioncost,
   },
   {
-    key: "classes",
-    label: "Classes",
-    value:
-      Array.isArray(entry.data.classes) && entry.data.classes.length > 0
-        ? entry.data.classes.join(", ")
-        : undefined,
+    key: "castspeed",
+    label: "Cast Speed",
+    value: entry.data.castspeed !== undefined ? `${entry.data.castspeed}` : undefined,
   },
   {
     key: "range",
@@ -54,14 +51,12 @@ const detailFields = [
     value: entry.data.duration,
   },
   {
-    key: "actioncost",
-    label: "Action Cost",
-    value: entry.data.actioncost,
-  },
-  {
-    key: "castspeed",
-    label: "Cast Speed",
-    value: entry.data.castspeed !== undefined ? `${entry.data.castspeed}` : undefined,
+    key: "classes",
+    label: "Classes",
+    value:
+      Array.isArray(entry.data.classes) && entry.data.classes.length > 0
+        ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(", ")
+        : undefined,
   },
 ];
 
@@ -75,15 +70,15 @@ const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefin
   }}
 >
   <article class="spell-detail">
-    {description ? <p class="spell-lead">{description}</p> : null}
+    {description ? <p class="spell-lead"><em>{description}</em></p> : null}
 
     <div class="spell-metadata">
       {detailFields.map((field) =>
         field.value ? (
-          <span class="spell-metadata-item">
-            <span class="spell-metadata-label">{field.label}</span>
-            <span class="spell-metadata-value">{field.value}</span>
-          </span>
+          <p class="spell-metadata-item">
+            <strong class="spell-metadata-label">{field.label}:</strong>{" "}
+            <em class="spell-metadata-value">{field.value}</em>
+          </p>
         ) : null
       )}
     </div>
@@ -105,7 +100,7 @@ const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefin
 .spell-detail {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .spell-lead {
@@ -116,23 +111,19 @@ const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefin
 
 .spell-metadata {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.9rem;
+  flex-direction: column;
+  gap: 0.1rem;
   margin: 0;
 }
 
 .spell-metadata-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  flex-wrap: wrap;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .spell-metadata-label {
-  font-size: 0.9rem;
   font-weight: 600;
-  color: var(--sl-color-gray-4, #6b7280);
+  color: var(--sl-color-text, #111827);
 }
 
 .spell-metadata-value {

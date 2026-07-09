@@ -1,0 +1,26 @@
+---
+import GameplayCard from '../GameplayCard.astro';
+
+interface Props {
+  toc?: boolean;
+  tocDepth?: number;
+}
+
+const { toc = false, tocDepth } = Astro.props as Props;
+---
+
+<GameplayCard
+  color="blue"
+  title="Keyword Feature"
+  subeyebrow="5th Level Character Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc={toc}
+  tocDepth={tocDepth}
+>
+  <p>
+    Upon reaching 5th level, select one Keyword Feature whose prerequisites you meet. Keyword Features are presented in Chapter 11, and may also appear in campaign guides.
+  </p>
+  <p>
+    If you are a multi-class character, you gain this feature only once, when one of your classes first reaches 5th level. When determining whether you meet a feature's prerequisites, consider all keywords you possess, regardless of the level of the class that granted them.
+  </p>
+</GameplayCard>

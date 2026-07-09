@@ -14,9 +14,30 @@ interface Props {
     | 'yellow-table';
   title?: string;
   caption?: string;
+  boldColumn?: number | string | Array<number | string>;
+  boldColumns?: number | string | Array<number | string>;
+  boldRow?: number | string | Array<number | string>;
+  boldRows?: number | string | Array<number | string>;
+  boldcolumn?: number | string | Array<number | string>;
+  boldrow?: number | string | Array<number | string>;
+  boldHeader?: boolean;
+  boldheader?: boolean;
 }
 
-const { rank = 'A', colorTheme = 'blue-table', title, caption } = Astro.props as Props;
+const {
+  rank = 'A',
+  colorTheme = 'blue-table',
+  title,
+  caption,
+  boldColumn,
+  boldColumns,
+  boldRow,
+  boldRows,
+  boldcolumn,
+  boldrow,
+  boldHeader = false,
+  boldheader = false,
+} = Astro.props as Props;
 const rankKey = String(rank).trim().toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E';
 
 type SpellSlotRow = { 'Class Level': string | number | null } & Record<string, string | number | null>;
@@ -80,27 +101,57 @@ function formatCellValue(value: any): string {
 
   return String(value).trim() || '-';
 }
+
+function normalizeIndexes(value: Props['boldColumn']): Set<number> {
+  const values = Array.isArray(value) ? value : [value];
+  return new Set(
+    values
+      .flatMap((item) => String(item ?? '').split(','))
+      .map((item) => Number(item.trim()))
+      .filter((item) => Number.isInteger(item) && item > 0)
+  );
+}
+
+const boldColumnIndexes = normalizeIndexes(boldColumn ?? boldColumns ?? boldcolumn);
+const boldRowIndexes = normalizeIndexes(boldRow ?? boldRows ?? boldrow);
+const shouldBoldHeader = boldHeader || boldheader;
+
+function isBoldCell(rowIndex: number | undefined, columnIndex: number): boolean {
+  const columnNumber = columnIndex + 1;
+  const rowNumber = rowIndex === undefined ? undefined : rowIndex + 1;
+
+  return (
+    boldColumnIndexes.has(columnNumber) ||
+    (rowNumber !== undefined && boldRowIndexes.has(rowNumber))
+  );
+}
 ---
 
-<div class={`spell-slot-table ${colorTheme}`}>
+<div class="spell-slot-table">
   {title && <p class="spell-slot-table-title"><strong>{title}</strong></p>}
 
-  <div class="spell-slot-table-scroll">
+  <div class={colorTheme}>
     <table>
       <thead>
         <tr>
-          {columns.map((column) => (
-            <th style={`text-align: ${column.align}`}>
+          {columns.map((column, columnIndex) => (
+            <th
+              class={shouldBoldHeader || isBoldCell(undefined, columnIndex) ? 'is-bold' : undefined}
+              style={`text-align: ${column.align}`}
+            >
               {column.label}
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
+        {rows.map((row, rowIndex) => (
           <tr>
-            {columns.map((column) => (
-              <td style={`text-align: ${column.align}`}>
+            {columns.map((column, columnIndex) => (
+              <td
+                class={isBoldCell(rowIndex, columnIndex) ? 'is-bold' : undefined}
+                style={`text-align: ${column.align}`}
+              >
                 {formatCellValue(row[column.key])}
               </td>
             ))}
@@ -125,50 +176,7 @@ function formatCellValue(value: any): string {
     color: inherit;
   }
 
-  .spell-slot-table {
-    margin: 2rem 0;
-    width: 100%;
-  }
-
-  .spell-slot-table-scroll {
-    width: 100%;
-    display: block;
-    overflow-x: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .spell-slot-table table {
-    display: table !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-  }
-
-  .spell-slot-table th,
-  .spell-slot-table td {
-    border: 1px solid var(--itdatd-table-border);
-    padding: 0.6rem 0.85rem;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .spell-slot-table th {
-    background: var(--itdatd-table-header);
-    color: var(--itdatd-table-header-text);
-  }
-
-  .spell-slot-table td {
-    background: var(--itdatd-table-row);
-  }
-
-  .spell-slot-table tr:nth-child(even) td {
-    background: var(--itdatd-table-row-alt);
-  }
-
-  .spell-slot-table tr:hover td {
-    background: var(--itdatd-table-hover);
+  .spell-slot-table .is-bold {
+    font-weight: 700;
   }
 </style>

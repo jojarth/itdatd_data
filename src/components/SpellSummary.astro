@@ -4,6 +4,9 @@
 // - to: optional string URL for the detail page
 // - excerpt: optional short string summary
 const { entry, to, excerpt } = Astro.props;
+const classList = Array.isArray(entry.data.classes)
+  ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(', ')
+  : undefined;
 ---
 <article class="spell-summary">
   <h3 class="spell-title">
@@ -12,8 +15,8 @@ const { entry, to, excerpt } = Astro.props;
   <div class="spell-meta">
     {entry.data.level !== undefined && <span>Level {entry.data.level}</span>}
     {entry.data.school && <span> · {entry.data.school}</span>}
-    {Array.isArray(entry.data.classes) && (
-      <span> · {entry.data.classes.join(', ')}</span>
+    {classList && (
+      <span> · {classList}</span>
     )}
   </div>
   {excerpt ? (

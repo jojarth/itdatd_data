@@ -1,0 +1,103 @@
+---
+title: All Spells
+---
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+export const allEntries = await getCollection("data");
+
+Below is a list of all spells, regardless of which class has access to them.
+
+<Tabs>
+  <TabItem label="Cantrips">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={0}
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['classes','shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="1st-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={1}
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="2nd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={2}
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="3rd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={3}
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="4th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={4}
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['classes','shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="5th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={5}
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="6th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={6}
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+</Tabs>

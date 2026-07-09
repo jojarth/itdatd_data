@@ -1,18 +1,79 @@
 ---
 title: Site Reference
-description: How to use the custom tables and gameplay cards in this docs site.
+description: A quick reference for the custom components, table styles, and spell tools used in this site.
 ---
 
 import GameplayCard from '../../components/GameplayCard.astro';
 import FeatureSection from '../../components/FeatureSection.astro';
+import SpellSlotTable from '../../components/SpellSlotTable.astro';
 
 # Site Reference
 
-This page documents the custom writing tools available in the site.
+This page documents the site-specific tools used while writing ITD&TD pages.
+
+Keep this page in `src/content/docs`. Starlight only treats files in the docs collection as normal documentation pages with the site layout, sidebar, search, table of contents, and routing. If this moved outside `docs`, it would need a custom page route and would stop behaving like the rest of the manual.
+
+## Quick File Map
+
+| What you want to edit | File |
+|:--|:--|
+| Colored table palettes | `src/styles/custom.css` |
+| Gameplay card layout and color bars | `src/components/GameplayCard.astro` and `src/styles/custom.css` |
+| Spell slot table rendering | `src/components/SpellSlotTable.astro` |
+| Spell slot numbers | `src/content/data/spelldata/spell_slots/spell_slots.json` |
+| Spell list filtering/cards | `src/components/SpellList.astro` and `src/components/SpellCard.astro` |
+| Full spell detail page | `src/pages/data/[...slug].astro` |
+| Spell frontmatter schema | `src/content.config.ts` |
+| Reusable text/cards/tables | `src/components/reusable/` |
+
+## Reusable Blocks
+
+Use reusable Astro components when the same rules text, card, or table needs to appear in more than one place. This avoids copy/pasting and lets one edit update every reference.
+
+Reusable blocks live in `src/components/reusable/`.
+
+Example import:
+
+```mdx
+import ArchetypeFeatureCard from '../../../../components/reusable/ArchetypeFeatureCard.astro';
+```
+
+Example usage:
+
+```mdx
+<ArchetypeFeatureCard toc />
+```
+
+Reusable blocks should render the exact markup they mean to insert. For example, use `<p>` tags for paragraphs inside `.astro` components instead of relying on Markdown paragraph parsing.
+
+For reusable gameplay cards that should appear in the page table of contents, pass `toc` and optionally `tocDepth`.
+
+```mdx
+<ArchetypeFeatureCard toc tocDepth={2} />
+```
+
+The ToC helper in `src/remark-gameplay-card-toc.mjs` can create ToC entries for reusable components. For known reusable components, add a default title to `reusableTocTitles`. For one-off reusable components, you can pass a title from the page:
+
+```mdx
+<SomeReusableBlock toc tocTitle="Reusable Section Title" />
+```
 
 ## Colored Tables
 
-Use a colored table by wrapping a normal Markdown table in a `<div>` with one of the table classes.
+Use a colored table by wrapping a normal Markdown table in a `<div>` with a table color class.
+
+```mdx
+<div class="green-table">
+
+| Level | XP To Level | Grit |
+|:-----:|:-----------:|:----:|
+| 1 | 0 | 1d4 |
+| 10 | 450,000 | 9d4 + 1 |
+
+</div>
+```
+
+Keep the blank lines between the `<div>` and the table. This helps MDX parse the Markdown table correctly.
 
 Available table classes:
 
@@ -25,53 +86,88 @@ Available table classes:
 - `purple-table`
 - `yellow-table`
 
-Example:
+Table colors are defined in `src/styles/custom.css`. To add a new color such as `azure-table`, add it to the shared table selector list, then define both light-mode and optional dark-mode CSS variables.
 
-```mdx
-<div class="green-table">
-
-| Level | XP TNL | Grit |
-|:-----:|:------:|:----:|
-| 1 | 0 | 1d4 |
-| 10 | 450,000 | 9d4 + 1 |
-
-</div>
+```css
+.azure-table {
+  --itdatd-table-border: #7dd3fc;
+  --itdatd-table-header: #e0f2fe;
+  --itdatd-table-header-text: #0c4a6e;
+  --itdatd-table-row: #f7fcff;
+  --itdatd-table-row-alt: #eef9ff;
+  --itdatd-table-hover: #dff4ff;
+}
 ```
 
-Keep the blank lines between the `<div>` and the table. This helps MDX read the table correctly.
+## Spell Slot Tables
 
-Table behavior:
+`SpellSlotTable` renders spell slot data from `src/content/data/spelldata/spell_slots/spell_slots.json`.
 
-- Rows are banded automatically.
-- Cells do not wrap, so values like `9d4 + 1` stay on one line.
-- If a table is too wide for the page, it scrolls horizontally inside its border.
-- Plain Markdown tables use the neutral grey table style.
+```mdx
+import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+
+<SpellSlotTable rank="A" colorTheme="blue-table" />
+```
+
+The `rank` prop chooses which spell slot progression to use:
+
+- `A`
+- `B`
+- `C`
+- `D`
+- `E`
+
+The `colorTheme` prop uses the same color classes as normal colored tables. Because `SpellSlotTable` renders its generated table inside the same wrapper pattern, changes to the shared colored table CSS also affect spell slot tables.
+
+### Bolding Rows And Columns
+
+Use `boldHeader` to bold the header bar.
+
+```mdx
+<SpellSlotTable rank="A" colorTheme="blue-table" boldHeader />
+```
+
+Use `boldColumn` or `boldColumns` to bold one or more columns. Column numbers are 1-based, so column `1` is `Class Level`.
+
+```mdx
+<SpellSlotTable rank="A" colorTheme="blue-table" boldColumn={1} />
+```
+
+Use `boldRow` or `boldRows` to bold one or more body rows. Row numbers are 1-based and do not include the header.
+
+```mdx
+<SpellSlotTable rank="A" colorTheme="blue-table" boldRows={[1, 5]} />
+```
+
+You can combine them:
+
+```mdx
+<SpellSlotTable
+  rank="A"
+  colorTheme="blue-table"
+  boldHeader
+  boldColumn={1}
+/>
+```
+
+Live example:
+
+<SpellSlotTable rank="A" colorTheme="blue-table" boldHeader boldColumn={1} />
+
+If you add a new table color, also add it to the `colorTheme` type in `src/components/SpellSlotTable.astro` before using it as a prop.
 
 ## Gameplay Cards
 
-Use `GameplayCard` for special rules boxes, class summaries, feature callouts, ancestry features, and archetype features.
-
-At the top of any `.mdx` page where you want cards, import the components:
+Use `GameplayCard` for class summaries, feature callouts, special rules boxes, ancestry features, archetypes, and similar rules chunks.
 
 ```mdx
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 ```
 
-The number of `../` segments depends on where the page lives. For pages in `src/content/docs/playersguide/classes/`, the import above is correct.
+The number of `../` segments depends on where the page lives. From class pages in `src/content/docs/playersguide/05-classes/`, the import above is correct.
 
-## Card Colors
-
-Set the card color with the `color` prop:
-
-- `green`: for class or summary cards
-- `purple`: for feature cards
-- `blue`: for subclass cards
-- `indigo`: for ancestry cards
-- `yellow`: for archetype cards
-- `red`, `orange`, `violet`, `grey`, `black`, `brown`, and `azure` are also available
-
-## Basic Card
+### Basic Card
 
 ```mdx
 <GameplayCard
@@ -93,16 +189,68 @@ Set the card color with the `color` prop:
   Write the feature text here.
 </GameplayCard>
 
-## Header Order
+### Card Colors
 
-Gameplay cards support four header fields:
+Set the accent color with the `color` prop:
+
+```mdx
+<GameplayCard color="green" title="Class Gameplay">
+  Write the card text here.
+</GameplayCard>
+```
+
+Common colors:
+
+- `green`: class or summary cards
+- `purple`: feature cards
+- `blue`: subclass cards
+- `indigo`: ancestry cards
+- `yellow`: archetype cards
+
+Other defined colors:
+
+- `red`
+- `orange`
+- `violet`
+- `grey`
+- `black`
+- `brown`
+- `azure`
+
+Gameplay card colors are defined in `src/styles/custom.css` as classes like this:
+
+```css
+.gameplay-card--purple::before {
+  background: #a855f7;
+}
+```
+
+To add a new color, add a matching CSS block. `GameplayCard` accepts any string for `color`, so no TypeScript list needs to be updated.
+
+```css
+.gameplay-card--teal::before {
+  background: #14b8a6;
+}
+```
+
+Then use it:
+
+```mdx
+<GameplayCard color="teal" title="New Card Color">
+  Write the card text here.
+</GameplayCard>
+```
+
+### Header Fields
+
+Gameplay cards support these header fields:
 
 - `eyebrow`
 - `subeyebrow`
 - `title`
 - `subtitle`
 
-By default, cards render in this order:
+By default, cards render:
 
 ```txt
 eyebrow
@@ -110,81 +258,40 @@ title
 subtitle
 ```
 
-If you add `subeyebrow`, set `headerOrder` to choose where each field appears.
+Use `headerOrder` when you want a different order.
 
 ```mdx
 <GameplayCard
   color="purple"
-  eyebrow="Class Feature"
-  subeyebrow="1st Level"
   title="Spellcasting"
-  subtitle="The core class feature for Magic-Users."
-  headerOrder={['eyebrow', 'subeyebrow', 'title', 'subtitle']}
+  subeyebrow="1st Level Magic-User Feature"
+  headerOrder={['title', 'subeyebrow']}
 >
   Write the feature text here.
 </GameplayCard>
 ```
 
-<GameplayCard
-  color="purple"
-  eyebrow="Class Feature"
-  subeyebrow="1st Level"
-  title="Spellcasting"
-  subtitle="The core class feature for Magic-Users."
-  headerOrder={['eyebrow', 'subeyebrow', 'title', 'subtitle']}
->
-  Write the feature text here.
-</GameplayCard>
+### Cards In The Table Of Contents
 
-You can also put the title first:
+Add `toc` to make a card title appear in the right-side table of contents.
 
 ```mdx
 <GameplayCard
   color="purple"
   title="Spellcasting"
-  subtitle="The core class feature for Magic-Users."
-  eyebrow="Class Feature"
-  subeyebrow="1st Level"
-  headerOrder={['title', 'subtitle', 'eyebrow', 'subeyebrow']}
->
-  Write the feature text here.
-</GameplayCard>
-```
-
-## Cards In The Side Navigation
-
-To show a gameplay card title in the right-side table of contents, add the `toc` prop to the card. The card still displays its own title, and the title also appears in the side navigation.
-
-```mdx
-<GameplayCard
-  color="purple"
-  eyebrow="Class Feature"
-  title="Spellcasting"
-  subtitle="The core class feature for Magic-Users."
   toc
 >
   Write the feature text here.
 </GameplayCard>
 ```
-
-<GameplayCard
-  color="purple"
-  eyebrow="Class Feature"
-  title="Spellcasting"
-  subtitle="The core class feature for Magic-Users."
-  toc
->
-  Write the feature text here.
-</GameplayCard>
 
 The `toc` prop only works when `title` is a quoted string, like `title="Spellcasting"`.
 
-By default, `toc` entries are added as level-three headings. To make a card appear as a top-level entry in the table of contents, use `tocDepth={2}`:
+By default, `toc` entries are added as level-three headings. Use `tocDepth={2}` when a card should appear as a higher-level section.
 
 ```mdx
 <GameplayCard
   color="green"
-  eyebrow="Class Gameplay"
   title="Magic-User Gameplay"
   toc
   tocDepth={2}
@@ -193,16 +300,14 @@ By default, `toc` entries are added as level-three headings. To make a card appe
 </GameplayCard>
 ```
 
-## Card With Sections
+### Card Sections
 
-Use `FeatureSection` inside a card when the feature needs separate blocks.
+Use `FeatureSection` inside a card when the rule needs separate titled blocks.
 
 ```mdx
 <GameplayCard
   color="blue"
-  eyebrow="Sub-Class Feature"
   title="Feature Name"
-  subtitle="A short summary of the feature."
 >
   <FeatureSection title="First Section">
     Write the first rule section here.
@@ -216,9 +321,7 @@ Use `FeatureSection` inside a card when the feature needs separate blocks.
 
 <GameplayCard
   color="blue"
-  eyebrow="Sub-Class Feature"
   title="Feature Name"
-  subtitle="A short summary of the feature."
 >
   <FeatureSection title="First Section">
     Write the first rule section here.
@@ -229,55 +332,124 @@ Use `FeatureSection` inside a card when the feature needs separate blocks.
   </FeatureSection>
 </GameplayCard>
 
-## Common Examples
+## Spell Lists
 
-Class Gameplay:
-
-```mdx
-<GameplayCard
-  color="green"
-  eyebrow="Class Gameplay"
-  title="Magic-User Gameplay"
-  subtitle="A short summary of how the class plays."
->
-  Write the class gameplay overview here.
-</GameplayCard>
-```
-
-Ancestry Feature:
+Use `SpellList` to render filtered spell cards from the `data` collection.
 
 ```mdx
-<GameplayCard
-  color="indigo"
-  eyebrow="Ancestry Feature"
-  title="Feature Name"
->
-  Write the ancestry feature here.
-</GameplayCard>
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+
+export const allEntries = await getCollection("data");
+
+<SpellList
+  entries={allEntries}
+  datatype="spell"
+  level={0}
+  className="Magic-User"
+  sortBy="title"
+  sortDir="asc"
+  showHeading={false}
+  displayFields={['shortDescription']}
+/>
 ```
 
-Archetype Feature:
+Useful filters:
 
-```mdx
-<GameplayCard
-  color="yellow"
-  eyebrow="Archetype Feature"
-  title="Feature Name"
->
-  Write the archetype feature here.
-</GameplayCard>
+- `datatype="spell"`
+- `level={0}`
+- `className="Magic-User"`
+- `tag="some-tag"`
+
+Useful display fields:
+
+- `level`
+- `school`
+- `classes`
+- `excerpt`
+- `shortDescription`
+
+When `classes` is displayed, class names are sorted alphabetically and comma-separated, regardless of their order in spell frontmatter.
+
+Clicking a spell card links to the spell's full page using `/data/${entry.id}`.
+
+## Full Spell Pages
+
+Full spell pages are rendered by `src/pages/data/[...slug].astro`.
+
+That page:
+
+- creates one route for each `data` collection entry
+- uses the spell title as the page title
+- shows `shortDescription` below the title in italics
+- shows frontmatter fields as bold labels with italic values
+- sorts displayed class arrays alphabetically
+- renders the spell's MDX rules text below the metadata block
+
+Current full-page field order:
+
+1. Spell Level
+2. Action Cost
+3. Cast Speed
+4. Range
+5. Duration
+6. Classes
+
+To add a new spell frontmatter field, update the schema in `src/content.config.ts`, then render it in `src/pages/data/[...slug].astro`.
+
+```ts
+damage: z.string().optional(),
 ```
 
-## Writing Notes
+Then add it to the detail field list:
 
-Use `.mdx` instead of `.md` for any page that uses components like `GameplayCard` or `FeatureSection`.
+```astro
+{
+  key: "damage",
+  label: "Damage",
+  value: entry.data.damage,
+},
+```
 
-Use normal `.md` or `.mdx` pages for plain chapter text and tables.
+## Spell Frontmatter
 
-## Refresh cache when diagnosing server
+Spell files live under `src/content/data/spelldata/spell_list/`.
 
-rm -rf .astro dist
+Example:
 
-## Start local test server
-cd Documents/ITDATD/
+```yaml
+---
+datatype: spell
+title: Snap Spark
+level: 0
+actioncost: 1 Master Action
+castspeed: 3
+range: 30 Feet
+duration: Instantaneous
+classes:
+  - Magic-User
+shortDescription: Snapping your fingers, you attempt to cause a fire to harm a foe.
+---
+```
+
+The allowed frontmatter fields are defined in `src/content.config.ts`.
+
+## Local Development
+
+Start the local dev server:
+
+```bash
 npm run dev
+```
+
+Build the site:
+
+```bash
+npm run build
+```
+
+When diagnosing stale generated output, clear Astro's generated folders:
+
+```bash
+rm -rf .astro dist
+```

@@ -232,7 +232,7 @@
     "damage": "d4 P",
     "speed": 2,
     "range": "125/250",
-    "properties": ["heavy", "two-handed"],
+    "properties": ["two-handed"],
     "proficient": ["overwatch"],
     "skilled": ["press"],
     "expert": ["harsh"],

@@ -5,6 +5,9 @@ const href = to ?? `/data/${entry.id}`;
 const showField = (field: string) => displayFields.includes(field);
 const descriptionText = entry.data.shortDescription ?? excerpt;
 const shouldShowDescription = showField('excerpt') || showField('shortDescription');
+const classList = Array.isArray(entry.data.classes)
+  ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(', ')
+  : undefined;
 ---
 <article class="spell-card">
   <div class="spell-card-inner">
@@ -13,8 +16,8 @@ const shouldShowDescription = showField('excerpt') || showField('shortDescriptio
       <div class="spell-meta">
         {showField('level') && entry.data.level !== undefined && <span class="meta-item">Level {entry.data.level}</span>}
         {showField('school') && entry.data.school && <span class="meta-item">{entry.data.school}</span>}
-        {showField('classes') && Array.isArray(entry.data.classes) && (
-          <span class="meta-item">{entry.data.classes.join(', ')}</span>
+        {showField('classes') && classList && (
+          <span class="meta-item">{classList}</span>
         )}
       </div>
     </div>
