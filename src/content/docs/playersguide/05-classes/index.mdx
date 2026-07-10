@@ -1,13 +1,107 @@
 ---
 title: Classes
 ---
+import { getCollection } from 'astro:content';
 
-Classes describe a character's core adventuring discipline: how they survive, solve problems, and grow in power.
+export const classes = (await getCollection('docs'))
+  .filter(({ id }) => {
+    const parts = id.split('/');
+    return parts.length === 3
+      && parts[0] === 'playersguide'
+      && parts[1] === '05-classes'
+      && parts[2] !== 'index';
+  })
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+Classes describe a character's core adventuring discipline: how they survive, solve problems, and grow in power. A class is a broad definition of abilities and features that define how your character interacts with the world from a game-mechanics standpoint, although it has a large impact on how you roleplay as well.
+
+Perhaps the most defining feature of your character, your class offers a vast array of benefits. Each class has a class gameplay section, a class table, and a class features section. Classes that gain the ability to cast spells also have a class spellcasting section.
 
 ## Class List
 
-- [Magic-User](/playersguide/05-classes/magic-user/)
+<ul>
+  {classes.map(({ id, data }) => (
+    <li><a href={`/${id}/`}>{data.title}</a></li>
+  ))}
+</ul>
+
+## Class Gameplay Section
+Your class gameplay section contains several sub-sections that include information such as any requirements that a created character must meet to enter the class, specialized rules for playing that class, your starting weapon familiarities, armor and shield proficiencies, and any other items you need to know about playing a character of this class.
+
+### Class Keywords
+There are 4 class keywords: _Adept_, _Arcanist_, _Priest_, and _Soldier_. These keywords not only tell you a lot about what the class can do, but certain effects in the game only affect creatures with certain keywords. Class keywords tend to influence what kind of magic can affect a person, almost exclusively with regard to magical items.
+
+In addition, your ancestry grants you an extra ancestry feature based on your class's keyword. If your selected class has multiple class keywords, you must only select one ancestry keyword feature, but can select it from any of the ancestry keyword features that your class grants you.
+
+### Class Requirements
+Some classes have certain attribute requirements or ancestral requirements to play. If none are listed, then anyone can enter that class. If any requirements are listed, you must meet them in order to enter the class.
+
+### Prime Requisites
+Many classes have certain attributes that help them excel, represented by a bonus to experience points gained if your attribute is high enough. Some classes have multiple prime requisites, and you apply the highest bonus that you meet for all attributes.
+
+### Special Rules
+Some classes have specialized rules for playing the class. If such a field is listed, you must abide by the specialized rules listed therein.
+
+### Starting Weapon Familiarities
+Each class starts with a proficiency level of familiar with a small subset of weapons. As part of character creation, you will be granted a number of Weapon Proficiency Points to spend on weapon proficiencies. You can use these Weapon Proficiency Points to upgrade your character's proficiency level with any weapon groups, up to the maximum allowed by their class Offense Bonus.
+
+### Armor and Shield Proficiency
+Each class tells you what armor you can wear and shields you can wield. If you wear armor or wield shields that are not allowed by your class, you may be subject to penalties. See Chapter 5 for more details.
+
+**Note**: Some classes grant you proficiency with armor and shields, but class features cannot function while wearing them. For example, Magic-Users can wear light armor and wield bucklers and small shields; however, while doing so, they cannot cast their spells, as magic-user spellcasting requires the caster to be unarmored and not wielding a shield.
+
+## Class Table
+Your class table tells you how your character interacts with the gameplay mechanics of the world. It is a table that contains the various mechanical numbers your character applies during the game, based on your character level.
+
+Your class table includes the following items.
+
+### Level
+Look for your level on this line, and you will find information required to play your character.
+
+### Experience to Reach Level (XP)
+XP is the minimum amount of experience you are required to have to be that level. Once you reach this experience threshold, your character is eligible to get training to become the new level.
+
+### Combat Bonus (Combat)
+Combat Proficiency is the number you apply to certain situations when in combat. For example, your Combat Proficiency is applied to attack and damage rolls made with weapons you are familiar with, and the damage reduction applied by your shield block.
+
+### Skill Bonus (Skill)
+A Skill Bonus represents training gained through your ancestry, background, or class. A Skill Bonus is applied to Attribute Tests only when you are trained or experienced in the task being attempted. It does not apply to X-in-Y tests or other non-Attribute-based rolls. When applicable, your Skill Bonus is added to your Attribute Score before making the test, increasing your target number for success.
+
+#### Applicability
+A Skill Bonus is not applied to all Attribute Tests. It only applies when your ancestry, background, or class provides relevant training or expertise for the task.
+
+For example, a Thief may apply their Skill Bonus when disabling a device, while a Fighter would not. Similarly, a Magic-User may apply their Skill Bonus when recalling magical theory, while a Fighter would not unless otherwise justified.
+
+The GM determines when a Skill Bonus applies, and should consider both the character's training and player input when making this decision.
+
+:::tip[Skill Bonus Example]{icon="information"}
+You are a 4th-level Thief with a Precision of 13. You attempt to disable a device requiring a Precision test. The GM rules that your Thief training applies, allowing you to add your +1 Skill Bonus.
+
+Your modified Precision Score becomes 14 (13 + 1), thus you must roll 14 or lower on a d20 to succeed.
+:::
+
+### Saving Throws
+Saving Throws, sometimes simply called "saves", are abstract methods of showing how good your character is at avoiding effects of the world. Saving throws are intentionally broad and may overlap in practice. When an effect specifies a saving throw, that is the one that should be used without further interpretation. When no saving throw is specified, the GM should choose the most appropriate category based on the nature of the threat, using judgment rather than strict categorization. It is expected that some effects could reasonably fall under more than one save; consistency within a given situation matters more than perfect classification, and rulings should prioritize clarity and play at the table over technical precision.
+
+To succeed at a saving throw, you must roll higher than the number listed on the saving throw for your level. Some ancestries may alter your saving throw values, and they simply reduce the target number. Regardless of bonuses, a Saving Throw can never be lower than 2: a roll of 1 is always a failed save.
+
+#### Save vs Doom
+This saving throw is used against effects that threaten a creature's life, vitality, or physical well-being. It applies to poisons, diseases, death magic, life-draining attacks, and other hazards that bring swift injury, ruin, or death. The GM may also call for this save whenever a character is subjected to an effect that directly imperils their survival.
+
+#### Save vs Devices
+This saving throw is used against the powers of magical objects that are used to produce spell-like effects, as well as similarly enchanted objects. It applies to rods, staves, wands, relics, artifacts, and other supernatural contrivances that direct their effects upon a target. The GM may also use this save for magical traps, ancient mechanisms, and unusual enchanted devices not covered elsewhere.
+
+#### Save vs Binding
+This saving throw is used against effects that hinder, immobilize, or alter the body. It applies to petrification, paralysis, magical restraint, transformative effects, and other powers that deprive a creature of normal physical function. The GM may also call for this save whenever an effect seeks to impose a lasting physical change or incapacity.
+
+#### Save vs Breath
+This saving throw is used against large, sweeping hazards that affect an area rather than a single target. It applies to the breath weapons of dragons and similar monsters, as well as blasts, bursts, clouds, and other widespread dangers. The GM may also use this save whenever a character is exposed to a sudden hazard that threatens everyone within a particular area.
+
+#### Save vs Spell
+This saving throw is used against spells and other magical effects not more appropriately covered by another saving throw category. It applies to harmful spells, curses, charms, illusions, enchantments, and a wide range of supernatural effects that directly influence a creature's mind, senses, fate, or body. The GM may also call for this save whenever a character is subjected to damaging or intrusive magic, especially when the effect is not clearly derived from a device, breath, or physical transformation.
+
+## Class Features
+Your class features tell you what kind of gameplay-altering things your class can do. Think of these class features as powers that only a member of that class can do. Some class features are granted as you level up, rather than at first level. Some features improve as your class climbs in level. Be sure to read what level you gain a feature on.
 
 ## Class Page Pattern
-
 Each class page can contain a level table, a gameplay summary card, and feature cards for the rules a player needs at the table.

@@ -967,7 +967,7 @@
     "damage": "d4 B",
     "speed": 2,
     "range": "60/120",
-    "properties": ["sneaky"],
+    "properties": [""],
     "proficient": ["overwatch"],
     "skilled": ["savage"],
     "expert": ["crtical"],
