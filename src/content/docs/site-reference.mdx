@@ -35,13 +35,13 @@ Reusable blocks live in `src/components/reusable/`.
 Example import:
 
 ```mdx
-import ArchetypeFeatureCard from '../../../../components/reusable/ArchetypeFeatureCard.astro';
+import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
 ```
 
 Example usage:
 
 ```mdx
-<ArchetypeFeatureCard toc />
+<KeywordFeatureCard toc />
 ```
 
 Props let reusable blocks vary the class-specific parts of the text.
@@ -61,7 +61,7 @@ Reusable blocks should render the exact markup they mean to insert. For example,
 For reusable gameplay cards that should appear in the page table of contents, pass `toc` and optionally `tocDepth`.
 
 ```mdx
-<ArchetypeFeatureCard toc tocDepth={2} />
+<KeywordFeatureCard toc tocDepth={2} />
 ```
 
 The ToC helper in `src/remark-gameplay-card-toc.mjs` can create ToC entries for reusable components. For known reusable components, add a default title to `reusableTocTitles`. For one-off reusable components, you can pass a title from the page:

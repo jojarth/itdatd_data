@@ -8,13 +8,12 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { getCollection } from "astro:content";
 import SpellList from "../../../../components/SpellList.astro";
 export const allEntries = await getCollection("data");
-import ArchetypeFeatureCard from '../../../../components/reusable/ArchetypeFeatureCard.astro';
+import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
 import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.astro';
 import AshenCrossOrder from '../../../../components/reusable/order_ashen-cross.astro';
 import BlackLionOrder from '../../../../components/reusable/order_black-lion.astro';
 import IronCrownOrder from '../../../../components/reusable/order_iron-crown.astro';
-
-
+import Establishment from '../../../../components/reusable/Establishment.astro';
 
 Through unwavering faith, clerics call upon divine power to heal the wounded, shield the innocent, and smite the wicked.
 
@@ -154,7 +153,7 @@ Clerics can channel sacred power to drive back the undead. To use this ability, 
 >
 Through prayer and unwavering faith, you have learned to prepare sacred miracles within your mind. Each miracle is a divine blessing that can be held only temporarily. When invoked, that blessing is expended and slips from memory until it is prepared again through prayer.
 
-Cleric spells are considered clerical spells. 
+A Cleric's spells are considered to be clerical spells. 
 
   <FeatureSection title="Meditation Ritual">
   You may perform a Meditation Ritual, which requires one uninterrupted hour of quiet spiritual devotion. This ritual often takes the form of prayer, contemplation, reciting sacred rites, or another act of worship.
@@ -195,7 +194,9 @@ Cleric spells are considered clerical spells.
   </FeatureSection>
 </GameplayCard>
 
-<ArchetypeFeatureCard toc />
+<KeywordFeatureCard toc />
+
+<Establishment toc />
 
 ## Cleric Spell List
 <Tabs>

@@ -1,0 +1,50 @@
+---
+import GameplayCard from '../GameplayCard.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+interface Props {
+  toc?: boolean;
+  tocDepth?: number;
+}
+
+const { toc = false, tocDepth } = Astro.props as Props;
+---
+
+<GameplayCard
+  color="blue"
+  title="Establishment"
+  subeyebrow="10th Level Character Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc={toc}
+  tocDepth={tocDepth}
+>
+    <p>
+        Upon reaching 10th level, your accomplishments have earned you the influence and resources needed to establish a lasting presence in the world.
+    </p>
+    <p>
+        You may construct, claim, or restore an establishment. The establishments available to you are determined by the keywords you possess. Each keyword grants access to one or more establishments, allowing you to found organizations, strongholds, places of learning or worship, centers of commerce, and other holdings appropriate to your expertise.
+    </p>
+     <p>
+        If you possess multiple keywords, you may select an establishment from any one of them, provided you meet its prerequisites. Additional establishments may also be available through your ancestry or campaign guides.
+    </p>
+    <p>
+        An establishment serves as more than a place to reside. It becomes the center of your growing influence, allowing you to attract followers, train retainers, conduct research, manage lands or organizations, craft items, and undertake other long-term endeavors. The benefits and requirements of each establishment are described with the establishment itself.
+    </p>
+    <p>
+        If you are a multi-class character, you gain this feature only once, when one of your classes first reaches 10th level. When determining whether you meet a feature's prerequisites, consider all keywords you possess, regardless of the level of the class that granted them.
+    </p>
+    <Aside type="tip" title="Multiple Establishments" icon="information">
+        <p>
+            There is no limit to the number of establishments a character may own or oversee, provided they meet the requirements for each.
+        </p>
+
+        <p>
+        However, each establishment introduces additional followers, resources, income, expenses, and other responsibilities. Managing multiple establishments can add a considerable amount of bookkeeping and may slow the pace of play.
+        </p>
+
+        <p>
+        For most campaigns, we recommend beginning with a single establishment. If you enjoy domain play and wish to expand your holdings later, you can always establish additional domains as your influence grows.
+        </p>
+    </Aside>
+</GameplayCard>
+

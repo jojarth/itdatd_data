@@ -11,7 +11,7 @@ const data = defineCollection({
     level: z.number(),
     school: z.string().optional(),
     actioncost: z.string().optional(),
-    castspeed: z.number().optional(),
+    castspeed: z.union([z.number(), z.string()]).optional(),
     range: z.string().optional(),
     duration: z.string().optional(),
     classes: z.array(z.string()).optional(),

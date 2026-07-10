@@ -8,7 +8,8 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { getCollection } from "astro:content";
 import SpellList from "../../../../components/SpellList.astro";
 export const allEntries = await getCollection("data");
-import ArchetypeFeatureCard from '../../../../components/reusable/ArchetypeFeatureCard.astro';
+import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
+import Establishment from '../../../../components/reusable/Establishment.astro';
 
 Magic-Users are characters who specialize in the casting of magical spells. Playing a Magic-User gives you access to more magical power than any other class.
 
@@ -87,7 +88,7 @@ As a magic-user, you gain the following class features.
 >
 Through years of study, you have learned to record magical formulae within your spell books and commit them to memory. Each spell is an intricate pattern that can be held within the mind only temporarily. When cast, the pattern collapses and is forgotten until it is prepared again.
 
-Magic-User spells are considered magical spells.
+A Magic-User's spells are considered to be magical spells.
 
   <FeatureSection title="Meditation Ritual">
   You may perform a Meditation Ritual, which requires one uninterrupted hour of quiet study.
@@ -166,7 +167,9 @@ Upon reaching 3rd level, select one 1st-level spell recorded in your spell books
 You gain one additional 1st-level spell slot. This slot may only be used to prepare the chosen spell.
 </GameplayCard>
 
-<ArchetypeFeatureCard toc />
+<KeywordFeatureCard toc />
+
+<Establishment toc />
 
 ## Magic-User Spell List
 <Tabs>

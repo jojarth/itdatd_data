@@ -11,6 +11,19 @@ classes:
     - Bard
 shortDescription: Your touch restores a small amount of vitality.
 ---
-The target of this spell receives healing for 1 point of Grit.  
+import FeatureSection from '../../../../../components/FeatureSection.astro';
 
-If you can cast 3rd level spells, increase the healing provided by this spell to 2 points of Grit. If you can cast 6th level spells, increase the healing provided by this spell to 3 points of Grit. 
+<FeatureSection title="Spell Effects">
+    The target regains 1 Grit.
+</FeatureSection>
+
+<FeatureSection title="Spell Impovements">
+###### When you can cast 3rd-level spells
+    * The target instead regains 2 Grit.
+###### When you can cast 6th-level spells
+    * The target instead regains 3 Grit.
+</FeatureSection>
+
+<FeatureSection title="Components">
+    You must utter a brief prayer or plea of one to five words while laying a hand upon the target.
+</FeatureSection>
