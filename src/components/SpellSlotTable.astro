@@ -52,9 +52,19 @@ if (!rawRankData.length) {
 }
 
 const rawRankRow = rawRankData[0];
+const preferredColumnOrder = ['Preparations', 'Casts'];
 const columnKeys = Object.keys(rawRankRow)
   .filter((key) => key !== 'Class Level')
   .sort((left, right) => {
+    const leftPreferredIndex = preferredColumnOrder.indexOf(left);
+    const rightPreferredIndex = preferredColumnOrder.indexOf(right);
+
+    if (leftPreferredIndex !== -1 || rightPreferredIndex !== -1) {
+      if (leftPreferredIndex === -1) return 1;
+      if (rightPreferredIndex === -1) return -1;
+      return leftPreferredIndex - rightPreferredIndex;
+    }
+
     const leftMatch = left.match(/(\d+)/);
     const rightMatch = right.match(/(\d+)/);
     const leftNum = leftMatch ? Number(leftMatch[1]) : 0;
@@ -85,6 +95,10 @@ const columns: Array<{ key: string; label: string; align: 'left' | 'center' | 'r
   { key: 'Class Level', label: 'Class Level', align: 'center' },
   ...columnKeys.map((key) => ({ key, label: key, align: 'center' as const })),
 ];
+
+const cantripColumns = columns.filter((column) => ['Preparations', 'Casts'].includes(column.key));
+const spellLevelColumns = columns.filter((column) => /^Level \d+$/.test(column.key));
+const hasColumnGroups = cantripColumns.length > 0 || spellLevelColumns.length > 0;
 
 const numberFormatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 20,
@@ -125,6 +139,43 @@ function isBoldCell(rowIndex: number | undefined, columnIndex: number): boolean 
     (rowNumber !== undefined && boldRowIndexes.has(rowNumber))
   );
 }
+
+function getColumnClass(columnIndex: number): string | undefined {
+  const classes = [];
+  const column = columns[columnIndex];
+  const isFirstSpellSlotColumn = column.key === spellLevelColumns[0]?.key;
+
+  if (isFirstSpellSlotColumn) {
+    classes.push('spell-slot-table__group-start');
+  }
+
+  if (isBoldCell(undefined, columnIndex)) {
+    classes.push('is-bold');
+  }
+
+  return classes.length ? classes.join(' ') : undefined;
+}
+
+function getBodyCellClass(rowIndex: number, columnIndex: number): string | undefined {
+  const classes = [];
+  const column = columns[columnIndex];
+  const isClassLevelColumn = column.key === 'Class Level';
+  const isFirstSpellSlotColumn = column.key === spellLevelColumns[0]?.key;
+
+  if (isClassLevelColumn) {
+    classes.push('spell-slot-table__group-end');
+  }
+
+  if (isFirstSpellSlotColumn) {
+    classes.push('spell-slot-table__group-start');
+  }
+
+  if (isBoldCell(rowIndex, columnIndex)) {
+    classes.push('is-bold');
+  }
+
+  return classes.length ? classes.join(' ') : undefined;
+}
 ---
 
 <div class="spell-slot-table">
@@ -133,14 +184,45 @@ function isBoldCell(rowIndex: number | undefined, columnIndex: number): boolean 
   <div class={colorTheme}>
     <table>
       <thead>
+        {hasColumnGroups && (
+          <tr>
+            <th
+              class={shouldBoldHeader || isBoldCell(undefined, 0) ? 'is-bold spell-slot-table__group-end' : 'spell-slot-table__group-end'}
+              rowspan="2"
+              style="text-align: center"
+            >
+              Class Level
+            </th>
+            {cantripColumns.length > 0 && (
+              <th
+                class={shouldBoldHeader ? 'is-bold' : undefined}
+                colspan={cantripColumns.length}
+                style="text-align: center"
+              >
+                Cantrips
+              </th>
+            )}
+            {spellLevelColumns.length > 0 && (
+              <th
+                class={shouldBoldHeader ? 'is-bold spell-slot-table__group-start' : 'spell-slot-table__group-start'}
+                colspan={spellLevelColumns.length}
+                style="text-align: center"
+              >
+                Spell Slots
+              </th>
+            )}
+          </tr>
+        )}
         <tr>
           {columns.map((column, columnIndex) => (
-            <th
-              class={shouldBoldHeader || isBoldCell(undefined, columnIndex) ? 'is-bold' : undefined}
-              style={`text-align: ${column.align}`}
-            >
-              {column.label}
-            </th>
+            hasColumnGroups && column.key === 'Class Level' ? null : (
+              <th
+                class={shouldBoldHeader ? ['is-bold', getColumnClass(columnIndex)].filter(Boolean).join(' ') : getColumnClass(columnIndex)}
+                style={`text-align: ${column.align}`}
+              >
+                {column.label}
+              </th>
+            )
           ))}
         </tr>
       </thead>
@@ -149,7 +231,7 @@ function isBoldCell(rowIndex: number | undefined, columnIndex: number): boolean 
           <tr>
             {columns.map((column, columnIndex) => (
               <td
-                class={isBoldCell(rowIndex, columnIndex) ? 'is-bold' : undefined}
+                class={getBodyCellClass(rowIndex, columnIndex)}
                 style={`text-align: ${column.align}`}
               >
                 {formatCellValue(row[column.key])}
@@ -178,5 +260,13 @@ function isBoldCell(rowIndex: number | undefined, columnIndex: number): boolean 
 
   .spell-slot-table .is-bold {
     font-weight: 700;
+  }
+
+  .spell-slot-table :global(.spell-slot-table__group-start) {
+    border-left: 1px solid var(--itdatd-table-border, currentColor) !important;
+  }
+
+  .spell-slot-table :global(.spell-slot-table__group-end) {
+    border-right: 1px solid var(--itdatd-table-border, currentColor) !important;
   }
 </style>
