@@ -1,0 +1,36 @@
+---
+datatype: spell
+title: Cure Light Wounds
+level: 1
+actioncost: 1 Master Action
+castspeed: 4
+range: Touch
+duration: Instantaneous
+classes:
+  - Cleric
+  - Theurge
+shortDescription: Your touch restores vigor to an ally.
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+
+<FeatureSection title="Spell Effects">
+    Touch a nearby creature. The target regains 1d8 + 3 Grit.
+
+###### Creature Interactions
+    If the target has the **Aeon**, **Animus**, **Cosmic**, or **Fey** keywords, the spell functions normally.
+
+    If the target has the **Necros** or **Umbra** keywords, the spell instead deals 1d8 + 3 sacred damage. The target is entitled to a Save vs Spell; on a success, it takes no damage.
+
+    If the target has the **Construct** or **Elemental** keywords, the spell has no effect.
+</FeatureSection>
+
+<FeatureSection title="Spell Impovements">
+###### When you can cast 3rd-level spells
+    * Increase the healing provided (and damage to *necros* and *umbra* creatures) to 1d8 + 5.
+###### When you can cast 5th-level spells
+    * Increase the healing provided (and damage to *necros* and *umbra* creatures) to 1d8 + 7.
+</FeatureSection>
+
+<FeatureSection title="Components">
+    You must utter a brief prayer or plea of one to five words while laying a hand upon the target.
+</FeatureSection>

@@ -1,6 +1,6 @@
 ---
 datatype: spell
-title: Bless
+title: Curse
 level: 1
 actioncost: 1 Master Action
 castspeed: 4
@@ -9,15 +9,15 @@ duration: 1 minute
 classes:
   - Cleric
   - Theurge
-shortDescription: Improves allies attack rolls and saving throws.
+shortDescription: Penalizes foes attack rolls and saving throws.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 
 <FeatureSection title="Spell Effects">
-   Select 3 targets within range of the spell that are not currently engaged in melee combat. The selected targets gain a +1 magic bonus to attack rolls and a +1 magic bonus to saving throws for the duration of the spell. 
+   Select 3 targets within range of the spell that are not currently engaged in melee combat. The selected targets suffer a -1 magic penalty to attack rolls and a -1 magic penalty to saving throws for the duration of the spell. 
 
 ###### Non-Player Characters
-    In addition to the normal affects of this spell, casting this spell upon a non-player character will grant them a +1 magic bonus to their morale as well.
+    In addition to the normal affects of this spell, casting this spell upon a non-player character will grant them a -1 magic penalty to their morale as well.
 </FeatureSection>
 
 <FeatureSection title="Spell Impovements">
@@ -28,5 +28,5 @@ import FeatureSection from '../../../../../components/FeatureSection.astro';
 </FeatureSection>
 
 <FeatureSection title="Components">
-    To cast this spell, you present your holy symbol toward the target and speak a brief prayer of blessing.
+    To cast this spell, you present your holy symbol toward the target while speaking a solemn word of condemnation.
 </FeatureSection>

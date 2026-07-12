@@ -1,0 +1,41 @@
+---
+datatype: spell
+title: Command
+level: 1
+actioncost: 1 Master Action
+castspeed: 4
+range: 30 feet
+duration: 1 round
+classes:
+  - Cleric
+  - Theurge
+shortDescription: Forces a creature to perform a short action.
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+
+<FeatureSection title="Spell Effects">
+    Choose a valid target within range that can both see and hear you, then speak a single-word command. The target must make a Save vs Spell.
+
+    On a successful save, the spell has no effect.
+
+    On a failed save, the target must immediately begin obeying your command. Until it has spent a total of three actions carrying out the command, one of which must be a Master Action, it may take only the actions necessary to fulfill your instruction.
+
+###### Creature Interactions
+    The target must possess both the **Animus** and **Humanoid** keywords. You must share a language with the target, and the command must be spoken in a language you both understand.
+
+    Creatures whose level is three or more higher than yours automatically succeed on their saving throw. Creatures with a Presence attribute of 6 or lower automatically fail.
+
+###### Issuing the Command
+    The command must be a single, clear, and unambiguous word. The target follows the command to the best of its ability, but will not knowingly harm itself or directly harm one of its allies.
+
+    If the command cannot reasonably be carried out, the target instead spends the required actions attempting to comply. For example, a creature commanded to "die" collapses to the ground and remains motionless for the duration of the effect.
+
+    Common commands include **back**, **fall**, **flee**, **go**, **halt**, **leave**, **rest**, **run**, **sleep**, **stop**, and **surrender**.
+
+###### Over Multiple Rounds
+    If the target cannot spend all three required actions before the end of the current round, it continues obeying the command beginning in Phase 1 of the next round until all required actions have been spent.
+</FeatureSection>
+
+<FeatureSection title="Components">
+    You must speak the command in a clear, commanding voice while pointing at the target.
+</FeatureSection>
