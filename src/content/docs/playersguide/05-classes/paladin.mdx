@@ -1,0 +1,333 @@
+---
+title: Paladin
+---
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+export const allEntries = await getCollection("data");
+import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
+import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.astro';
+import AshenCrossOrder from '../../../../components/reusable/order_ashen-cross.astro';
+import BlackLionOrder from '../../../../components/reusable/order_black-lion.astro';
+import IronCrownOrder from '../../../../components/reusable/order_iron-crown.astro';
+import Establishment from '../../../../components/reusable/Establishment.astro';
+
+Paladins are champions of the faith who stand at the forefront of every righteous struggle. Tempered by martial discipline and guided by unwavering conviction, they wield both steel and sacred power against the enemies of their creed.
+
+## Paladin Gameplay
+Below is a list of information needed to play a Paladin at the various levels of play.
+<GameplayCard
+  color="green"
+  title="Requirements and Requisites"
+  toc
+  tocDepth={3}
+>
+    <FeatureSection title="Class Requirements">
+    To become a Paladin, you must meet the following attribute requirements:
+   
+    - Your Brawn score must be 13 or higher.
+    - Your Heartiness score must be 11 or higher.
+    - Your Logic score must be 9 or higher.
+    - Your Reason score must be 13 or higher.
+    - Your Savvy score must be 11 or higher.
+    - Your Presence score must be 13 or higher.
+   
+    These demanding requirements reflect the exceptional character expected of a paladin. Few possess the strength, resolve, wisdom, and force of personality required to uphold the sacred oath.
+    </FeatureSection>
+
+    <FeatureSection title="Class Keywords">
+        **Priest**, **Soldier**
+    </FeatureSection>
+
+    <FeatureSection title="Prime Requisite">
+        Your prime requsites are brawn, reason, and presence, and you gain bonus experience points based on these scores.
+        - If your brawn, reason, and presence scores are 13 or higher, you gain a +5% bonus to all experience points earned.
+        - If your brawn, reason, and presence scores are 16 or higher, you gain a +10% bonus to all experience points earned.
+    </FeatureSection>
+
+    <FeatureSection title="Multi-Classing">
+        As a Paladin, your path is one of strict adherance, and as such you cannot be a multi-class character, even if you meet all other prerequsites. 
+    </FeatureSection>
+
+    <FeatureSection title="Paladin Tenents">
+        A Paladin is expected to uphold the following tenets:
+        - **Honor the Law**. Respect just authority, keep your word, and uphold the lawful customs of the lands you travel whenever doing so does not conflict with your other tenets.
+        - **Protect the Innocent**. Defend those who cannot defend themselves and stand against cruelty, tyranny, and needless suffering.
+        - **Act with Honor**. Show courage, mercy, and integrity in both victory and defeat. Do not lie, betray those under your protection, or resort to dishonorable means when an honorable path remains.
+        - **Serve the Greater Good**. When your tenets come into conflict, the protection of innocent life and the cause of righteousness take precedence over obedience to law.
+
+        ###### Breaking your Oath
+        A Paladin who willfully and knowingly violates the tenets of their oath immediately loses the benefits of any class feature marked Oath-Dependent. While fallen, you are treated as though you do not possess the **Priest** keyword for the purpose of meeting prerequisites, selecting character features, and using abilities.
+
+        A fallen Paladin may seek redemption through sincere repentance and by completing whatever penance the Game Master determines is appropriate. Once the Paladin has atoned for their transgression, these class features are immediately restored.
+
+        If you continue to adventure while fallen, you continue to gain experience as a Paladin normally. However, you do not gain the benefits of any oath-dependent class features you would otherwise acquire while fallen. If your paladinhood is restored, you immediately regain all lost class features, including any you would have gained by advancing in level during that time.
+    </FeatureSection>
+  </GameplayCard>
+
+<GameplayCard
+  color="green"
+  title="Proficiencies"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Armor Proficiency">
+    You are proficient with **all armor**.
+  </FeatureSection>
+  
+  <FeatureSection title="Shield Proficiency">
+    You are proficient with **all shields**.
+  </FeatureSection>
+
+  <FeatureSection title="Weapon Proficiency">
+    You begin play familiar with **bludgeons, bows, crossbows, flails, heavy blades, lances, light blades, maces, polearms, slings, spears,** and **staves**.
+  </FeatureSection>
+</GameplayCard>
+
+### Class Table
+
+<div class="green-table">
+| **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
+|:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
+| **1**     | 0               | +1d8 + 3 |  +2        | +0        | 12       | 12         | 12          | 12         | 12        |
+| **2**     | 2,000           | +1d8 + 3 |  +2        | +0        | 12       | 12         | 12          | 12         | 12        |
+| **3**     | 4,000           | +1d8 + 3 |  +3        | +0        | 11       | 12         | 12          | 11         | 12        |
+| **4**     | 10,000          | +1d8 + 3 |  +3        | +0        | 11       | 11         | 11          | 11         | 11        |
+| **5**     | 20,000          | +1d8 + 3 |  +4        | +0        | 10       | 11         | 11          | 10         | 11        |
+| **6**     | 40,000          | +1d8 + 3 |  +4        | +0        | 10       | 10         | 11          | 10         | 11        |
+| **7**     | 100,000         | +1d8 + 3 |  +5        |  +1       | 9        | 10         | 10          | 9          | 10        |
+| **8**     | 200,000         | +1d8 + 3 |  +5        |  +1       | 9        | 10         | 10          | 9          | 10        |
+| **9**     | 400,000         | +1d8 + 3 |  +6        |  +1       | 8        | 9          | 10          | 8          | 10        |
+| **10**    | 600,000         | +3       |  +6        |  +1       | 8        | 9          | 9           | 8          | 9         |
+| **11**    | 800,000         | +3       |  +7        |  +1       | 7        | 8          | 9           | 7          | 9         |
+| **12**    | 1,000,000       | +3       |  +7        |  +1       | 7        | 8          | 9           | 7          | 9         |
+| **13**    | 1,500,000       | +3       |  +8        |  +1       | 6        | 8          | 8           | 6          | 8         |
+| **14**    | 2,000,000       | +3       |  +8        |  +2       | 6        | 7          | 8           | 6          | 8         |
+</div>
+
+### Spell Progression Table
+
+<SpellSlotTable rank="E" colorTheme="blue-table" boldColumn={1} boldHeader />
+
+## Paladin Features
+As a Paladin, you gain the following class features.
+
+<GameplayCard
+  color="purple"
+  title="Holy Symbol"
+  subeyebrow="1st Level Paladin Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Many of your class features require you to present your holy symbol. A holy symbol is a physical representation of your faith and devotion, and may take nearly any form, such as an amulet, prayer beads, a reliquary, or another relic sacred to your beliefs.
+
+To present your holy symbol, you must hold it aloft in clear view. This requires a free hand. Alternatively, you may emblazon your holy symbol upon a shield. Presenting such a shield fulfills any requirement to present your holy symbol.
+</GameplayCard>
+
+<GameplayCard
+  color="purple"
+  title="Lay on Hands"
+  subeyebrow="1st Level Paladin Feature * Oath-Dependent"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Though you cannot yet cast spells, you can invoke the *Lay on Hands* cantrip once per day without expending a Cantrip use. You regain the use of this feature whenever you complete a Night's Rest.
+
+  <FeatureSection title="7th Level Improvement">
+  Upon reaching 7th level and gaining the ability to cast spells, you always have the *Lay on Hands* cantrip prepared. In addition to your free daily use, you may cast *Lay on Hands* by expending Cantrip uses as normal. This does not count toward the number of cantrips you can prepare. 
+  </FeatureSection>
+
+</GameplayCard>
+
+<OrderFeatureCard
+  className="Paladin"
+  traditions={['Military', 'Stewardship']}
+  toc
+>
+  <AshenCrossOrder include={['Military', 'Stewardship']} />
+  <BlackLionOrder include={['Military', 'Stewardship']} />
+  <IronCrownOrder include={['Military', 'Stewardship']} />
+</OrderFeatureCard>
+
+<GameplayCard
+  color="purple"
+  title="Turn Undead"
+  subeyebrow="3rd Level Paladin Feature * Oath-Dependent"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 3rd level, Paladins can channel sacred power to drive back the undead. To use this ability, you must openly present a symbol of your faith. **Turn Undead** requires **1 Master Action** and may be performed beginning in **Phase 1**. You must present your holy symbol to turn undead. 
+
+  <FeatureSection title="Determine Highest Level">
+    When you attempt to Turn Undead, first determine the highest-level undead creature you can affect.
+
+    Roll **1d20** and compare the result to your **Presence** Attribute using the table below. The result determines the highest creature level that can be affected by this attempt.
+
+    Undead creatures **2 or more levels higher** than your Paladin Level cannot be affected. Likewise, undead creatures **5 or more levels lower** than your Paladin Level are always affected, regardless of your roll.
+
+    <div class="yellow-table">
+    |        **d20 Result**        | **Highest Creature Level** |
+    | :-------------------------- | :------------------------: |
+    | **Presence +6** | Paladin Level -4 |
+    | **Presence +3** | Paladin Level -3 |
+    | **Presence**    | Paladin Level -2  |
+    | **Presence -3** | Paladin Level - 1 |
+    | **Presence -6** | Paladin Level     |
+    | **Presence -9** | Paladin Level +1  |
+    </div>
+  </FeatureSection>
+
+  <FeatureSection title="Determine Turning Capacity">
+    Next, determine the total number of creature levels you can affect. Roll **2d6** and add **half your Paladin Level, minus 2** (rounded down). The result is your **Turning Capacity**.
+  </FeatureSection>
+
+  <FeatureSection title="Turn Undead Effect">
+    Beginning with the lowest-level eligible undead within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
+
+    Affected undead immediately flee from you by the safest available route. Instead of fleeing, undead that are **7 or more levels lower** than your Paladin Level are instantly destroyed, crumbling to dust.
+  </FeatureSection>
+
+  :::tip[Paladins Turning Undead]{icon="information"}
+  Paladins turn undead as a cleric 2 levels lower. The math above simply includes it for ease. Thus, a 3rd level Paladin turns undead like a 1st level cleric, and if your Paladin level is 8, you turn undead like a 6th level cleric. To be clear, when determining turning capacity, you subtract 2 from your Paladin level before rounding down (thus, our 8th level Paladin would add 3 to your Turning Capacity (8-2 = 6/2 = 3)). 
+  :::
+</GameplayCard>
+
+<GameplayCard
+  color="purple"
+  title="Divine Health"
+  subeyebrow="3rd Level Paladin Feature * Oath-Dependent"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 3rd level, you become immune to diseases. 
+</GameplayCard>
+
+<KeywordFeatureCard toc />
+
+<GameplayCard
+  color="purple"
+  title="Aura of Power"
+  subeyebrow="6th Level Paladin Feature * Oath-Dependent"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 6th level, you project an aura of power. This aura is a 10-foot emination outfrom you. Allies inside your Aura gain a +1 magic bonus to Saving Throws, and creatures you consider to be a foe who are inside your aura have a -1 magic penalty to Saving Throws. 
+
+Foes inside your Aura who attack an ally other than you have a -1 magic penalty to their attack rolls.
+
+This aura is always active, it cannot be turned off, but does not function if you are not concious. Creatures inside the aura can pinpoint it to you, assuming they can see you.
+
+###### Creature Interactions
+Creatures with the **Aeon** keyword are not affected by your aura.  
+</GameplayCard>
+
+<GameplayCard
+  color="purple"
+  title="Spellcasting"
+  subeyebrow="7th Level Paladin Feature * Oath-Dependent"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reachin 7th level, and through prayer and unwavering faith, you have learned to prepare sacred miracles within your mind. Each miracle is a sacred blessing that can be held only temporarily. When invoked, that blessing is expended and slips from memory until it is prepared again through prayer.
+
+A Paladin's spells are considered clerical spells. 
+  
+  <FeatureSection title="Spell Preparation">
+  Immediately after completing a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Paladins may prepare any spell on the Paladin spell list, so long as they have the correct level of spell slot. 
+
+  For example, a 10th-level Paladin prepares two 1st-level spells and one 2nd-level spell. Preparing the same spell multiple times allows you to cast it multiple times before resting again. Prepared spells remain in memory until cast.
+  
+  Spell Preparation can only be done immediately following a Safe Rest.
+
+  :::tip[Spellcasting in Cerrix]{icon="information"}
+  It is by design that spell casters prepare their spells once per adventure, not per day (with the exception of minor spells, such as Cantrips).
+  :::
+  </FeatureSection>
+  
+  <FeatureSection title="Casting Spells">
+  To cast a prepared spell, you must:
+  
+  * Have the spell prepared.
+  * Be able to present your holy symbol.
+  * Be able to speak clearly.
+ 
+  Some spells also require material components. If so, the required component is used in place of your holy symbol when casting the spell.
+  
+  After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
+  </FeatureSection>
+  
+  <FeatureSection title="Cantrips">
+  Cantrips are simple prayers that require little devotion to prepare.
+
+  Whenever you prepare your spells after completing a Safe Rest, you also prepare a number of cantrips from the Paladin cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
+
+  Each time you cast a prepared cantrip, you expend one available cantrip cast from your shared pool, regardless of which prepared cantrip you cast. Unlike leveled spells, cantrips are not erased from your memory when cast and remain prepared until you prepare your spells again.
+
+  You regain all expended cantrip casts whenever you complete a night's rest.
+  </FeatureSection>
+</GameplayCard>
+
+<Establishment toc />
+
+## Paladin Spell List
+<Tabs>
+  <TabItem label="Cantrips">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={0}
+    className="Paladin"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="1st-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={1}
+    className="Paladin"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="2nd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={2}
+    className="Paladin"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="3rd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={3}
+    className="Paladin"
+    sortBy="title"
+    sortDir="asc"
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+</Tabs>
