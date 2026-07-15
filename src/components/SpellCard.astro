@@ -1,6 +1,6 @@
 ---
 // Props: entry (ContentEntry), to (string | optional), excerpt (string | optional), displayFields (string[] | optional)
-const { entry, to, excerpt, displayFields = ['level', 'school', 'classes', 'excerpt'] } = Astro.props;
+const { entry, to, excerpt, displayFields = ['level', 'casting', 'school', 'classes', 'excerpt'] } = Astro.props;
 const href = to ?? `/data/${entry.id}`;
 const showField = (field: string) => displayFields.includes(field);
 const descriptionText = entry.data.shortDescription ?? excerpt;
@@ -15,6 +15,7 @@ const classList = Array.isArray(entry.data.classes)
       <h3 class="spell-title"><a href={href}>{entry.data.title}</a></h3>
       <div class="spell-meta">
         {showField('level') && entry.data.level !== undefined && <span class="meta-item">Level {entry.data.level}</span>}
+        {showField('casting') && entry.data.casting && <span class="meta-item">Casting: {entry.data.casting}</span>}
         {showField('school') && entry.data.school && <span class="meta-item">{entry.data.school}</span>}
         {showField('classes') && classList && (
           <span class="meta-item">{classList}</span>

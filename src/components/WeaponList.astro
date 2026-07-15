@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import WeaponCard from "./WeaponCard.astro";
+
+const {
+  entries,
+  group,
+  property,
+  feature,
+  titleIncludes,
+  sortBy = "title",
+  sortDir = "asc",
+  title = "Weapon List",
+  showHeading = true,
+  displayFields,
+} = Astro.props;
+
+const sourceEntries = entries ?? await getCollection("weapons");
+const featureFields = ["proficient", "skilled", "expert", "master", "grandmaster"];
+const direction = sortDir === "desc" ? -1 : 1;
+
+const filtered = sourceEntries
+  .filter((entry) => {
+    const weapon = entry.data;
+    if (group && weapon.group.toLowerCase() !== String(group).toLowerCase()) return false;
+    if (property && !weapon.properties.some((ref) => ref.id === property)) return false;
+    if (
+      feature &&
+      !featureFields.some((field) => weapon[field].some((ref) => ref.id === feature))
+    ) return false;
+    if (
+      titleIncludes &&
+      !weapon.title.toLowerCase().includes(String(titleIncludes).toLowerCase())
+    ) return false;
+    return true;
+  })
+  .sort((a, b) => {
+    const left = a.data[sortBy];
+    const right = b.data[sortBy];
+    if (typeof left === "number" && typeof right === "number") {
+      return (left - right) * direction;
+    }
+    return String(left).localeCompare(String(right)) * direction;
+  });
+---
+
+<section class="weapon-list">
+  {showHeading ? <h2>{title}</h2> : null}
+  {filtered.length > 0 ? (
+    <div class="weapon-card-grid">
+      {filtered.map((entry) => (
+        <WeaponCard entry={entry} displayFields={displayFields} />
+      ))}
+    </div>
+  ) : (
+    <p>No weapons matched the current filters.</p>
+  )}
+</section>
+
+<style>
+  .weapon-list {
+    margin: 1rem 0;
+  }
+
+  .weapon-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 0.75rem;
+  }
+</style>

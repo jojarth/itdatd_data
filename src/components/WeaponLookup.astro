@@ -1,7 +1,6 @@
 ---
 // src/components/WeaponLookup.astro
-import properties from '../content/data/weapondata/properties.json';
-import features from '../content/data/weapondata/features.json';
+import { getEntry } from "astro:content";
 
 interface Props {
   id: string;
@@ -11,21 +10,23 @@ interface Props {
 const { id, type } = Astro.props;
 const hasValidId = id && id.trim() !== "" && id !== "—";
 
-const dataSource = type === 'property' ? properties : features;
-const targetPage = ''; // Links to the same page anchors
-
-const match = hasValidId ? dataSource.find(item => item.id === id) : null;
-const displayName = match ? match.name : id;
-const description = match ? match.description : 'Description not found.';
-const tooltipText = Array.isArray(description) ? description.join('\n\n') : description;
+const match = hasValidId
+  ? type === "property"
+    ? await getEntry("weaponProperties", id)
+    : await getEntry("weaponFeatures", id)
+  : undefined;
+const targetPage = type === "property" ? "/data/weapon-properties" : "/data/weapon-features";
+const displayName = match?.data.title ?? id;
+const tooltipText = match?.data.shortDescription ?? "Description not found.";
 ---
 
 {hasValidId ? (
   /* We attach the description directly to the link data attributes */
   <a
-    href={`${targetPage}#${id}`}
+    href={`${targetPage}/${id}`}
     class="weapon-tooltip-trigger"
     data-tip={tooltipText}
+    title={tooltipText}
   >
     {displayName}
   </a>

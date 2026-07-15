@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import gameplayCardToc from "./src/integrations/gameplay-card-toc.mjs";
-import injectProperties from "./src/integrations/inject-properties.mjs";
 
 export default defineConfig({
   site: "https://itdatd.azureknights.net",
@@ -148,6 +147,5 @@ export default defineConfig({
       ],
     }),
     gameplayCardToc(),
-    injectProperties(),
   ],
 });

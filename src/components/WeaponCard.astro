@@ -1,0 +1,81 @@
+---
+import WeaponLookup from "./WeaponLookup.astro";
+
+const {
+  entry,
+  to,
+  displayFields = ["group", "cost", "ep", "damage", "speed", "range", "properties"],
+} = Astro.props;
+
+const weapon = entry.data;
+const href = to ?? `/data/weapons/${entry.id}`;
+const showField = (field: string) => displayFields.includes(field);
+---
+
+<article class="weapon-card">
+  <header>
+    <h3><a href={href}>{weapon.title}</a></h3>
+    {showField("group") ? <p class="weapon-group">{weapon.group}</p> : null}
+  </header>
+
+  <div class="weapon-stats">
+    {showField("cost") ? <span><strong>Cost:</strong> {weapon.cost}</span> : null}
+    {showField("ep") ? <span><strong>EP:</strong> {weapon.ep}</span> : null}
+    {showField("damage") ? <span><strong>Damage:</strong> {weapon.damage}</span> : null}
+    {showField("speed") ? <span><strong>Speed:</strong> {weapon.speed}</span> : null}
+    {showField("range") ? <span><strong>Range:</strong> {weapon.range}</span> : null}
+  </div>
+
+  {showField("properties") && weapon.properties.length > 0 ? (
+    <p class="weapon-properties">
+      <strong>Properties:</strong>{" "}
+      {weapon.properties.map((property, index) => (
+        <>
+          {index > 0 ? ", " : null}
+          <WeaponLookup id={property.id} type="property" />
+        </>
+      ))}
+    </p>
+  ) : null}
+</article>
+
+<style>
+  .weapon-card {
+    border: 1px solid var(--sl-color-hairline, #e5e7eb);
+    border-radius: 0.5rem;
+    padding: 0.9rem;
+    background: var(--sl-color-bg, #fff);
+  }
+
+  .weapon-card h3,
+  .weapon-card p {
+    margin: 0;
+  }
+
+  .weapon-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .weapon-card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .weapon-group {
+    color: var(--sl-color-gray-3, #6b7280);
+    font-size: 0.875rem;
+  }
+
+  .weapon-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-top: 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .weapon-properties {
+    margin-top: 0.65rem !important;
+    font-size: 0.9rem;
+  }
+</style>

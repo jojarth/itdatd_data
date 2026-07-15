@@ -139,7 +139,7 @@ You can use this feature to cast the *Minor Healing* cantrip without expending a
 Once you use this feature, you must complete a Night's Rest before you can use it again.
 
 <FeatureSection title="11th Level Improvement">
-When you use this feature, you may choose to remove one disease affecting the target. If you do, the Minor Healing cantrip restores its normal amount of Grit rather than three times your Paladin level.
+Starting at 11th level, when you use this feature, you may choose to remove one disease affecting the target. If you do, the Minor Healing cantrip restores its normal amount of Grit rather than three times your Paladin level.
 </FeatureSection>
 
 </GameplayCard> 
@@ -216,7 +216,7 @@ Upon reaching 6th level, you radiate an aura of divine power in a 10-foot emanat
 
 Allies within your aura gain a +1 magic bonus to Saving Throws. Hostile creatures within your aura instead suffer a -1 magic penalty to Saving Throws.
 
-In addition, hostile creatures within your aura take a -1 Magic penalty to attack rolls made against any ally other than you.
+In addition, hostile creatures within your aura reduce the damage dice of their weapon attacks by 1 dice step if they attack a creature other than you. 
 
 Your aura is always active and cannot be suppressed. However, it ceases to function while you are unconscious.
 
@@ -262,7 +262,9 @@ A Paladin's spells are considered clerical spells.
   <FeatureSection title="Cantrips">
   Cantrips are simple prayers that require little devotion to prepare.
 
-  Whenever you prepare your spells after completing a Safe Rest, you also prepare a number of cantrips from the Paladin cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
+  Whenever you prepare your spells after completing a Safe Rest, you also prepare a number of cantrips from the Paladin cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool. 
+
+  You always have the Minor Healing cantrip prepared. It does not count against the number of cantrips you can prepare.
 
   Each time you cast a prepared cantrip, you expend one available cantrip cast from your shared pool, regardless of which prepared cantrip you cast. Unlike leveled spells, cantrips are not erased from your memory when cast and remain prepared until you prepare your spells again.
 
@@ -284,7 +286,7 @@ A Paladin's spells are considered clerical spells.
     sortBy="title"
     sortDir="asc"
     showHeading={false}
-    displayFields={['shortDescription']}
+    displayFields={['casting', 'shortDescription']}
   />
   </main>
   </TabItem>
@@ -298,7 +300,7 @@ A Paladin's spells are considered clerical spells.
     sortBy="title"
     sortDir="asc"
     showHeading={false}
-    displayFields={['shortDescription']}
+    displayFields={['casting', 'shortDescription']}
   />
   </main>
   </TabItem>
@@ -312,7 +314,7 @@ A Paladin's spells are considered clerical spells.
     sortBy="title"
     sortDir="asc"
     showHeading={false}
-    displayFields={['shortDescription']}
+    displayFields={['casting', 'shortDescription']}
   />
   </main>
   </TabItem>
@@ -326,7 +328,7 @@ A Paladin's spells are considered clerical spells.
     sortBy="title"
     sortDir="asc"
     showHeading={false}
-    displayFields={['shortDescription']}
+    displayFields={['casting', 'shortDescription']}
   />
   </main>
   </TabItem>

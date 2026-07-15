@@ -364,7 +364,7 @@ export const allEntries = await getCollection("data");
   sortBy="title"
   sortDir="asc"
   showHeading={false}
-  displayFields={['shortDescription']}
+  displayFields={['casting', 'shortDescription']}
 />
 ```
 
@@ -378,6 +378,7 @@ Useful filters:
 Useful display fields:
 
 - `level`
+- `casting`
 - `school`
 - `classes`
 - `excerpt`
@@ -403,11 +404,10 @@ That page:
 Current full-page field order:
 
 1. Spell Level
-2. Action Cost
-3. Cast Speed
-4. Range
-5. Duration
-6. Classes
+2. Casting
+3. Range
+4. Duration
+5. Classes
 
 To add a new spell frontmatter field, update the schema in `src/content.config.ts`, then render it in `src/pages/data/[...slug].astro`.
 
@@ -436,8 +436,7 @@ Example:
 datatype: spell
 title: Snap Spark
 level: 0
-actioncost: 1 Master Action
-castspeed: 3
+casting: 1 Master Action; Phase 3
 range: 30 Feet
 duration: Instantaneous
 classes:

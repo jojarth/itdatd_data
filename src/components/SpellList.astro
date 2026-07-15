@@ -11,7 +11,7 @@ const props = Astro.props as {
   sortDir?: "asc" | "desc";
   title?: string;
   showHeading?: boolean;
-  displayFields?: Array<"level" | "school" | "classes" | "excerpt" | "shortDescription">;
+  displayFields?: Array<"level" | "casting" | "school" | "classes" | "excerpt" | "shortDescription">;
 };
 
 const {
@@ -24,7 +24,7 @@ const {
   sortDir = "asc",
   title = "Spell List",
   showHeading = true,
-  displayFields = ["level", "school", "classes", "excerpt"],
+  displayFields = ["level", "casting", "school", "classes", "excerpt"],
 } = props;
 
 const filtered = (entries ?? [])

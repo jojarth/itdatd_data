@@ -1,66 +1,106 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import WeaponLookup from "../../components/WeaponLookup.astro";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("data");
-  return entries.map((entry) => ({
-    params: {
-      slug: entry.id,
-    },
-    props: { id: entry.id },
-  }));
+  const [spells, weapons, weaponProperties, weaponFeatures] = await Promise.all([
+    getCollection("data"),
+    getCollection("weapons"),
+    getCollection("weaponProperties"),
+    getCollection("weaponFeatures"),
+  ]);
+
+  return [
+    ...spells.map((entry) => ({
+      params: { slug: entry.id },
+      props: { collection: "data", id: entry.id },
+    })),
+    ...weapons.map((entry) => ({
+      params: { slug: `weapons/${entry.id}` },
+      props: { collection: "weapons", id: entry.id },
+    })),
+    ...weaponProperties.map((entry) => ({
+      params: { slug: `weapon-properties/${entry.id}` },
+      props: { collection: "weaponProperties", id: entry.id },
+    })),
+    ...weaponFeatures.map((entry) => ({
+      params: { slug: `weapon-features/${entry.id}` },
+      props: { collection: "weaponFeatures", id: entry.id },
+    })),
+  ];
 }
 
-const slugParam = Astro.params.slug;
-const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
-const entries = await getCollection("data");
-const entry = entries.find((item) => item.id === slug);
+type DetailCollection = "data" | "weapons" | "weaponProperties" | "weaponFeatures";
+
+const { collection, id } = Astro.props as {
+  collection: DetailCollection;
+  id: string;
+};
+const entry = await getEntry(collection, id);
 
 if (!entry) {
-  throw new Error(`No data entry found for slug: ${slug}`);
+  throw new Error(`No ${collection} entry found for ID: ${id}`);
 }
 
 const renderResult = await render(entry);
 const { Content } = renderResult ?? {};
+const isSpell = collection === "data";
+const isWeapon = collection === "weapons";
 
-const detailFields = [
-  {
-    key: "level",
-    label: "Spell Level",
-    value: entry.data.level !== undefined ? `${entry.data.level}` : undefined,
-  },
-  {
-    key: "actioncost",
-    label: "Action Cost",
-    value: entry.data.actioncost,
-  },
-  {
-    key: "castspeed",
-    label: "Cast Speed",
-    value: entry.data.castspeed !== undefined ? `${entry.data.castspeed}` : undefined,
-  },
-  {
-    key: "range",
-    label: "Range",
-    value: entry.data.range,
-  },
-  {
-    key: "duration",
-    label: "Duration",
-    value: entry.data.duration,
-  },
-  {
-    key: "classes",
-    label: "Classes",
-    value:
-      Array.isArray(entry.data.classes) && entry.data.classes.length > 0
-        ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(", ")
-        : undefined,
-  },
-];
+const detailFields = isSpell
+  ? [
+      {
+        key: "level",
+        label: "Spell Level",
+        value: entry.data.level !== undefined ? `${entry.data.level}` : undefined,
+      },
+      {
+        key: "casting",
+        label: "Casting",
+        value: entry.data.casting,
+      },
+      {
+        key: "range",
+        label: "Range",
+        value: entry.data.range,
+      },
+      {
+        key: "duration",
+        label: "Duration",
+        value: entry.data.duration,
+      },
+      {
+        key: "classes",
+        label: "Classes",
+        value:
+          Array.isArray(entry.data.classes) && entry.data.classes.length > 0
+            ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(", ")
+            : undefined,
+      },
+    ]
+  : isWeapon
+    ? [
+        { key: "group", label: "Weapon Group", value: entry.data.group },
+        { key: "cost", label: "Cost", value: entry.data.cost },
+        { key: "ep", label: "EP", value: `${entry.data.ep}` },
+        { key: "damage", label: "Damage", value: entry.data.damage },
+        { key: "speed", label: "Speed", value: `${entry.data.speed}` },
+        { key: "range", label: "Range", value: entry.data.range },
+      ]
+    : [];
 
 const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefined;
+const weaponProperties = isWeapon ? entry.data.properties : [];
+const proficiencyFeatures = isWeapon
+  ? [
+      { label: "Proficient", entries: entry.data.proficient },
+      { label: "Skilled", entries: entry.data.skilled },
+      { label: "Expert", entries: entry.data.expert },
+      { label: "Master", entries: entry.data.master },
+      { label: "Grand Master", entries: entry.data.grandmaster },
+    ]
+  : [];
 ---
 
 <StarlightPage
@@ -69,22 +109,65 @@ const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefin
     description,
   }}
 >
-  <article class="spell-detail">
-    {description ? <p class="spell-lead"><em>{description}</em></p> : null}
+  <article class="data-detail">
+    {description ? <p class="data-lead"><em>{description}</em></p> : null}
 
-    <div class="spell-metadata">
-      {detailFields.map((field) =>
-        field.value ? (
-          <p class="spell-metadata-item">
-            <strong class="spell-metadata-label">{field.label}:</strong>{" "}
-            <em class="spell-metadata-value">{field.value}</em>
-          </p>
-        ) : null
-      )}
-    </div>
+    {detailFields.length > 0 ? (
+      <div class="data-metadata">
+        {detailFields.map((field) =>
+          field.value !== undefined && field.value !== "" ? (
+            <p class="data-metadata-item">
+              <strong class="data-metadata-label">{field.label}:</strong>{" "}
+              <em class="data-metadata-value">{field.value}</em>
+            </p>
+          ) : null
+        )}
+      </div>
+    ) : null}
+
+    {isWeapon ? (
+      <div class="weapon-rules-links">
+        <section>
+          <h2>Weapon Properties</h2>
+          {weaponProperties.length > 0 ? (
+            <p>
+              {weaponProperties.map((property, index) => (
+                <>
+                  {index > 0 ? ", " : null}
+                  <WeaponLookup id={property.id} type="property" />
+                </>
+              ))}
+            </p>
+          ) : (
+            <p>None.</p>
+          )}
+        </section>
+
+        <section>
+          <h2>Proficiency Features</h2>
+          <dl class="proficiency-list">
+            {proficiencyFeatures.map(({ label, entries }) => (
+              <div class="proficiency-row">
+                <dt>{label}</dt>
+                <dd>
+                  {entries.length > 0
+                    ? entries.map((feature, index) => (
+                        <>
+                          {index > 0 ? ", " : null}
+                          <WeaponLookup id={feature.id} type="feature" />
+                        </>
+                      ))
+                    : "—"}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </div>
+    ) : null}
 
     {Content ? (
-      <div class="spell-body">
+      <div class="data-body">
         <Content />
       </div>
     ) : (
@@ -97,41 +180,74 @@ const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefin
 </StarlightPage>
 
 <style>
-.spell-detail {
+.data-detail {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-.spell-lead {
+.data-lead {
   margin: 0;
   font-size: 1.05rem;
   color: var(--sl-color-text-accent, #374151);
 }
 
-.spell-metadata {
+.data-metadata {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
   margin: 0;
 }
 
-.spell-metadata-item {
+.data-metadata-item {
   line-height: 1.35;
   margin: 0;
 }
 
-.spell-metadata-label {
+.data-metadata-label {
   font-weight: 600;
   color: var(--sl-color-text, #111827);
 }
 
-.spell-metadata-value {
+.data-metadata-value {
   color: var(--sl-color-text, #111827);
 }
 
-.spell-body {
+.data-body {
   margin-top: 0.5rem;
+}
+
+.weapon-rules-links {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.weapon-rules-links h2 {
+  margin-bottom: 0.5rem;
+}
+
+.weapon-rules-links p {
+  margin: 0;
+}
+
+.proficiency-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.proficiency-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 9rem) 1fr;
+  gap: 1rem;
+}
+
+.proficiency-row dt {
+  font-weight: 600;
+}
+
+.proficiency-row dd {
+  margin: 0;
 }
 
 .warning {

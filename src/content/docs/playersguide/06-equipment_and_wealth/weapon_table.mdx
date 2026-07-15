@@ -5,10 +5,25 @@ title: Weapons and Properties
 import GameplayCard from "../../../../components/GameplayCard.astro";
 import FeatureSection from "../../../../components/FeatureSection.astro";
 import WeaponTable from "../../../../components/WeaponTable.astro";
-import WL from "../../../../components/WeaponLookup.astro";
-import weapons from "../../../../content/data/weapondata/weaponlist.json";
-import properties from "../../../../content/data/weapondata/properties.json";
-import features from "../../../../content/data/weapondata/features.json";
+import { getCollection, render } from "astro:content";
+
+export const properties = await Promise.all(
+  (await getCollection("weaponProperties"))
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
+    .map(async (entry) => ({
+      entry,
+      Content: (await render(entry)).Content,
+    }))
+);
+
+export const features = await Promise.all(
+  (await getCollection("weaponFeatures"))
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
+    .map(async (entry) => ({
+      entry,
+      Content: (await render(entry)).Content,
+    }))
+);
 
 Scroll tables to the right to see more information.
 
@@ -25,21 +40,20 @@ Scroll tables to the right to see more information.
 
 Weapon properties provide a base on how a weapon functions. Weapon properties are applied regardless of your proficiency level with the weapon.
 
-{properties.map((prop) => (
+{properties.map(({ entry: property, Content }) => (
 
-  <section id={prop.id} class="property-block" style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
-    <h3>{prop.name}</h3>
-    <p>{prop.description}</p>
+  <section class="property-block" style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
+    <h3><a href={`/data/weapon-properties/${property.id}`}>{property.data.title}</a></h3>
+    <Content />
   </section>
 ))}
 
 ## Weapon Features
 
-{features.map((prop) => (
+{features.map(({ entry: feature, Content }) => (
 
-  <section id={prop.id} class="property-block" style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
-    <h3>{prop.name}</h3>
-    <p>{prop.description}</p>
+  <section class="property-block" style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
+    <h3><a href={`/data/weapon-features/${feature.id}`}>{feature.data.title}</a></h3>
+    <Content />
   </section>
 ))}
-

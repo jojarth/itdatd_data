@@ -1,7 +1,7 @@
 ---
 // src/components/WeaponTable.astro
 import WL from './WeaponLookup.astro';
-import weapons from '../content/data/weapondata/weaponlist.json';
+import { getCollection } from "astro:content";
 
 interface Props {
   colorTheme?: 'blue-table' | 'green-table' | 'red-table' | 'orange-table' | 'grey-table' | 'pink-table' | 'purple-table' | 'yellow-table';
@@ -9,13 +9,16 @@ interface Props {
 }
 
 const { colorTheme = 'blue-table', group } = Astro.props;
+const weapons = await getCollection("weapons");
 
 const filteredWeapons = group
-  ? weapons.filter((w) => {
-      const weaponGroup = (w as { group?: string; Group?: string }).group || (w as { group?: string; Group?: string }).Group;
+  ? weapons.filter((entry) => {
+      const weaponGroup = entry.data.group;
       return weaponGroup && weaponGroup.toLowerCase().trim() === group.toLowerCase().trim();
     })
   : weapons;
+
+filteredWeapons.sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
 <div class={`weapon-matrix-scroll-pane ${colorTheme}`}>
@@ -38,29 +41,44 @@ const filteredWeapons = group
       </tr>
     </thead>
     <tbody>
-      {filteredWeapons.map((weapon) => (
-        <tr>
-          <td><strong>{weapon.name}</strong></td>
-          <td>{weapon.group}</td>
-          <td>{weapon.cost}</td>
-          <td>{weapon.ep}</td>
-          <td>{weapon.damage}</td>
-          <td>{weapon.speed}</td>
-          <td>{weapon.range}</td>
-          <td>
-            {(() => {
-              if (!weapon.properties || weapon.properties.length === 0) return '—';
-              const propArray = Array.isArray(weapon.properties) ? weapon.properties : [weapon.properties];
-              return propArray.map(propId => <WL id={propId} type="property" />).reduce((p, c) => [p, ', ', c]);
-            })()}
-          </td>
-          <td>{weapon.proficient?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
-          <td>{weapon.skilled?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
-          <td>{weapon.expert?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
-          <td>{weapon.master?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
-          <td>{weapon.grandmaster?.map(propId => (<WL id={propId} type="feature" />)) || '—'}</td>
-        </tr>
-      ))}
+      {filteredWeapons.map((entry) => {
+        const weapon = entry.data;
+        return (
+          <tr>
+            <td>
+              <strong><a href={`/data/weapons/${entry.id}`}>{weapon.title}</a></strong>
+            </td>
+            <td>{weapon.group}</td>
+            <td>{weapon.cost}</td>
+            <td>{weapon.ep}</td>
+            <td>{weapon.damage}</td>
+            <td>{weapon.speed}</td>
+            <td>{weapon.range}</td>
+            <td>
+              {weapon.properties.length > 0
+                ? weapon.properties.map((property, index) => (
+                    <>
+                      {index > 0 ? ", " : null}
+                      <WL id={property.id} type="property" />
+                    </>
+                  ))
+                : '—'}
+            </td>
+            {[weapon.proficient, weapon.skilled, weapon.expert, weapon.master, weapon.grandmaster].map((features) => (
+              <td>
+                {features.length > 0
+                  ? features.map((feature, index) => (
+                      <>
+                        {index > 0 ? ", " : null}
+                        <WL id={feature.id} type="feature" />
+                      </>
+                    ))
+                  : '—'}
+              </td>
+            ))}
+          </tr>
+        );
+      })}
     </tbody>
   </table>
 </div>
