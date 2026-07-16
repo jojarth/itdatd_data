@@ -8,6 +8,11 @@ const data = defineCollection({
   schema: z.object({
     datatype: z.literal("spell"),
     title: z.string(),
+    reverseTitle: z.string().optional(),
+    reverseShortDescription: z.string().optional(),
+    reverseCasting: z.string().optional(),
+    reverseRange: z.string().optional(),
+    reverseDuration: z.string().optional(),
     level: z.number(),
     school: z.string().optional(),
     casting: z.string(),

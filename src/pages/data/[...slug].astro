@@ -2,6 +2,8 @@
 import { getCollection, getEntry, render } from "astro:content";
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import WeaponLookup from "../../components/WeaponLookup.astro";
+import MdxContentWrapper from "../../components/MdxContentWrapper.astro";
+import { spellAnchor } from "../../lib/spellAnchor";
 
 export async function getStaticPaths() {
   const [spells, weapons, weaponProperties, weaponFeatures] = await Promise.all([
@@ -91,6 +93,20 @@ const detailFields = isSpell
     : [];
 
 const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefined;
+const displayTitle = entry.data.title;
+const reverseMetadata =
+  isSpell && entry.data.reverseTitle
+    ? {
+        level: entry.data.level,
+        casting: entry.data.reverseCasting ?? entry.data.casting,
+        range: entry.data.reverseRange ?? entry.data.range,
+        duration: entry.data.reverseDuration ?? entry.data.duration,
+        classes:
+          Array.isArray(entry.data.classes) && entry.data.classes.length > 0
+            ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(", ")
+            : undefined,
+      }
+    : undefined;
 const weaponProperties = isWeapon ? entry.data.properties : [];
 const proficiencyFeatures = isWeapon
   ? [
@@ -105,20 +121,32 @@ const proficiencyFeatures = isWeapon
 
 <StarlightPage
   frontmatter={{
-    title: entry.data.title,
+    title: displayTitle,
     description,
   }}
 >
-  <article class="data-detail">
-    {description ? <p class="data-lead"><em>{description}</em></p> : null}
+  <article class={`data-detail ${isSpell ? "data-detail--spell" : ""}`}>
+    {isSpell && (description || entry.data.reverseTitle) ? (
+      <div class="data-intro">
+        {description ? <p class="data-lead"><em>{description}</em></p> : null}
+        {entry.data.reverseTitle ? (
+          <p class="data-reverse-link">
+            <strong>Reverse form:</strong>{" "}
+            <a href={`#${spellAnchor(entry.data.reverseTitle)}`}>{entry.data.reverseTitle}</a>
+          </p>
+        ) : null}
+      </div>
+    ) : description ? (
+      <p class="data-lead"><em>{description}</em></p>
+    ) : null}
 
     {detailFields.length > 0 ? (
       <div class="data-metadata">
         {detailFields.map((field) =>
           field.value !== undefined && field.value !== "" ? (
             <p class="data-metadata-item">
-              <strong class="data-metadata-label">{field.label}:</strong>{" "}
-              <em class="data-metadata-value">{field.value}</em>
+              <strong class="data-metadata-label">{field.label}{isSpell ? "" : ":"}</strong>{" "}
+              <span class="data-metadata-value">{field.value}</span>
             </p>
           ) : null
         )}
@@ -168,7 +196,10 @@ const proficiencyFeatures = isWeapon
 
     {Content ? (
       <div class="data-body">
-        <Content />
+        <Content
+          components={{ wrapper: MdxContentWrapper }}
+          reverseMetadata={reverseMetadata}
+        />
       </div>
     ) : (
       <div class="warning">
@@ -192,11 +223,45 @@ const proficiencyFeatures = isWeapon
   color: var(--sl-color-text-accent, #374151);
 }
 
+.data-intro {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.data-reverse-link {
+  margin: 0;
+  color: var(--sl-color-gray-2);
+  font-size: 0.9rem;
+}
+
 .data-metadata {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
   margin: 0;
+}
+
+.data-detail--spell .data-metadata {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.data-detail--spell .data-metadata-item {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.data-detail--spell .data-metadata-label {
+  color: var(--sl-color-gray-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.data-detail--spell .data-metadata-value {
+  font-style: normal;
 }
 
 .data-metadata-item {
@@ -255,5 +320,11 @@ const proficiencyFeatures = isWeapon
   border-radius: 0.5rem;
   padding: 1rem;
   background: color-mix(in srgb, var(--sl-color-red, #dc2626) 8%, transparent);
+}
+
+@media (max-width: 50rem) {
+  .data-detail--spell .data-metadata {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 </style>

@@ -1,6 +1,7 @@
 ---
 title: Half-Orcs
 ---
+import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 
 Half-orcs have a reputation for being violent, intimidating, and quick to anger. Many people who have never met a half-orc assume they are little more than thugs, mercenaries, and brigands. While there are certainly half-orcs who fit this description, most are simply practical folk who place little value on appearances and even less value on the opinions of strangers. A half-orc may not always be polite, but they are usually honest, and many people find that preferable.
@@ -17,6 +18,8 @@ Many half-orcs find themselves frustrated when dealing with other peoples. Dwarv
 
 ## Half-Orc Gameplay
 All half-orcs share the following gameplay elements.
+
+<GameplayCard color="yellow" title="Ancestry Traits" toc tocDepth={3}>
 
     <FeatureSection title="Ancestry Keywords">
     **Animus, Humanoid, Human, Orc**
@@ -38,44 +41,82 @@ All half-orcs share the following gameplay elements.
     You have normal vision.
     </FeatureSection>
 
+</GameplayCard>
+
 ## Half-Orc Features
 As a half-orc, you automatically gain access to all features below.
 
-    <FeatureSection title="Brutality">
-    You treat all melee weapons that you wield as if they had the Brutal weapon feature. You must be at least proficient with the weapon, and must make your attack and damage rolls using Brawn to take advantage of this feature.
-    </FeatureSection>
+<GameplayCard
+  color="teal"
+  title="Brutality"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You treat all melee weapons that you wield as if they had the Brutal weapon feature. You must be at least proficient with the weapon, and must make your attack and damage rolls using Brawn to take advantage of this feature.
+</GameplayCard>
 
-    <FeatureSection title="Half-Orc Toughness">
-    Increase your maximum hit points by 2.
-    </FeatureSection>
+<GameplayCard
+  color="teal"
+  title="Half-Orc Toughness"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Increase your maximum hit points by 2.
+</GameplayCard>
 
 ## Class Keyword Features
-After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below. 
+After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below.
 
-    <FeatureSection title="Arcanist">
-    The Grit die granted by the class that provided your Arcanist keyword increases by one die step, to a maximum of d8. This feature does not affect any static Grit bonuses.
+<GameplayCard
+  color="orange"
+  title="Arcanist"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+The Grit die granted by the class that provided your Arcanist keyword increases by one die step, to a maximum of d8. This feature does not affect any static Grit bonuses.
 
-    :::tip[Example]{icon="information"}
-    A Magic-User normally gains 1d4+1 Grit per level from levels 1-9. A half-orc with this feature instead gains 1d6+1 Grit per level. The +1 static bonus is unchanged.
-    :::
-    </FeatureSection>
+:::tip[Example]{icon="information"}
+A Magic-User normally gains 1d4+1 Grit per level from levels 1-9. A half-orc with this feature instead gains 1d6+1 Grit per level. The +1 static bonus is unchanged.
+:::
+</GameplayCard>
 
-    <FeatureSection title="Adept">
-    Any time you deal ambush damage, you increase the ambush damage dice by 1 dice step. 
-    </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Adept"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Any time you deal ambush damage, you increase the ambush damage dice by 1 dice step.
+</GameplayCard>
 
-    <FeatureSection title="Priest">
-    When you cast a clerical spell that provides healing via a dice roll, you also recover grit equal to the level of the spell cast. 
-    </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Priest"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+When you cast a clerical spell that provides healing via a dice roll, you also recover grit equal to the level of the spell cast.
+</GameplayCard>
 
-    <FeatureSection title="Soldier">
-    You gain a +1 bonus to damage rolls with melee and thrown weapons when attacking with Brawn.
-    </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Soldier"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You gain a +1 bonus to damage rolls with melee and thrown weapons when attacking with Brawn.
+</GameplayCard>
 
 ## Half-Orc Ages
 Half-orcs rise early into strength and burn through it with little mercy. Their bodies peak quickly and begin to fail sooner than most, each year hard-earned and harder-kept. Those who live long enough to age do so with scars and wisdom both, survivors in every sense of the word.
 
-To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have. 
+To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have.
 
 <div class="green-table">
 | **Class Keyword** | **Base Age** | **Roll** |
@@ -89,14 +130,14 @@ To randomly roll your starting age, you must first determine your class keywords
 :::tip[Two Half-Orcs]{icon="information"}
 Channda has selected the Thief class, which contains the Adept class keyword. Thus, she rolls 1d10, getting 6. She adds that to the base age of 14, and Channda is 20 years old. She can choose to still be young, or be considered in her Prime. However, if she selects to be Young, she cannot decide to be in her Prime until at least one year "in game" has past. She will be in her Prime the first rest after this year past. If she reaches 21 during this time, she will ignore being in her prime until the year wait time finishes.
 
-However, Ironjaw is a Fighter\Theif which has the Adept and Soldier keywords. Since the base age of adept is higher, his base age is 14. He then rolls 1d10 for his adept, getting 4, and 2d6 for his soldier, getting a 10. Ironjaw is 28 (14 + 4 + 10), very solid in his prime . 
+However, Ironjaw is a Fighter\Theif which has the Adept and Soldier keywords. Since the base age of adept is higher, his base age is 14. He then rolls 1d10 for his adept, getting 4, and 2d6 for his soldier, getting a 10. Ironjaw is 28 (14 + 4 + 10), very solid in his prime .
 :::
 
-After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional. 
+After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional.
 
-As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so. 
+As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so.
 
-Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 20 is both Young and Prime. Once you reach 20, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 20 and 21 you can decide to apply the attribute adjustments, but it must be done by the time you turn 21, or it is done the first rest you have once you turn 21. 
+Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 20 is both Young and Prime. Once you reach 20, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 20 and 21 you can decide to apply the attribute adjustments, but it must be done by the time you turn 21, or it is done the first rest you have once you turn 21.
 
 ### Young Half-Orcs (15 - 20)
 Young half-orcs are judged harshly by strength and capability; weakness is punished socially, while strength earns immediate respect.
@@ -125,7 +166,7 @@ As a mature half-orc, you must make the following attribute adjustments.
 
     <FeatureSection>
     * Your **Precision**, **Reason**, and **Presence** attributes are increased by +1.
-    * Your **Brawn** and **Agility** attribute is reduced by -1. 
+    * Your **Brawn** and **Agility** attribute is reduced by -1.
     </FeatureSection>
 
 ### Aging Half-Orcs (50 - 60)
@@ -151,4 +192,4 @@ As an elderly half-orc, you must make the following attribute adjustments.
 ## Height and Weight
 To randomly determine your character's height and weight, start with rolling a 2d10, and note this as “extra inches”. Then roll a 2d6, and multiple the result of this roll by your “extra inches” to get your “extra weight”.
 
-If your half-orc is a male, add your “extra inches” to 60 inches to get how tall you are in inches, additionally, add the “extra weight” to 150 lbs. to get your starting weight. If your half-orc is female, add your “extra inches” to 55 inches, and add your “extra weight” to 125 lbs. 
+If your half-orc is a male, add your “extra inches” to 60 inches to get how tall you are in inches, additionally, add the “extra weight” to 150 lbs. to get your starting weight. If your half-orc is female, add your “extra inches” to 55 inches, and add your “extra weight” to 125 lbs.

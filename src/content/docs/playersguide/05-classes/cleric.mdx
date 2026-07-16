@@ -10,9 +10,9 @@ import SpellList from "../../../../components/SpellList.astro";
 export const allEntries = await getCollection("data");
 import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
 import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.astro';
-import AshenCrossOrder from '../../../../components/reusable/order_ashen-cross.astro';
-import BlackLionOrder from '../../../../components/reusable/order_black-lion.astro';
-import IronCrownOrder from '../../../../components/reusable/order_iron-crown.astro';
+import AshenCrossBrotherhood from '../../../../components/reusable/brotherhood_ashen-cross.astro';
+import BlackLionKnights from '../../../../components/reusable/knights_black-lion.astro';
+import IronCrownConfraternity from '../../../../components/reusable/confraternity_iron-crown.astro';
 import Establishment from '../../../../components/reusable/Establishment.astro';
 
 Through unwavering faith, clerics call upon sacred power to heal the wounded, shield the innocent, and smite the wicked.
@@ -100,9 +100,9 @@ To present your holy symbol, you must hold it aloft in clear view. This requires
   traditions={['Military', 'Devotional']}
   toc
 >
-  <AshenCrossOrder include={['Military', 'Devotional']} />
-  <BlackLionOrder include={['Military', 'Devotional']} />
-  <IronCrownOrder include={['Military', 'Devotional']} />
+  <AshenCrossBrotherhood include={['Military', 'Devotional']} />
+  <BlackLionKnights include={['Military', 'Devotional']} />
+  <IronCrownConfraternity include={['Military', 'Devotional']} />
 </OrderFeatureCard>
 
 <GameplayCard
@@ -138,9 +138,13 @@ Clerics can channel sacred power to drive back the undead. To use this ability, 
   </FeatureSection>
 
   <FeatureSection title="Turn Undead Effect">
-    Beginning with the lowest-level eligible undead within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
+    Beginning with the lowest-level Eligible Creature within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
 
-    Affected undead immediately flee from you by the safest available route. Instead of fleeing, undead that are **5 or more levels lower** than your Cleric Level are instantly destroyed, crumbling to dust.
+    Affected creatures immediately flee from you by the safest available route. Instead of fleeing, creatures that are **5 or more levels lower** than your Cleric Level are instantly destroyed, crumbling to dust.
+  </FeatureSection>
+
+  <FeatureSection title="Creature Interactions"> 
+  * Creatures with the **Necros** keyword are Eligible Creatures. 
   </FeatureSection>
 </GameplayCard>
 
@@ -162,9 +166,6 @@ A Cleric's spells are considered clerical spells.
   
   Spell Preparation can only be done immediately following a Safe Rest.
 
-  :::tip[Spellcasting in Cerrix]{icon="information"}
-  It is by design that spell casters prepare their spells once per adventure, not per day (with the exception of minor spells, such as Cantrips).
-  :::
   </FeatureSection>
   
   <FeatureSection title="Casting Spells">
@@ -205,8 +206,9 @@ A Cleric's spells are considered clerical spells.
     className="Cleric"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -219,8 +221,9 @@ A Cleric's spells are considered clerical spells.
     className="Cleric"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -233,8 +236,9 @@ A Cleric's spells are considered clerical spells.
     className="Cleric"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -247,8 +251,9 @@ A Cleric's spells are considered clerical spells.
     className="Cleric"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -261,8 +266,9 @@ A Cleric's spells are considered clerical spells.
     className="Cleric"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -275,8 +281,9 @@ A Cleric's spells are considered clerical spells.
     className="Cleric"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>

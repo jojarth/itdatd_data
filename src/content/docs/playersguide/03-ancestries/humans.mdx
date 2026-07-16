@@ -1,6 +1,7 @@
 ---
 title: Humans
 ---
+import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 
 Humans are often described as ambitious, adaptable, and restless. Ask an elf what they think of humans, and they will likely tell you that humans never seem content to leave well enough alone. Ask a dwarf, and they may tell you that humans are always in a hurry. Although there is some truth to both claims, it is this drive that has allowed humans to spread across nearly every corner of Cerrix.
@@ -15,6 +16,8 @@ Humans take pride in personal accomplishments more than any particular style of 
 
 ## Human Gameplay
 All humans share the following gameplay elements.
+
+<GameplayCard color="yellow" title="Ancestry Traits" toc tocDepth={3}>
 
   <FeatureSection title="Ancestry Keywords">
   **Animus, Humanoid, Human**
@@ -36,36 +39,68 @@ All humans share the following gameplay elements.
   You have normal vision
   </FeatureSection>
 
+</GameplayCard>
+
 ## Human Features
 As a human, you automatically gain access to all features below.
 
-  <FeatureSection title="Ambition">
-  You gain a +10% increase to all experience points gained. 
-  </FeatureSection>
+<GameplayCard
+  color="teal"
+  title="Ambition"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You gain a +10% increase to all experience points gained.
+</GameplayCard>
 
 ## Class Keyword Features
-After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below. 
+After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below.
 
-  <FeatureSection title="Arcanist">
-  Your cantrip list expands. When selecting, learning, and preparing magical cantrips, you can select, learn, and prepare cantrips from any class that can cast magical spells, not just your class.
-  </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Arcanist"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Your cantrip list expands. When selecting, learning, and preparing magical cantrips, you can select, learn, and prepare cantrips from any class that can cast magical spells, not just your class.
+</GameplayCard>
 
-  <FeatureSection title="Adept">
-  When making an Attribute Test under adverse conditions (i.e., when one or more penalties are applied), you may ignore up to -1 total penalties.
-  </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Adept"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+When making an Attribute Test under adverse conditions (i.e., when one or more penalties are applied), you may ignore up to -1 total penalties.
+</GameplayCard>
 
-  <FeatureSection title="Priest">
-  When you determine your armor and shield proficiencies for your class, you can increase either your armor proficiency or shield proficiency by 1 step heavier. This feature has no affect if your class grants you proficiency with both Plate Armor and Body shields. 
-  </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Priest"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+When you determine your armor and shield proficiencies for your class, you can increase either your armor proficiency or shield proficiency by 1 step heavier. This feature has no affect if your class grants you proficiency with both Plate Armor and Body shields.
+</GameplayCard>
 
-  <FeatureSection title="Soldier">
-  Select one of your Saving Throws (Doom, Devices, Petrification, Breath, or Spell), you gain a +1 bonus to the selected Saving Throw. 
-  </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Soldier"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Select one of your Saving Throws (Doom, Devices, Petrification, Breath, or Spell), you gain a +1 bonus to the selected Saving Throw.
+</GameplayCard>
 
 ## Human Ages
 Humans come into strength quickly and spend it just as fast, their best years brief but bright. They grow wiser as they weaken, trading vigor for judgment in a steady, inevitable decline. Few escape the weight of age, and fewer still remain formidable in both body and mind for long.
 
-To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have. 
+To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have.
 
 <div class="green-table">
 | **Class Keyword** | **Base Age** | **Roll** |
@@ -77,39 +112,39 @@ To randomly roll your starting age, you must first determine your class keywords
 </div>
 
 :::tip[Two Humans]{icon="information"}
-William has selected the Thief class, which contains the Adept class keyword. Thus, he rolls 3d8, getting 12. He adds that to the base age of 12, and William is 24 years old, just about in his prime. 
+William has selected the Thief class, which contains the Adept class keyword. Thus, he rolls 3d8, getting 12. He adds that to the base age of 12, and William is 24 years old, just about in his prime.
 
-However, Joan is a Cleric\Fighter which has the Priest and Soldier keywords. Since the base age of priest is higher, her base age is 18. She then rolls 3d8 for her priest, getting 16, and 2d6 for her Fighter, getting a 4. Joan is 38 (18 + 16 + 4), still in her prime, but getting close to mature. 
+However, Joan is a Cleric\Fighter which has the Priest and Soldier keywords. Since the base age of priest is higher, her base age is 18. She then rolls 3d8 for her priest, getting 16, and 2d6 for her Fighter, getting a 4. Joan is 38 (18 + 16 + 4), still in her prime, but getting close to mature.
 :::
 
-After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional. 
+After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional.
 
-As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so. 
+As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so.
 
-Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 25 is both Young and Prime. Once you reach 25, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 25 and 26 you can decide to apply the attribute adjustments, but it must be done by the time you turn 26, or it is done the first rest you have once you turn 26. 
+Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 25 is both Young and Prime. Once you reach 25, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 25 and 26 you can decide to apply the attribute adjustments, but it must be done by the time you turn 26, or it is done the first rest you have once you turn 26.
 
 ### Young Humans (15 - 25)
-Humans younger than 15 do not adventure. Young humans are not quite fully grown, but since they live so short, they start to be seen as adults around this age. However, they are also expected to prove themselves quickly, or be dismissed just as quick. 
+Humans younger than 15 do not adventure. Young humans are not quite fully grown, but since they live so short, they start to be seen as adults around this age. However, they are also expected to prove themselves quickly, or be dismissed just as quick.
 
 As a young human, you have the option to make the following attribute adjustments. If you do, you must apply all of the adjustments listed.
 
     <FeatureSection>
     * Select any attribute. Increase the selected attribute by +1.
-    * Select a different attribute that you didn't select above. Reduce the selected attribute by -1. 
+    * Select a different attribute that you didn't select above. Reduce the selected attribute by -1.
     </FeatureSection>
 
 ### Prime Humans (25 - 40)
-Humans in their prime are the backbone of society, making up the bulk of soldiers, laborers, and workers. 
+Humans in their prime are the backbone of society, making up the bulk of soldiers, laborers, and workers.
 
-As a half-elf in your prime, you have the option to make the following attribute adjustments.     
+As a half-elf in your prime, you have the option to make the following attribute adjustments.
 
     <FeatureSection>
     * Select any two different attributes. Increase the selected attributes by +1.
-    * Select a different attribute that you didn't select above. Reduce the selected attribute by -1. 
+    * Select a different attribute that you didn't select above. Reduce the selected attribute by -1.
     </FeatureSection>
 
 ### Mature Humans (40 - 55)
-Mature humans are  experienced and respected; often placed in charge or deferred to in disputes. They start to lose some of their physical prowess, but have gained in wisdom. 
+Mature humans are  experienced and respected; often placed in charge or deferred to in disputes. They start to lose some of their physical prowess, but have gained in wisdom.
 
 As a mature human, you must make the following attribute adjustments.
 
@@ -119,7 +154,7 @@ As a mature human, you must make the following attribute adjustments.
     </FeatureSection>
 
 ### Aging Humans (55- 70)
-Aging humans are seen as slowing; valued for counsel, but rarely for labor or war. 
+Aging humans are seen as slowing; valued for counsel, but rarely for labor or war.
 
 As an aging human, you must make the following attribute adjustments.
 
@@ -138,7 +173,7 @@ As an elderly human, you must make the following attribute adjustments.
     * Your **Brawn**, **Heartiness**, **Agility**, and **Presicion** attributes are reduced by -1.
     </FeatureSection>
 
-Humans have a special provision to them, as they age, they quickly lose some of what once made them so mighty. Upon reaching 80, and every 5 years thereafter (85, 90, 95, 100 etc...), Humans will reduce their Logic, Reason, Savvy, and Presence attribute by 1 point each, and their Brawn, Heartiness, Agility, and Presence by 2 points each. This trend continues until they die of old age, or one of their attributes reaches 0, and they die from that. 
+Humans have a special provision to them, as they age, they quickly lose some of what once made them so mighty. Upon reaching 80, and every 5 years thereafter (85, 90, 95, 100 etc...), Humans will reduce their Logic, Reason, Savvy, and Presence attribute by 1 point each, and their Brawn, Heartiness, Agility, and Presence by 2 points each. This trend continues until they die of old age, or one of their attributes reaches 0, and they die from that.
 
 ## Height and Weight
 To randomly determine your character's height and weight, start by rolling 2d10, record the total as “extra inches” and then roll a 2d4. Multiple your “extra inches” result by the result of the 2d4 roll to get your “extra weight”.

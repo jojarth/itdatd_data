@@ -10,9 +10,9 @@ import SpellList from "../../../../components/SpellList.astro";
 export const allEntries = await getCollection("data");
 import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
 import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.astro';
-import AshenCrossOrder from '../../../../components/reusable/order_ashen-cross.astro';
-import BlackLionOrder from '../../../../components/reusable/order_black-lion.astro';
-import IronCrownOrder from '../../../../components/reusable/order_iron-crown.astro';
+import AshenCrossBrotherhood from '../../../../components/reusable/brotherhood_ashen-cross.astro';
+import BlackLionKnights from '../../../../components/reusable/knights_black-lion.astro';
+import IronCrownConfraternity from '../../../../components/reusable/confraternity_iron-crown.astro';
 import Establishment from '../../../../components/reusable/Establishment.astro';
 
 Paladins are champions of the faith who stand at the forefront of every righteous struggle. Tempered by martial discipline and guided by unwavering conviction, they wield both steel and sacred power against the enemies of their creed.
@@ -59,8 +59,11 @@ Below is a list of information needed to play a Paladin at the various levels of
         - **Act with Honor**. Show courage, mercy, and integrity in both victory and defeat. Do not lie, betray those under your protection, or resort to dishonorable means when an honorable path remains.
         - **Serve the Greater Good**. When your tenets come into conflict, the protection of innocent life and the cause of righteousness take precedence over obedience to law.
 
+        ###### Paladin Keyword
+        You have the **Paladin** keyword.
+
         ###### Breaking your Oath
-        A Paladin who willfully and knowingly violates the tenets of their oath immediately loses the benefits of any class feature marked Oath-Dependent. While fallen, you are treated as though you do not possess the **Priest** keyword for the purpose of meeting prerequisites, selecting character features, and using abilities.
+        A Paladin who willfully and knowingly violates the tenets of their oath immediately loses the benefits of any class feature marked Oath-Dependent. While fallen, you are treated as though you do not possess the **Paladin** or **Priest** keywords for the purpose of meeting prerequisites, selecting character features, and using abilities.
 
         A fallen Paladin may seek redemption through sincere repentance and by completing whatever penance the Game Master determines is appropriate. Once the Paladin has atoned for their transgression, these class features are immediately restored.
 
@@ -149,10 +152,26 @@ Starting at 11th level, when you use this feature, you may choose to remove one 
   traditions={['Military', 'Stewardship']}
   toc
 >
-  <AshenCrossOrder include={['Military', 'Stewardship']} />
-  <BlackLionOrder include={['Military', 'Stewardship']} />
-  <IronCrownOrder include={['Military', 'Stewardship']} />
+  <AshenCrossBrotherhood include={['Military', 'Stewardship']} />
+  <BlackLionKnights include={['Military', 'Stewardship']} />
+  <IronCrownConfraternity include={['Military', 'Stewardship']} />
 </OrderFeatureCard>
+
+<GameplayCard
+  color="purple"
+  title="Smite"
+  subeyebrow="1st Level Paladin Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+When you deal damage with a weapon attack against a valid creature, increase the damage dice of the weapon by 1 dice step.
+
+<FeatureSection title="Creature Interactions">
+* Creatures with the **Necros** or **Umbra** keyword are affected by this feature.
+* Creatures with the **Aeon, Animus, Cosmic, Elemental,** or **Fey** keywords are affected only if they also possess the **Profane** keyword.
+</FeatureSection>
+
+</GameplayCard>
 
 <GameplayCard
   color="purple"
@@ -187,9 +206,13 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
   </FeatureSection>
 
   <FeatureSection title="Turn Undead Effect">
-    Beginning with the lowest-level eligible undead within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
+    Beginning with the lowest-level Eligible Creature within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
 
-    Affected undead immediately flee from you by the safest available route. Instead of fleeing, undead that are **7 or more levels lower** than your Paladin Level are instantly destroyed, crumbling to dust.
+    Affected creatures immediately flee from you by the safest available route. Instead of fleeing, creatures that are **7 or more levels lower** than your Paladin Level are instantly destroyed, crumbling to dust.
+  </FeatureSection>
+
+  <FeatureSection title="Creature Interactions"> 
+  * Creatures with the **Necros** keyword are Eligible Creatures.
   </FeatureSection>
 </GameplayCard>
 
@@ -220,8 +243,9 @@ In addition, hostile creatures within your aura reduce the damage dice of their 
 
 Your aura is always active and cannot be suppressed. However, it ceases to function while you are unconscious.
 
-###### Creature Interactions
-Creatures with the **Aeon** keyword are unaffected by your aura.
+  <FeatureSection title="Creature Interactions">
+    Creatures with the **Aeon** keyword are unaffected by your aura.
+  </FeatureSection>
 </GameplayCard>
 
 <GameplayCard
@@ -242,9 +266,6 @@ A Paladin's spells are considered clerical spells.
   
   Spell Preparation can only be done immediately following a Safe Rest.
 
-  :::tip[Spellcasting in Cerrix]{icon="information"}
-  It is by design that spell casters prepare their spells once per adventure, not per day (with the exception of minor spells, such as Cantrips).
-  :::
   </FeatureSection>
   
   <FeatureSection title="Casting Spells">
@@ -285,8 +306,9 @@ A Paladin's spells are considered clerical spells.
     className="Paladin"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -299,8 +321,9 @@ A Paladin's spells are considered clerical spells.
     className="Paladin"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -313,8 +336,9 @@ A Paladin's spells are considered clerical spells.
     className="Paladin"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>
@@ -327,8 +351,9 @@ A Paladin's spells are considered clerical spells.
     className="Paladin"
     sortBy="title"
     sortDir="asc"
+    showReverse
     showHeading={false}
-    displayFields={['casting', 'shortDescription']}
+    displayFields={['shortDescription']}
   />
   </main>
   </TabItem>

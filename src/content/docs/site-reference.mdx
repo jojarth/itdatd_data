@@ -359,10 +359,11 @@ export const allEntries = await getCollection("data");
 <SpellList
   entries={allEntries}
   datatype="spell"
-  level={0}
-  className="Magic-User"
+  level={1}
+  className="Cleric"
   sortBy="title"
   sortDir="asc"
+  showReverse
   showHeading={false}
   displayFields={['casting', 'shortDescription']}
 />
@@ -375,6 +376,13 @@ Useful filters:
 - `className="Magic-User"`
 - `tag="some-tag"`
 
+Useful list options:
+
+- `showHeading={false}` hides the list's own heading.
+- `sortBy="title"` sorts cards by their displayed titles.
+- `sortDir="asc"` or `sortDir="desc"` controls sort direction.
+- `showReverse` creates a separate card for each reverse spell form.
+
 Useful display fields:
 
 - `level`
@@ -386,7 +394,14 @@ Useful display fields:
 
 When `classes` is displayed, class names are sorted alphabetically and comma-separated, regardless of their order in spell frontmatter.
 
-Clicking a spell card links to the spell's full page using `/data/${entry.id}`.
+### Showing Reverse Spells in a List
+
+`showReverse` is opt-in. Without it, a reversible spell produces only its primary card. With it, the primary and reverse forms appear as separate alphabetized cards:
+
+- **Bless** uses `title` and `shortDescription`, displays `Reverse: Curse`, and links to the top of the shared page.
+- **Curse** uses `reverseTitle` and `reverseShortDescription`, displays `Reverse of: Bless`, and links directly to the Curse entry.
+
+Both cards use the primary spell's level and class filters. The reverse card is generated for the list and does not create a second content file or route.
 
 ## Full Spell Pages
 
@@ -395,11 +410,14 @@ Full spell pages are rendered by `src/pages/data/[...slug].astro`.
 That page:
 
 - creates one route for each `data` collection entry
-- uses the spell title as the page title
-- shows `shortDescription` below the title in italics
-- shows frontmatter fields as bold labels with italic values
+- uses the primary `title` as the page title
+- shows the primary `shortDescription` and, when applicable, a `Reverse form` link in the page introduction
+- shows spell metadata in a responsive grid
 - sorts displayed class arrays alphabetically
-- renders the spell's MDX rules text below the metadata block
+- renders the spell's MDX rules below the metadata block
+- passes inherited or overridden metadata to the reverse spell entry
+
+The page title, introduction, and top metadata grid serve as the primary spell's complete header. The primary `SpellEntry` therefore renders only its rules sections. A reverse `SpellEntry` renders its own label, title, description, metadata, and rules so direct links remain self-contained.
 
 Current full-page field order:
 
@@ -409,27 +427,95 @@ Current full-page field order:
 4. Duration
 5. Classes
 
-To add a new spell frontmatter field, update the schema in `src/content.config.ts`, then render it in `src/pages/data/[...slug].astro`.
+To add a new full-page field, update the schema in `src/content.config.ts`, then render it in `src/pages/data/[...slug].astro`.
 
-```ts
-damage: z.string().optional(),
+## Spell Entry Layout
+
+Use `SpellEntry` to group each spell form's rules. Put `FeatureSection` components inside it for the effect, improvements, components, or other sections.
+
+Inside a spell entry, every major `FeatureSection` begins with a two-part divider: a short form-colored accent followed by a neutral rule. Primary spell sections use amber, while reverse spell sections use violet. Markdown level-six headings render as compact, lightly tinted subsection bands with a stronger form-colored left edge. This creates the visual hierarchy **spell form → major rules section → subsection** without adding nested content cards.
+
+### Spell Without a Reverse
+
+```mdx
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Magic Missile">
+  <FeatureSection title="Spell Effect">
+    Write the spell effect here.
+  </FeatureSection>
+
+  <FeatureSection title="Spell Improvements">
+    Write the spell's scaling here.
+  </FeatureSection>
+
+  <FeatureSection title="Components">
+    Write the spell components here.
+  </FeatureSection>
+</SpellEntry>
 ```
 
-Then add it to the detail field list:
+The page header displays Magic Missile's title, short description, and metadata. Its primary `SpellEntry` begins directly with the rules, avoiding a repeated `Spell / Magic Missile` heading. `SpellEntry` still creates a lowercase anchor from its title; for example, Magic Missile receives `#magic-missile`.
 
-```astro
-{
-  key: "damage",
-  label: "Damage",
-  value: entry.data.damage,
-},
+### Primary and Reverse Entries
+
+Keep the primary and reverse forms in the same MDX file, but give each form its own `SpellEntry` and rule sections. Their effects, improvements, and components can then change independently.
+
+```mdx
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Bless">
+  <FeatureSection title="Spell Effect">
+    Write the Bless effect here.
+  </FeatureSection>
+
+  <FeatureSection title="Spell Improvements">
+    Write the Bless improvements here.
+  </FeatureSection>
+
+  <FeatureSection title="Components">
+    Write the Bless components here.
+  </FeatureSection>
+</SpellEntry>
+
+<SpellEntry
+  title="Curse"
+  summary="Afflicts foes with divine condemnation."
+  variant="reverse"
+  metadata={props.reverseMetadata}
+>
+  <FeatureSection title="Spell Effect">
+    Write the Curse effect here.
+  </FeatureSection>
+
+  <FeatureSection title="Spell Improvements">
+    Write the Curse improvements here.
+  </FeatureSection>
+
+  <FeatureSection title="Components">
+    Write the Curse components here.
+  </FeatureSection>
+</SpellEntry>
 ```
+
+The page header serves as Bless's entry header and includes a `Reverse form: Curse` link. The detail page supplies `props.reverseMetadata` automatically. Passing it to the reverse `SpellEntry` displays a complete metadata grid when a reader follows that link or clicks the Curse list card.
+
+`SpellEntry` props:
+
+- `title`: required entry title; also creates the default anchor.
+- `summary`: optional description shown beneath a reverse entry title; primary descriptions come from frontmatter.
+- `variant="reverse"`: marks the entry as the reverse form and applies its distinct accent.
+- `label`: optionally replaces the default reverse-entry label.
+- `id`: optionally replaces the automatically generated anchor.
+- `metadata={props.reverseMetadata}`: displays the resolved reverse metadata grid.
 
 ## Spell Frontmatter
 
-Spell files live under `src/content/data/spelldata/spell_list/`.
+Spell files live under `src/content/data/spelldata/spell_list/`. The allowed fields are defined in `src/content.config.ts`.
 
-Example:
+### Standard Spell Frontmatter
 
 ```yaml
 ---
@@ -437,15 +523,50 @@ datatype: spell
 title: Snap Spark
 level: 0
 casting: 1 Master Action; Phase 3
-range: 30 Feet
+range: 30 feet
 duration: Instantaneous
 classes:
   - Magic-User
-shortDescription: Snapping your fingers, you attempt to cause a fire to harm a foe.
+shortDescription: Snapping your fingers, you cause a spark to harm a foe.
 ---
 ```
 
-The allowed frontmatter fields are defined in `src/content.config.ts`.
+### Reversible Spell Frontmatter
+
+```yaml
+---
+datatype: spell
+title: Bless
+shortDescription: Bolsters allies with divine favor.
+reverseTitle: Curse
+reverseShortDescription: Afflicts foes with divine condemnation.
+level: 1
+casting: 1 Master Action; Phase 4
+range: 30 feet
+duration: 1 minute
+classes:
+  - Cleric
+  - Theurge
+---
+```
+
+Reverse spell fields:
+
+- `reverseTitle`: enables the reverse form and supplies its list-card title.
+- `reverseShortDescription`: supplies the reverse form's list-card description.
+- `reverseCasting`: optional reverse casting override.
+- `reverseRange`: optional reverse range override.
+- `reverseDuration`: optional reverse duration override.
+
+Spell level and classes always inherit from the primary form. Casting, range, and duration also inherit by default. Add only the overrides that differ:
+
+```yaml
+reverseCasting: 1 Action; Phase 3
+reverseRange: 60 feet
+reverseDuration: 3 rounds
+```
+
+The resolved values appear in the reverse entry's metadata grid. Omitting an override keeps the corresponding primary value.
 
 ## Local Development
 
@@ -466,3 +587,20 @@ When diagnosing stale generated output, clear Astro's generated folders:
 ```bash
 rm -rf .astro dist
 ```
+
+## Druid Card Inspiration
+Tarot	- Druid
+The Hermit	- The Guide
+Justice	- The Judge
+Strength	- The Warrior
+Temperance	- The Healer
+The Chariot	- The Traveller
+The Hierophant	- The Chaplain
+The World	- The Inheritor
+The Emperor	- The King
+The Magician	- The Sage
+Death	- The Reaper
+The Star	- The Stargazer
+The Moon	- The Seer
+The Sun	- The Dawnkeeper
+Wheel of Fortune	- The Wanderer

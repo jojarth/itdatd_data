@@ -10,29 +10,32 @@ classes:
 shortDescription: Fires magical force missiles at targets. 
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
 
-<FeatureSection title="Spell Effects">
-    To cast this spell, spend 1 Master Action beginning on Phase 4. You conjure 2 magical bolts of force that hover above your head for 1 hour. These bolts cannot be targeted or otherwise interacted with. They may only be launched as described below.
+<SpellEntry title="Magic Missile">
+    <FeatureSection title="Spell Effect">
+        To cast this spell, spend 1 Master Action beginning on Phase 4. You conjure 2 magical bolts of force that hover above your head for 1 hour. These bolts cannot be targeted or otherwise interacted with. They may only be launched as described below.
 
-###### Launching Bolts
-    By spending 1 Action beginning on Phase 2, you may launch one of your remaining bolts at creatures you can see within the spell's range. The bolt strikes unerringly and deals 1d4 + 1 force damage. Once a bolt is launched, it is destroyed.
+        ###### Launching Bolts
+        By spending 1 Action beginning on Phase 2, you may launch one of your remaining bolts at creatures you can see within the spell's range. The bolt strikes unerringly and deals 1d4 + 1 force damage. Once a bolt is launched, it is destroyed.
 
-    Some spell improvements allow you to launch multiple bolts with the same Action. If you launch multiple bolts with the same Action, you may divide them among different targets in range, but you must declare all targets before rolling any damage.
-</FeatureSection>
+        Some spell improvements allow you to launch multiple bolts with the same Action. If you launch multiple bolts with the same Action, you may divide them among different targets in range, but you must declare all targets before rolling any damage.
+    </FeatureSection>
 
-<FeatureSection title="Spell Impovements">
-###### When you can cast 3rd-level spells
-    * You create 4 bolts instead of 2.
-    * You may launch up to 2 bolts with each Action.
-    * Each bolt deals 1d4 + 2 points of force damage.
-###### When you can cast 5th-level spells
-    * You create 6 bolts instead of 4.
-    * You may launch up to 3 bolts with each Action. 
-    * Each bolt deals 1d6 + 2 points of force damage.
-</FeatureSection>
+    <FeatureSection title="Spell Improvements">
+        ###### When you can cast 3rd-level spells
+        * You create 4 bolts instead of 2.
+        * You may launch up to 2 bolts with each Action.
+        * Each bolt deals 1d4 + 2 points of force damage.
+        ###### When you can cast 5th-level spells
+        * You create 6 bolts instead of 4.
+        * You may launch up to 3 bolts with each Action. 
+        * Each bolt deals 1d6 + 2 points of force damage.
+    </FeatureSection>
 
-<FeatureSection title="Components">
-    To cast this spell, you must chant the spell aloud while twirling an upraised finger in a circle above your head.
+    <FeatureSection title="Components">
+        To cast this spell, you must chant the spell aloud while twirling an upraised finger in a circle above your head.
 
-    Whenever you launch a bolt, you must again chant the spell while pointing at the target. In both cases, the verbal component is accompanied by a sweeping gesture that begins at your side and ends with your finger directed toward its destination.
-</FeatureSection>
+        Whenever you launch a bolt, you must again chant the spell while pointing at the target. In both cases, the verbal component is accompanied by a sweeping gesture that begins at your side and ends with your finger directed toward its destination.
+    </FeatureSection>
+</SpellEntry>

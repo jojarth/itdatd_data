@@ -1,6 +1,8 @@
 ---
 datatype: spell
 title: Bless
+reverseTitle: Curse
+reverseShortDescription: Afflicts foes with divine condemnation.
 level: 1
 casting: 1 Master Action; Phase 4
 range: 30 feet
@@ -8,24 +10,52 @@ duration: 1 minute
 classes:
   - Cleric
   - Theurge
-shortDescription: Improves allies attack rolls and saving throws.
+shortDescription: Bolsters allies with divine favor.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
 
-<FeatureSection title="Spell Effects">
-   Select 3 targets within range of the spell that are not currently engaged in melee combat. The selected targets gain a +1 magic bonus to attack rolls and a +1 magic bonus to saving throws for the duration of the spell. 
+<SpellEntry title="Bless">
+    <FeatureSection title="Spell Effect">
+        Select 3 targets within range of the spell that are not currently engaged in melee combat. The selected targets gain a +1 magic bonus to attack rolls and a +1 magic bonus to saving throws for the duration of the spell.
+    </FeatureSection>
 
-###### Non-Player Characters
-    In addition to the normal affects of this spell, casting this spell upon a non-player character will grant them a +1 magic bonus to their morale as well.
-</FeatureSection>
+    <FeatureSection title="Creature Interactions">
+        ###### Non-Player Characters
+        * In addition to the normal effects of this spell, a non-player character gains a +1 magic bonus to morale.
+    </FeatureSection>
 
-<FeatureSection title="Spell Impovements">
-###### When you can cast 3rd-level spells
-    * You can target 4 creatures instead of 3.
-###### When you can cast 5th-level spells
-    * You can target 5 creatures instead of 4.
-</FeatureSection>
+    <FeatureSection title="Spell Improvements">
+        ###### When you can cast 3rd-level spells
+        * You can target 4 creatures instead of 3.
+        ###### When you can cast 5th-level spells
+        * You can target 5 creatures instead of 4.
+    </FeatureSection>
 
-<FeatureSection title="Components">
-    To cast this spell, you present your holy symbol toward the target and speak a brief prayer of blessing.
-</FeatureSection>
+    <FeatureSection title="Components">
+        Present your holy symbol toward the targets and speak a brief prayer of blessing.
+    </FeatureSection>
+</SpellEntry>
+
+<SpellEntry title="Curse" summary="Afflicts foes with divine condemnation." variant="reverse" metadata={props.reverseMetadata}>
+
+    <FeatureSection title="Spell Effect">
+        Select 3 targets within range of the spell that are not currently engaged in melee combat. The selected targets suffer a -1 magic penalty to attack rolls and a -1 magic penalty to saving throws for the duration of the spell.
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+        ###### Non-Player Characters
+        * In addition to the normal effects of this spell, a non-player character gains a -1 magic bonus to morale.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+        ###### When you can cast 3rd-level spells
+        * You can target 4 creatures instead of 3.
+        ###### When you can cast 5th-level spells
+        * You can target 5 creatures instead of 4.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        Present your holy symbol toward the targets while speaking a solemn word of condemnation.
+    </FeatureSection>
+</SpellEntry>

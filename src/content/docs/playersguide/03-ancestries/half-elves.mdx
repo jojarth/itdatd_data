@@ -1,6 +1,7 @@
 ---
 title: Half-Elves
 ---
+import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 
 Half-elves are often viewed as natural diplomats, capable of getting along with almost anyone. Many people assume that half-elves enjoy the best qualities of both humans and elves, and therefore have easier lives than either. Most half-elves would disagree. While they often find acceptance in many places, they rarely feel entirely at home in any of them.
@@ -16,6 +17,8 @@ Half-elves tend to favor practical clothing decorated with small personal touche
 ## Half-Elf Gameplay
 All half-elves share the following gameplay elements.
 
+<GameplayCard color="yellow" title="Ancestry Traits" toc tocDepth={3}>
+
     <FeatureSection title="Ancestry Keywords">
     **Animus, Fey, Humanoid, Elf, Human**
     </FeatureSection>
@@ -29,35 +32,49 @@ All half-elves share the following gameplay elements.
     </FeatureSection>
 
     <FeatureSection title="Native Langauges">
-    Your native languages are Elvish and Common. 
+    Your native languages are Elvish and Common.
     </FeatureSection>
 
     <FeatureSection title="Vision">
     You have low-light vision.
     </FeatureSection>
 
+</GameplayCard>
+
 ## Half-Elf Features
 As a half-elf, you automatically gain access to all features below.
 
-    <FeatureSection title="Dual Heritage">
-    Harmful effects that target creatures by keyword affect you only if they affect both _Fey_ and _Humanoid_ creatures. 
-    
-    Beneficial effects that target creatures by keyword affect you if they affect either _Fey_ or _Humanoid_ creatures.
-    </FeatureSection>
+<GameplayCard
+  color="teal"
+  title="Dual Heritage"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Harmful effects that target creatures by keyword affect you only if they affect both _Fey_ and _Humanoid_ creatures.
 
-    <FeatureSection title="Silver Heart">
-    You gain a +2 ancestry bonus to any saving throw made to resist the paralyzing touch caused by undead creatures. 
-    </FeatureSection>
+Beneficial effects that target creatures by keyword affect you if they affect either _Fey_ or _Humanoid_ creatures.
+</GameplayCard>
+
+<GameplayCard
+  color="teal"
+  title="Silver Heart"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You gain a +2 ancestry bonus to any saving throw made to resist the paralyzing touch caused by undead creatures.
+</GameplayCard>
 
 ## Class Keyword Features
-After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below. 
+After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below.
 
-However, as a half-elf, you can select any valid class keyword feature from either the Elf or Human ancestry, and gain that feature. 
+However, as a half-elf, you can select any valid class keyword feature from either the Elf or Human ancestry, and gain that feature.
 
 ## Half-Elf Ages
 Half-elves age unevenly, their human swiftness and elven patience never quite in harmony. They hold their prime longer than humans, yet never with the ease of elves, always caught between two rhythms of time. In old age, they often stand apart, shaped by years that never fully belonged to either world.
 
-To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have. 
+To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have.
 
 <div class="green-table">
 | **Class Keyword** | **Base Age** | **Roll** |
@@ -69,16 +86,16 @@ To randomly roll your starting age, you must first determine your class keywords
 </div>
 
 :::tip[Two Half-Elves]{icon="information"}
-Kyra has selected the Fighter class, which contains the Soldier class keyword. Thus, she rolls 2d6, getting 8. She adds that to the base age of 13, and Kyra is 21 years old, still young, but getting close to her Prime. 
+Kyra has selected the Fighter class, which contains the Soldier class keyword. Thus, she rolls 2d6, getting 8. She adds that to the base age of 13, and Kyra is 21 years old, still young, but getting close to her Prime.
 
-However, Maurice is a Fighter\Magic-User which has the Arcanist and Soldier keywords. Since the base age of arcanist is higher, his base age is 20. He then rolls 4d8 for his arcanist, getting 19, and 2d6 for his Fighter, getting a 7. Joan is 46 (20 + 19 + 7), very solid in his prime . 
+However, Maurice is a Fighter\Magic-User which has the Arcanist and Soldier keywords. Since the base age of arcanist is higher, his base age is 20. He then rolls 4d8 for his arcanist, getting 19, and 2d6 for his Fighter, getting a 7. Joan is 46 (20 + 19 + 7), very solid in his prime .
 :::
 
-After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional. 
+After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional.
 
-As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so. 
+As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so.
 
-Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 25 is both Young and Prime. Once you reach 25, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 25 and 26 you can decide to apply the attribute adjustments, but it must be done by the time you turn 26, or it is done the first rest you have once you turn 26. 
+Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 25 is both Young and Prime. Once you reach 25, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 25 and 26 you can decide to apply the attribute adjustments, but it must be done by the time you turn 26, or it is done the first rest you have once you turn 26.
 
 ### Young Half-Elves (15 - 25)
 Young half-elves are seen as uncertain and unplaced; often treated as outsiders in any community they enter, expected to “choose a side” even when they cannot.
@@ -87,13 +104,13 @@ As a young half-elf, you have the option to make the following attribute adjustm
 
     <FeatureSection>
     * Select any attribute. Increase the selected attribute by +1.
-    * Select a different attribute that you didn't select above. Reduce the selected attribute by -1. 
+    * Select a different attribute that you didn't select above. Reduce the selected attribute by -1.
     </FeatureSection>
 
 ### Prime Half-Elves (25 - 80)
 Half-elves in their prime often serve as useful intermediaries and adaptable workers; respected for versatility, although they are rarely granted deep trust or permanent belonging.
 
-As a half-elf in your prime, you have the option to make the following attribute adjustments.     
+As a half-elf in your prime, you have the option to make the following attribute adjustments.
 
     <FeatureSection>
     * Select any two different attributes. Increase the selected attributes by +1.
@@ -106,11 +123,11 @@ As a mature half-elf, you must make the following attribute adjustments.
 
     <FeatureSection>
     * Select two attributes from the following list: **Heartiness**, **Agility**, **Precision**, **Logic**, **Reason**, **Savvy** and **Presence**. Increase the selected attributes by +1.
-    * Select two attributes that you didn't select above. Reduce the selected attribute by -1. 
+    * Select two attributes that you didn't select above. Reduce the selected attribute by -1.
     </FeatureSection>
 
 ### Aging Half-Elves (110 - 140)
-Aging half-elves become increasingly rootless figures; communities respect their experience but assume they will not remain long enough to matter politically, even when they have been in a community for multiple generations. 
+Aging half-elves become increasingly rootless figures; communities respect their experience but assume they will not remain long enough to matter politically, even when they have been in a community for multiple generations.
 
 As an aging half-elf, you must make the following attribute adjustments.
 
@@ -132,4 +149,4 @@ As an elderly half-elf, you must make the following attribute adjustments.
 ## Height and Weight
 To randomly determine your charact's height and weight, start with rolling a 2d8, and note this as “extra inches”. Then roll a 2d4, and multiple the result of this roll by your “extra inches” to get your “extra weight”.
 
-If your half-elf is a male, add your “extra inches” to 55 inches to get how tall you are in inches, additionally, add the “extra weight” to 100 lbs. to get your starting weight. If your half-elf is female, add your “extra inches” to 53 inches, and add your “extra weight” to 75 lbs. 
+If your half-elf is a male, add your “extra inches” to 55 inches to get how tall you are in inches, additionally, add the “extra weight” to 100 lbs. to get your starting weight. If your half-elf is female, add your “extra inches” to 53 inches, and add your “extra weight” to 75 lbs.

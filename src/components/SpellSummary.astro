@@ -4,13 +4,16 @@
 // - to: optional string URL for the detail page
 // - excerpt: optional short string summary
 const { entry, to, excerpt } = Astro.props;
+const displayTitle = entry.data.reverseTitle
+  ? `${entry.data.title} / ${entry.data.reverseTitle}`
+  : entry.data.title;
 const classList = Array.isArray(entry.data.classes)
   ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(', ')
   : undefined;
 ---
 <article class="spell-summary">
   <h3 class="spell-title">
-    {to ? <a href={to}>{entry.data.title}</a> : entry.data.title}
+    {to ? <a href={to}>{displayTitle}</a> : displayTitle}
   </h3>
   <div class="spell-meta">
     {entry.data.level !== undefined && <span>Level {entry.data.level}</span>}

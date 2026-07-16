@@ -1,6 +1,7 @@
 ---
 title: Halflings
 ---
+import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
 
 Most people think of halflings as cheerful folk who care little for anything beyond good food, good company, and a comfortable bed. While halflings certainly enjoy all three, many people underestimate just how capable they can be. A traveler who mistakes a halfling for a fool will often discover their mistake much too late.
@@ -15,6 +16,8 @@ Halflings care more about cleanliness and comfort than displays of wealth. Their
 
 ## Halfling Gameplay
 All Halflings share the following gameplay elements.
+
+<GameplayCard color="yellow" title="Ancestry Traits" toc tocDepth={3}>
 
     <FeatureSection title="Ancestry Keywords">
     **Animus, Humanoid, Halfling**
@@ -33,51 +36,95 @@ All Halflings share the following gameplay elements.
     </FeatureSection>
 
     <FeatureSection title="Native Langauges">
-    Your native languages is Common. 
+    Your native languages is Common.
     </FeatureSection>
 
     <FeatureSection title="Vision">
-    You have low-light vision. 
+    You have low-light vision.
     </FeatureSection>
+
+</GameplayCard>
 
 ## Halfling Features
 As a halfling, you automatically gain access to all features below.
 
-    <FeatureSection title="Natural Stealth">
-    When you makes any Agility or Precision Skill Test to attempt to be silent, move quietly, avoid being seen, or other forms of stealth, they gain a +1 ancestry bonus to the test. 
-    </FeatureSection>
+<GameplayCard
+  color="teal"
+  title="Natural Stealth"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+When you makes any Agility or Precision Skill Test to attempt to be silent, move quietly, avoid being seen, or other forms of stealth, they gain a +1 ancestry bonus to the test.
+</GameplayCard>
 
-    <FeatureSection title="Poor Warriors">
-    If a class you select has the _soldier_ keyword, you have a -5% penalty to XP gains for that class. 
-    </FeatureSection>
+<GameplayCard
+  color="teal"
+  title="Poor Warriors"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+If a class you select has the _soldier_ keyword, you have a -5% penalty to XP gains for that class.
+</GameplayCard>
 
-    <FeatureSection title="Sling Training">
-    You start play familiar with the sling weapon group, regardless of your class's weapon selection.
-    </FeatureSection>
+<GameplayCard
+  color="teal"
+  title="Sling Training"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You start play familiar with the sling weapon group, regardless of your class's weapon selection.
+</GameplayCard>
 
 ## Class Keyword Features
-After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below. 
+After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below.
 
-    <FeatureSection title="Arcanist">
-    When determining if you can use a magical item or not based on class keyword, you are treated as if you had the _priest_ keyword, in addition to _arcanist_.
-    </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Arcanist"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+When determining if you can use a magical item or not based on class keyword, you are treated as if you had the _priest_ keyword, in addition to _arcanist_.
+</GameplayCard>
 
-    <FeatureSection title="Adept">
-    You treat all slings that you wield as if they had the _brutal_ and _sneaky_ weapon features. 
-    </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Adept"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You treat all slings that you wield as if they had the _brutal_ and _sneaky_ weapon features.
+</GameplayCard>
 
-    <FeatureSection title="Priest">
-    You gain a +2 ancestry bonus to Saving Throws vs Binding. 
-    </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Priest"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You gain a +2 ancestry bonus to Saving Throws vs Binding.
+</GameplayCard>
 
-    <FeatureSection title="Soldier">
-    Increase the damage dice of all slings you wield by 1 dice step.
-    </FeatureSection>
+<GameplayCard
+  color="orange"
+  title="Soldier"
+  subeyebrow="Class Keyword Ancestry Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Increase the damage dice of all slings you wield by 1 dice step.
+</GameplayCard>
 
 ## Halfling Ages
 Halflings enjoy a long and gentle middle life, where community and routine keep them steady and whole. They age kindly, losing little at once, and gaining warmth, patience, and perspective in return. Even in decline, they remain rooted in the lives around them, seldom cast aside.
 
-To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have. 
+To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have.
 
 <div class="green-table">
 | **Class Keyword** | **Base Age** | **Roll** |
@@ -89,16 +136,16 @@ To randomly roll your starting age, you must first determine your class keywords
 </div>
 
 :::tip[Two Humans]{icon="information"}
-Robur has selected the Cleric class, which contains the Priest class keyword. Thus, he rolls 2d10, getting 13. He adds that to the base age of 20, and William is 33 years old, and he is in his prime. 
+Robur has selected the Cleric class, which contains the Priest class keyword. Thus, he rolls 2d10, getting 13. He adds that to the base age of 20, and William is 33 years old, and he is in his prime.
 
-However, Nora is a Cleric\Magic-User which has the Arcanist and Priest keywords. Since the base age of arcanist is higher, her base age is 22. She then rolls 3d6 for her arcanist, getting 14, and 2d10 for her Priest, getting an 8. Nora is 44 (22 + 14 + 8), still well within her prime. 
+However, Nora is a Cleric\Magic-User which has the Arcanist and Priest keywords. Since the base age of arcanist is higher, her base age is 22. She then rolls 3d6 for her arcanist, getting 14, and 2d10 for her Priest, getting an 8. Nora is 44 (22 + 14 + 8), still well within her prime.
 :::
 
-After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional. 
+After determining your age, you apply all age factors below for your current age, and every age lower. Thus, an elf who starts in their prime must step through all Young and Prime attribute adjustments. Note that some age requirements are optional.
 
-As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so. 
+As a reminder, during character creation, your attributes cannot go above 19, nor below 6 due to aging bonuses and penalties. Simply ignore any bonuses or penalties that would adjust your attributes so.
 
-Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 30 is both Young and Prime. Once you reach 30, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 30 and 31 you can decide to apply the attribute adjustments, but it must be done by the time you turn 31, or it is done the first rest you have once you turn 31. 
+Some age breakpoints overlap; and when aging a character, once you hit the age breakpoint, you can choose to delay your attribute adjustments for up to 1 year, but must apply the attribute adjustments before you reach the age that doesn't overlap. For example, 30 is both Young and Prime. Once you reach 30, you can choose to apply the attribute adjustments for being Prime, but you do not have to. During any rest between age 30 and 31 you can decide to apply the attribute adjustments, but it must be done by the time you turn 31, or it is done the first rest you have once you turn 31.
 
 ### Young Halflings (15 - 30)
 Young halflings are welcomed into community life early; expected to learn customs, contribute, and avoid unnecessary trouble.
@@ -126,7 +173,7 @@ As a mature halfling, you must make the following attribute adjustments.
 
     <FeatureSection>
     * Your **Agility**, **Precision**, **Reason**, and **Savvy** attributes are increased by +1.
-    * Your **Brawn** and **Heartiness** attribute is reduced by -1. 
+    * Your **Brawn** and **Heartiness** attribute is reduced by -1.
     </FeatureSection>
 
 ### Aging Halflings (80 - 100)

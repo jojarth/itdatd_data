@@ -2,7 +2,7 @@
 datatype: spell
 title: Running Reload
 level: 0
-casting: Special; Phase 3; see spell description
+casting: Special; see spell description
 range: Special, see spell description
 duration: Instantaneous
 classes:
@@ -11,15 +11,18 @@ classes:
 shortDescription: Magically reload a crossbow, or other such weapon.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
 
-<FeatureSection title="Effect">
-    To cast this spell, you must be wielding a weapon with the Reload property. Ammunition for that weapon must be accessible and within 5 feet of you.
+<SpellEntry title="Running Reload">
+    <FeatureSection title="Spell Effect">
+        To cast this spell, you must be wielding a weapon with the Reload property. Ammunition for that weapon must be accessible and within 5 feet of you.
 
-    This spell costs 1 Action to cast. However, you may cast it as part of any Action or Reaction used to move.
+        This spell costs 1 Action in Phase 1 to cast. However, you may cast it as part of any Action or Reaction used to move.
 
-    The ammunition is magically drawn from its container, loaded into the weapon, and the weapon is armed and ready to fire.
-</FeatureSection>
+        The ammunition is magically drawn from its container, loaded into the weapon, and the weapon is armed and ready to fire.
+    </FeatureSection>
 
-<FeatureSection title="Components">
-    To cast this spell, you must maintain a wavering whistle while miming the motions of reloading the weapon with one hand.
-</FeatureSection>
+    <FeatureSection title="Components">
+        To cast this spell, you must maintain a wavering whistle while miming the motions of reloading the weapon with one hand.
+    </FeatureSection>
+</SpellEntry>

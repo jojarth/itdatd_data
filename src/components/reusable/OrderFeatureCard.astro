@@ -20,11 +20,11 @@ const {
 } = Astro.props as Props;
 
 const classLabel = className.trim();
-const classText = classLabel.toLowerCase();
-const traditionList = new Intl.ListFormat('en-US', {
+const traditionListFormatter = new Intl.ListFormat('en-US', {
   style: 'long',
   type: 'conjunction',
-}).format(traditions);
+});
+const traditionListParts = traditionListFormatter.formatToParts(traditions);
 
 function ordinal(value: number): string {
   const remainder = value % 100;
@@ -53,7 +53,13 @@ function ordinal(value: number): string {
 >
   <p>You belong to an Order: an organization, fellowship, or tradition dedicated to a shared purpose. Your chosen Order grants you unique features based on its teachings, practices, and methods. When you select an Order, you must also select one of its available Traditions. Your chosen Tradition determines the features you gain.</p>
 
-  <p>As a {classText}, you can select from the {traditionList} Traditions.</p>
+  <p>
+    As a {classLabel}, you can select from the {
+      traditionListParts.map((part) =>
+        part.type === 'element' ? <strong><em>{part.value}</em></strong> : part.value
+      )
+    } Traditions.
+  </p>
 
   <p>You can find a list of Orders and their available Traditions in your campaign guides. However, the Orders and Traditions listed below are available in any generic campaign.</p>
 

@@ -346,6 +346,10 @@
   background: #6366f1;
 }
 
+.gameplay-card--teal::before {
+  background: #14b8a6;
+}
+
 .gameplay-card--violet::before {
   background: #8b5cf6;
 }
@@ -429,6 +433,67 @@
 }
 
 .feature-section > :last-child {
+  margin-bottom: 0;
+}
+
+.order-tradition {
+  --order-tradition-accent: var(--sl-color-accent);
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--sl-color-gray-5);
+  border-left: 4px solid var(--order-tradition-accent);
+  border-radius: calc(var(--itdatd-card-radius) - 2px);
+  background: color-mix(in srgb, var(--order-tradition-accent) 7%, var(--sl-color-bg));
+}
+
+.order-tradition--military {
+  --order-tradition-accent: #ef4444;
+}
+
+.order-tradition--devotional {
+  --order-tradition-accent: #8b5cf6;
+}
+
+.order-tradition--stewardship {
+  --order-tradition-accent: #22c55e;
+}
+
+.order-tradition__header {
+  padding: 0.8rem 0.9rem 0.7rem;
+  border-bottom: 1px solid var(--sl-color-gray-5);
+}
+
+.order-tradition__label {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  color: var(--order-tradition-accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.order-tradition__header h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.order-tradition__feature {
+  margin: 0.15rem 0 0;
+  color: var(--sl-color-gray-2);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.order-tradition__body {
+  padding: 0.8rem 0.9rem 0.9rem;
+}
+
+.order-tradition__body > :first-child {
+  margin-top: 0;
+}
+
+.order-tradition__body > :last-child {
   margin-bottom: 0;
 }
 

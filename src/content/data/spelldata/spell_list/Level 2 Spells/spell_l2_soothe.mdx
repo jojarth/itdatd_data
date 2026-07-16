@@ -1,36 +1,35 @@
 ---
 datatype: spell
-title: Minor Healing
-level: 0
-casting: 1 Action; Phase 4
+title: Soothe
+level: 2
+casting: 1 Master Action; Phase 4
 range: Touch
-duration: Instantaneous
+duration: 3 Rounds
 classes:
-    - Cleric
-    - Bard
-    - Theurge
-    - Paladin
-shortDescription: Your touch restores a small amount of vitality.
+  - Druid
+shortDescription: Your slowly restore vitality to a creature.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
-<SpellEntry title="Minor Healing">
+<SpellEntry title="Soothe">
     <FeatureSection title="Spell Effect">
-        Touch a nearby Valid Creature. The target regains 1 Grit.
+        Touch a nearby Valid Creature. For the duration of this spell, on Phase 1 of each round, the target regains 1d4 + 1 points of Grit. 
     </FeatureSection>
+###### Creature Interactions
+    * If the target has the **Aeon**, **Animus**, **Cosmic**, or **Fey** keywords, the spell functions normally.
+    * If the target has the **Construct, Elemental, Necros** or **Umbra** keywords, the spell has no effect.
 
     <FeatureSection title="Creature Interactions">
         ###### Valid Creatures
         * Creatures with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keywords are Valid Creatures.
-        * Creatures with the **Necros** or **Umbra** keywords are Valid Creatures. Instead of recovering Grit, they suffer 1 point of Sacred damage. The target is entitled to a Save vs Spell. On a success, it takes no damage.
     </FeatureSection>
 
     <FeatureSection title="Spell Improvements">
         ###### When you can cast 3rd-level spells
-        * Increase the healing provided, as well as the damage to *Necros* and *Umbra* creatures, to 2.
+        * Increase the duration of this spell to 4 rounds.
         ###### When you can cast 5th-level spells
-        * Increase the healing provided, as well as the damage to *Necros* and *Umbra* creatures, to 3.
+        * Increase the duration of this spell to 5 rounds.
     </FeatureSection>
 
     <FeatureSection title="Components">
