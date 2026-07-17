@@ -65,42 +65,37 @@ const metadataFields = metadata
 
 <style>
   .spell-entry {
-    --spell-entry-accent: #d6a725;
+    --spell-entry-accent: var(--itdatd-spell-primary-section);
+    --spell-subsection-accent: var(--itdatd-spell-primary-subsection);
+    --feature-section-accent: var(--spell-entry-accent);
+    --feature-subsection-accent: var(--spell-subsection-accent);
     display: grid;
     gap: 1.15rem;
     scroll-margin-top: 5rem;
   }
 
   .spell-entry--reverse {
-    --spell-entry-accent: #8b5cf6;
-    margin-top: 1.5rem;
+    --spell-entry-accent: var(--itdatd-spell-reverse-section);
+    --spell-subsection-accent: var(--itdatd-spell-reverse-subsection);
+    margin-top: 2.5rem;
   }
 
   .spell-entry__divider {
-    display: grid;
-    grid-template-columns: 7rem 1fr;
-    gap: 0.45rem;
-    align-items: center;
-  }
-
-  .spell-entry__divider::before,
-  .spell-entry__divider::after {
-    display: block;
-    height: 2px;
-    content: "";
-  }
-
-  .spell-entry__divider::before {
+    height: 4px;
+    border-radius: 999px;
     background: var(--spell-entry-accent);
-  }
-
-  .spell-entry__divider::after {
-    background: var(--sl-color-gray-5);
   }
 
   .spell-entry__header {
     display: grid;
     gap: 0.2rem;
+  }
+
+  .spell-entry--reverse .spell-entry__header {
+    padding: 0.75rem 1rem;
+    border-left: 5px solid var(--spell-entry-accent);
+    border-radius: 0 var(--itdatd-card-radius) var(--itdatd-card-radius) 0;
+    background: color-mix(in srgb, var(--spell-entry-accent) 8%, var(--sl-color-bg));
   }
 
   .spell-entry__label {
@@ -146,68 +141,16 @@ const metadataFields = metadata
     gap: 1rem;
   }
 
-  .spell-entry__body :global(.feature-section) {
-    position: relative;
-    padding: 1rem 0 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-  }
-
-  .spell-entry__body :global(.feature-section)::before,
-  .spell-entry__body :global(.feature-section)::after {
-    position: absolute;
-    top: 0;
-    display: block;
-    height: 2px;
-    content: "";
-  }
-
-  .spell-entry__body :global(.feature-section)::before {
-    left: 0;
-    width: 7rem;
-    background: var(--spell-entry-accent);
-  }
-
-  .spell-entry__body :global(.feature-section)::after {
-    right: 0;
-    left: 7.45rem;
-    background: var(--sl-color-gray-5);
-  }
-
-  .spell-entry__body :global(.feature-section h5) {
-    margin: 0 0 0.65rem;
-    font-size: 1.05rem;
-  }
-
-  .spell-entry__body :global(.feature-section h6) {
-    margin: 1rem 0 0.55rem;
-    padding: 0.45rem 0.65rem;
-    border-left: 3px solid var(--spell-entry-accent);
-    border-radius: 0 4px 4px 0;
-    background: color-mix(in srgb, var(--spell-entry-accent) 9%, transparent);
-    color: var(--sl-color-text);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  /* Every major spell section receives the same top divider, including Spell Effect. */
+  .spell-entry__body > :global(.feature-section) {
+    padding-top: 1rem;
+    border-top: 1px solid var(--sl-color-gray-5);
   }
 
   @media (max-width: 38rem) {
-    .spell-entry__divider {
-      grid-template-columns: 4rem 1fr;
-    }
-
     .spell-entry__metadata {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .spell-entry__body :global(.feature-section)::before {
-      width: 4rem;
-    }
-
-    .spell-entry__body :global(.feature-section)::after {
-      left: 4.45rem;
-    }
   }
 </style>

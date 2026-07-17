@@ -5,19 +5,24 @@ interface Props {
   tradition: Tradition;
   title: string;
   featureTitle: string;
+  color?: string;
 }
 
-const { tradition, title, featureTitle } = Astro.props as Props;
+const { tradition, title, featureTitle, color } = Astro.props as Props;
 const variant = tradition.toLowerCase();
+const normalizedColor = color?.toLowerCase().trim().replace(/^gray$/, 'grey').replace(/^viloet$/, 'violet').replace(/\s+/g, '-');
+const colorStyle = normalizedColor
+  ? `--order-tradition-accent: var(--itdatd-color-${normalizedColor})`
+  : undefined;
 ---
 
-<section class={`order-tradition order-tradition--${variant}`}>
+<section class={`order-tradition order-tradition--${variant}`} style={colorStyle}>
   <header class="order-tradition__header">
     <span class="order-tradition__label">{tradition} Tradition</span>
     <h6>{title}</h6>
-    <p class="order-tradition__feature">{featureTitle}</p>
   </header>
   <div class="order-tradition__body">
+    <p class="order-tradition__feature">{featureTitle}</p>
     <slot />
   </div>
 </section>

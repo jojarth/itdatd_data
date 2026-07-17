@@ -1,8 +1,30 @@
 ---
-const { title } = Astro.props;
+interface Props {
+  title?: string;
+  label?: string;
+  color?: string;
+  subsectionColor?: string;
+  compact?: boolean;
+}
+
+const { title, label, color, subsectionColor, compact = false } = Astro.props as Props;
+const normalizeColorName = (value: string) => value.toLowerCase().trim().replace(/^gray$/, 'grey').replace(/^viloet$/, 'violet').replace(/\s+/g, '-');
+const sectionClass = [
+  'feature-section',
+  compact ? 'feature-section--compact' : '',
+  color ? `feature-section--${normalizeColorName(color)}` : '',
+  subsectionColor ? `feature-section--subsection-${normalizeColorName(subsectionColor)}` : '',
+].filter(Boolean).join(' ');
 ---
 
-<section class="feature-section">
-  {title && <h5>{title}</h5>}
-  <slot />
+<section class={sectionClass}>
+  {(title || label) && (
+    <header class="feature-section__header">
+      {label && <span class="feature-section__label">{label}</span>}
+      {title && <h5 class="feature-section__title">{title}</h5>}
+    </header>
+  )}
+  <div class="feature-section__body">
+    <slot />
+  </div>
 </section>

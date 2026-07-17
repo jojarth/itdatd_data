@@ -3,15 +3,7 @@ import spellSlots from '../content/data/spelldata/spell_slots/spell_slots.json';
 
 interface Props {
   rank?: 'A' | 'B' | 'C' | 'D' | 'E';
-  colorTheme?:
-    | 'blue-table'
-    | 'green-table'
-    | 'red-table'
-    | 'orange-table'
-    | 'grey-table'
-    | 'pink-table'
-    | 'purple-table'
-    | 'yellow-table';
+  colorTheme?: string;
   title?: string;
   caption?: string;
   boldColumn?: number | string | Array<number | string>;
@@ -187,11 +179,16 @@ function getBodyCellClass(rowIndex: number, columnIndex: number): string | undef
         {hasColumnGroups && (
           <tr>
             <th
-              class={shouldBoldHeader || isBoldCell(undefined, 0) ? 'is-bold spell-slot-table__group-end' : 'spell-slot-table__group-end'}
+              class={[
+                shouldBoldHeader || isBoldCell(undefined, 0) ? 'is-bold' : '',
+                'spell-slot-table__class-level',
+                'spell-slot-table__group-end',
+              ].filter(Boolean).join(' ')}
               rowspan="2"
               style="text-align: center"
             >
-              Class Level
+              <span>Class</span>
+              <span>Level</span>
             </th>
             {cantripColumns.length > 0 && (
               <th
@@ -268,5 +265,14 @@ function getBodyCellClass(rowIndex: number, columnIndex: number): string | undef
 
   .spell-slot-table :global(.spell-slot-table__group-end) {
     border-right: 1px solid var(--itdatd-table-border, currentColor) !important;
+  }
+
+  .spell-slot-table :global(.spell-slot-table__class-level) {
+    vertical-align: middle !important;
+    line-height: 1.1;
+  }
+
+  .spell-slot-table :global(.spell-slot-table__class-level span) {
+    display: block;
   }
 </style>

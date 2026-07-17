@@ -5,6 +5,7 @@ description: A quick reference for the custom components, table styles, and spel
 
 import GameplayCard from '../../components/GameplayCard.astro';
 import FeatureSection from '../../components/FeatureSection.astro';
+import FeatureSubsection from '../../components/FeatureSubsection.astro';
 import SpellSlotTable from '../../components/SpellSlotTable.astro';
 
 # Site Reference
@@ -18,7 +19,7 @@ Keep this page in `src/content/docs`. Starlight only treats files in the docs co
 | What you want to edit | File |
 |:--|:--|
 | Colored table palettes | `src/styles/custom.css` |
-| Gameplay card layout and color bars | `src/components/GameplayCard.astro` and `src/styles/custom.css` |
+| Gameplay card layout, section bars, and shared color palette | `src/components/GameplayCard.astro`, `src/components/FeatureSection.astro`, and `src/styles/custom.css` |
 | Spell slot table rendering | `src/components/SpellSlotTable.astro` |
 | Spell slot numbers | `src/content/data/spelldata/spell_slots/spell_slots.json` |
 | Spell list filtering/cards | `src/components/SpellList.astro` and `src/components/SpellCard.astro` |
@@ -89,14 +90,16 @@ Keep the blank lines between the `<div>` and the table. This helps MDX parse the
 
 Available table classes:
 
-- `green-table`
-- `blue-table`
-- `red-table`
-- `orange-table`
-- `grey-table`
-- `pink-table`
-- `purple-table`
-- `yellow-table`
+- Original: `red-table`, `blue-table`, `green-table`, `orange-table`, `yellow-table`, `gold-table`, `indigo-table`, `teal-table`, `violet-table`, `purple-table`, `pink-table`, `grey-table`, `black-table`, `brown-table`, and `azure-table`
+- High Contrast: `crimson-table`, `royal-blue-table`, and `forest-green-table`
+- Pastel: `dusty-rose-table`, `powder-blue-table`, and `sage-green-table`
+- Modern: `coral-table`, `cobalt-table`, and `mint-table`
+- Fantasy: `dragon-gold-table`, `arcane-violet-table`, and `fey-teal-table`
+- Cool: `glacier-blue-table`, `periwinkle-table`, and `deep-teal-table`
+- Warm: `ember-table`, `amber-table`, and `terracotta-table`
+- Easter Pastel: `easter-pink-table`, `robin-egg-table`, and `easter-lilac-table`
+
+The groups are suggested combinations, not restrictions. You can use any color independently or mix colors from different groups.
 
 Table colors are defined in `src/styles/custom.css`. To add a new color such as `azure-table`, add it to the shared table selector list, then define both light-mode and optional dark-mode CSS variables.
 
@@ -129,7 +132,7 @@ The `rank` prop chooses which spell slot progression to use:
 - `D`
 - `E`
 
-The `colorTheme` prop uses the same color classes as normal colored tables. Because `SpellSlotTable` renders its generated table inside the same wrapper pattern, changes to the shared colored table CSS also affect spell slot tables.
+The `colorTheme` prop uses the same color classes as normal colored tables. Because `SpellSlotTable` renders its generated table inside the same wrapper pattern, changes to the shared colored table CSS also affect spell slot tables. `WeaponTable` accepts the same table color names.
 
 Spell slot tables include cantrip `Preparations` and `Casts` columns before leveled spell slots. The table header automatically groups those columns under `Cantrips` and groups `Level 1`, `Level 2`, and later spell slot columns under `Spell Slots`.
 
@@ -168,7 +171,7 @@ Live example:
 
 <SpellSlotTable rank="A" colorTheme="blue-table" boldHeader boldColumn={1} />
 
-If you add a new table color, also add it to the `colorTheme` type in `src/components/SpellSlotTable.astro` before using it as a prop.
+The table components accept any color-theme class string, so adding another named table theme does not require changing their prop types.
 
 ## Gameplay Cards
 
@@ -177,6 +180,7 @@ Use `GameplayCard` for class summaries, feature callouts, special rules boxes, a
 ```mdx
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
 ```
 
 The number of `../` segments depends on where the page lives. From class pages in `src/content/docs/playersguide/05-classes/`, the import above is correct.
@@ -213,6 +217,41 @@ Set the accent color with the `color` prop:
 </GameplayCard>
 ```
 
+#### Color Set Shortcuts
+
+Use `colorSet` when a GameplayCard should use one of the standard three-color combinations. The shortcut sets the outer card, FeatureSection, and FeatureSubsection colors together.
+
+```mdx
+<GameplayCard colorSet="gameplayfeature" title="Requirements and Requisites">
+  ...
+</GameplayCard>
+```
+
+Available shortcuts:
+
+| `colorSet` | Card | Section | Subsection |
+|:--|:--|:--|:--|
+| `gameplayfeature` | `cobalt` | `mint` | `coral` |
+| `proficiencies` | `forest-green` | `royal-blue` | `crimson` |
+| `spellcasting` | `arcane-violet` | `fey-teal` | `dragon-gold` |
+| `choicefeature` | `easter-lilac` | `robin-egg` | `easter-pink` |
+| `fixedfeature` | `powder-blue` | `sage-green` | `dusty-rose` |
+| `characterfeature` | `amber` | `terracotta` | `ember` |
+
+Hyphens and spaces in shortcut names are ignored. `classfeature` is also accepted as an alias for `gameplayfeature`; the longer `classfeaturewithchoices` and `classfeaturewithoutchoices` aliases map to `choicefeature` and `fixedfeature`.
+
+Individual color props override their part of a set:
+
+```mdx
+<GameplayCard
+  colorSet="spellcasting"
+  subsectionColor="amber"
+  title="Special Spellcasting"
+>
+  ...
+</GameplayCard>
+```
+
 Common colors:
 
 - `green`: class or summary cards
@@ -220,30 +259,79 @@ Common colors:
 - `blue`: subclass cards
 - `indigo`: ancestry cards
 - `yellow`: archetype cards
+- `gold`: warm section or subsection accents
 
 Other defined colors:
 
 - `red`
 - `orange`
+- `teal`
 - `violet`
 - `grey`
 - `black`
 - `brown`
 - `azure`
+- `pink`
 
-Gameplay card colors are defined in `src/styles/custom.css` as classes like this:
+Extended palette:
+
+| Suggested Set | GameplayCard, FeatureSection, or FeatureSubsection `color` values |
+|:--|:--|
+| High Contrast | `crimson`, `royal-blue`, `forest-green` |
+| Pastel | `dusty-rose`, `powder-blue`, `sage-green` |
+| Modern | `coral`, `cobalt`, `mint` |
+| Fantasy | `dragon-gold`, `arcane-violet`, `fey-teal` |
+| Cool | `glacier-blue`, `periwinkle`, `deep-teal` |
+| Warm | `ember`, `amber`, `terracotta` |
+| Easter Pastel | `easter-pink`, `robin-egg`, `easter-lilac` |
+
+Every extended color has a dark-mode value. The matching table class is the color name plus `-table`; for example, `color="dragon-gold"` pairs with `class="dragon-gold-table"`.
+
+```mdx
+<GameplayCard
+  color="easter-pink"
+  sectionColor="robin-egg"
+  subsectionColor="easter-lilac"
+  title="Easter Pastel Example"
+>
+  <FeatureSection title="Main Feature">
+    <FeatureSubsection title="Nested Feature">
+      Each level can use a different color from the trio.
+    </FeatureSubsection>
+  </FeatureSection>
+</GameplayCard>
+```
+
+For the matching table treatment:
+
+```mdx
+<div class="easter-pink-table">
+
+| Feature | Effect |
+|:--|:--|
+| Spring Step | Move through difficult terrain. |
+| Painted Ward | Gain a bonus against magic. |
+
+</div>
+```
+
+All card, section, and subsection colors are defined together at the top of `src/styles/custom.css`:
 
 ```css
-.gameplay-card--purple::before {
-  background: #a855f7;
+:root {
+  --itdatd-color-green: #22c55e;
+  --itdatd-color-gold: #d6a725;
+  --itdatd-color-purple: #a855f7;
 }
 ```
 
-To add a new color, add a matching CSS block. `GameplayCard` accepts any string for `color`, so no TypeScript list needs to be updated.
+Editing one of these variables changes that named color everywhere it is used. Optional dark-mode overrides live in the `:root[data-theme="dark"]` block immediately below the main palette.
+
+To add a new named color, define its palette variable and add it to the corresponding card, section, and subsection color selectors in `src/styles/custom.css`.
 
 ```css
-.gameplay-card--teal::before {
-  background: #14b8a6;
+.gameplay-card--teal {
+  --gameplay-card-accent: var(--itdatd-color-teal);
 }
 ```
 
@@ -314,34 +402,183 @@ By default, `toc` entries are added as level-three headings. Use `tocDepth={2}` 
 </GameplayCard>
 ```
 
-### Card Sections
+### Feature Sections and Nested Subsections
 
 Use `FeatureSection` inside a card when the rule needs separate titled blocks.
+
+The `title` and optional `label` are always written by you. The component does not generate section names or step numbers.
+
+#### Complete Example
 
 ```mdx
 <GameplayCard
   color="blue"
+  sectionColor="green"
+  subsectionColor="gold"
   title="Feature Name"
 >
-  <FeatureSection title="First Section">
-    Write the first rule section here.
+  <FeatureSection title="The Traveller" label="Contemplation">
+    Increase your base Move Speed by +5 feet.
+
+    <FeatureSubsection title="Invocation">
+      This movement does not provoke Opportunity Actions.
+    </FeatureSubsection>
   </FeatureSection>
 
-  <FeatureSection title="Second Section">
+  <FeatureSection title="Second Section" color="azure" subsectionColor="pink">
     Write the second rule section here.
   </FeatureSection>
 </GameplayCard>
 ```
 
+#### Color Controls
+
+Colors can be set once for the entire card or overridden for one section.
+
+| Component | Prop | Controls | Fallback |
+|:--|:--|:--|:--|
+| `GameplayCard` | `color` | Outer card sidebar | `purple` |
+| `GameplayCard` | `sectionColor` | Every main section sidebar in the card | The card's `color` |
+| `GameplayCard` | `subsectionColor` | Every nested subsection sidebar in the card | `--itdatd-feature-subsection` |
+| `FeatureSection` | `color` | This main section sidebar only | The card's `sectionColor` |
+| `FeatureSection` | `subsectionColor` | Nested subsections inside this section | The card's `subsectionColor` |
+| `FeatureSection` | `compact` | Reduces the gap between its title and body content | `false` |
+| `FeatureSubsection` | `color` | This nested subsection only | The nearest subsection color |
+
+Card-wide colors:
+
+```mdx
+<GameplayCard
+  color="purple"
+  sectionColor="green"
+  subsectionColor="azure"
+  title="The Inner Journey"
+>
+  ...
+</GameplayCard>
+```
+
+Individual overrides:
+
+```mdx
+<FeatureSection
+  title="Contemplation of The Traveller"
+  color="teal"
+  subsectionColor="gold"
+>
+  The main effect uses a teal sidebar.
+
+  <FeatureSubsection title="Invocation" color="pink">
+    This one Invocation overrides the gold subsection color with pink.
+  </FeatureSubsection>
+</FeatureSection>
+```
+
+In short:
+
+- `GameplayCard sectionColor` sets the default sidebar color for every `FeatureSection` in that card.
+- `GameplayCard subsectionColor` sets the default nested sidebar color.
+- `FeatureSection color` overrides the main sidebar for that one section.
+- `FeatureSection subsectionColor` overrides nested subsections within that one section.
+- `FeatureSubsection color` overrides a single nested subsection.
+
+If `sectionColor` is omitted, sections inherit the GameplayCard's main `color`. If `subsectionColor` is omitted, nested sections use `--itdatd-feature-subsection` from the shared palette.
+
+Use `compact` for tightly related title-and-body combinations such as an Order name followed immediately by its motto. The reusable Order organization components already enable this automatically.
+
+```mdx
+<FeatureSection title="Brotherhood of the Ashen Cross" compact>
+  *Mercy through sacrifice*
+</FeatureSection>
+```
+
+#### Titles and Labels
+
+Use `title` for the actual section heading. Use `label` only when you want a smaller category or step above the title.
+
+```mdx
+<FeatureSection title="Spell Preparation">
+  Only the title appears.
+</FeatureSection>
+
+<FeatureSection title="The Traveller" label="Contemplation">
+  The small word “Contemplation” appears above “The Traveller.”
+</FeatureSection>
+```
+
+Both values are optional and entirely controlled in the MDX. The component never adds labels such as “Step 1,” “Resolution,” or “Contemplation” automatically.
+
+`FeatureSubsection` works the same way:
+
+```mdx
+<FeatureSubsection title="Invocation">
+  Write the Invocation rules here.
+</FeatureSubsection>
+```
+
+You can use any title—not only `Invocation`—for example `Valid Creatures`, `Special Case`, or `At Higher Levels`.
+
+#### Markdown h6 Compatibility
+
+For existing Markdown content, a level-six heading (`###### Invocation`) also receives the nested subsection styling. Prefer `FeatureSubsection` when you want explicit title, label, or color control.
+
+```mdx
+###### Invocation
+
+This content is indented beneath the Invocation heading.
+```
+
+#### Order Feature Cards
+
+`OrderFeatureCard` accepts `colorSet`, `color`, `sectionColor`, and `subsectionColor` and passes them to its underlying GameplayCard.
+
+```mdx
+<OrderFeatureCard
+  className="Cleric"
+  traditions={['Military', 'Devotional']}
+  colorSet="choicefeature"
+  toc
+>
+  ...
+</OrderFeatureCard>
+```
+
+Order traditions use the same indented subsection geometry as `FeatureSubsection`: the sidebar continues beside both the tradition heading and its rules text, with a divider between them and no additional nested-card background.
+
+Military, Devotional, and Stewardship traditions retain their semantic colors:
+
+- Military uses `--itdatd-color-red`.
+- Devotional uses `--itdatd-color-violet`.
+- Stewardship uses `--itdatd-color-green`.
+
+The reusable Order organization components also accept an optional `traditionColor`. Use it when the surrounding Order is acting as a standardized choice feature and its nested traditions should share that category's subfeature color. If omitted, the semantic Military, Devotional, and Stewardship colors above remain unchanged.
+
+```mdx
+<AshenCrossBrotherhood
+  include={['Military', 'Devotional']}
+  traditionColor="easter-pink"
+/>
+```
+
+The displayed tradition label, tradition name, and feature name remain controlled by the `tradition`, `title`, and `featureTitle` props on `OrderTradition`.
+
+#### Live Example
+
 <GameplayCard
   color="blue"
+  sectionColor="green"
+  subsectionColor="gold"
   title="Feature Name"
 >
-  <FeatureSection title="First Section">
-    Write the first rule section here.
+  <FeatureSection title="The Traveller" label="Contemplation">
+    Increase your base Move Speed by +5 feet.
+
+    <FeatureSubsection title="Invocation">
+      This movement does not provoke Opportunity Actions.
+    </FeatureSubsection>
   </FeatureSection>
 
-  <FeatureSection title="Second Section">
+  <FeatureSection title="Second Section" color="azure">
     Write the second rule section here.
   </FeatureSection>
 </GameplayCard>
@@ -433,7 +670,38 @@ To add a new full-page field, update the schema in `src/content.config.ts`, then
 
 Use `SpellEntry` to group each spell form's rules. Put `FeatureSection` components inside it for the effect, improvements, components, or other sections.
 
-Inside a spell entry, every major `FeatureSection` begins with a two-part divider: a short form-colored accent followed by a neutral rule. Primary spell sections use amber, while reverse spell sections use violet. Markdown level-six headings render as compact, lightly tinted subsection bands with a stronger form-colored left edge. This creates the visual hierarchy **spell form → major rules section → subsection** without adding nested content cards.
+Spell entries use the same hierarchy as GameplayCards. Every major spell `FeatureSection`, including the first Spell Effect section, receives a top divider so all rules sections begin consistently. A major section has one continuous sidebar beside both its title and content. `FeatureSubsection` blocks are inset beneath it with their own thinner sidebar that continues beside both the subsection title and all of its rules. Primary spell sections use gold with azure subsections; reverse spell sections use violet with pink subsections.
+
+Use `FeatureSubsection` rather than a Markdown level-six heading for spell improvements, valid-creature rules, launching instructions, and similar nested blocks. This ensures the colored bar ends with that subsection's content and the next subsection begins with its own bar.
+
+```mdx
+<FeatureSection title="Spell Improvements">
+  <FeatureSubsection title="When you can cast 3rd-level spells">
+    Write the 3rd-level improvement here.
+  </FeatureSubsection>
+
+  <FeatureSubsection title="When you can cast 5th-level spells">
+    Write the 5th-level improvement here.
+  </FeatureSubsection>
+</FeatureSection>
+```
+
+Reverse forms begin after a larger vertical break and a full-width reverse-color divider. Their title block also has a reverse-color edge and lightly tinted background. This creates a clear hierarchy of **spell form → major rules section → subsection** without turning each form into another nested card.
+
+### Changing Spell Colors
+
+The four spell hierarchy colors are grouped at the top of `src/styles/custom.css`. Edit only these variables to retheme every spell entry:
+
+```css
+:root {
+  --itdatd-spell-primary-section: var(--itdatd-color-gold);
+  --itdatd-spell-primary-subsection: var(--itdatd-color-azure);
+  --itdatd-spell-reverse-section: var(--itdatd-color-violet);
+  --itdatd-spell-reverse-subsection: var(--itdatd-color-pink);
+}
+```
+
+You can point these aliases at any shared palette color, or replace them with direct color values. If light and dark mode should use different colors, repeat the aliases with new values inside the existing `:root[data-theme="dark"]` block.
 
 ### Spell Without a Reverse
 

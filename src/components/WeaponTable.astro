@@ -4,7 +4,7 @@ import WL from './WeaponLookup.astro';
 import { getCollection } from "astro:content";
 
 interface Props {
-  colorTheme?: 'blue-table' | 'green-table' | 'red-table' | 'orange-table' | 'grey-table' | 'pink-table' | 'purple-table' | 'yellow-table';
+  colorTheme?: string;
   group?: string;
 }
 
@@ -105,14 +105,12 @@ filteredWeapons.sort((a, b) => a.data.title.localeCompare(b.data.title));
   }
 
   /* --- Paint your exact color variables natively on top of the elements --- */
-  .blue-table table, .green-table table, .red-table table, .orange-table table,
-  .grey-table table, .pink-table table, .purple-table table, .yellow-table table {
+  .weapon-matrix-scroll-pane[class$="-table"] table {
     border: 1px solid var(--itdatd-table-border) !important;
     border-radius: var(--itdatd-card-radius) !important;
   }
 
-  .blue-table th, .green-table th, .red-table th, .orange-table th,
-  .grey-table th, .pink-table th, .purple-table th, .yellow-table th {
+  .weapon-matrix-scroll-pane[class$="-table"] th {
     background: var(--itdatd-table-header) !important;
     color: var(--itdatd-table-header-text) !important;
     border-color: var(--itdatd-table-border) !important;
@@ -120,8 +118,7 @@ filteredWeapons.sort((a, b) => a.data.title.localeCompare(b.data.title));
     white-space: nowrap !important;
   }
 
-  .blue-table td, .green-table td, .red-table td, .orange-table td,
-  .grey-table td, .pink-table td, .purple-table td, .yellow-table td {
+  .weapon-matrix-scroll-pane[class$="-table"] td {
     background: var(--itdatd-table-row) !important;
     border-color: color-mix(in srgb, var(--itdatd-table-border) 50%, transparent) !important;
     padding: 0.5rem 1rem !important;
@@ -129,13 +126,11 @@ filteredWeapons.sort((a, b) => a.data.title.localeCompare(b.data.title));
     /* FIX: Stripped position: relative to break constraints cleanly! */
   }
 
-  .blue-table tr:nth-child(even) td, .green-table tr:nth-child(even) td, .red-table tr:nth-child(even) td, .orange-table tr:nth-child(even) td,
-  .grey-table tr:nth-child(even) td, .pink-table tr:nth-child(even) td, .purple-table tr:nth-child(even) td, .yellow-table tr:nth-child(even) td {
+  .weapon-matrix-scroll-pane[class$="-table"] tr:nth-child(even) td {
     background: var(--itdatd-table-row-alt) !important;
   }
 
-  .blue-table tr:hover td, .green-table tr:hover td, .red-table tr:hover td, .orange-table tr:hover td,
-  .grey-table tr:hover td, .pink-table tr:hover td, .purple-table tr:hover td, .yellow-table tr:hover td {
+  .weapon-matrix-scroll-pane[class$="-table"] tr:hover td {
     background: var(--itdatd-table-hover) !important;
   }
 </style>

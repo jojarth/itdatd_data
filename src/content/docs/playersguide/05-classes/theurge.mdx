@@ -20,7 +20,7 @@ Theurges are devoted servants of a higher power who channel sacred magic through
 ## Theurge Gameplay
 Below is a list of information needed to play a Theurge at the various levels of play.
 <GameplayCard
-  color="green"
+  colorSet="gameplayfeature"
   title="Requirements and Requisites"
   toc
   tocDepth={3}
@@ -41,7 +41,7 @@ Below is a list of information needed to play a Theurge at the various levels of
   </GameplayCard>
 
 <GameplayCard
-  color="green"
+  colorSet="proficiencies"
   title="Proficiencies"
   toc
   tocDepth={3}
@@ -88,7 +88,7 @@ Below is a list of information needed to play a Theurge at the various levels of
 As a theurge, you gain the following class features.
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Holy Symbol"
   subeyebrow="1st Level Theurge Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -102,15 +102,16 @@ To present your holy symbol, you must hold it aloft in clear view. This requires
 <OrderFeatureCard
   className="Theurge"
   traditions={['Devotional', 'Stewardship']}
+  colorSet="choicefeature"
   toc
 >
-  <AshenCrossBrotherhood include={['Devotional', 'Stewardship']} />
-  <BlackLionKnights include={['Devotional', 'Stewardship']}/>
-  <IronCrownConfraternity include={['Devotional', 'Stewardship']} />
+  <AshenCrossBrotherhood include={['Devotional', 'Stewardship']} traditionColor="easter-pink" />
+  <BlackLionKnights include={['Devotional', 'Stewardship']} traditionColor="easter-pink" />
+  <IronCrownConfraternity include={['Devotional', 'Stewardship']} traditionColor="easter-pink" />
 </OrderFeatureCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="1st Level Theurge Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -159,7 +160,7 @@ A Theurge's spells are considered clerical spells.
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Miracle Worker"
   subeyebrow="3rd Level Theurge Feature"
   headerOrder={['title', 'subeyebrow']}

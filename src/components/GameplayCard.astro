@@ -3,11 +3,14 @@ type HeaderField = 'eyebrow' | 'subeyebrow' | 'title' | 'subtitle';
 
 interface Props {
   color?: string;
+  colorSet?: string;
   type?: string;
   title?: string;
   eyebrow?: string;
   subeyebrow?: string;
   subtitle?: string;
+  sectionColor?: string;
+  subsectionColor?: string;
   headerOrder?: HeaderField[];
   toc?: boolean;
   tocDepth?: number;
@@ -15,11 +18,14 @@ interface Props {
 
 const {
   color,
+  colorSet,
   type,
   title,
   eyebrow,
   subeyebrow,
   subtitle,
+  sectionColor,
+  subsectionColor,
   headerOrder = ['eyebrow', 'title', 'subtitle'],
 } = Astro.props as Props;
 
@@ -29,6 +35,7 @@ const normalizeColorName = (value: string) => {
     gray: 'grey',
     grey: 'grey',
     purple: 'purple',
+    violet: 'violet',
     viloet: 'violet',
   };
 
@@ -43,10 +50,55 @@ const legacyTypeMap: Record<string, string> = {
   archetype: 'yellow',
 };
 
+type ColorSet = {
+  color: string;
+  sectionColor: string;
+  subsectionColor: string;
+};
+
+const colorSets: Record<string, ColorSet> = {
+  gameplayfeature: { color: 'cobalt', sectionColor: 'mint', subsectionColor: 'coral' },
+  proficiencies: { color: 'forest-green', sectionColor: 'royal-blue', subsectionColor: 'crimson' },
+  spellcasting: { color: 'arcane-violet', sectionColor: 'fey-teal', subsectionColor: 'dragon-gold' },
+  choicefeature: { color: 'easter-lilac', sectionColor: 'robin-egg', subsectionColor: 'easter-pink' },
+  fixedfeature: { color: 'powder-blue', sectionColor: 'sage-green', subsectionColor: 'dusty-rose' },
+  characterfeature: { color: 'amber', sectionColor: 'terracotta', subsectionColor: 'ember' },
+};
+
+const colorSetAliases: Record<string, string> = {
+  classfeature: 'gameplayfeature',
+  classfeatures: 'gameplayfeature',
+  classfeaturewithchoices: 'choicefeature',
+  classfeatureswithchoices: 'choicefeature',
+  classfeaturewithoutchoices: 'fixedfeature',
+  classfeatureswithoutchoices: 'fixedfeature',
+};
+
+const normalizedColorSet = colorSet?.toLowerCase().replace(/[^a-z0-9]/g, '');
+const colorSetKey = normalizedColorSet
+  ? colorSetAliases[normalizedColorSet] ?? normalizedColorSet
+  : undefined;
+const selectedColorSet = colorSetKey ? colorSets[colorSetKey] : undefined;
+
+if (colorSet && !selectedColorSet) {
+  throw new Error(
+    `GameplayCard: unknown colorSet "${colorSet}". Use gameplayfeature, proficiencies, spellcasting, choicefeature, fixedfeature, or characterfeature.`,
+  );
+}
+
 const resolvedColor = normalizeColorName(
-  legacyTypeMap[(type ?? '').toLowerCase()] ?? color ?? 'purple',
+  color ?? selectedColorSet?.color ?? legacyTypeMap[(type ?? '').toLowerCase()] ?? 'purple',
 );
-const cardClass = `gameplay-card gameplay-card--${resolvedColor}`;
+const selectedSectionColor = sectionColor ?? selectedColorSet?.sectionColor;
+const selectedSubsectionColor = subsectionColor ?? selectedColorSet?.subsectionColor;
+const resolvedSectionColor = selectedSectionColor ? normalizeColorName(selectedSectionColor) : undefined;
+const resolvedSubsectionColor = selectedSubsectionColor ? normalizeColorName(selectedSubsectionColor) : undefined;
+const cardClass = [
+  'gameplay-card',
+  `gameplay-card--${resolvedColor}`,
+  resolvedSectionColor ? `gameplay-card--section-${resolvedSectionColor}` : '',
+  resolvedSubsectionColor ? `gameplay-card--subsection-${resolvedSubsectionColor}` : '',
+].filter(Boolean).join(' ');
 const headerFields: Record<HeaderField, string | undefined> = { eyebrow, subeyebrow, title, subtitle };
 const orderedHeaderFields = (headerOrder as HeaderField[]).filter(
   (field): field is HeaderField => field in headerFields && Boolean(headerFields[field]),

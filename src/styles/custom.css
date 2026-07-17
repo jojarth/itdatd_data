@@ -1,6 +1,56 @@
 :root {
   --itdatd-card-radius: 8px;
   --itdatd-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+
+  /* Shared feature palette: edit these values to retheme cards and section bars. */
+  --itdatd-color-red: #ef4444;
+  --itdatd-color-orange: #f97316;
+  --itdatd-color-yellow: #f0f011;
+  --itdatd-color-gold: #d6a725;
+  --itdatd-color-green: #22c55e;
+  --itdatd-color-blue: #3b82f6;
+  --itdatd-color-indigo: #6366f1;
+  --itdatd-color-teal: #14b8a6;
+  --itdatd-color-violet: #8b5cf6;
+  --itdatd-color-purple: #a855f7;
+  --itdatd-color-pink: #e11d48;
+  --itdatd-color-grey: #6b7280;
+  --itdatd-color-black: #111827;
+  --itdatd-color-brown: #92400e;
+  --itdatd-color-azure: #0ea5e9;
+
+  /* Extended card and table palette. Keep these names stable after using them in MDX. */
+  --itdatd-color-crimson: #c1123f;
+  --itdatd-color-royal-blue: #2446c8;
+  --itdatd-color-forest-green: #18713c;
+  --itdatd-color-dusty-rose: #c47b8f;
+  --itdatd-color-powder-blue: #6f9fc7;
+  --itdatd-color-sage-green: #789973;
+  --itdatd-color-coral: #df5c4f;
+  --itdatd-color-cobalt: #3158d4;
+  --itdatd-color-mint: #2b9a83;
+  --itdatd-color-dragon-gold: #b78312;
+  --itdatd-color-arcane-violet: #783eb1;
+  --itdatd-color-fey-teal: #16858a;
+  --itdatd-color-glacier-blue: #2789b5;
+  --itdatd-color-periwinkle: #6674c2;
+  --itdatd-color-deep-teal: #116d74;
+  --itdatd-color-ember: #bd402d;
+  --itdatd-color-amber: #b57608;
+  --itdatd-color-terracotta: #a6533e;
+  --itdatd-color-easter-pink: #db75a8;
+  --itdatd-color-robin-egg: #39a9a2;
+  --itdatd-color-easter-lilac: #9574c4;
+
+  /* Defaults used when a card or section does not select its own colors. */
+  --itdatd-feature-section: var(--itdatd-color-purple);
+  --itdatd-feature-subsection: var(--itdatd-color-gold);
+
+  /* Spell hierarchy colors: edit these four values to retheme spell entries. */
+  --itdatd-spell-primary-section: var(--itdatd-color-gold);
+  --itdatd-spell-primary-subsection: var(--itdatd-color-azure);
+  --itdatd-spell-reverse-section: var(--itdatd-color-violet);
+  --itdatd-spell-reverse-subsection: var(--itdatd-color-pink);
   --itdatd-table-border: #b8c0cc;
   --itdatd-table-header: #eef1f5;
   --itdatd-table-header-text: #1f2937;
@@ -11,6 +61,34 @@
 
 :root[data-theme="dark"] {
   --itdatd-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  --itdatd-color-red: #f87171;
+  --itdatd-color-green: #4ade80;
+  --itdatd-color-blue: #60a5fa;
+  --itdatd-color-yellow: #facc15;
+  --itdatd-color-gold: #eabf45;
+  --itdatd-color-black: #94a3b8;
+  --itdatd-color-brown: #d97706;
+  --itdatd-color-crimson: #ff5f7d;
+  --itdatd-color-royal-blue: #7890ff;
+  --itdatd-color-forest-green: #55c77a;
+  --itdatd-color-dusty-rose: #e7a4b5;
+  --itdatd-color-powder-blue: #9fc7e5;
+  --itdatd-color-sage-green: #a7c6a2;
+  --itdatd-color-coral: #ff8674;
+  --itdatd-color-cobalt: #728cff;
+  --itdatd-color-mint: #67cbb4;
+  --itdatd-color-dragon-gold: #e6bc4c;
+  --itdatd-color-arcane-violet: #b781df;
+  --itdatd-color-fey-teal: #55bec2;
+  --itdatd-color-glacier-blue: #6bc0e2;
+  --itdatd-color-periwinkle: #9da8e7;
+  --itdatd-color-deep-teal: #4bb5bb;
+  --itdatd-color-ember: #f27c64;
+  --itdatd-color-amber: #e8bd48;
+  --itdatd-color-terracotta: #df8a72;
+  --itdatd-color-easter-pink: #f3add0;
+  --itdatd-color-robin-egg: #83d9d3;
+  --itdatd-color-easter-lilac: #c7adeb;
   --itdatd-table-border: #64748b;
   --itdatd-table-header: #263241;
   --itdatd-table-header-text: #eef2f7;
@@ -38,7 +116,35 @@
     .grey-table,
     .pink-table,
     .purple-table,
-    .yellow-table
+    .yellow-table,
+    .gold-table,
+    .indigo-table,
+    .teal-table,
+    .violet-table,
+    .black-table,
+    .brown-table,
+    .azure-table,
+    .crimson-table,
+    .royal-blue-table,
+    .forest-green-table,
+    .dusty-rose-table,
+    .powder-blue-table,
+    .sage-green-table,
+    .coral-table,
+    .cobalt-table,
+    .mint-table,
+    .dragon-gold-table,
+    .arcane-violet-table,
+    .fey-teal-table,
+    .glacier-blue-table,
+    .periwinkle-table,
+    .deep-teal-table,
+    .ember-table,
+    .amber-table,
+    .terracotta-table,
+    .easter-pink-table,
+    .robin-egg-table,
+    .easter-lilac-table
   ),
 .sl-markdown-content .wide-table {
   display: block;
@@ -58,7 +164,35 @@
     .grey-table,
     .pink-table,
     .purple-table,
-    .yellow-table
+    .yellow-table,
+    .gold-table,
+    .indigo-table,
+    .teal-table,
+    .violet-table,
+    .black-table,
+    .brown-table,
+    .azure-table,
+    .crimson-table,
+    .royal-blue-table,
+    .forest-green-table,
+    .dusty-rose-table,
+    .powder-blue-table,
+    .sage-green-table,
+    .coral-table,
+    .cobalt-table,
+    .mint-table,
+    .dragon-gold-table,
+    .arcane-violet-table,
+    .fey-teal-table,
+    .glacier-blue-table,
+    .periwinkle-table,
+    .deep-teal-table,
+    .ember-table,
+    .amber-table,
+    .terracotta-table,
+    .easter-pink-table,
+    .robin-egg-table,
+    .easter-lilac-table
   )
   > table {
   display: table;
@@ -183,6 +317,74 @@
   --itdatd-table-hover: #fff2ad;
 }
 
+/* Extended table themes derive a complete, mode-aware table palette from one accent. */
+.gold-table { --itdatd-table-accent: var(--itdatd-color-gold); }
+.indigo-table { --itdatd-table-accent: var(--itdatd-color-indigo); }
+.teal-table { --itdatd-table-accent: var(--itdatd-color-teal); }
+.violet-table { --itdatd-table-accent: var(--itdatd-color-violet); }
+.black-table { --itdatd-table-accent: var(--itdatd-color-black); }
+.brown-table { --itdatd-table-accent: var(--itdatd-color-brown); }
+.azure-table { --itdatd-table-accent: var(--itdatd-color-azure); }
+.crimson-table { --itdatd-table-accent: var(--itdatd-color-crimson); }
+.royal-blue-table { --itdatd-table-accent: var(--itdatd-color-royal-blue); }
+.forest-green-table { --itdatd-table-accent: var(--itdatd-color-forest-green); }
+.dusty-rose-table { --itdatd-table-accent: var(--itdatd-color-dusty-rose); }
+.powder-blue-table { --itdatd-table-accent: var(--itdatd-color-powder-blue); }
+.sage-green-table { --itdatd-table-accent: var(--itdatd-color-sage-green); }
+.coral-table { --itdatd-table-accent: var(--itdatd-color-coral); }
+.cobalt-table { --itdatd-table-accent: var(--itdatd-color-cobalt); }
+.mint-table { --itdatd-table-accent: var(--itdatd-color-mint); }
+.dragon-gold-table { --itdatd-table-accent: var(--itdatd-color-dragon-gold); }
+.arcane-violet-table { --itdatd-table-accent: var(--itdatd-color-arcane-violet); }
+.fey-teal-table { --itdatd-table-accent: var(--itdatd-color-fey-teal); }
+.glacier-blue-table { --itdatd-table-accent: var(--itdatd-color-glacier-blue); }
+.periwinkle-table { --itdatd-table-accent: var(--itdatd-color-periwinkle); }
+.deep-teal-table { --itdatd-table-accent: var(--itdatd-color-deep-teal); }
+.ember-table { --itdatd-table-accent: var(--itdatd-color-ember); }
+.amber-table { --itdatd-table-accent: var(--itdatd-color-amber); }
+.terracotta-table { --itdatd-table-accent: var(--itdatd-color-terracotta); }
+.easter-pink-table { --itdatd-table-accent: var(--itdatd-color-easter-pink); }
+.robin-egg-table { --itdatd-table-accent: var(--itdatd-color-robin-egg); }
+.easter-lilac-table { --itdatd-table-accent: var(--itdatd-color-easter-lilac); }
+
+:is(
+  .gold-table,
+  .indigo-table,
+  .teal-table,
+  .violet-table,
+  .black-table,
+  .brown-table,
+  .azure-table,
+  .crimson-table,
+  .royal-blue-table,
+  .forest-green-table,
+  .dusty-rose-table,
+  .powder-blue-table,
+  .sage-green-table,
+  .coral-table,
+  .cobalt-table,
+  .mint-table,
+  .dragon-gold-table,
+  .arcane-violet-table,
+  .fey-teal-table,
+  .glacier-blue-table,
+  .periwinkle-table,
+  .deep-teal-table,
+  .ember-table,
+  .amber-table,
+  .terracotta-table,
+  .easter-pink-table,
+  .robin-egg-table,
+  .easter-lilac-table
+) {
+  --itdatd-table-border: color-mix(in srgb, var(--itdatd-table-accent) 55%, white);
+  --itdatd-table-header: color-mix(in srgb, var(--itdatd-table-accent) 18%, white);
+  --itdatd-table-header-text: #172033;
+  --itdatd-table-row: color-mix(in srgb, var(--itdatd-table-accent) 2%, white);
+  --itdatd-table-row-alt: color-mix(in srgb, var(--itdatd-table-accent) 7%, white);
+  --itdatd-table-hover: color-mix(in srgb, var(--itdatd-table-accent) 13%, white);
+}
+
 :root[data-theme="dark"] .green-table {
   --itdatd-table-border: #2f8b50;
   --itdatd-table-header: #163f25;
@@ -255,6 +457,44 @@
   --itdatd-table-hover: #383219;
 }
 
+:root[data-theme="dark"] :is(
+  .gold-table,
+  .indigo-table,
+  .teal-table,
+  .violet-table,
+  .black-table,
+  .brown-table,
+  .azure-table,
+  .crimson-table,
+  .royal-blue-table,
+  .forest-green-table,
+  .dusty-rose-table,
+  .powder-blue-table,
+  .sage-green-table,
+  .coral-table,
+  .cobalt-table,
+  .mint-table,
+  .dragon-gold-table,
+  .arcane-violet-table,
+  .fey-teal-table,
+  .glacier-blue-table,
+  .periwinkle-table,
+  .deep-teal-table,
+  .ember-table,
+  .amber-table,
+  .terracotta-table,
+  .easter-pink-table,
+  .robin-egg-table,
+  .easter-lilac-table
+) {
+  --itdatd-table-border: color-mix(in srgb, var(--itdatd-table-accent) 62%, #18202b);
+  --itdatd-table-header: color-mix(in srgb, var(--itdatd-table-accent) 22%, #10151d);
+  --itdatd-table-header-text: #f4f7fb;
+  --itdatd-table-row: color-mix(in srgb, var(--itdatd-table-accent) 3%, #10151d);
+  --itdatd-table-row-alt: color-mix(in srgb, var(--itdatd-table-accent) 8%, #10151d);
+  --itdatd-table-hover: color-mix(in srgb, var(--itdatd-table-accent) 15%, #10151d);
+}
+
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -288,6 +528,9 @@
 }
 
 .gameplay-card {
+  --gameplay-card-accent: var(--itdatd-color-purple);
+  --feature-section-accent: var(--gameplay-card-accent, var(--itdatd-feature-section));
+  --feature-subsection-accent: var(--itdatd-feature-subsection);
   position: relative;
   margin: 1.5rem 0;
   overflow: hidden;
@@ -319,69 +562,110 @@
   position: absolute;
   inset: 0 auto 0 0;
   width: 5px;
+  background: var(--gameplay-card-accent);
   content: "";
 }
 
-.gameplay-card--red::before {
-  background: #ef4444;
+.gameplay-card--red {
+  --gameplay-card-accent: var(--itdatd-color-red);
 }
 
-.gameplay-card--orange::before {
-  background: #f97316;
+.gameplay-card--orange {
+  --gameplay-card-accent: var(--itdatd-color-orange);
 }
 
-.gameplay-card--yellow::before {
-  background: #f0f011;
+.gameplay-card--yellow {
+  --gameplay-card-accent: var(--itdatd-color-yellow);
 }
 
-.gameplay-card--green::before {
-  background: #22c55e;
+.gameplay-card--gold {
+  --gameplay-card-accent: var(--itdatd-color-gold);
 }
 
-.gameplay-card--blue::before {
-  background: #3b82f6;
+.gameplay-card--green {
+  --gameplay-card-accent: var(--itdatd-color-green);
 }
 
-.gameplay-card--indigo::before {
-  background: #6366f1;
+.gameplay-card--blue {
+  --gameplay-card-accent: var(--itdatd-color-blue);
 }
 
-.gameplay-card--teal::before {
-  background: #14b8a6;
+.gameplay-card--indigo {
+  --gameplay-card-accent: var(--itdatd-color-indigo);
 }
 
-.gameplay-card--violet::before {
-  background: #8b5cf6;
+.gameplay-card--teal {
+  --gameplay-card-accent: var(--itdatd-color-teal);
 }
 
-.gameplay-card--grey::before {
-  background: #6b7280;
+.gameplay-card--violet {
+  --gameplay-card-accent: var(--itdatd-color-violet);
 }
 
-.gameplay-card--black::before {
-  background: #111827;
+.gameplay-card--purple {
+  --gameplay-card-accent: var(--itdatd-color-purple);
 }
 
-.gameplay-card--brown::before {
-  background: #92400e;
+.gameplay-card--pink {
+  --gameplay-card-accent: var(--itdatd-color-pink);
 }
 
-.gameplay-card--azure::before {
-  background: #0ea5e9;
+.gameplay-card--grey {
+  --gameplay-card-accent: var(--itdatd-color-grey);
 }
 
-.gameplay-card--purple::before {
-  background: #a855f7;
+.gameplay-card--black {
+  --gameplay-card-accent: var(--itdatd-color-black);
 }
+
+.gameplay-card--brown {
+  --gameplay-card-accent: var(--itdatd-color-brown);
+}
+
+.gameplay-card--azure {
+  --gameplay-card-accent: var(--itdatd-color-azure);
+}
+
+.gameplay-card--crimson { --gameplay-card-accent: var(--itdatd-color-crimson); }
+.gameplay-card--royal-blue { --gameplay-card-accent: var(--itdatd-color-royal-blue); }
+.gameplay-card--forest-green { --gameplay-card-accent: var(--itdatd-color-forest-green); }
+.gameplay-card--dusty-rose { --gameplay-card-accent: var(--itdatd-color-dusty-rose); }
+.gameplay-card--powder-blue { --gameplay-card-accent: var(--itdatd-color-powder-blue); }
+.gameplay-card--sage-green { --gameplay-card-accent: var(--itdatd-color-sage-green); }
+.gameplay-card--coral { --gameplay-card-accent: var(--itdatd-color-coral); }
+.gameplay-card--cobalt { --gameplay-card-accent: var(--itdatd-color-cobalt); }
+.gameplay-card--mint { --gameplay-card-accent: var(--itdatd-color-mint); }
+.gameplay-card--dragon-gold { --gameplay-card-accent: var(--itdatd-color-dragon-gold); }
+.gameplay-card--arcane-violet { --gameplay-card-accent: var(--itdatd-color-arcane-violet); }
+.gameplay-card--fey-teal { --gameplay-card-accent: var(--itdatd-color-fey-teal); }
+.gameplay-card--glacier-blue { --gameplay-card-accent: var(--itdatd-color-glacier-blue); }
+.gameplay-card--periwinkle { --gameplay-card-accent: var(--itdatd-color-periwinkle); }
+.gameplay-card--deep-teal { --gameplay-card-accent: var(--itdatd-color-deep-teal); }
+.gameplay-card--ember { --gameplay-card-accent: var(--itdatd-color-ember); }
+.gameplay-card--amber { --gameplay-card-accent: var(--itdatd-color-amber); }
+.gameplay-card--terracotta { --gameplay-card-accent: var(--itdatd-color-terracotta); }
+.gameplay-card--easter-pink { --gameplay-card-accent: var(--itdatd-color-easter-pink); }
+.gameplay-card--robin-egg { --gameplay-card-accent: var(--itdatd-color-robin-egg); }
+.gameplay-card--easter-lilac { --gameplay-card-accent: var(--itdatd-color-easter-lilac); }
 
 .gameplay-card__header {
-  padding: 1rem 1.25rem 0.85rem 1.5rem;
+  padding: 0.45rem 1rem 0.45rem 1.25rem;
   border-bottom: 1px solid var(--sl-color-gray-5);
   background: var(--sl-color-gray-6);
 }
 
+.gameplay-card__header > * {
+  margin-block: 0;
+}
+
+.gameplay-card__header > * + * {
+  margin-top: 0.1rem;
+}
+
 .gameplay-card__header h3 {
   margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.25;
 }
 
 .gameplay-card__subtitle {
@@ -421,45 +705,333 @@
   margin-bottom: 0;
 }
 
+.gameplay-card--section-red,
+.feature-section--red { --feature-section-accent: var(--itdatd-color-red); }
+.gameplay-card--section-orange,
+.feature-section--orange { --feature-section-accent: var(--itdatd-color-orange); }
+.gameplay-card--section-yellow,
+.feature-section--yellow { --feature-section-accent: var(--itdatd-color-yellow); }
+.gameplay-card--section-gold,
+.feature-section--gold { --feature-section-accent: var(--itdatd-color-gold); }
+.gameplay-card--section-green,
+.feature-section--green { --feature-section-accent: var(--itdatd-color-green); }
+.gameplay-card--section-blue,
+.feature-section--blue { --feature-section-accent: var(--itdatd-color-blue); }
+.gameplay-card--section-indigo,
+.feature-section--indigo { --feature-section-accent: var(--itdatd-color-indigo); }
+.gameplay-card--section-teal,
+.feature-section--teal { --feature-section-accent: var(--itdatd-color-teal); }
+.gameplay-card--section-violet,
+.feature-section--violet { --feature-section-accent: var(--itdatd-color-violet); }
+.gameplay-card--section-purple,
+.feature-section--purple { --feature-section-accent: var(--itdatd-color-purple); }
+.gameplay-card--section-pink,
+.feature-section--pink { --feature-section-accent: var(--itdatd-color-pink); }
+.gameplay-card--section-grey,
+.feature-section--grey { --feature-section-accent: var(--itdatd-color-grey); }
+.gameplay-card--section-black,
+.feature-section--black { --feature-section-accent: var(--itdatd-color-black); }
+.gameplay-card--section-brown,
+.feature-section--brown { --feature-section-accent: var(--itdatd-color-brown); }
+.gameplay-card--section-azure,
+.feature-section--azure { --feature-section-accent: var(--itdatd-color-azure); }
+.gameplay-card--section-crimson,
+.feature-section--crimson { --feature-section-accent: var(--itdatd-color-crimson); }
+.gameplay-card--section-royal-blue,
+.feature-section--royal-blue { --feature-section-accent: var(--itdatd-color-royal-blue); }
+.gameplay-card--section-forest-green,
+.feature-section--forest-green { --feature-section-accent: var(--itdatd-color-forest-green); }
+.gameplay-card--section-dusty-rose,
+.feature-section--dusty-rose { --feature-section-accent: var(--itdatd-color-dusty-rose); }
+.gameplay-card--section-powder-blue,
+.feature-section--powder-blue { --feature-section-accent: var(--itdatd-color-powder-blue); }
+.gameplay-card--section-sage-green,
+.feature-section--sage-green { --feature-section-accent: var(--itdatd-color-sage-green); }
+.gameplay-card--section-coral,
+.feature-section--coral { --feature-section-accent: var(--itdatd-color-coral); }
+.gameplay-card--section-cobalt,
+.feature-section--cobalt { --feature-section-accent: var(--itdatd-color-cobalt); }
+.gameplay-card--section-mint,
+.feature-section--mint { --feature-section-accent: var(--itdatd-color-mint); }
+.gameplay-card--section-dragon-gold,
+.feature-section--dragon-gold { --feature-section-accent: var(--itdatd-color-dragon-gold); }
+.gameplay-card--section-arcane-violet,
+.feature-section--arcane-violet { --feature-section-accent: var(--itdatd-color-arcane-violet); }
+.gameplay-card--section-fey-teal,
+.feature-section--fey-teal { --feature-section-accent: var(--itdatd-color-fey-teal); }
+.gameplay-card--section-glacier-blue,
+.feature-section--glacier-blue { --feature-section-accent: var(--itdatd-color-glacier-blue); }
+.gameplay-card--section-periwinkle,
+.feature-section--periwinkle { --feature-section-accent: var(--itdatd-color-periwinkle); }
+.gameplay-card--section-deep-teal,
+.feature-section--deep-teal { --feature-section-accent: var(--itdatd-color-deep-teal); }
+.gameplay-card--section-ember,
+.feature-section--ember { --feature-section-accent: var(--itdatd-color-ember); }
+.gameplay-card--section-amber,
+.feature-section--amber { --feature-section-accent: var(--itdatd-color-amber); }
+.gameplay-card--section-terracotta,
+.feature-section--terracotta { --feature-section-accent: var(--itdatd-color-terracotta); }
+.gameplay-card--section-easter-pink,
+.feature-section--easter-pink { --feature-section-accent: var(--itdatd-color-easter-pink); }
+.gameplay-card--section-robin-egg,
+.feature-section--robin-egg { --feature-section-accent: var(--itdatd-color-robin-egg); }
+.gameplay-card--section-easter-lilac,
+.feature-section--easter-lilac { --feature-section-accent: var(--itdatd-color-easter-lilac); }
+
+.gameplay-card--subsection-red,
+.feature-section--subsection-red,
+.feature-subsection--red { --feature-subsection-accent: var(--itdatd-color-red); }
+.gameplay-card--subsection-orange,
+.feature-section--subsection-orange,
+.feature-subsection--orange { --feature-subsection-accent: var(--itdatd-color-orange); }
+.gameplay-card--subsection-yellow,
+.feature-section--subsection-yellow,
+.feature-subsection--yellow { --feature-subsection-accent: var(--itdatd-color-yellow); }
+.gameplay-card--subsection-gold,
+.feature-section--subsection-gold,
+.feature-subsection--gold { --feature-subsection-accent: var(--itdatd-color-gold); }
+.gameplay-card--subsection-green,
+.feature-section--subsection-green,
+.feature-subsection--green { --feature-subsection-accent: var(--itdatd-color-green); }
+.gameplay-card--subsection-blue,
+.feature-section--subsection-blue,
+.feature-subsection--blue { --feature-subsection-accent: var(--itdatd-color-blue); }
+.gameplay-card--subsection-indigo,
+.feature-section--subsection-indigo,
+.feature-subsection--indigo { --feature-subsection-accent: var(--itdatd-color-indigo); }
+.gameplay-card--subsection-teal,
+.feature-section--subsection-teal,
+.feature-subsection--teal { --feature-subsection-accent: var(--itdatd-color-teal); }
+.gameplay-card--subsection-violet,
+.feature-section--subsection-violet,
+.feature-subsection--violet { --feature-subsection-accent: var(--itdatd-color-violet); }
+.gameplay-card--subsection-purple,
+.feature-section--subsection-purple,
+.feature-subsection--purple { --feature-subsection-accent: var(--itdatd-color-purple); }
+.gameplay-card--subsection-pink,
+.feature-section--subsection-pink,
+.feature-subsection--pink { --feature-subsection-accent: var(--itdatd-color-pink); }
+.gameplay-card--subsection-grey,
+.feature-section--subsection-grey,
+.feature-subsection--grey { --feature-subsection-accent: var(--itdatd-color-grey); }
+.gameplay-card--subsection-black,
+.feature-section--subsection-black,
+.feature-subsection--black { --feature-subsection-accent: var(--itdatd-color-black); }
+.gameplay-card--subsection-brown,
+.feature-section--subsection-brown,
+.feature-subsection--brown { --feature-subsection-accent: var(--itdatd-color-brown); }
+.gameplay-card--subsection-azure,
+.feature-section--subsection-azure,
+.feature-subsection--azure { --feature-subsection-accent: var(--itdatd-color-azure); }
+.gameplay-card--subsection-crimson,
+.feature-section--subsection-crimson,
+.feature-subsection--crimson { --feature-subsection-accent: var(--itdatd-color-crimson); }
+.gameplay-card--subsection-royal-blue,
+.feature-section--subsection-royal-blue,
+.feature-subsection--royal-blue { --feature-subsection-accent: var(--itdatd-color-royal-blue); }
+.gameplay-card--subsection-forest-green,
+.feature-section--subsection-forest-green,
+.feature-subsection--forest-green { --feature-subsection-accent: var(--itdatd-color-forest-green); }
+.gameplay-card--subsection-dusty-rose,
+.feature-section--subsection-dusty-rose,
+.feature-subsection--dusty-rose { --feature-subsection-accent: var(--itdatd-color-dusty-rose); }
+.gameplay-card--subsection-powder-blue,
+.feature-section--subsection-powder-blue,
+.feature-subsection--powder-blue { --feature-subsection-accent: var(--itdatd-color-powder-blue); }
+.gameplay-card--subsection-sage-green,
+.feature-section--subsection-sage-green,
+.feature-subsection--sage-green { --feature-subsection-accent: var(--itdatd-color-sage-green); }
+.gameplay-card--subsection-coral,
+.feature-section--subsection-coral,
+.feature-subsection--coral { --feature-subsection-accent: var(--itdatd-color-coral); }
+.gameplay-card--subsection-cobalt,
+.feature-section--subsection-cobalt,
+.feature-subsection--cobalt { --feature-subsection-accent: var(--itdatd-color-cobalt); }
+.gameplay-card--subsection-mint,
+.feature-section--subsection-mint,
+.feature-subsection--mint { --feature-subsection-accent: var(--itdatd-color-mint); }
+.gameplay-card--subsection-dragon-gold,
+.feature-section--subsection-dragon-gold,
+.feature-subsection--dragon-gold { --feature-subsection-accent: var(--itdatd-color-dragon-gold); }
+.gameplay-card--subsection-arcane-violet,
+.feature-section--subsection-arcane-violet,
+.feature-subsection--arcane-violet { --feature-subsection-accent: var(--itdatd-color-arcane-violet); }
+.gameplay-card--subsection-fey-teal,
+.feature-section--subsection-fey-teal,
+.feature-subsection--fey-teal { --feature-subsection-accent: var(--itdatd-color-fey-teal); }
+.gameplay-card--subsection-glacier-blue,
+.feature-section--subsection-glacier-blue,
+.feature-subsection--glacier-blue { --feature-subsection-accent: var(--itdatd-color-glacier-blue); }
+.gameplay-card--subsection-periwinkle,
+.feature-section--subsection-periwinkle,
+.feature-subsection--periwinkle { --feature-subsection-accent: var(--itdatd-color-periwinkle); }
+.gameplay-card--subsection-deep-teal,
+.feature-section--subsection-deep-teal,
+.feature-subsection--deep-teal { --feature-subsection-accent: var(--itdatd-color-deep-teal); }
+.gameplay-card--subsection-ember,
+.feature-section--subsection-ember,
+.feature-subsection--ember { --feature-subsection-accent: var(--itdatd-color-ember); }
+.gameplay-card--subsection-amber,
+.feature-section--subsection-amber,
+.feature-subsection--amber { --feature-subsection-accent: var(--itdatd-color-amber); }
+.gameplay-card--subsection-terracotta,
+.feature-section--subsection-terracotta,
+.feature-subsection--terracotta { --feature-subsection-accent: var(--itdatd-color-terracotta); }
+.gameplay-card--subsection-easter-pink,
+.feature-section--subsection-easter-pink,
+.feature-subsection--easter-pink { --feature-subsection-accent: var(--itdatd-color-easter-pink); }
+.gameplay-card--subsection-robin-egg,
+.feature-section--subsection-robin-egg,
+.feature-subsection--robin-egg { --feature-subsection-accent: var(--itdatd-color-robin-egg); }
+.gameplay-card--subsection-easter-lilac,
+.feature-section--subsection-easter-lilac,
+.feature-subsection--easter-lilac { --feature-subsection-accent: var(--itdatd-color-easter-lilac); }
+
 .feature-section {
-  padding: 0.85rem 0.95rem;
-  border: 1px solid var(--sl-color-gray-5);
-  border-radius: var(--itdatd-card-radius);
-  background: var(--sl-color-gray-6);
+  padding-left: 1rem;
+  border-left: 4px solid var(--feature-section-accent, var(--itdatd-feature-section));
 }
 
-.feature-section h4 {
-  margin: 0 0 0.5rem;
+.feature-section + .feature-section {
+  padding-top: 1rem;
+  border-top: 1px solid var(--sl-color-gray-5);
 }
 
-.feature-section > :last-child {
+.feature-section__header {
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--sl-color-gray-5);
+}
+
+.feature-section__label,
+.feature-subsection__label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--sl-color-gray-2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.feature-section__title {
+  margin: 0;
+}
+
+.feature-section__body {
+  display: grid;
+  gap: 0.7rem;
+  padding-top: 0.7rem;
+}
+
+.feature-section--compact > .feature-section__header {
+  padding-bottom: 0.35rem;
+}
+
+.feature-section--compact > .feature-section__body {
+  gap: 0.45rem;
+  margin-top: 0;
+  padding-top: 0.05rem;
+}
+
+.feature-section--compact > .feature-section__body > .order-feature__motto {
+  margin: 0;
+  line-height: 1.25;
+}
+
+.feature-section--compact > .feature-section__body > .order-feature__motto + p {
+  margin-top: 0;
+}
+
+.feature-section__body > :first-child,
+.feature-subsection__body > :first-child {
+  margin-top: 0;
+}
+
+.feature-section__body > :last-child,
+.feature-subsection__body > :last-child {
   margin-bottom: 0;
+}
+
+/* Markdown h6 headings receive the same nested treatment as FeatureSubsection. */
+.feature-section__body > h6 {
+  margin: 0.3rem 0 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--feature-subsection-accent, var(--itdatd-feature-subsection));
+  color: var(--sl-color-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.feature-section__body > h6 ~ * {
+  margin-left: 1.55rem;
+}
+
+.feature-subsection {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0.3rem 0 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--feature-subsection-accent, var(--itdatd-feature-subsection));
+}
+
+.feature-subsection__title {
+  margin: 0;
+  color: var(--sl-color-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.feature-subsection__body {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0;
+}
+
+@media (max-width: 38rem) {
+  .feature-section {
+    padding-left: 0.75rem;
+  }
+
+  .feature-subsection {
+    margin-left: 0.35rem;
+  }
+
+  .feature-section__body > h6 {
+    margin-left: 0.35rem;
+  }
+
+  .feature-section__body > h6 ~ * {
+    margin-left: 1.15rem;
+  }
 }
 
 .order-tradition {
   --order-tradition-accent: var(--sl-color-accent);
-  margin-top: 1rem;
-  overflow: hidden;
-  border: 1px solid var(--sl-color-gray-5);
-  border-left: 4px solid var(--order-tradition-accent);
-  border-radius: calc(var(--itdatd-card-radius) - 2px);
-  background: color-mix(in srgb, var(--order-tradition-accent) 7%, var(--sl-color-bg));
+  display: grid;
+  gap: 0;
+  margin: 0.3rem 0 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--order-tradition-accent);
 }
 
 .order-tradition--military {
-  --order-tradition-accent: #ef4444;
+  --order-tradition-accent: var(--itdatd-color-red);
 }
 
 .order-tradition--devotional {
-  --order-tradition-accent: #8b5cf6;
+  --order-tradition-accent: var(--itdatd-color-violet);
 }
 
 .order-tradition--stewardship {
-  --order-tradition-accent: #22c55e;
+  --order-tradition-accent: var(--itdatd-color-green);
 }
 
 .order-tradition__header {
-  padding: 0.8rem 0.9rem 0.7rem;
+  padding-bottom: 0.65rem;
   border-bottom: 1px solid var(--sl-color-gray-5);
 }
 
@@ -479,14 +1051,18 @@
 }
 
 .order-tradition__feature {
-  margin: 0.15rem 0 0;
+  margin: 0;
   color: var(--sl-color-gray-2);
   font-size: 0.8rem;
   font-style: italic;
+  line-height: 1.25;
 }
 
 .order-tradition__body {
-  padding: 0.8rem 0.9rem 0.9rem;
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0;
+  padding-top: 0.05rem;
 }
 
 .order-tradition__body > :first-child {
@@ -495,6 +1071,12 @@
 
 .order-tradition__body > :last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 38rem) {
+  .order-tradition {
+    margin-left: 0.35rem;
+  }
 }
 
 /* Headings injected for TOC only — hide visually */

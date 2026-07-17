@@ -20,7 +20,7 @@ Through unwavering faith, clerics call upon sacred power to heal the wounded, sh
 ## Cleric Gameplay
 Below is a list of information needed to play a Cleric at the various levels of play.
 <GameplayCard
-  color="green"
+  colorSet="gameplayfeature"
   title="Requirements and Requisites"
   toc
   tocDepth={3}
@@ -37,7 +37,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
   </GameplayCard>
 
 <GameplayCard
-  color="green"
+  colorSet="proficiencies"
   title="Proficiencies"
   toc
   tocDepth={3}
@@ -84,7 +84,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
 As a cleric, you gain the following class features.
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Holy Symbol"
   subeyebrow="1st Level Cleric Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -98,15 +98,16 @@ To present your holy symbol, you must hold it aloft in clear view. This requires
 <OrderFeatureCard
   className="Cleric"
   traditions={['Military', 'Devotional']}
+  colorSet="choicefeature"
   toc
 >
-  <AshenCrossBrotherhood include={['Military', 'Devotional']} />
-  <BlackLionKnights include={['Military', 'Devotional']} />
-  <IronCrownConfraternity include={['Military', 'Devotional']} />
+  <AshenCrossBrotherhood include={['Military', 'Devotional']} traditionColor="easter-pink" />
+  <BlackLionKnights include={['Military', 'Devotional']} traditionColor="easter-pink" />
+  <IronCrownConfraternity include={['Military', 'Devotional']} traditionColor="easter-pink" />
 </OrderFeatureCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Turn Undead"
   subeyebrow="1st Level Cleric Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -121,7 +122,7 @@ Clerics can channel sacred power to drive back the undead. To use this ability, 
 
     Undead creatures **4 or more levels higher** than your Cleric Level cannot be affected. Likewise, undead creatures **3 or more levels lower** than your Cleric Level are always affected, regardless of your roll.
 
-    <div class="yellow-table">
+    <div class="powder-blue-table">
     |        **d20 Result**        | **Highest Creature Level** |
     | :-------------------------- | :------------------------: |
     | **Presence +6** | Cleric Level -2 |
@@ -149,7 +150,7 @@ Clerics can channel sacred power to drive back the undead. To use this ability, 
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="2nd Level Cleric Feature"
   headerOrder={['title', 'subeyebrow']}

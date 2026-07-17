@@ -6,9 +6,10 @@ type Tradition = 'Military' | 'Devotional' | 'Stewardship';
 
 interface Props {
   include?: Array<Tradition | string>;
+  traditionColor?: string;
 }
 
-const { include = ['Military', 'Devotional', 'Stewardship'] } = Astro.props as Props;
+const { include = ['Military', 'Devotional', 'Stewardship'], traditionColor } = Astro.props as Props;
 
 const traditionAliases: Record<string, Tradition> = {
   martial: 'Military',
@@ -25,21 +26,21 @@ const includedTraditions = include
 const shouldShow = (tradition: Tradition) => includedTraditions.includes(tradition);
 ---
 
-<FeatureSection title="Brotherhood of the Ashen Cross">
-  <p style="margin-top: 0;"><small><i>Mercy through sacrifice</i></small></p>
+<FeatureSection title="Brotherhood of the Ashen Cross" compact>
+  <p class="order-feature__motto"><small><i>Mercy through sacrifice</i></small></p>
  
   <p>Members of the Brotherhood of the Ashen Cross uphold the virtues of sacrifice, endurance, and compassion. They are renowned for their skill as healers, and many serve alongside knightly orders as battlefield medics and caretakers.</p>
 
   <p>Regardless of whether you belong to its Military, Devotional, or Stewardship tradition, you gain the <b>Brotherhood of the Ashen Cross</b> Adventure Keyword.</p>
 
   {shouldShow('Military') && (
-    <OrderTradition tradition="Military" title="The Field Medics" featureTitle="Dedicated Ally">
+    <OrderTradition tradition="Military" title="The Field Medics" featureTitle="Dedicated Ally" color={traditionColor}>
       <p>Any time you use the Help action in combat, or cast a spell that restores Grit to an ally, you can perform the activity 1 Phase earlier than listed.</p>
     </OrderTradition>
   )}
 
   {shouldShow('Devotional') && (
-    <OrderTradition tradition="Devotional" title="The Keepers of Mercy" featureTitle="Merciful Caregiver">
+    <OrderTradition tradition="Devotional" title="The Keepers of Mercy" featureTitle="Merciful Caregiver" color={traditionColor}>
       <p>When you preform the Caregiving downtime activity, characters under your care recover additional grit equal to 1/2 the level of the class that provided this feature.</p>
 
       <p>If you are able to cast spells, when you cast any spell that restores grit based on a dice roll, increase the healing dice provided by 1 dice step.</p>
@@ -47,7 +48,7 @@ const shouldShow = (tradition: Tradition) => includedTraditions.includes(traditi
   )}
 
   {shouldShow('Stewardship') && (
-    <OrderTradition tradition="Stewardship" title="The Hospitallers" featureTitle="Attending Physician">
+    <OrderTradition tradition="Stewardship" title="The Hospitallers" featureTitle="Attending Physician" color={traditionColor}>
       <p>When you preform the Caregiving downtime activity, you can double the number of creatures you can have under your care. Additionally, if you are the primary caregiver, all support caregivers under you gain this benefit.</p>
 
       <p>If you are able to cast spells, when you cast any spell that restores grit, you can add two times the spell's level to the ammount healed by the spell. If you are able to cast cantrips, increase the grit healing provided by any cantrip by 1.</p>

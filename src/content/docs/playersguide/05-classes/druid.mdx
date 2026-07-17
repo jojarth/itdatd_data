@@ -3,6 +3,7 @@ title: Druid
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
 import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { getCollection } from "astro:content";
@@ -20,7 +21,7 @@ Druids are keepers of the old mysteries, preserving the sacred traditions, histo
 ## Druid Gameplay
 Below is a list of information needed to play a Cleric at the various levels of play.
 <GameplayCard
-  color="green"
+  colorSet="gameplayfeature"
   title="Requirements and Requisites"
   toc
   tocDepth={3}
@@ -28,8 +29,8 @@ Below is a list of information needed to play a Cleric at the various levels of 
     <FeatureSection title="Class Requirements">
     To become a Druid, you must meet the following attribute requirements:
    
-    - Your Logic score must be 13 or higher.
-    - Your Reason score must be 13 or higher.
+    - Your Logic score must be 12 or higher.
+    - Your Reason score must be 14 or higher.
    
     </FeatureSection>
   <FeatureSection title="Class Keywords">
@@ -49,7 +50,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
   </GameplayCard>
 
 <GameplayCard
-  color="green"
+  colorSet="proficiencies"
   title="Proficiencies"
   toc
   tocDepth={3}
@@ -96,7 +97,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
 As a druid, you gain the following class features.
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Druidic"
   subeyebrow="1st Level Druid Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -106,7 +107,7 @@ Druids has a secretive language that they all learn as part of their training, a
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="choicefeature"
   title="The Aspirant's Journey"
   subeyebrow="1st Level Druid Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -142,7 +143,7 @@ Additionally, the Contemplations granted by your Journey Features possess both p
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="choicefeature"
   title="The Worldly Journey"
   subeyebrow="1st Level Druid Feature * Journey Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -153,43 +154,55 @@ The Worldly Journey teaches the truths of mortal existence. Through meditation a
   <FeatureSection title="Contemplation of The Sage">
     You gain a +1 Magic Bonus to Attribute Tests where your Class Skill Bonus would apply.
     
-    **Invocation**: You can use this invocation after failing any Attribute Test. You can reroll the failed test, but must use the new result.
+    <FeatureSubsection title="Invocation">
+      You can use this invocation after failing any Attribute Test. You can reroll the failed test, but must use the new result.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of the Mystic">
     While you are Contemplating the Mystic, the Detect Magic spell becomes a Druid spell for you. If you end the Contemplation of the Mystic, any spell slots that held the Detect Magic spell are immediately emptied.
     
-    **Invocation**: You can cast the Detect Magic 1st level spell without using a spell slot. When cast this way, the duration is doubled. 
+    <FeatureSubsection title="Invocation">
+      You can cast the Detect Magic 1st level spell without using a spell slot. When cast this way, the duration is doubled.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Mother">
     When you complete a Night's rest, recover additional Grit equal to one-half your Druid Level (minimum of 1).
 
-    **Invocation**: You can cast the Cure Wounds 1st level spell without using a spell slot. You can cast the spell this way, even if it is not on your spell list.
+    <FeatureSubsection title="Invocation">
+      You can cast the Cure Wounds 1st level spell without using a spell slot. You can cast the spell this way, even if it is not on your spell list.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The King">
     Increase your maximum henchmen by 1.
 
-    **Invocation**: When a henchmen that can see or hear you fails a Morale check, you can use a Reaction to allow them to reroll the morale check with a +4 bonus.
+    <FeatureSubsection title="Invocation">
+      When a henchmen that can see or hear you fails a Morale check, you can use a Reaction to allow them to reroll the morale check with a +4 bonus.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Heirophant">
     While this Contemplation is active, any ally who can see an hear you that would not normally be able to participate in an Attribute Test can, but they participate with no Skill Bonus. 
 
-    **Invocation**: When an ally that can see and hear you fails a Attribute Test, you can use a Reaction and allow them to reroll the failed test, but must use the new result.
+    <FeatureSubsection title="Invocation">
+      When an ally that can see and hear you fails a Attribute Test, you can use a Reaction and allow them to reroll the failed test, but must use the new result.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Companion">
     You can utilize the Help Activity in combat 1 Phase earlier than normal.
 
-    **Invocation**: You use your Reaction, and allow an ally that can see and hear you to React to something that would normally allow them to React. They can use this feature even if they have acted or Reactied in This Phase, or if they have already used their Reaction.
+    <FeatureSubsection title="Invocation">
+      You use your Reaction, and allow an ally that can see and hear you to React to something that would normally allow them to React. They can use this feature even if they have acted or Reactied in This Phase, or if they have already used their Reaction.
+    </FeatureSubsection>
   </FeatureSection>
 
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="2nd Level Druid Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -218,10 +231,10 @@ A Druid's spells are considered clerical spells.
   To cast a prepared spell, you must:
   
   * Have the spell prepared.
-  * Both hands must be free to gesture.
+  * On hand must be free to gesture.
   * Be able to speak clearly.
  
-  Some spells also require material components. If so, the required component is used in place of your holy symbol when casting the spell.
+  Some spells also require material components. If so, the required component must be grasped in your free hand when casting this spell.
   
   After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
   </FeatureSection>
@@ -240,7 +253,7 @@ A Druid's spells are considered clerical spells.
 <KeywordFeatureCard toc />
 
 <GameplayCard
-  color="purple"
+  colorSet="choicefeature"
   title="The Inner Journey"
   subeyebrow="5th Level Druid Feature * Journey Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -251,56 +264,72 @@ The Inner Journey teaches that wisdom is not freely given, but earned through sa
   <FeatureSection title="Contemplation of The Traveller">
     Increase your base Move Speed by +5 feet.
 
-    **Invocation**: You can invoke this feature when you perform any movement, and that movement does not provoke Opportunity Actions. 
+    <FeatureSubsection title="Invocation">
+      You can invoke this feature when you perform any movement, and that movement does not provoke Opportunity Actions.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Warrior">
     You gain a +1 Magic Bonus to Attack Rolls.
 
-    **Invocation**: You can use this Invocation after missing with an Attack Roll, you can reroll the attack roll, but must use the new result.
+    <FeatureSubsection title="Invocation">
+      You can use this Invocation after missing with an Attack Roll, you can reroll the attack roll, but must use the new result.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Guide">
     You cannot become lost by non-magical mean while travelling. 
 
-    **Invocation**: After invoking this feature, you can ignore the effects of difficult terrain for 1 minute.
+    <FeatureSubsection title="Invocation">
+      After invoking this feature, you can ignore the effects of difficult terrain for 1 minute.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Turning">
     If you are suffering any penalties for Attribute Tests, you can select one penalty source and ignore it. This feature does not work on sources that have a -4 penalty or larger.  
 
-    **Invocation**: You can invoke this feature, and spend 1 minute in quiet contemplation, afterwards you can swap any one of your prepared spells with another on your spell list of the appropriate level. If this feature is interuppted, you do not use your invocation. 
+    <FeatureSubsection title="Invocation">
+      You can invoke this feature, and spend 1 minute in quiet contemplation, afterwards you can swap any one of your prepared spells with another on your spell list of the appropriate level. If this feature is interuppted, you do not use your invocation.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Judge">
     While you are Contemplating the Judge, the Command spell becomes a Druid spell for you. If you end the Contemplation of the Judge, any spell slots that held the Judge spell are immediately emptied. 
 
-    **Invocation**: You can cast the Command 1st level spell without using a spell slot. When cast using this feature, creatures have a -2 Magic Penalty to their saving throws. 
+    <FeatureSubsection title="Invocation">
+      You can cast the Command 1st level spell without using a spell slot. When cast using this feature, creatures have a -2 Magic Penalty to their saving throws.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Hanged Man">
     When you make an Attribute Test, you can grant yourself a penalty between -1 and -5 to the test. If the test is successful, the next attribute test you make gains a bonus equal to the penalty you gave yourself +1. 
 
-    **Invocation**: If you are suffering from a temporary effect causing the Blinded, Dazed, Dazzled, or Deafend, you can invoke this feature and end the condition. 
+    <FeatureSubsection title="Invocation">
+      If you are suffering from a temporary effect causing the Blinded, Dazed, Dazzled, or Deafend, you can invoke this feature and end the condition.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of Death">
     While contemplating Death, you may change which cantrips you have prepared whenever you complete a Night's Rest, rather than only after a Safe Rest.
     
-    **Invocation**: When you make a Saving Throw against an effect that would impose a condition but would not kill you outright, you may invoke death and choose to automatically fail. If you do, the condition lasts for only 1 round.
+    <FeatureSubsection title="Invocation">
+      When you make a Saving Throw against an effect that would impose a condition but would not kill you outright, you may invoke death and choose to automatically fail. If you do, the condition lasts for only 1 round.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Harmonious">
     While contemplating harmoy, you can cast the reverse of any spell you have prepared without needing to prepare it separately. 
 
-    **Invocation**: You may use this invocation before making any d20 test. You treat the test as if you rolled a 10.
+    <FeatureSubsection title="Invocation">
+      You may use this invocation before making any d20 test. You treat the test as if you rolled a 10.
+    </FeatureSubsection>
   </FeatureSection>
 </GameplayCard>
 
 <Establishment toc />
 
 <GameplayCard
-  color="purple"
+  colorSet="choicefeature"
   title="The Eternal Journey"
   subeyebrow="10th Level Druid Feature * Journey Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -311,47 +340,60 @@ The Eternal Journey concerns itself with the oldest mysteries of existence—the
   <FeatureSection title="Contemplation of The Chained">
     When you make a saving throw against a spell that is on your spell list, you gain a +2 bonus to the saving throw. 
 
-    **Invocation**: As an Action in Phase 1, you can invoke this contemplation. One foe who is adjacent to you cannot willingly move away from you for 1 round. 
+    <FeatureSubsection title="Invocation">
+      As an Action in Phase 1, you can invoke this contemplation. One foe who is adjacent to you cannot willingly move away from you for 1 round.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Sundering">
     While you are contemplating The Sundering, your Druid spells that cause damage deal extra damage equal to one-half your Druid Level.
 
-    **Invocation**: You can invoke this contemplation when you make a Saving Throw against an effect that causes damage, and a Successful Saving Throw would allow you to take half damage. If your saving throw is a success, you take no damage. If your saving throw was a failure, you only take half damage.  
+    <FeatureSubsection title="Invocation">
+      You can invoke this contemplation when you make a Saving Throw against an effect that causes damage, and a Successful Saving Throw would allow you to take half damage. If your saving throw is a success, you take no damage. If your saving throw was a failure, you only take half damage.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Stargazer">
     While you can see the open sky, you always know the cardinal directions, approximate time, and the direction toward any location you have previously visited. Additionally, allies that can see and hear you gain a +1 Magic Bonus to Saving Throws against effects that cause fear or charm.
 
-    **Invocation**: When you, or an ally that can see and hear you fails a Saving Throw, you can invoke this contemplation to allow them to reroll the Save. This takes no actions to do, and they must accept the new result.
+    <FeatureSubsection title="Invocation">
+      When you, or an ally that can see and hear you fails a Saving Throw, you can invoke this contemplation to allow them to reroll the Save. This takes no actions to do, and they must accept the new result.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Dreamer">
     After finishing a Night's Rest, roll 2d20, and record the result. You can replace any d20 test made by you or a creature that you can see with one of these rolls. Each roll can only be used once. You lose any unused rolls when you preform a Night's Rest. 
 
-    **Invocation**: When you invoke this Contemplation, you cast the Augury spell without spending a spell slot, and the spell automatically succeeds.
+    <FeatureSubsection title="Invocation">
+      When you invoke this Contemplation, you cast the Augury spell without spending a spell slot, and the spell automatically succeeds.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Illuminated">
-    
+    If you spend 1 Master Action gazing at a target, you immediately know it's true form. You learn if it being affected by magic or not, and understand it's true nature, even if hidden. Additionally, your GM will inform you of all keywords the target has.
 
-    **Invocation**: When you invoke this Contemplation, you cast the True Seeing spell upon yourself, without spending a spell slot. You can use this invocation even if the True Seeing spell isn't on your Druid Spell list. 
+    <FeatureSubsection title="Invocation">
+      When you invoke this Contemplation, you cast the True Seeing spell upon yourself, without spending a spell slot. You can use this invocation even if the True Seeing spell isn't on your Druid Spell list.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The Awakened">
-    
+    When you become Polymorphed by any means, you retain your ability to speak. Additionally, while polymorphed you do not temporarily lose your keywords, and only gain keywords from the polymorph.
 
-    **Invocation**: 
+    <FeatureSubsection title="Invocation">
+      When you invoke this Contemplation, you cast the Polymorph spell upon yourself, without spending a spell slot. When cast in this manner, you can choose to triple the duration of the polymorph.
+    </FeatureSubsection>
   </FeatureSection>
 
   <FeatureSection title="Contemplation of The World">
-    
+    Choose one spell of 5th level or lower from the Cleric spell list and one spell of 5th level or lower from the Magic-User spell list. Both spells are considered Druid spells for you.
 
-    **Invocation**: 
+    <FeatureSubsection title="Invocation">
+      When you invoke this Contemplation, choose and cast one 6th-level spell from any spell list. Afterward, you cannot recover any expended Contemplation Invocations until you complete a Downtime Event.
+    </FeatureSubsection>
   </FeatureSection>
 
 </GameplayCard>
-
 
 ## Druid Spell List
 <Tabs>

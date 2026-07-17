@@ -11,6 +11,7 @@ classes:
 shortDescription: Forces a creature to perform a short action.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Command">
@@ -21,23 +22,26 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 
         On a failed save, the target must immediately begin obeying your command. Until it has spent a total of three actions carrying out the command, one of which must be a Master Action, it may take only the actions necessary to fulfill your instruction.
 
-        ###### Issuing the Command
+        <FeatureSubsection title="Issuing the Command">
         The command must be a single, clear, and unambiguous word. The target follows the command to the best of its ability, but will not knowingly harm itself or directly harm one of its allies.
 
         If the command cannot reasonably be carried out, the target instead spends the required actions attempting to comply. For example, a creature commanded to "die" collapses to the ground and remains motionless for the duration of the effect.
 
         Common commands include **back**, **fall**, **flee**, **go**, **halt**, **leave**, **rest**, **run**, **sleep**, **stop**, and **surrender**.
+        </FeatureSubsection>
 
-        ###### Over Multiple Rounds
+        <FeatureSubsection title="Over Multiple Rounds">
         If the target cannot spend all three required actions before the end of the current round, it continues obeying the command beginning in Phase 1 of the next round until all required actions have been spent.
+        </FeatureSubsection>
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
-        ###### Valid Creatures
+        <FeatureSubsection title="Valid Creatures">
         * Valid Creatures have both the **Animus** and **Humanoid** keywords.
             * You must share a language with the target, and the command must be spoken in a language you both understand.
             * Valid Creatures that are three or more levels higher than your level automatically succeed on their Saving Throw.
             * Valid Creatures with a Presence attribute of 6 or lower automatically fail their Saving Throw.
+        </FeatureSubsection>
     </FeatureSection>
 
     <FeatureSection title="Components">

@@ -1,0 +1,26 @@
+---
+interface Props {
+  title?: string;
+  label?: string;
+  color?: string;
+}
+
+const { title, label, color } = Astro.props as Props;
+const normalizeColorName = (value: string) => value.toLowerCase().trim().replace(/^gray$/, 'grey').replace(/^viloet$/, 'violet').replace(/\s+/g, '-');
+const subsectionClass = [
+  'feature-subsection',
+  color ? `feature-subsection--${normalizeColorName(color)}` : '',
+].filter(Boolean).join(' ');
+---
+
+<section class={subsectionClass}>
+  {(title || label) && (
+    <header class="feature-subsection__header">
+      {label && <span class="feature-subsection__label">{label}</span>}
+      {title && <h6 class="feature-subsection__title">{title}</h6>}
+    </header>
+  )}
+  <div class="feature-subsection__body">
+    <slot />
+  </div>
+</section>

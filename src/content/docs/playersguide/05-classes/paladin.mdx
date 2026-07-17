@@ -20,7 +20,7 @@ Paladins are champions of the faith who stand at the forefront of every righteou
 ## Paladin Gameplay
 Below is a list of information needed to play a Paladin at the various levels of play.
 <GameplayCard
-  color="green"
+  colorSet="gameplayfeature"
   title="Requirements and Requisites"
   toc
   tocDepth={3}
@@ -72,7 +72,7 @@ Below is a list of information needed to play a Paladin at the various levels of
   </GameplayCard>
 
 <GameplayCard
-  color="green"
+  colorSet="proficiencies"
   title="Proficiencies"
   toc
   tocDepth={3}
@@ -119,7 +119,7 @@ Below is a list of information needed to play a Paladin at the various levels of
 As a Paladin, you gain the following class features.
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Holy Symbol"
   subeyebrow="1st Level Paladin Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -131,7 +131,7 @@ To present your holy symbol, you must hold it aloft in clear view. This requires
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Lay on Hands"
   subeyebrow="1st Level Paladin Feature • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -150,15 +150,16 @@ Starting at 11th level, when you use this feature, you may choose to remove one 
 <OrderFeatureCard
   className="Paladin"
   traditions={['Military', 'Stewardship']}
+  colorSet="choicefeature"
   toc
 >
-  <AshenCrossBrotherhood include={['Military', 'Stewardship']} />
-  <BlackLionKnights include={['Military', 'Stewardship']} />
-  <IronCrownConfraternity include={['Military', 'Stewardship']} />
+  <AshenCrossBrotherhood include={['Military', 'Stewardship']} traditionColor="easter-pink" />
+  <BlackLionKnights include={['Military', 'Stewardship']} traditionColor="easter-pink" />
+  <IronCrownConfraternity include={['Military', 'Stewardship']} traditionColor="easter-pink" />
 </OrderFeatureCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Smite"
   subeyebrow="1st Level Paladin Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -174,7 +175,7 @@ When you deal damage with a weapon attack against a valid creature, increase the
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Turn Undead"
   subeyebrow="3rd Level Paladin Feature * Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -217,7 +218,7 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Divine Health"
   subeyebrow="3rd Level Paladin Feature * Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -229,7 +230,7 @@ Upon reaching 3rd level, you become immune to diseases.
 <KeywordFeatureCard toc />
 
 <GameplayCard
-  color="purple"
+  colorSet="fixedfeature"
   title="Aura of Power"
   subeyebrow="6th Level Paladin Feature • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -249,7 +250,7 @@ Your aura is always active and cannot be suppressed. However, it ceases to funct
 </GameplayCard>
 
 <GameplayCard
-  color="purple"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="7th Level Paladin Feature * Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}

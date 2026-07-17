@@ -11,6 +11,7 @@ classes:
 shortDescription: Your touch restores vigor to an ally.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Cure Light Wounds">
@@ -19,16 +20,19 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
-        ###### Valid Creatures
+        <FeatureSubsection title="Valid Creatures">
         * Creatures with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keywords are Valid Creatures.
         * Creatures with the **Necros** or **Umbra** keywords are Valid Creatures. Instead of recovering Grit, they suffer 1d8 + 3 points of Sacred damage. The target is entitled to a Save vs Spell. On a success, it takes no damage.
+        </FeatureSubsection>
     </FeatureSection>
 
     <FeatureSection title="Spell Improvements">
-        ###### When you can cast 3rd-level spells
+        <FeatureSubsection title="When you can cast 3rd-level spells">
         * Increase the healing provided, as well as the damage to *necros* and *umbra* creatures, to 1d8 + 5.
-        ###### When you can cast 5th-level spells
+        </FeatureSubsection>
+        <FeatureSubsection title="When you can cast 5th-level spells">
         * Increase the healing provided, as well as the damage to *necros* and *umbra* creatures, to 1d8 + 7.
+        </FeatureSubsection>
     </FeatureSection>
 
     <FeatureSection title="Components">
