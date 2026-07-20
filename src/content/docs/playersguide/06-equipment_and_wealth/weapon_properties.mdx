@@ -1,40 +1,34 @@
 ---
-title: Weapons and Properties
+title: Weapons Properties and Features
+sidebar:
+  order: 40
 ---
-
 import GameplayCard from "../../../../components/GameplayCard.astro";
 import FeatureSection from "../../../../components/FeatureSection.astro";
 import WeaponTable from "../../../../components/WeaponTable.astro";
 import { getCollection, render } from "astro:content";
 
 export const properties = await Promise.all(
-  (await getCollection("weaponProperties"))
-    .sort((a, b) => a.data.title.localeCompare(b.data.title))
-    .map(async (entry) => ({
-      entry,
-      Content: (await render(entry)).Content,
-    }))
+    (await getCollection("weaponProperties"))
+        .sort((a, b) => a.data.title.localeCompare(b.data.title))
+        .map(async (entry) => ({
+            entry,
+            Content: (await render(entry)).Content,
+        }))
 );
 
 export const features = await Promise.all(
-  (await getCollection("weaponFeatures"))
-    .sort((a, b) => a.data.title.localeCompare(b.data.title))
-    .map(async (entry) => ({
-      entry,
-      Content: (await render(entry)).Content,
-    }))
+    (await getCollection("weaponFeatures"))
+        .sort((a, b) => a.data.title.localeCompare(b.data.title))
+        .map(async (entry) => ({
+            entry,
+            Content: (await render(entry)).Content,
+        }))
 );
 
-Scroll tables to the right to see more information.
+Each weapon has a list of properties and features. Weapon properties are always applied to a weapon, regardless of your proficiency level with the weapon. 
 
-### Axes
-<WeaponTable group="axes" colorTheme="blue-table" />
-
-### Bows
-<WeaponTable group="bows" colorTheme="green-table" />
-
-### Crossbows
-<WeaponTable group="crossbows" colorTheme="yellow-table" />
+Weapon Features require you to be of the appropriate Proficiency Level to utilizie. For example, if you are an Expert with a weapon group, you can utilize all Weapon Features in the Proficient, Skilled, and Expert columns of the weapon you are wielding. 
 
 ## Weapon Properties
 

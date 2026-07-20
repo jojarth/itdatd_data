@@ -1,0 +1,24 @@
+---
+datatype: spell
+title: Sacred Smite
+level: 0
+casting: Special; see spell description
+range: Special, see spell description
+duration: Instantaneous
+classes:
+    - Paladin
+shortDescription: Your smite deals Sacred damage.
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Sacred Smite">
+    <FeatureSection title="Spell Effect">
+        You cast this cantrip as part of an Action used to make a melee weapon attack against a Valid Creature of your Smite feature. If your attack hits, change the damage type of all weapon damage dealt to **Sacred Damage**. 
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        You must shout a condemnation while swinging your weapon. 
+    </FeatureSection>
+</SpellEntry>

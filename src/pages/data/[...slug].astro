@@ -6,11 +6,12 @@ import MdxContentWrapper from "../../components/MdxContentWrapper.astro";
 import { spellAnchor } from "../../lib/spellAnchor";
 
 export async function getStaticPaths() {
-  const [spells, weapons, weaponProperties, weaponFeatures] = await Promise.all([
+  const [spells, weapons, weaponProperties, weaponFeatures, armors] = await Promise.all([
     getCollection("data"),
     getCollection("weapons"),
     getCollection("weaponProperties"),
     getCollection("weaponFeatures"),
+    getCollection("armors"),
   ]);
 
   return [
@@ -30,10 +31,14 @@ export async function getStaticPaths() {
       params: { slug: `weapon-features/${entry.id}` },
       props: { collection: "weaponFeatures", id: entry.id },
     })),
+    ...armors.map((entry) => ({
+      params: { slug: `armors/${entry.id}` },
+      props: { collection: "armors", id: entry.id },
+    })),
   ];
 }
 
-type DetailCollection = "data" | "weapons" | "weaponProperties" | "weaponFeatures";
+type DetailCollection = "data" | "weapons" | "weaponProperties" | "weaponFeatures" | "armors";
 
 const { collection, id } = Astro.props as {
   collection: DetailCollection;
@@ -49,6 +54,7 @@ const renderResult = await render(entry);
 const { Content } = renderResult ?? {};
 const isSpell = collection === "data";
 const isWeapon = collection === "weapons";
+const isArmor = collection === "armors";
 
 const detailFields = isSpell
   ? [
@@ -90,6 +96,13 @@ const detailFields = isSpell
         { key: "speed", label: "Speed", value: `${entry.data.speed}` },
         { key: "range", label: "Range", value: entry.data.range },
       ]
+    : isArmor
+      ? [
+          { key: "ac", label: "AC", value: `${entry.data.ac}` },
+          { key: "epWorn", label: "EP Worn", value: `${entry.data.epWorn}` },
+          { key: "epCarried", label: "EP Carried", value: `${entry.data.epCarried}` },
+          { key: "cost", label: "Cost", value: entry.data.cost },
+        ]
     : [];
 
 const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefined;

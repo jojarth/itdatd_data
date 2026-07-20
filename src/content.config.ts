@@ -80,10 +80,27 @@ const weapons = defineCollection({
   }),
 });
 
+const armors = defineCollection({
+  schema: z.object({
+    datatype: z.literal("armor"),
+    title: z.string(),
+    ac: z.number(),
+    epWorn: z.union([z.number(), z.string()]),
+    epCarried: z.union([z.number(), z.string()]),
+    cost: z.string(),
+  }),
+  loader: glob({
+    base: "./src/content/data/armordata/armorlist",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
 export const collections = {
   docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
   data,
   weaponFeatures,
   weaponProperties,
   weapons,
+  armors,
 };

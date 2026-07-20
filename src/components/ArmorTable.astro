@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  colorTheme?: string;
+}
+
+const { colorTheme = "blue-table" } = Astro.props;
+const armors = await getCollection("armors");
+
+armors.sort((a, b) => a.data.ac - b.data.ac);
+const formatEp = (worn: number | string, carried: number | string) =>
+  worn === "-" && carried === "-" ? "-" : `${worn} / ${carried}`;
+---
+
+<div class={`armor-table-scroll-pane ${colorTheme} compact-table`}>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>AC</th>
+        <th>EP Worn/Carried</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      {armors.map((entry) => (
+        <tr>
+          <td><strong><a href={`/data/armors/${entry.id}`}>{entry.data.title}</a></strong></td>
+          <td>{entry.data.ac}</td>
+          <td>{formatEp(entry.data.epWorn, entry.data.epCarried)}</td>
+          <td>{entry.data.cost}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .armor-table-scroll-pane {
+    margin: 2rem auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .armor-table-scroll-pane table {
+    min-width: 32rem !important;
+    border-collapse: collapse;
+  }
+
+  .armor-table-scroll-pane th {
+    background: var(--itdatd-table-header);
+    color: var(--itdatd-table-header-text);
+    border-color: var(--itdatd-table-border);
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+
+  .armor-table-scroll-pane td {
+    background: var(--itdatd-table-row);
+    border-color: color-mix(in srgb, var(--itdatd-table-border) 50%, transparent);
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+
+  .armor-table-scroll-pane th:not(:first-child),
+  .armor-table-scroll-pane td:not(:first-child) {
+    text-align: center;
+  }
+
+  .armor-table-scroll-pane th:last-child,
+  .armor-table-scroll-pane td:last-child {
+    text-align: right;
+  }
+
+  .armor-table-scroll-pane tr:nth-child(even) td {
+    background: var(--itdatd-table-row-alt);
+  }
+
+  .armor-table-scroll-pane tr:hover td {
+    background: var(--itdatd-table-hover);
+  }
+</style>

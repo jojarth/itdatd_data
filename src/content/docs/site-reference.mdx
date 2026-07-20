@@ -45,6 +45,13 @@ Example usage:
 <KeywordFeatureCard toc />
 ```
 
+`KeywordFeatureCard` and `Establishment` default to the `characterfeature` color set. Both also accept `colorSet`, `color`, `sectionColor`, and `subsectionColor` when a page needs a different palette.
+
+```mdx
+<KeywordFeatureCard colorSet="choicefeature" toc />
+<Establishment color="deep-blue" sectionColor="verdigris" toc />
+```
+
 Props let reusable blocks vary the class-specific parts of the text.
 
 ```mdx
@@ -133,6 +140,26 @@ The `rank` prop chooses which spell slot progression to use:
 - `E`
 
 The `colorTheme` prop uses the same color classes as normal colored tables. Because `SpellSlotTable` renders its generated table inside the same wrapper pattern, changes to the shared colored table CSS also affect spell slot tables. `WeaponTable` accepts the same table color names.
+
+### Compact Tables
+
+Use the global `compact-table` class when a small Markdown table should use only the width its content needs and remain centered:
+
+```mdx
+<div class="blue-table compact-table">
+| Name | Value |
+|:-----|------:|
+| Example | 10 |
+</div>
+```
+
+For generated spell progression tables, use the equivalent `compact` prop:
+
+```mdx
+<SpellSlotTable rank="E" colorTheme="blue-table" compact />
+```
+
+Compact tables retain horizontal scrolling when their natural width exceeds the available space. Leave the class or prop off for full-width and large matrix tables.
 
 Spell slot tables include cantrip `Preparations` and `Casts` columns before leveled spell slots. The table header automatically groups those columns under `Cantrips` and groups `Level 1`, `Level 2`, and later spell slot columns under `Spell Slots`.
 
@@ -237,8 +264,9 @@ Available shortcuts:
 | `choicefeature` | `easter-lilac` | `robin-egg` | `easter-pink` |
 | `fixedfeature` | `powder-blue` | `sage-green` | `dusty-rose` |
 | `characterfeature` | `amber` | `terracotta` | `ember` |
+| `featureimprovement` | `glacier-blue` | `periwinkle` | `deep-teal` |
 
-Hyphens and spaces in shortcut names are ignored. `classfeature` is also accepted as an alias for `gameplayfeature`; the longer `classfeaturewithchoices` and `classfeaturewithoutchoices` aliases map to `choicefeature` and `fixedfeature`.
+Hyphens and spaces in shortcut names are ignored, so `featureimprovement`, `feature-improvement`, and `feature improvement` are equivalent. `classfeature` is also accepted as an alias for `gameplayfeature`; the longer `classfeaturewithchoices` and `classfeaturewithoutchoices` aliases map to `choicefeature` and `fixedfeature`.
 
 Individual color props override their part of a set:
 
@@ -405,6 +433,8 @@ By default, `toc` entries are added as level-three headings. Use `tocDepth={2}` 
 ### Feature Sections and Nested Subsections
 
 Use `FeatureSection` inside a card when the rule needs separate titled blocks.
+
+GameplayCards use the same major-section treatment as spell entries: every FeatureSection receives a top divider, including the first, while its sidebar color continues to come from the card's selected color set or explicit color props.
 
 The `title` and optional `label` are always written by you. The component does not generate section names or step numbers.
 

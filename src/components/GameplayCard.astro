@@ -63,6 +63,7 @@ const colorSets: Record<string, ColorSet> = {
   choicefeature: { color: 'easter-lilac', sectionColor: 'robin-egg', subsectionColor: 'easter-pink' },
   fixedfeature: { color: 'powder-blue', sectionColor: 'sage-green', subsectionColor: 'dusty-rose' },
   characterfeature: { color: 'amber', sectionColor: 'terracotta', subsectionColor: 'ember' },
+  featureimprovement: { color: 'glacier-blue', sectionColor: 'periwinkle', subsectionColor: 'deep-teal' },
 };
 
 const colorSetAliases: Record<string, string> = {
@@ -82,7 +83,7 @@ const selectedColorSet = colorSetKey ? colorSets[colorSetKey] : undefined;
 
 if (colorSet && !selectedColorSet) {
   throw new Error(
-    `GameplayCard: unknown colorSet "${colorSet}". Use gameplayfeature, proficiencies, spellcasting, choicefeature, fixedfeature, or characterfeature.`,
+    `GameplayCard: unknown colorSet "${colorSet}". Use gameplayfeature, proficiencies, spellcasting, choicefeature, fixedfeature, characterfeature, or featureimprovement.`,
   );
 }
 

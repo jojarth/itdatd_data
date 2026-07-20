@@ -3,6 +3,7 @@ title: Cleric
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
 import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { getCollection } from "astro:content";
@@ -57,7 +58,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
 
 ### Class Table
 
-<div class="green-table">
+<div class="green-table compact-table">
 | **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
 |:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
 | **1**     | 0               | +1d6 + 2 |  +2        | +0        | 12       | 14         | 12          | 14         | 12        |
@@ -78,7 +79,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
 
 ### Spell Progression Table
 
-<SpellSlotTable rank="C" colorTheme="blue-table" boldColumn={1} boldHeader />
+<SpellSlotTable rank="C" colorTheme="blue-table compact-table" boldColumn={1} boldHeader />
 
 ## Cleric Features
 As a cleric, you gain the following class features.
@@ -113,16 +114,16 @@ To present your holy symbol, you must hold it aloft in clear view. This requires
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Clerics can channel sacred power to drive back the undead. To use this ability, you must openly present a symbol of your faith. **Turn Undead** requires **1 Master Action** and may be performed beginning in **Phase 1**. You must present your holy symbol to turn undead. 
+Clerics can channel sacred power to drive back the undead. To use this ability, you must openly present a symbol of your faith. **Turn Undead** requires **1 Master Action** and may be performed beginning in **Phase 1**. You must present your holy symbol to Turn Undead. 
 
   <FeatureSection title="Determine Highest Level">
-    When you attempt to Turn Undead, first determine the highest-level undead creature you can affect.
+    When you attempt to Turn Undead, first determine the highest-level Valid Creature you can affect.
 
     Roll **1d20** and compare the result to your **Presence** Attribute using the table below. The result determines the highest creature level that can be affected by this attempt.
 
-    Undead creatures **4 or more levels higher** than your Cleric Level cannot be affected. Likewise, undead creatures **3 or more levels lower** than your Cleric Level are always affected, regardless of your roll.
+    Valid Creatures **4 or more levels higher** than your Cleric Level cannot be affected. Likewise, Valid Creatures **3 or more levels lower** than your Cleric Level are always affected, regardless of your roll.
 
-    <div class="powder-blue-table">
+    <div class="yellow-table compact-table">
     |        **d20 Result**        | **Highest Creature Level** |
     | :-------------------------- | :------------------------: |
     | **Presence +6** | Cleric Level -2 |
@@ -139,13 +140,15 @@ Clerics can channel sacred power to drive back the undead. To use this ability, 
   </FeatureSection>
 
   <FeatureSection title="Turn Undead Effect">
-    Beginning with the lowest-level Eligible Creature within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more eligible creatures.
+    Beginning with the lowest-level Valid Creature within **60 feet** that can see you, subtract each affected creature's level from your Turning Capacity until you either have insufficient capacity to affect another creature or there are no more Valid Creatures.
 
     Affected creatures immediately flee from you by the safest available route. Instead of fleeing, creatures that are **5 or more levels lower** than your Cleric Level are instantly destroyed, crumbling to dust.
   </FeatureSection>
 
   <FeatureSection title="Creature Interactions"> 
-  * Creatures with the **Necros** keyword are Eligible Creatures. 
+    <FeatureSubsection title="Valid Creatures">
+      * A creature with the **Necros** keyword is a Valid Creature.
+    </FeatureSubsection>
   </FeatureSection>
 </GameplayCard>
 

@@ -1,17 +1,30 @@
 ---
 import GameplayCard from '../GameplayCard.astro';
-import { Aside } from '@astrojs/starlight/components';
 
 interface Props {
+  color?: string;
+  colorSet?: string;
+  sectionColor?: string;
+  subsectionColor?: string;
   toc?: boolean;
   tocDepth?: number;
 }
 
-const { toc = false, tocDepth } = Astro.props as Props;
+const {
+  color,
+  colorSet = 'characterfeature',
+  sectionColor,
+  subsectionColor,
+  toc = false,
+  tocDepth,
+} = Astro.props as Props;
 ---
 
 <GameplayCard
-  colorSet="characterfeature"
+  color={color}
+  colorSet={colorSet}
+  sectionColor={sectionColor}
+  subsectionColor={subsectionColor}
   title="Establishment"
   subeyebrow="10th Level Character Feature"
   headerOrder={['title', 'subeyebrow']}
