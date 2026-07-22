@@ -3,6 +3,8 @@ import { getCollection, getEntry, render } from "astro:content";
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import WeaponLookup from "../../components/WeaponLookup.astro";
 import MdxContentWrapper from "../../components/MdxContentWrapper.astro";
+import SpellHeader from "../../components/SpellHeader.astro";
+import SpellMetadata from "../../components/SpellMetadata.astro";
 import { spellAnchor } from "../../lib/spellAnchor";
 
 export async function getStaticPaths() {
@@ -55,40 +57,20 @@ const { Content } = renderResult ?? {};
 const isSpell = collection === "data";
 const isWeapon = collection === "weapons";
 const isArmor = collection === "armors";
+const spellClasses =
+  isSpell && Array.isArray(entry.data.classes) && entry.data.classes.length > 0
+    ? [...entry.data.classes].sort((a, b) => a.localeCompare(b))
+    : [];
+const primarySpellMetadata = isSpell
+  ? {
+      casting: entry.data.casting,
+      range: entry.data.range,
+      duration: entry.data.duration,
+    }
+  : undefined;
 
-const detailFields = isSpell
+const detailFields = isWeapon
   ? [
-      {
-        key: "level",
-        label: "Spell Level",
-        value: entry.data.level !== undefined ? `${entry.data.level}` : undefined,
-      },
-      {
-        key: "casting",
-        label: "Casting",
-        value: entry.data.casting,
-      },
-      {
-        key: "range",
-        label: "Range",
-        value: entry.data.range,
-      },
-      {
-        key: "duration",
-        label: "Duration",
-        value: entry.data.duration,
-      },
-      {
-        key: "classes",
-        label: "Classes",
-        value:
-          Array.isArray(entry.data.classes) && entry.data.classes.length > 0
-            ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(", ")
-            : undefined,
-      },
-    ]
-  : isWeapon
-    ? [
         { key: "group", label: "Weapon Group", value: entry.data.group },
         { key: "cost", label: "Cost", value: entry.data.cost },
         { key: "ep", label: "EP", value: `${entry.data.ep}` },
@@ -103,7 +85,7 @@ const detailFields = isSpell
           { key: "epCarried", label: "EP Carried", value: `${entry.data.epCarried}` },
           { key: "cost", label: "Cost", value: entry.data.cost },
         ]
-    : [];
+  : [];
 
 const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefined;
 const displayTitle = entry.data.title;
@@ -114,10 +96,6 @@ const reverseMetadata =
         casting: entry.data.reverseCasting ?? entry.data.casting,
         range: entry.data.reverseRange ?? entry.data.range,
         duration: entry.data.reverseDuration ?? entry.data.duration,
-        classes:
-          Array.isArray(entry.data.classes) && entry.data.classes.length > 0
-            ? [...entry.data.classes].sort((a, b) => a.localeCompare(b)).join(", ")
-            : undefined,
       }
     : undefined;
 const weaponProperties = isWeapon ? entry.data.properties : [];
@@ -139,21 +117,29 @@ const proficiencyFeatures = isWeapon
   }}
 >
   <article class={`data-detail ${isSpell ? "data-detail--spell" : ""}`}>
-    {isSpell && (description || entry.data.reverseTitle) ? (
-      <div class="data-intro">
-        {description ? <p class="data-lead"><em>{description}</em></p> : null}
+    {isSpell ? (
+      <>
+        <SpellHeader
+          title={displayTitle}
+          level={entry.data.level}
+          summary={description}
+          variant="primary"
+          headingLevel={1}
+        />
         {entry.data.reverseTitle ? (
           <p class="data-reverse-link">
             <strong>Reverse form:</strong>{" "}
             <a href={`#${spellAnchor(entry.data.reverseTitle)}`}>{entry.data.reverseTitle}</a>
           </p>
         ) : null}
-      </div>
+      </>
     ) : description ? (
       <p class="data-lead"><em>{description}</em></p>
     ) : null}
 
-    {detailFields.length > 0 ? (
+    {isSpell ? (
+      <SpellMetadata metadata={primarySpellMetadata} />
+    ) : detailFields.length > 0 ? (
       <div class="data-metadata">
         {detailFields.map((field) =>
           field.value !== undefined && field.value !== "" ? (
@@ -220,6 +206,19 @@ const proficiencyFeatures = isWeapon
         <pre>{JSON.stringify({ id: entry.id, filePath: entry.filePath, data: entry.data }, null, 2)}</pre>
       </div>
     )}
+
+    {isSpell && spellClasses.length > 0 ? (
+      <aside
+        class={`data-spell-classes ${entry.data.reverseTitle ? "data-spell-classes--reversible" : ""}`}
+        aria-label="Spellcasting classes"
+      >
+        <h2 class="data-spell-classes__title">Spellcasting Classes</h2>
+        <p>This spell is on the spell list of the following classes:</p>
+        <ul>
+          {spellClasses.map((className) => <li><em>{className}</em></li>)}
+        </ul>
+      </aside>
+    ) : null}
   </article>
 </StarlightPage>
 
@@ -236,11 +235,6 @@ const proficiencyFeatures = isWeapon
   color: var(--sl-color-text-accent, #374151);
 }
 
-.data-intro {
-  display: grid;
-  gap: 0.35rem;
-}
-
 .data-reverse-link {
   margin: 0;
   color: var(--sl-color-gray-2);
@@ -252,29 +246,6 @@ const proficiencyFeatures = isWeapon
   flex-direction: column;
   gap: 0.1rem;
   margin: 0;
-}
-
-.data-detail--spell .data-metadata {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.data-detail--spell .data-metadata-item {
-  display: grid;
-  gap: 0.2rem;
-}
-
-.data-detail--spell .data-metadata-label {
-  color: var(--sl-color-gray-2);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-
-.data-detail--spell .data-metadata-value {
-  font-style: normal;
 }
 
 .data-metadata-item {
@@ -293,6 +264,69 @@ const proficiencyFeatures = isWeapon
 
 .data-body {
   margin-top: 0.5rem;
+}
+
+.data-spell-classes {
+  --spell-classes-start: var(--itdatd-spell-primary-section);
+  --spell-classes-end: var(--itdatd-spell-primary-subsection);
+  position: relative;
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+  padding: 1.1rem 1.25rem 1rem;
+  overflow: hidden;
+  border-left: 5px solid var(--spell-classes-start);
+  border-radius: 0 var(--itdatd-card-radius) var(--itdatd-card-radius) 0;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--spell-classes-start) 12%, var(--sl-color-bg)),
+    color-mix(in srgb, var(--spell-classes-end) 8%, var(--sl-color-bg))
+  );
+}
+
+.data-spell-classes--reversible {
+  --spell-classes-end: var(--itdatd-spell-reverse-section);
+}
+
+.data-spell-classes::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--spell-classes-start), var(--spell-classes-end));
+  content: "";
+}
+
+.data-spell-classes__title {
+  margin: 0;
+  color: var(--sl-color-white);
+  font-size: 1.35rem;
+}
+
+.data-spell-classes p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.data-spell-classes em {
+  color: var(--sl-color-white);
+  font-weight: 700;
+}
+
+.data-spell-classes ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.35rem 1.5rem;
+  margin: 0.2rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.data-spell-classes li::marker {
+  color: var(--spell-classes-start);
+}
+
+/* Spell pages provide their own primary header, so remove Starlight's separate title panel. */
+:global(body:has(.data-detail--spell) main > .content-panel:first-of-type) {
+  display: none;
 }
 
 .weapon-rules-links {
@@ -335,9 +369,4 @@ const proficiencyFeatures = isWeapon
   background: color-mix(in srgb, var(--sl-color-red, #dc2626) 8%, transparent);
 }
 
-@media (max-width: 50rem) {
-  .data-detail--spell .data-metadata {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
 </style>

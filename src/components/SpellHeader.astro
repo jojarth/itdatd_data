@@ -1,0 +1,88 @@
+---
+interface Props {
+  title: string;
+  level?: string | number;
+  summary?: string;
+  variant?: "primary" | "reverse";
+  label?: string;
+  headingLevel?: 1 | 2;
+  headingId?: string;
+}
+
+const {
+  title,
+  level,
+  summary,
+  variant = "primary",
+  label = variant === "reverse" ? "Reverse Spell" : "Spell",
+  headingLevel = 2,
+  headingId,
+} = Astro.props as Props;
+const levelLabel = level !== undefined && level !== ""
+  ? Number(level) === 0
+    ? "Cantrip"
+    : `Level ${level} spell`
+  : undefined;
+---
+
+<div class={`spell-header spell-header--${variant}`}>
+  <div class="spell-header__divider" aria-hidden="true"></div>
+  <header class="spell-header__content">
+    <span class="spell-header__label">{label}</span>
+    {headingLevel === 1 ? <h1 id={headingId}>{title}</h1> : <h2 id={headingId}>{title}</h2>}
+    {levelLabel ? <p class="spell-header__level">{levelLabel}</p> : null}
+    {summary ? <p class="spell-header__summary">{summary}</p> : null}
+  </header>
+</div>
+
+<style>
+  .spell-header {
+    --spell-header-accent: var(--itdatd-spell-primary-section);
+    display: grid;
+    gap: 1.15rem;
+  }
+
+  .spell-header--reverse {
+    --spell-header-accent: var(--itdatd-spell-reverse-section);
+  }
+
+  .spell-header__divider {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--spell-header-accent);
+  }
+
+  .spell-header__content {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.75rem 1rem;
+    border-left: 5px solid var(--spell-header-accent);
+    border-radius: 0 var(--itdatd-card-radius) var(--itdatd-card-radius) 0;
+    background: color-mix(in srgb, var(--spell-header-accent) 8%, var(--sl-color-bg));
+  }
+
+  .spell-header__label {
+    color: var(--sl-color-gray-2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .spell-header__content :is(h1, h2) {
+    margin: 0;
+  }
+
+  .spell-header__level {
+    margin: 0;
+    color: var(--sl-color-gray-2);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .spell-header__summary {
+    margin: 0;
+    color: var(--sl-color-gray-2);
+    font-style: italic;
+  }
+</style>

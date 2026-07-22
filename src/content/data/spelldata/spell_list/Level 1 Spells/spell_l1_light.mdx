@@ -1,0 +1,76 @@
+---
+datatype: spell
+title: Light
+level: 1
+casting: 1 Master Action; Phase 2
+range: 10 feet
+duration: 1 hour
+shortDescription: You create light in the darkness.
+reverseTitle: Darkness
+reverseRange: 60 feet
+reverseShortDescription: You create darkness to swallow light. 
+classes:
+  - Cleric
+  - Theurge
+  - Paladin
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Light">
+    <FeatureSection title="Spell Effect">
+        This spell can be cast in four different ways. Choose how you cast it each time you use the spell.
+
+        <FeatureSubsection title="Floating Mote">
+            You create a small, brightly shining mote of light within range of the spell. The mote floats near you for the spell's duration. It remains within 10 feet of you and hovers just above your head whenever possible. It cannot be targeted or otherwise interacted with. It provides clear light within 15 feet and uncertain light for an additional 15 feet beyond that.
+
+            Because of this, a mote of light is difficult to conceal, but allows you to have light without using your hands.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Illuminated Object">
+            You can cast this spell upon an object, causing the object to shine with great light. Choose an object within range with an EP of 2 or less. The object emits clear light within 15 feet and uncertain light for an additional 15 feet beyond that.
+
+            A creature who does not wish for an object in their possession to be affected by this spell can make a Save vs Spell. If they succeed, the Light spell has no effect. If they fail, the object is affected by this spell for the duration.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Creature's Eyes">
+            Target a creature within range and attempt to blind it with brilliant light. The creature must make a Save vs Spell. On a successful save, the spell has no effect. On a failed save, the creature is Blinded for the spell's duration.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Dispel Darkness Spell">
+            You can cast this spell upon an active Darkness spell. It counters the spell immediately. However, the duration of the spell becomes Instantaneous when cast this way. 
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * Increase the duration of this spell to 2 hours.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * Increase the duration of this spell to 4 hours.
+        </FeatureSubsection>
+    </FeatureSection>
+</SpellEntry>
+
+<SpellEntry title="Darkness" summary="You create a zone of pure darkness." variant="reverse" metadata={props.reverseMetadata}>
+    <FeatureSection title="Spell Effect">
+        This spell can be cast three different ways. You must select which way you utilize this spell when you cast it.
+
+        <FeatureSubsection title="Zone of Darkness">
+        Select a point in range of this spell, causing a 20-foot burst of magical darkness to erupt into being. Non-magical light cannot penetrate the darkness while the spell is active. 
+
+        If light created by the Light spell would enter the area of darkness, compare the levels of the creatures that cast the two spells. The higher-level caster's spell functions normally, although neither spell ends. If the casters are the same level, the caster of Light must make a Save vs Spell. On a success, the light supersedes the darkness; on a failure, the darkness supersedes the light.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Creature's Eyes">
+        If you directly target this spell upon a creature, you attempt to cause the darkness to directly affect the creature. The creature is entitled to a Save vs Spell. If they succeed, the Darkness spell has no effect. If they fail, they are Blinded for the duration of the spell. 
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Dispel Light Spell">
+        You can cast this spell upon an active Light spell. It counters the spell immediately. However, the duration of the spell becomes Instantaneous when cast this way. 
+        </FeatureSubsection>
+    </FeatureSection>
+</SpellEntry>

@@ -49,6 +49,7 @@
   /* Defaults used when a card or section does not select its own colors. */
   --itdatd-feature-section: var(--itdatd-color-purple);
   --itdatd-feature-subsection: var(--itdatd-color-gold);
+  --itdatd-feature-subsection-tint: 6%;
 
   /* Spell hierarchy colors: edit these four values to retheme spell entries. */
   --itdatd-spell-primary-section: var(--itdatd-color-muted-crimson);
@@ -65,6 +66,7 @@
 
 :root[data-theme="dark"] {
   --itdatd-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  --itdatd-feature-subsection-tint: 10%;
   --itdatd-color-red: #f87171;
   --itdatd-color-green: #4ade80;
   --itdatd-color-blue: #60a5fa;
@@ -1042,9 +1044,18 @@
 .feature-subsection {
   display: grid;
   gap: 0.2rem;
-  margin: 0.2rem 0 0 0.75rem;
-  padding-left: 0.8rem;
+  margin: 0.25rem 0 0 0.75rem;
+  padding: 0.55rem 0.7rem;
   border-left: 2px solid var(--feature-subsection-accent, var(--itdatd-feature-subsection));
+  background: color-mix(
+    in srgb,
+    var(--feature-subsection-accent, var(--itdatd-feature-subsection)) var(--itdatd-feature-subsection-tint),
+    var(--sl-color-bg)
+  );
+}
+
+.feature-subsection + .feature-subsection {
+  margin-top: 0.6rem;
 }
 
 .feature-subsection__title {

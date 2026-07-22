@@ -1,0 +1,92 @@
+---
+interface Props {
+  title?: string;
+  label?: string;
+  color?: string;
+  open?: boolean;
+}
+
+const {
+  title,
+  label,
+  color = 'purple',
+  open = false,
+} = Astro.props as Props;
+
+const displayTitle = title ?? label ?? 'Reveal spoiler';
+const normalizedColor = color
+  .toLowerCase()
+  .trim()
+  .replace(/-table$/, '')
+  .replace(/^gray$/, 'grey')
+  .replace(/^viloet$/, 'violet')
+  .replace(/\s+/g, '-');
+const spoilerStyle = `--spoiler-accent: var(--itdatd-color-${normalizedColor}, var(--itdatd-color-purple));`;
+---
+
+<details class="spoiler" open={open} style={spoilerStyle}>
+  <summary class="spoiler__summary">
+    <span>{displayTitle}</span>
+  </summary>
+  <div class="spoiler__content">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .spoiler {
+    --spoiler-accent: var(--itdatd-color-purple);
+    overflow: hidden;
+    padding-inline-start: 0;
+    border: 1px solid color-mix(in srgb, var(--spoiler-accent) 55%, var(--sl-color-gray-5));
+    border-inline-start-width: 5px;
+    border-inline-start-color: var(--spoiler-accent);
+    border-radius: var(--itdatd-card-radius, 0.5rem);
+    background: color-mix(in srgb, var(--spoiler-accent) 5%, var(--sl-color-bg));
+  }
+
+  .spoiler__summary {
+    padding: 0.7rem 0.9rem;
+    margin: 0;
+    background: color-mix(in srgb, var(--spoiler-accent) 16%, var(--sl-color-bg));
+    color: var(--sl-color-white);
+    font-weight: 650;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .spoiler__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .spoiler__summary::marker {
+    content: '';
+  }
+
+  .spoiler__summary:hover {
+    background: color-mix(in srgb, var(--spoiler-accent) 24%, var(--sl-color-bg));
+  }
+
+  .spoiler__summary:focus-visible {
+    outline: 2px solid var(--spoiler-accent);
+    outline-offset: -2px;
+  }
+
+  .spoiler[open] > .spoiler__summary {
+    margin-bottom: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--spoiler-accent) 45%, var(--sl-color-gray-5));
+  }
+
+  .spoiler__content {
+    padding: 0.9rem;
+  }
+
+  .spoiler__content > :global(:first-child) {
+    margin-top: 0;
+  }
+
+  .spoiler__content > :global(:last-child) {
+    margin-bottom: 0;
+  }
+
+</style>

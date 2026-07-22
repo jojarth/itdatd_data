@@ -7,6 +7,7 @@ import GameplayCard from '../../components/GameplayCard.astro';
 import FeatureSection from '../../components/FeatureSection.astro';
 import FeatureSubsection from '../../components/FeatureSubsection.astro';
 import SpellSlotTable from '../../components/SpellSlotTable.astro';
+import Spoiler from '../../components/Spoiler.astro';
 
 # Site Reference
 
@@ -65,6 +66,24 @@ import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.a
 ```
 
 Reusable blocks should render the exact markup they mean to insert. For example, use `<p>` tags for paragraphs inside `.astro` components instead of relying on Markdown paragraph parsing.
+
+## Spoilers
+
+Use `Spoiler` for information that should stay collapsed until the reader chooses to reveal it.
+
+```mdx
+import Spoiler from '../../components/Spoiler.astro';
+
+<Spoiler color="cobalt" title="Reveal the answer">
+  The hidden information goes here.
+</Spoiler>
+```
+
+<Spoiler color="cobalt" title="Reveal the example">
+  The hidden information goes here.
+</Spoiler>
+
+`color` accepts the same names used by tables and gameplay cards, including names such as `green`, `cobalt`, `dragon-gold`, and `muted-crimson`. The older `label` prop remains available as an alias for `title`. Pass `open` when the content should begin expanded. This is a visual disclosure control only: its contents are still present in the page HTML.
 
 For reusable gameplay cards that should appear in the page table of contents, pass `toc` and optionally `tocDepth`.
 
@@ -678,21 +697,22 @@ That page:
 
 - creates one route for each `data` collection entry
 - uses the primary `title` as the page title
-- shows the primary `shortDescription` and, when applicable, a `Reverse form` link in the page introduction
-- shows spell metadata in a responsive grid
+- shows the spell level as a subtitle, followed by the primary `shortDescription` and, when applicable, a `Reverse form` link
+- shows casting, range, and duration in a responsive metadata grid
 - sorts displayed class arrays alphabetically
 - renders the spell's MDX rules below the metadata block
+- displays an alphabetized, italicized class list in a dedicated banner at the bottom of the page
 - passes inherited or overridden metadata to the reverse spell entry
 
-The page title, introduction, and top metadata grid serve as the primary spell's complete header. The primary `SpellEntry` therefore renders only its rules sections. A reverse `SpellEntry` renders its own label, title, description, metadata, and rules so direct links remain self-contained.
+Spell detail routes hide Starlight's ordinary page-title panel and render the primary form with the same shared spell header used by reverse forms. The primary `SpellEntry` therefore renders only its rules sections. A reverse `SpellEntry` renders its own label, title, level subtitle, description, metadata, and rules so direct links remain self-contained.
 
 Current full-page field order:
 
-1. Spell Level
+1. Level subtitle
 2. Casting
 3. Range
 4. Duration
-5. Classes
+5. Spellcasting Classes banner after the rules
 
 To add a new full-page field, update the schema in `src/content.config.ts`, then render it in `src/pages/data/[...slug].astro`.
 
@@ -754,7 +774,7 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 </SpellEntry>
 ```
 
-The page header displays Magic Missile's title, short description, and metadata. Its primary `SpellEntry` begins directly with the rules, avoiding a repeated `Spell / Magic Missile` heading. `SpellEntry` still creates a lowercase anchor from its title; for example, Magic Missile receives `#magic-missile`.
+The page header displays Magic Missile's title, level subtitle, short description, and casting/range/duration metadata. Its primary `SpellEntry` begins directly with the rules, avoiding a repeated `Spell / Magic Missile` heading. `SpellEntry` still creates a lowercase anchor from its title; for example, Magic Missile receives `#magic-missile`.
 
 ### Primary and Reverse Entries
 
@@ -798,7 +818,7 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 </SpellEntry>
 ```
 
-The page header serves as Bless's entry header and includes a `Reverse form: Curse` link. The detail page supplies `props.reverseMetadata` automatically. Passing it to the reverse `SpellEntry` displays a complete metadata grid when a reader follows that link or clicks the Curse list card.
+The page header serves as Bless's entry header and includes a `Reverse form: Curse` link. The detail page supplies `props.reverseMetadata` automatically. Passing it to the reverse `SpellEntry` displays its level subtitle and resolved casting/range/duration grid when a reader follows that link or clicks the Curse list card.
 
 `SpellEntry` props:
 
@@ -807,7 +827,7 @@ The page header serves as Bless's entry header and includes a `Reverse form: Cur
 - `variant="reverse"`: marks the entry as the reverse form and applies its distinct accent.
 - `label`: optionally replaces the default reverse-entry label.
 - `id`: optionally replaces the automatically generated anchor.
-- `metadata={props.reverseMetadata}`: displays the resolved reverse metadata grid.
+- `metadata={props.reverseMetadata}`: displays the resolved reverse level subtitle and casting/range/duration grid.
 
 ## Spell Frontmatter
 
@@ -856,7 +876,7 @@ Reverse spell fields:
 - `reverseRange`: optional reverse range override.
 - `reverseDuration`: optional reverse duration override.
 
-Spell level and classes always inherit from the primary form. Casting, range, and duration also inherit by default. Add only the overrides that differ:
+Spell level and classes always inherit from the primary form. The shared class list appears once at the bottom of the page. Casting, range, and duration also inherit by default. Add only the overrides that differ:
 
 ```yaml
 reverseCasting: 1 Action; Phase 3
@@ -864,7 +884,7 @@ reverseRange: 60 feet
 reverseDuration: 3 rounds
 ```
 
-The resolved values appear in the reverse entry's metadata grid. Omitting an override keeps the corresponding primary value.
+The resolved casting, range, and duration values appear in the reverse entry's metadata grid. Omitting an override keeps the corresponding primary value.
 
 ## Local Development
 

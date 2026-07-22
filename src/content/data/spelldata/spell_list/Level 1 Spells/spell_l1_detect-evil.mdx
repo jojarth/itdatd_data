@@ -1,17 +1,17 @@
 ---
 datatype: spell
 title: Detect Evil
-reverseTitle: Detect Good
-reverseShortDescription: You can detect the presence of pure good.
 level: 1
 casting: 1 Master Action; Phase 2
 range: Self
 duration: 10 Minutes per Class Level
+shortDescription: You can detect the presence of evil.
+reverseTitle: Detect Good
+reverseShortDescription: You can detect the presence of pure good.
 classes:
   - Cleric
   - Theurge
   - Paladin
-shortDescription: You can detect the presence of evil.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
@@ -19,38 +19,37 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Detect Evil">
     <FeatureSection title="Spell Effect">
-        While this spell is active, Valid Creatures and Objects have a slight glow to your eyes.
+        While this spell is active, Valid Creatures and Objects appear to glow faintly to you.
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
         <FeatureSubsection title="Valid Creatures">
-        * A creature with the **Necros** or **Umbra** keyword is a Valid Creature. 
-        * A creature with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keyword is a Valid Creature only if it also has the **Profane** keyword. 
+        * A creature with the **Profane** keyword is a Valid Creature. 
         </FeatureSubsection>
     </FeatureSection>
 
     <FeatureSection title="Object Interactions">
         <FeatureSubsection title="Valid Objects">
         * Objects that are cursed are Valid Objects.
-        * Objects that are affected by a Desecreate or similar spell are Valid Objects. 
+        * Objects affected by the Desecrate spell or similar magic are Valid Objects.
         </FeatureSubsection>
     </FeatureSection>
 </SpellEntry>
 
 <SpellEntry title="Detect Good" summary="You can detect the presence of pure good." variant="reverse" metadata={props.reverseMetadata}>
     <FeatureSection title="Spell Effect">
-        While this spell is active, Valid Creatures and Objects have a slight glow to your eyes.
+        While this spell is active, Valid Creatures and Objects appear to glow faintly to you.
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
         <FeatureSubsection title="Valid Creatures">
-        * A creature with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keyword is a Valid Creature only if it also has the **Sacred** keyword. 
+        * A creature with the **Sacred** keyword is a Valid Creature. 
         </FeatureSubsection>
     </FeatureSection>
 
     <FeatureSection title="Object Interactions">
         <FeatureSubsection title="Valid Objects">
-        * Objects that are affected by a Hallow or similar spell are Valid Objects. 
+        * Objects affected by the Hallow spell or similar magic are Valid Objects.
         </FeatureSubsection>
     </FeatureSection>
 </SpellEntry>

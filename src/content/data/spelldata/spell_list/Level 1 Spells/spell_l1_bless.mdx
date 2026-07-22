@@ -1,16 +1,16 @@
 ---
 datatype: spell
 title: Bless
-reverseTitle: Curse
-reverseShortDescription: Afflicts foes with divine condemnation.
 level: 1
 casting: 1 Master Action; Phase 4
 range: 30 feet
 duration: 1 minute
+shortDescription: Bolsters allies with divine favor.
+reverseTitle: Curse
+reverseShortDescription: Afflicts foes with divine condemnation.
 classes:
   - Cleric
   - Theurge
-shortDescription: Bolsters allies with divine favor.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
@@ -18,10 +18,14 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Bless">
     <FeatureSection title="Spell Effect">
-        Select 3 targets within range of the spell that are not currently engaged in melee combat. The selected targets gain a +1 magic bonus to attack rolls and a +1 magic bonus to saving throws for the duration of the spell.
+        Select 3 targets within the spell's range. None of the targets can be engaged in melee combat. The selected targets gain a +1 magic bonus to attack rolls and a +1 magic bonus to saving throws for the duration of the spell.
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
+        <FeatureSubsection title="Invalid Creatures">
+        * A creature with the **Profane** keyword cannot be the target of this spell. 
+        </FeatureSubsection>
+
         <FeatureSubsection title="Non-Player Characters">
         * In addition to the normal effects of this spell, a non-player character gains a +1 magic bonus to morale.
         </FeatureSubsection>
@@ -37,19 +41,19 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
     </FeatureSection>
 
     <FeatureSection title="Components">
-        Present your holy symbol toward the targets and speak a brief prayer of blessing.
+        Present your holy symbol and speak a brief prayer of blessing.
     </FeatureSection>
 </SpellEntry>
 
 <SpellEntry title="Curse" summary="Afflicts foes with divine condemnation." variant="reverse" metadata={props.reverseMetadata}>
 
     <FeatureSection title="Spell Effect">
-        Select 3 targets within range of the spell that are not currently engaged in melee combat. The selected targets suffer a -1 magic penalty to attack rolls and a -1 magic penalty to saving throws for the duration of the spell.
+        Select 3 targets within the spell's range. None of the targets can be engaged in melee combat. The selected targets suffer a -1 magic penalty to attack rolls and a -1 magic penalty to saving throws for the duration of the spell.
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
         <FeatureSubsection title="Non-Player Characters">
-        * In addition to the normal effects of this spell, a non-player character gains a -1 magic bonus to morale.
+        * In addition to the normal effects of this spell, a non-player character suffers a -1 magic bonus to morale.
         </FeatureSubsection>
     </FeatureSection>
 
@@ -63,6 +67,6 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
     </FeatureSection>
 
     <FeatureSection title="Components">
-        Present your holy symbol toward the targets while speaking a solemn word of condemnation.
+        Present your holy symbol while speaking a solemn word of condemnation.
     </FeatureSection>
 </SpellEntry>

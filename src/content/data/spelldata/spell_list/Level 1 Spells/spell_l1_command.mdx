@@ -4,11 +4,11 @@ title: Command
 level: 1
 casting: 1 Master Action; Phase 4
 range: 30 feet
-duration: 1 round
+duration: Special, see spell description
+shortDescription: Forces a creature to perform a short action.
 classes:
   - Cleric
   - Theurge
-shortDescription: Forces a creature to perform a short action.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
@@ -16,11 +16,11 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Command">
     <FeatureSection title="Spell Effect">
-        Choose a Valid Carget within range that can both see and hear you, then speak a single-word command. The target must make a Save vs Spell.
+        Choose a Valid Creature within range that can both see and hear you, then speak a single-word command. The target must make a Save vs Spell.
 
         On a successful save, the spell has no effect.
 
-        On a failed save, the target must immediately begin obeying your command. Until it has spent a total of three actions carrying out the command, one of which must be a Master Action, it may take only the actions necessary to fulfill your instruction.
+        On a failed save, the target immediately begins obeying your command. It must spend a total of three actions carrying out the command, including at least one Master Action. Until it has spent all three actions, it can take only actions necessary to fulfill the command. The spell ends once the creature has spent the required actions preforming the command. 
 
         <FeatureSubsection title="Issuing the Command">
         The command must be a single, clear, and unambiguous word. The target follows the command to the best of its ability, but will not knowingly harm itself or directly harm one of its allies.

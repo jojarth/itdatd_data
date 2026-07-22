@@ -1,5 +1,7 @@
 ---
 import { spellAnchor } from "../lib/spellAnchor";
+import SpellHeader from "./SpellHeader.astro";
+import SpellMetadata from "./SpellMetadata.astro";
 
 interface Props {
   title: string;
@@ -12,7 +14,6 @@ interface Props {
     casting?: string;
     range?: string;
     duration?: string;
-    classes?: string;
   };
 }
 
@@ -26,38 +27,19 @@ const {
 } = Astro.props as Props;
 const entryId = id ?? spellAnchor(title);
 const isReverse = variant === "reverse";
-const metadataFields = metadata
-  ? [
-      { label: "Spell Level", value: metadata.level },
-      { label: "Casting", value: metadata.casting },
-      { label: "Range", value: metadata.range },
-      { label: "Duration", value: metadata.duration },
-      { label: "Classes", value: metadata.classes },
-    ].filter((field) => field.value !== undefined && field.value !== "")
-  : [];
 ---
 
 <section id={entryId} class={`spell-entry spell-entry--${variant}`}>
   {isReverse ? (
-    <>
-      <div class="spell-entry__divider" aria-hidden="true"></div>
-      <header class="spell-entry__header">
-        <span class="spell-entry__label">{label}</span>
-        <h2>{title}</h2>
-        {summary ? <p class="spell-entry__summary">{summary}</p> : null}
-      </header>
-    </>
+    <SpellHeader
+      title={title}
+      level={metadata?.level}
+      summary={summary}
+      variant={variant}
+      label={label}
+    />
   ) : null}
-  {metadataFields.length > 0 ? (
-    <div class="spell-entry__metadata">
-      {metadataFields.map((field) => (
-        <p class="spell-entry__metadata-item">
-          <strong>{field.label}</strong>
-          <span>{field.value}</span>
-        </p>
-      ))}
-    </div>
-  ) : null}
+  {metadata ? <SpellMetadata metadata={metadata} /> : null}
   <div class="spell-entry__body">
     <slot />
   </div>
@@ -80,62 +62,6 @@ const metadataFields = metadata
     margin-top: 2.5rem;
   }
 
-  .spell-entry__divider {
-    height: 4px;
-    border-radius: 999px;
-    background: var(--spell-entry-accent);
-  }
-
-  .spell-entry__header {
-    display: grid;
-    gap: 0.2rem;
-  }
-
-  .spell-entry--reverse .spell-entry__header {
-    padding: 0.75rem 1rem;
-    border-left: 5px solid var(--spell-entry-accent);
-    border-radius: 0 var(--itdatd-card-radius) var(--itdatd-card-radius) 0;
-    background: color-mix(in srgb, var(--spell-entry-accent) 8%, var(--sl-color-bg));
-  }
-
-  .spell-entry__label {
-    color: var(--sl-color-gray-2);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .spell-entry__header h2 {
-    margin: 0;
-  }
-
-  .spell-entry__summary {
-    margin: 0;
-    color: var(--sl-color-gray-2);
-    font-style: italic;
-  }
-
-  .spell-entry__metadata {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.9rem;
-  }
-
-  .spell-entry__metadata-item {
-    display: grid;
-    gap: 0.2rem;
-    margin: 0;
-  }
-
-  .spell-entry__metadata-item strong {
-    color: var(--sl-color-gray-2);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-  }
-
   .spell-entry__body {
     display: grid;
     gap: 1rem;
@@ -147,10 +73,4 @@ const metadataFields = metadata
     border-top: 1px solid var(--sl-color-gray-5);
   }
 
-  @media (max-width: 38rem) {
-    .spell-entry__metadata {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-  }
 </style>

@@ -1,0 +1,67 @@
+---
+interface Props {
+  metadata?: {
+    casting?: string;
+    range?: string;
+    duration?: string;
+  };
+}
+
+const { metadata } = Astro.props as Props;
+const fields = [
+  { label: "Casting", value: metadata?.casting || "—" },
+  { label: "Range", value: metadata?.range || "—" },
+  { label: "Duration", value: metadata?.duration || "—" },
+];
+---
+
+<div class="spell-metadata">
+  {fields.map((field) => (
+    <p class="spell-metadata__item">
+      <strong>{field.label}</strong>
+      <span>{field.value}</span>
+    </p>
+  ))}
+</div>
+
+<style>
+  .spell-metadata {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    padding-block: 0.8rem;
+    border-block: 1px solid var(--sl-color-gray-5);
+  }
+
+  .spell-metadata__item {
+    display: grid;
+    gap: 0.2rem;
+    margin: 0;
+    padding-inline: 1rem;
+    text-align: center;
+  }
+
+  .spell-metadata__item:not(:first-child) {
+    border-inline-start: 1px solid var(--sl-color-gray-5);
+  }
+
+  .spell-metadata__item strong {
+    color: var(--sl-color-gray-2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 38rem) {
+    .spell-metadata {
+      grid-template-columns: 1fr;
+    }
+
+    .spell-metadata__item:not(:first-child) {
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--sl-color-gray-5);
+      border-inline-start: 0;
+    }
+  }
+</style>

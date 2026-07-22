@@ -5,10 +5,12 @@ level: 1
 casting: 1 Master Action; Phase 4
 range: Touch
 duration: Instantaneous
+shortDescription: Your touch restores vigor to an ally.
+reverseTitle: Inflict Light Wounds
+reverseShortDescription: Your touch drains vigor from a foe.
 classes:
   - Cleric
   - Theurge
-shortDescription: Your touch restores vigor to an ally.
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
@@ -22,7 +24,7 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
     <FeatureSection title="Creature Interactions">
         <FeatureSubsection title="Valid Creatures">
         * A creature with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keyword is a Valid Creature.
-        * A creature with the **Necros** or **Umbra** keyword is a Valid Creature. Instead of recovering Grit, it suffers 1d8 + 3 points of Sacred damage. The target is entitled to a Save vs Spell. On a success, it takes no damage.
+        * A creature with the **Necros** or **Umbra** keyword is a Valid Creature. However, it is entitled to a Saving Throw vs Spell. On a success, nothing happens. On a failure, it suffers 1d8 + 3 points of Sacred damage instead of regaining Grit.
         </FeatureSubsection>
     </FeatureSection>
 
@@ -37,5 +39,31 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 
     <FeatureSection title="Components">
         You must utter a brief prayer or plea of one to five words while laying a hand upon the target.
+    </FeatureSection>
+</SpellEntry>
+
+<SpellEntry title="Inflict Light Wounds" summary="Your touch drains vigor from a foe." variant="reverse" metadata={props.reverseMetadata}>
+    <FeatureSection title="Spell Effect">
+        Touch a nearby Valid Creature. The target suffers 1d8 + 3 points of Profane damage. The target is entitled to a Save vs Spell. On a success, it takes no damage.
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+        <FeatureSubsection title="Valid Creatures">
+        * A creature with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keyword is a Valid Creature.
+        * A creature with the **Necros** or **Umbra** keyword is a Valid Creature. Instead of suffering damage, it regains 1d8 + 3 Grit. Such creatures do not require a Saving Throw to gain this benefit. 
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+        * Increase the damage dealt, as well as the healing to *necros* and *umbra* creatures, to 1d8 + 5.
+        </FeatureSubsection>
+        <FeatureSubsection title="When you can cast 5th-level spells">
+        * Increase the damage dealt, as well as the healing to *necros* and *umbra* creatures, to 1d8 + 7.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        You must utter a brief curse or condemnation of one to five words while laying a hand upon the target.
     </FeatureSection>
 </SpellEntry>
