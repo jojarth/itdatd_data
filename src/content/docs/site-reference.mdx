@@ -244,6 +244,20 @@ The number of `../` segments depends on where the page lives. From class pages i
 </GameplayCard>
 ```
 
+Set the boolean `flavortext` prop when the first line is a short italicized note, prerequisite, or other flavor text that should sit closer to the title bar. It reduces only the space above the card's first line; omit the prop to retain the standard body spacing.
+
+```mdx
+<GameplayCard
+  colorSet="characterfeature"
+  title="Feature Name"
+  flavortext
+>
+  _**Other Prerequisites:** Add the prerequisite text here._
+
+  Write the feature text here.
+</GameplayCard>
+```
+
 <GameplayCard
   color="purple"
   eyebrow="Class Feature"

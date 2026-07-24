@@ -78,12 +78,12 @@ export default defineConfig({
               ],
             },
             {
-              label: "Chapter 06: Equipment and Wealth",
+              label: "Chapter 06: Equipment",
               collapsed: true,
               items: [
                 {
                   autogenerate: {
-                    directory: "playersguide/06-equipment_and_wealth",
+                    directory: "playersguide/06-equipment",
                   },
                 },
               ],
@@ -117,7 +117,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "Chapter 11: Character Advancement",
+              label: "Chapter 11: Advancement",
               collapsed: true,
               items: [
                 {

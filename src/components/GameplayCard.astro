@@ -14,6 +14,7 @@ interface Props {
   headerOrder?: HeaderField[];
   toc?: boolean;
   tocDepth?: number;
+  flavortext?: boolean;
 }
 
 const {
@@ -27,6 +28,7 @@ const {
   sectionColor,
   subsectionColor,
   headerOrder = ['eyebrow', 'title', 'subtitle'],
+  flavortext = false,
 } = Astro.props as Props;
 
 const normalizeColorName = (value: string) => {
@@ -99,6 +101,7 @@ const cardClass = [
   `gameplay-card--${resolvedColor}`,
   resolvedSectionColor ? `gameplay-card--section-${resolvedSectionColor}` : '',
   resolvedSubsectionColor ? `gameplay-card--subsection-${resolvedSubsectionColor}` : '',
+  flavortext ? 'gameplay-card--flavortext' : '',
 ].filter(Boolean).join(' ');
 const headerFields: Record<HeaderField, string | undefined> = { eyebrow, subeyebrow, title, subtitle };
 const orderedHeaderFields = (headerOrder as HeaderField[]).filter(

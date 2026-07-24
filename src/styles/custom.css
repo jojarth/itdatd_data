@@ -751,6 +751,11 @@
   padding: 0.8rem 1.1rem 1rem 1.25rem;
 }
 
+.gameplay-card--flavortext .gameplay-card__body {
+  margin-top: 0;
+  padding-top: 0.3rem;
+}
+
 .gameplay-card__body > * {
   margin-block: 0;
 }
