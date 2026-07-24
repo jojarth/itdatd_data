@@ -1,10 +1,17 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import starlight from "@astrojs/starlight";
-import gameplayCardToc from "./src/integrations/gameplay-card-toc.mjs";
+import remarkGameplayCardToc from "./src/remark-gameplay-card-toc.mjs";
 
 export default defineConfig({
   site: "https://itdatd.azureknights.net",
+  compressHTML: true,
+  markdown: {
+    processor: unified({
+      remarkPlugins: [remarkGameplayCardToc],
+    }),
+  },
   integrations: [
     starlight({
       title: "ITD&TD",
@@ -146,6 +153,5 @@ export default defineConfig({
         },
       ],
     }),
-    gameplayCardToc(),
   ],
 });
