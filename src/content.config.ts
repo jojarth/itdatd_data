@@ -97,7 +97,17 @@ const armors = defineCollection({
 });
 
 export const collections = {
-  docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
+  docs: defineCollection({
+    loader: docsLoader(),
+    schema: docsSchema({
+      extend: z.object({
+        spellcasting: z.object({
+          type: z.enum(["Clerical", "Magical"]),
+          method: z.enum(["Free-Hand", "Sacred"]),
+        }).optional(),
+      }),
+    }),
+  }),
   data,
   weaponFeatures,
   weaponProperties,

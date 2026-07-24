@@ -26,7 +26,6 @@ filteredWeapons.sort((a, b) => a.data.title.localeCompare(b.data.title));
     <thead>
       <tr>
         <th>Name</th>
-        <th>Group</th>
         <th>Cost</th>
         <th>EP</th>
         <th>Damage</th>
@@ -48,7 +47,6 @@ filteredWeapons.sort((a, b) => a.data.title.localeCompare(b.data.title));
             <td>
               <strong><a href={`/data/weapons/${entry.id}`}>{weapon.title}</a></strong>
             </td>
-            <td>{weapon.group}</td>
             <td>{weapon.cost}</td>
             <td>{weapon.ep}</td>
             <td>{weapon.damage}</td>

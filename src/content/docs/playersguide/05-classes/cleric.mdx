@@ -1,5 +1,8 @@
 ---
 title: Cleric
+spellcasting:
+  type: Clerical
+  method: Sacred
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
@@ -52,7 +55,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
   </FeatureSection>
 
   <FeatureSection title="Weapon Proficiency">
-  You begin play Familiar with **bludgeons, crossbows, flails, maces** and **staves**.
+  You begin play Familiar with **Brawling, Clubs and Maces, Hammers and Picks, Two-Handed Bludgeons, Flails, Staves,** and **Crossbows**.
   </FeatureSection>
 </GameplayCard>
 
@@ -91,9 +94,9 @@ As a cleric, you gain the following class features.
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Many of your class features require you to present your holy symbol. A holy symbol is a physical representation of your faith and devotion, and may take nearly any form, such as an amulet, prayer beads, a reliquary, or another relic sacred to your beliefs.
+Many of your class features require you to present your holy symbol. A holy symbol is a physical representation of your faith and devotion. It may take nearly any form, such as an amulet, prayer beads, a reliquary, or another relic sacred to your beliefs.
 
-To present your holy symbol, you must hold it aloft in clear view. This requires a free hand. Alternatively, you may emblazon your holy symbol upon a shield. Presenting such a shield fulfills any requirement to present your holy symbol.
+To present your holy symbol, you must hold it aloft in clear view. This requires one hand. Alternatively, you may emblazon your holy symbol upon a shield. Wielding and openly displaying such a shield allows you to present your holy symbol.
 </GameplayCard>
 
 <OrderFeatureCard
@@ -152,6 +155,7 @@ Clerics can channel sacred power to drive back the undead. To use this ability, 
   </FeatureSection>
 </GameplayCard>
 
+{/* Previous Spellcasting feature retained for reference.
 <GameplayCard
   colorSet="spellcasting"
   title="Spellcasting"
@@ -164,11 +168,17 @@ Through prayer and unwavering faith, you have learned to prepare sacred miracles
 A Cleric's spells are considered clerical spells. 
   
   <FeatureSection title="Spell Preparation">
-  Immediately after completing a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Clerics may prepare any spell on the Cleric spell list, so long as they have the correct level of spell slot. 
+  As part of a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Clerics may prepare any spell on the Cleric spell list, so long as they have the correct level of spell slot.
 
   For example, a 4th-level Cleric prepares three 1st-level spells and two 2nd-level spells. Preparing the same spell multiple times allows you to cast it multiple times before resting again. Prepared spells remain in memory until cast.
   
-  Spell Preparation can only be done immediately following a Safe Rest.
+  The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+
+        <FeatureSubsection title="Material Components">
+          Some spells require material components during preparation. You must provide the listed components each time you prepare the spell. If you prepare the same spell more than once, you must provide its components separately for each preparation.
+
+          Unless the spell states otherwise, its material components are consumed when you complete the Safe Rest. If the Safe Rest is not completed, the components are not consumed. Once the spell has been prepared, those components are no longer required to cast it. Materials consumed during spell preparation are lost if you prepare over the spell slot without casting the spell.
+        </FeatureSubsection>
 
   </FeatureSection>
 
@@ -184,20 +194,65 @@ A Cleric's spells are considered clerical spells.
   * Have the spell prepared.
   * Be able to present your holy symbol.
   * Be able to speak clearly.
+
+After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
  
-  Some spells also require material components. If so, the required component is used in place of your holy symbol when casting the spell.
-  
-  After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
+    <FeatureSubsection title="Sacred Gestures">
+      Spell descriptions describe their gestures as though the caster had a free hand available. When you cast a spell, you must present your holy symbol and replace each gesture described in the spell's Components section with a similar action performed using the holy symbol. This substitution changes what the required hand does, but does not change the number of hands required.
+
+      For example, you may pass your holy symbol before your eyes instead of passing your fingers before them, direct your holy symbol toward a creature instead of pointing at it, or touch a creature with your holy symbol instead of touching it with your hand. If your holy symbol is emblazoned upon a shield, you perform the equivalent action with the shield.
+
+      Your holy symbol can fulfill the requirements of only one hand. If a spell requires two hands, your other hand must still perform the remaining gesture. A holy symbol cannot replace the manipulation of another required object or an action that the spell states must be performed exactly as described.
+
+      If a spell requires no gesture, you must still present your holy symbol while casting it.
+    </FeatureSubsection>
   </FeatureSection>
   
   <FeatureSection title="Cantrips">
   Cantrips are simple prayers that require little devotion to prepare.
 
-  Whenever you prepare your spells after completing a Safe Rest, you also prepare a number of cantrips from the Cleric cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
+  When you prepare your spells as part of a Safe Rest, you also prepare a number of cantrips from the Cleric cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
 
   Each time you cast a prepared cantrip, you expend one available cantrip cast from your shared pool, regardless of which prepared cantrip you cast. Unlike leveled spells, cantrips are not erased from your memory when cast and remain prepared until you prepare your spells again.
 
   You regain all expended cantrip casts whenever you complete a night's rest.
+  </FeatureSection>
+</GameplayCard>
+*/}
+
+<GameplayCard
+  colorSet="spellcasting"
+  title="Spellcasting"
+  subeyebrow="2nd Level Cleric Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Through prayer and unwavering faith, you have learned to prepare sacred miracles within your mind. Each miracle is a blessing that can be held only temporarily. When invoked, it is expended and slips from memory until granted again through prayer.
+
+Your spells are **clerical spells**, and you use the **Sacred** casting method. You otherwise follow the general rules in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/).
+
+  <FeatureSection title="Spell Preparation">
+  As part of a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power and beseech it to grant you sacred miracles.
+
+  You may prepare any spell on the Cleric spell list for which you have a spell slot of the appropriate level. The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+  </FeatureSection>
+
+  <FeatureSection title="Reversible Spells">
+  Each time you prepare a reversible spell, choose whether you prepare its primary or reverse form. The chosen form is treated as the prepared spell.
+
+  Preparing one form does not prepare the other. To have both forms available, you must prepare each separately.
+  </FeatureSection>
+
+  <FeatureSection title="Casting Spells">
+  You use the Sacred casting method described in the spellcasting chapter. You must present your holy symbol when casting a spell, and the hand used to present it is your Casting Hand. Your Holy Symbol feature explains how you present it.
+  </FeatureSection>
+
+  <FeatureSection title="Cantrips">
+  Cantrips are simple prayers that require little devotion to prepare.
+
+  When you prepare your spells as part of a Safe Rest, you may also prepare the number of cantrips shown on your Spell Progression table from the Cleric cantrip list.
+
+  Your Spell Progression table also shows the number of cantrip casts in your shared pool. You regain all expended cantrip casts when you complete a Night's Rest.
   </FeatureSection>
 </GameplayCard>
 

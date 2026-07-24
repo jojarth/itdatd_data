@@ -33,22 +33,68 @@ function getNumericAttribute(node, name, fallback) {
   return Number.isInteger(value) && value >= 2 && value <= 4 ? value : fallback;
 }
 
-const reusableTocTitles = {
-  KeywordFeatureCard: 'Keyword Feature',
-  OrderFeatureCard: 'Order',
-  Establishment: 'Establishment',
+function getPositiveIntegerAttribute(node, name, fallback) {
+  const attribute = getAttribute(node, name);
+  if (!attribute) return fallback;
+
+  const rawValue =
+    typeof attribute.value === 'string'
+      ? attribute.value
+      : attribute.value?.type === 'mdxJsxAttributeValueExpression'
+        ? attribute.value.value
+        : undefined;
+
+  const value = Number(rawValue);
+  return Number.isInteger(value) && value > 0 ? value : fallback;
+}
+
+function ordinal(value) {
+  const remainder = value % 100;
+  if (remainder >= 11 && remainder <= 13) return `${value}th`;
+
+  switch (value % 10) {
+    case 1:
+      return `${value}st`;
+    case 2:
+      return `${value}nd`;
+    case 3:
+      return `${value}rd`;
+    default:
+      return `${value}th`;
+  }
+}
+
+const reusableTocDetails = {
+  KeywordFeatureCard: { title: 'Keyword Feature', level: 5 },
+  OrderFeatureCard: { title: 'Order', level: 1, levelAttribute: 'level' },
+  Establishment: { title: 'Establishment', level: 10 },
 };
 
 function getTocTitle(child) {
   if (child.name === 'GameplayCard') {
-    return getStringAttribute(child, 'title');
+    const title = getStringAttribute(child, 'title');
+    const subeyebrow = getStringAttribute(child, 'subeyebrow');
+    const levelMatch = subeyebrow?.match(/^\s*(\d+)(st|nd|rd|th)\s+level\b/i);
+
+    if (title && levelMatch) {
+      const level = `${levelMatch[1]}${levelMatch[2].toLowerCase()} Level`;
+      return `${level}: ${title}`;
+    }
+
+    return title;
   }
 
-  return (
-    getStringAttribute(child, 'tocTitle') ??
-    getStringAttribute(child, 'title') ??
-    reusableTocTitles[child.name]
-  );
+  const explicitTitle = getStringAttribute(child, 'tocTitle') ?? getStringAttribute(child, 'title');
+  if (explicitTitle) return explicitTitle;
+
+  const reusableDetails = reusableTocDetails[child.name];
+  if (!reusableDetails) return undefined;
+
+  const level = reusableDetails.levelAttribute
+    ? getPositiveIntegerAttribute(child, reusableDetails.levelAttribute, reusableDetails.level)
+    : reusableDetails.level;
+
+  return `${ordinal(level)} Level: ${reusableDetails.title}`;
 }
 
 function visitChildren(parent) {

@@ -91,7 +91,7 @@ For reusable gameplay cards that should appear in the page table of contents, pa
 <KeywordFeatureCard toc tocDepth={2} />
 ```
 
-The ToC helper in `src/remark-gameplay-card-toc.mjs` can create ToC entries for reusable components. For known reusable components, add a default title to `reusableTocTitles`. For one-off reusable components, you can pass a title from the page:
+The ToC helper in `src/remark-gameplay-card-toc.mjs` can create ToC entries for reusable components. Its `reusableTocDetails` map supplies the title and level for known reusable feature cards. `OrderFeatureCard` also reads its optional `level` prop. For one-off reusable components, you can pass a title from the page:
 
 ```mdx
 <SomeReusableBlock toc tocTitle="Reusable Section Title" />
@@ -428,6 +428,7 @@ Add `toc` to make a card title appear in the right-side table of contents.
 <GameplayCard
   color="purple"
   title="Spellcasting"
+  subeyebrow="7th Level Paladin Feature • Oath-Dependent"
   toc
 >
   Write the feature text here.
@@ -435,6 +436,7 @@ Add `toc` to make a card title appear in the right-side table of contents.
 ```
 
 The `toc` prop only works when `title` is a quoted string, like `title="Spellcasting"`.
+When a quoted `subeyebrow` begins with an ordinal level, the ToC label leads with that level to emphasize feature progression; the example above appears as `7th Level: Spellcasting`.
 
 By default, `toc` entries are added as level-three headings. Use `tocDepth={2}` when a card should appear as a higher-level section.
 
@@ -668,6 +670,7 @@ Useful list options:
 - `sortBy="title"` sorts cards by their displayed titles.
 - `sortDir="asc"` or `sortDir="desc"` controls sort direction.
 - `showReverse` creates a separate card for each reverse spell form.
+- `hidePrimary` hides primary forms and automatically displays only reverse forms.
 
 Useful display fields:
 
@@ -688,6 +691,22 @@ When `classes` is displayed, class names are sorted alphabetically and comma-sep
 - **Curse** uses `reverseTitle` and `reverseShortDescription`, displays `Reverse of: Bless`, and links directly to the Curse entry.
 
 Both cards use the primary spell's level and class filters. The reverse card is generated for the list and does not create a second content file or route.
+
+Use `hidePrimary` for a list containing only reverse forms:
+
+```mdx
+<SpellList
+  entries={allEntries}
+  datatype="spell"
+  level={1}
+  className="Example Class"
+  hidePrimary
+  showHeading={false}
+  displayFields={['shortDescription']}
+/>
+```
+
+`hidePrimary` automatically enables reverse forms, so it does not need to be combined with `showReverse`. Entries without a reverse form do not produce a card in a reverse-only list.
 
 ## Full Spell Pages
 

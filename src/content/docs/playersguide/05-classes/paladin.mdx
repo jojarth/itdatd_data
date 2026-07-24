@@ -1,5 +1,8 @@
 ---
 title: Paladin
+spellcasting:
+  type: Clerical
+  method: Sacred
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
@@ -19,10 +22,6 @@ import Spoiler from '../../../../components/Spoiler.astro';
 
 
 Paladins are champions of the faith who stand at the forefront of every righteous struggle. Tempered by martial discipline and guided by unwavering conviction, they wield both steel and sacred power against the enemies of their creed.
-
-<Spoiler color="forest-green" title="Example">
-  The hidden information goes here.
-</Spoiler>
 
 ## Paladin Gameplay
 Below is a list of information needed to play a Paladin at the various levels of play.
@@ -91,7 +90,7 @@ Below is a list of information needed to play a Paladin at the various levels of
   </FeatureSection>
 
   <FeatureSection title="Weapon Proficiency">
-    You begin play familiar with **bludgeons, bows, crossbows, flails, heavy blades, lances, light blades, maces, polearms, slings, spears,** and **staves**.
+    You begin play Familiar with **Brawling, Daggers, One-Handed Swords, Two-Handed Swords, Clubs and Maces, Hammers and Picks, Two-Handed Bludgeons, Flails, Staves, Spears, Pikes, Lances, Polearms, Bows,** and **Crossbows**.
   </FeatureSection>
 </GameplayCard>
 
@@ -251,7 +250,7 @@ Upon reaching 3rd level, you become immune to diseases.
 
 <GameplayCard
   colorSet="featureimprovement"
-  title="Smite Improvements"
+  title="Smite"
   subeyebrow="4th Level Paladin Feature Improvement • Oath-Dependent" 
   headerOrder={['title', 'subeyebrow']}
   toc
@@ -282,10 +281,13 @@ In addition, hostile creatures within your aura reduce the damage dice of their 
 Your aura is always active and cannot be suppressed. However, it ceases to function while you are unconscious.
 
   <FeatureSection title="Creature Interactions">
-    A creature with the **Aeon** keyword is unaffected by your aura.
+      <FeatureSubsection title="Invalid Creatures">
+      * A creature with the **Aeon** keyword is unaffected by your aura.
+    </FeatureSubsection>
   </FeatureSection>
 </GameplayCard>
 
+{/* Previous Spellcasting feature retained for reference.
 <GameplayCard
   colorSet="spellcasting"
   title="Spellcasting"
@@ -298,11 +300,17 @@ Upon reachin 7th level, and through prayer and unwavering faith, you have learne
 A Paladin's spells are considered clerical spells. 
   
   <FeatureSection title="Spell Preparation">
-  Immediately after completing a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Paladins may prepare any spell on the Paladin spell list, so long as they have the correct level of spell slot. 
+  As part of a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Paladins may prepare any spell on the Paladin spell list, so long as they have the correct level of spell slot.
 
   For example, a 10th-level Paladin prepares two 1st-level spells and one 2nd-level spell. Preparing the same spell multiple times allows you to cast it multiple times before resting again. Prepared spells remain in memory until cast.
   
-  Spell Preparation can only be done immediately following a Safe Rest.
+  The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+
+    <FeatureSubsection title="Material Components">
+      Some spells require material components during preparation. You must provide the listed components each time you prepare the spell. If you prepare the same spell more than once, you must provide its components separately for each preparation.
+
+      Unless the spell states otherwise, its material components are consumed when you complete the Safe Rest. If the Safe Rest is not completed, the components are not consumed. Once the spell has been prepared, those components are no longer required to cast it. Materials consumed during spell preparation are lost if you prepare over the spell slot without casting the spell.
+    </FeatureSubsection>
 
   </FeatureSection>
 
@@ -316,16 +324,24 @@ A Paladin's spells are considered clerical spells.
   * Have the spell prepared.
   * Be able to present your holy symbol.
   * Be able to speak clearly.
- 
-  Some spells also require material components. If so, the required component is used in place of your holy symbol when casting the spell.
   
   After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
+
+    <FeatureSubsection title="Sacred Gestures">
+      Spell descriptions describe their gestures as though the caster had a free hand available. When you cast a spell, you must present your holy symbol and replace each gesture described in the spell's Components section with a similar action performed using the holy symbol. This substitution changes what the required hand does, but does not change the number of hands required.
+
+      For example, you may pass your holy symbol before your eyes instead of passing your fingers before them, direct your holy symbol toward a creature instead of pointing at it, or touch a creature with your holy symbol instead of touching it with your hand. If your holy symbol is emblazoned upon a shield, you perform the equivalent action with the shield.
+
+      Your holy symbol can fulfill the requirements of only one hand. If a spell requires two hands, your other hand must still perform the remaining gesture. A holy symbol cannot replace the manipulation of another required object or an action that the spell states must be performed exactly as described.
+
+      If a spell requires no gesture, you must still present your holy symbol while casting it.
+    </FeatureSubsection>
   </FeatureSection>
   
   <FeatureSection title="Cantrips">
   Cantrips are simple prayers that require little devotion to prepare.
 
-  Whenever you prepare your spells after completing a Safe Rest, you also prepare a number of cantrips from the Paladin cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool. 
+  When you prepare your spells as part of a Safe Rest, you also prepare a number of cantrips from the Paladin cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
 
   You always have the Minor Healing cantrip prepared. It does not count against the number of cantrips you can prepare.
 
@@ -334,12 +350,49 @@ A Paladin's spells are considered clerical spells.
   You regain all expended cantrip casts whenever you complete a night's rest.
   </FeatureSection>
 </GameplayCard>
+*/}
+
+<GameplayCard
+  colorSet="spellcasting"
+  title="Spellcasting"
+  subeyebrow="7th Level Paladin Feature • Oath-Dependent"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Through prayer, unwavering faith, and devotion to your oath, you have learned to prepare sacred miracles within your mind. Each miracle is a blessing that can be held only temporarily. When invoked, it is expended and slips from memory until granted again through prayer.
+
+Your spells are **clerical spells**, and you use the **Sacred** casting method. You otherwise follow the general rules in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/).
+
+  <FeatureSection title="Spell Preparation">
+  As part of a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power and beseech it to grant you sacred miracles.
+
+  You may prepare any spell on the Paladin spell list for which you have a spell slot of the appropriate level. The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+  </FeatureSection>
+
+  <FeatureSection title="Reversible Spells">
+  You may prepare only the primary form of a reversible spell. You cannot prepare or cast its reverse form, even if the reversible spell appears on the Paladin spell list.
+  </FeatureSection>
+
+  <FeatureSection title="Casting Spells">
+  You use the Sacred casting method described in the spellcasting chapter. You must present your holy symbol when casting a spell, and the hand used to present it is your Casting Hand. Your Holy Symbol feature explains how you present it.
+  </FeatureSection>
+
+  <FeatureSection title="Cantrips">
+  Cantrips are simple prayers that require little devotion to prepare.
+
+  When you prepare your spells as part of a Safe Rest, you may also prepare the number of cantrips shown on your Spell Progression table from the Paladin cantrip list.
+
+  You always have the Minor Healing cantrip prepared. It does not count against the number of cantrips you can prepare.
+
+  Your Spell Progression table also shows the number of cantrip casts in your shared pool. You regain all expended cantrip casts when you complete a Night's Rest.
+  </FeatureSection>
+</GameplayCard>
 
 <Establishment toc />
 
 <GameplayCard
   colorSet="featureimprovement"
-  title="Lay on Hands Improvements"
+  title="Lay on Hands"
   subeyebrow="11th Level Paladin Feature Imrpvement • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
   toc
@@ -353,7 +406,7 @@ Starting at 11th level, when you use this feature, you may choose to remove one 
 
 <GameplayCard
   colorSet="featureimprovement"
-  title="Smite Improvements"
+  title="Smite"
   subeyebrow="12th Level Paladin Feature Improvement • Oath-Dependent" 
   headerOrder={['title', 'subeyebrow']}
   toc
@@ -376,7 +429,6 @@ Starting at 12th Level, if utilize this feature on a creature that is 4 levels l
     className="Paladin"
     sortBy="title"
     sortDir="asc"
-    showReverse
     showHeading={false}
     displayFields={['shortDescription']}
   />
@@ -391,7 +443,6 @@ Starting at 12th Level, if utilize this feature on a creature that is 4 levels l
     className="Paladin"
     sortBy="title"
     sortDir="asc"
-    showReverse
     showHeading={false}
     displayFields={['shortDescription']}
   />
@@ -406,7 +457,6 @@ Starting at 12th Level, if utilize this feature on a creature that is 4 levels l
     className="Paladin"
     sortBy="title"
     sortDir="asc"
-    showReverse
     showHeading={false}
     displayFields={['shortDescription']}
   />
@@ -421,7 +471,6 @@ Starting at 12th Level, if utilize this feature on a creature that is 4 levels l
     className="Paladin"
     sortBy="title"
     sortDir="asc"
-    showReverse
     showHeading={false}
     displayFields={['shortDescription']}
   />

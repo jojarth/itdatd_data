@@ -1,5 +1,205 @@
 ---
 title: Spellcasting
-description: The chapter hub for building a player character.
+description: Rules for learning, preparing, and casting spells.
 ---
+import { getCollection } from 'astro:content';
 
+export const spellcastingClassTableColor = 'arcane-violet-table';
+
+export const spellcastingClasses = (await getCollection('docs'))
+  .filter(({ id }) => {
+    const parts = id.split('/');
+    return parts.length === 3
+      && parts[0] === 'playersguide'
+      && parts[1] === '05-classes'
+      && parts[2] !== 'index';
+  })
+  .flatMap(({ id, data }) => data.spellcasting
+    ? [{
+      id,
+      title: data.title,
+      type: data.spellcasting.type,
+      method: data.spellcasting.method,
+    }]
+    : [])
+  .sort((a, b) => a.title.localeCompare(b.title));
+
+Spells are magical formulae, sacred miracles, and ancient mysteries held within a spellcaster's mind. A spellcaster must first prepare a spell, committing its power to memory and supplying any materials it requires. Once prepared, the spell remains ready until it is cast or replaced.
+
+This chapter contains the rules shared by all spellcasters. A class's Spellcasting feature explains which spells that class can prepare, how it prepares them, and any changes it makes to these rules. When a class feature and this chapter conflict, follow the class feature.
+
+## Spellcasting Classes
+
+Each spellcasting class has a **spellcasting type** and a **casting method**. A spellcasting type determines how the class acquires and prepares spells. A casting method determines what the caster must physically do to cast them.
+
+<div class={`${spellcastingClassTableColor} compact-table`}>
+  <table>
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Spellcasting Type</th>
+        <th>Casting Method</th>
+      </tr>
+    </thead>
+    <tbody>
+      {spellcastingClasses.map(({ id, title, type, method }) => (
+        <tr>
+          <td><a href={`/${id}/`}><strong>{title}</strong></a></td>
+          <td>{type}</td>
+          <td>{method}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+### Magical Spellcasting
+
+Magical spellcasters learn individual spells and record their formulae within spell books. They can prepare only spells they have learned and recorded. Their class explains how they acquire, record, and prepare those spells.
+
+### Clerical Spellcasting
+
+Clerical spellcasters receive spells through prayer, meditation, communion, or ritual. They do not ordinarily learn spells individually. Instead, they can prepare any spell on their class's spell list that they are capable of casting.
+
+Clerical spellcasting does not require the use of a holy symbol unless the class also uses the Sacred casting method. Druids, for example, prepare clerical spells but cast them using the Free-Hand method.
+
+## Reading a Spell
+
+Every spell description presents the information needed to prepare, cast, and resolve the spell.
+
+### Level
+
+A spell's level measures its power and determines the spell slot required to prepare it. A spell must be prepared in a spell slot of the same level unless a rule states otherwise.
+
+Cantrips are 0-level spells. They follow the special rules under Cantrips rather than occupying ordinary spell slots.
+
+### Casting
+
+The Casting entry states how many Actions are required to cast the spell and the earliest Phase in which it can be cast. If the spell is channeled or follows special timing rules, its Casting entry or description states those rules.
+
+Casting a spell is normally a Master Action. See the combat chapter for rules governing Actions, Master Actions, Phases, and Channeling.
+
+### Range
+
+The Range entry states how far from you a spell can produce its effect. You must select every target, object, point, or area required by the spell within this range.
+
+A spell with a range of **Self** affects or originates from you. A spell with a range of **Touch** requires you to make physical contact as described in its Components and Spell Effect.
+
+### Duration
+
+The Duration entry states how long the spell's effect lasts. An **Instantaneous** spell resolves immediately, although the consequences it creates may remain. See the combat chapter for rules governing effects measured in rounds and other units of time.
+
+### Spell Effect
+
+The Spell Effect describes what happens when the spell is successfully cast. It identifies the spell's targets, choices, areas, saving throws, and other rules.
+
+Some spells include additional sections that describe improvements, valid creatures or objects, alternate uses, or other interactions.
+
+### Components
+
+A spell's Components section describes anything that must be provided during preparation and any words, gestures, touches, or other actions required during casting.
+
+Material components are supplied when the spell is prepared. All other instructions in the Components section are performed when the spell is cast unless the spell states otherwise.
+
+## Spell Slots
+
+Your class's Spell Progression table shows the number and level of your spell slots. Each spell slot can hold one prepared spell of the slot's level.
+
+Preparing a spell fills the chosen spell slot. The spell remains prepared in that slot until you cast it or prepare another spell in its place.
+
+You may prepare the same spell in more than one spell slot. Each preparation is separate and allows you to cast the spell once. If a spell is prepared three times, for example, you may cast it three times before those slots become empty.
+
+## Preparing Spells
+
+Unless a class feature states otherwise, non-cantrip spells can be prepared only as part of a Safe Rest. Your class determines how you prepare them. Magical spellcasters ordinarily study spell books, while clerical spellcasters ordinarily pray, meditate, or perform personal rituals.
+
+The spells you prepare take effect when you complete the Safe Rest. If the rest is interrupted or otherwise fails to qualify as a Safe Rest, the spells are not prepared.
+
+:::caution[Spell Prepration Intention]{icon="information"}
+Non-cantrip spells can be prepared only as part of a Safe Rest. Other kinds of rest do not allow you to prepare spells, replace prepared spells, or refill empty spell slots. This limits spell casters in how they must contemplate a journey, and how they prepare spells. 
+:::
+
+When preparing spells:
+
+1. Choose an available spell slot.
+2. Choose a spell of the slot's level that your class allows you to prepare.
+3. Choose its form if your class requires you to choose between a spell and its reverse during preparation.
+4. Supply any material components listed by the spell.
+5. Place the prepared spell in the chosen slot.
+
+If the slot already holds a prepared spell, the previous spell is replaced. A replaced spell is lost without being cast.
+
+### Material Components
+
+Some spells require material components during preparation. You must provide the listed components each time you prepare the spell. If you prepare the same spell more than once, you must provide its components separately for each preparation.
+
+Unless the spell states otherwise, its material components are consumed when the spell is successfully prepared. When preparation is part of a Safe Rest, the components are consumed when you complete that rest. If the Safe Rest is not completed, the components are not consumed.
+
+Materials consumed during spell preparation remain expended if you replace the prepared spell without casting it. They are not recovered when the spell is replaced or otherwise lost.
+
+### Reversible Spells
+
+Some spells have a reverse form. A reverse spell shares a spell level with its primary form but produces a different or opposing effect.
+
+Your class determines how you prepare and cast reversible spells. Some classes choose the form during preparation, some choose the form when casting, and some cannot prepare reverse forms. Preparing or casting one form does not grant access to the other except as stated by your class.
+
+## Casting Spells
+
+To cast a spell, you must:
+
+- Have the spell prepared, unless a feature allows you to cast it without preparing it.
+- Spend the Actions and observe the timing given in its Casting entry.
+- Fulfill the words, gestures, touches, and other casting instructions in its Components section.
+- Meet any additional requirements imposed by your class.
+
+Unless a spell states otherwise, you must be able to speak clearly while casting it. A spell may permit you to whisper, require a particular utterance, or state that no speech is required.
+
+If a feature allows you to cast a spell without preparing it or without expending a spell slot, you must still fulfill all of the spell's other casting requirements unless that feature states otherwise.
+
+### Casting Hand
+
+Many spells require the use of a **Casting Hand**. Your Casting Hand is the hand you use to perform the gestures, touches, and similar actions described in the spell's Components section.
+
+You choose your Casting Hand when you begin casting a spell, and it remains your Casting Hand until the spell resolves. Unless your casting method or another feature states otherwise, your Casting Hand must be free.
+
+A requirement involving your Casting Hand uses one hand. If a spell also requires your other hand or requires the use of both hands, those requirements are in addition to the use of your Casting Hand. A spell that requires two hands cannot be cast with only one available hand.
+
+### Free-Hand Casting
+
+If your class uses the **Free-Hand** casting method, your Casting Hand must be free. You perform the gestures and touches in the spell's Components section as written.
+
+Holding a weapon, shield, or other object in that hand prevents it from serving as your Casting Hand unless the spell or another rule specifically permits the object to be held.
+
+### Sacred Casting
+
+If your class uses the **Sacred** casting method, you must present your holy symbol when casting a spell. The hand used to present the holy symbol is your Casting Hand.
+
+A holy symbol ordinarily occupies one hand. If your holy symbol is emblazoned upon a shield, the hand wielding that shield is your Casting Hand while the shield is presented.
+
+#### Sacred Gestures
+
+Spell descriptions describe their gestures as though the caster had a free hand available. When you use Sacred casting, you must replace each gesture described in the spell's Components section with a similar action performed using your holy symbol. This substitution changes what the required hand does, but does not change the number of hands required.
+
+For example, you may pass your holy symbol before your eyes instead of passing your fingers before them, direct your holy symbol toward a creature instead of pointing at it, or touch a creature with your holy symbol instead of touching it with your hand. If your holy symbol is emblazoned upon a shield, you perform the equivalent action with the shield.
+
+Your holy symbol can fulfill the requirements of only one hand. If a spell requires two hands, your other hand must still perform the remaining gesture. A holy symbol cannot replace the manipulation of another required object or an action that the spell states must be performed exactly as described.
+
+If a spell requires no gesture, you must still present your holy symbol while casting it.
+
+### Resolving and Expending a Spell
+
+When a spell is cast, follow its Spell Effect and resolve all of its immediate effects. Afterward, the prepared spell is expended and its spell slot becomes empty.
+
+An expended spell is no longer prepared. The empty spell slot cannot be used again until you are permitted to prepare spells.
+
+Some spells or activities can be interrupted after their casting begins. Follow the rules for that spell or activity to determine whether the prepared spell or spell slot is expended.
+
+## Cantrips
+
+Cantrips are minor spells that do not occupy ordinary spell slots. Your class's Spell Progression table states how many cantrips you can prepare and how many cantrip casts you have available.
+
+Prepared cantrips share a single pool of cantrip casts. Each time you cast any prepared cantrip, expend one cast from that pool. Casting a cantrip does not remove it from your prepared cantrips.
+
+Your class determines when you choose or replace your prepared cantrips. If a cantrip requires material components, you provide them when you prepare that cantrip. Unless the spell states otherwise, you do not provide those materials again for each casting.
+
+You regain all expended cantrip casts when you complete a Night's Rest.

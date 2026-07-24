@@ -1,8 +1,12 @@
 ---
 title: Magic-User
+spellcasting:
+  type: Magical
+  method: Free-Hand
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
 import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { getCollection } from "astro:content";
@@ -47,7 +51,7 @@ Below is a list of information needed to play a magic-user at the various levels
   </FeatureSection>
 
   <FeatureSection title="Weapon Proficiency">
-  You begin play Familiar with **crossbows, light blades,** and **staves**.
+  You begin play Familiar with **Daggers, Staves,** and **Crossbows**.
   </FeatureSection>
 </GameplayCard>
 
@@ -79,6 +83,7 @@ Below is a list of information needed to play a magic-user at the various levels
 ## Magic-User Features
 As a magic-user, you gain the following class features.
 
+{/* Previous Spellcasting feature retained for reference.
 <GameplayCard
   colorSet="spellcasting"
   title="Spellcasting"
@@ -122,6 +127,12 @@ A Magic-User's spells are considered magical spells.
   
   Spell Preparation can only be done immediately following a Safe Rest.
 
+    <FeatureSubsection title="Material Components">
+      Some spells require material components during preparation. You must provide the listed components each time you prepare the spell. If you prepare the same spell more than once, you must provide its components separately for each preparation.
+
+      Unless the spell states otherwise, its material components are consumed during preparation. Once the spell has been prepared, those components are no longer required to cast it. Materials consumed during spell preparation are lost if you prepare over the spell slot without casting the spell.
+    </FeatureSubsection>
+
   </FeatureSection>
 
   <FeatureSection title="Reversible Spells">
@@ -138,8 +149,6 @@ A Magic-User's spells are considered magical spells.
   * Be able to speak clearly.
   * Not be wearing armor or wielding a shield.
   
-  Some spells also require material components. If so, the required component must be held in your free hand when the spell is cast.
-  
   After resolving the spell's effects, the magical formula is erased from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after another Safe Rest.
   </FeatureSection>
   
@@ -151,6 +160,66 @@ A Magic-User's spells are considered magical spells.
   Each time you cast a prepared cantrip, you expend one available cantrip cast from your shared pool, regardless of which prepared cantrip you cast. Unlike leveled spells, cantrips are not erased from your memory when cast and remain prepared until you replace them.
 
   You regain all expended cantrip casts whenever you complete a night's rest.
+  </FeatureSection>
+</GameplayCard>
+*/}
+
+<GameplayCard
+  colorSet="spellcasting"
+  title="Spellcasting"
+  subeyebrow="1st Level Magic-User Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Through years of study, you have learned to record magical formulae within your spell books and commit them to memory. Each formula can be held within your mind only temporarily. When cast, its pattern collapses and is forgotten until prepared again.
+
+Your spells are **magical spells**, and you use the **Free-Hand** casting method. You otherwise follow the general rules in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/).
+
+  <FeatureSection title="Spell Books">
+  Your spell books contain the magical formulae you have researched and mastered. You can prepare only spells recorded within one of your spell books.
+
+  You must have access to one of your spell books whenever you prepare spells, but never when casting them. Because every Magic-User develops their own notation and theories, you cannot prepare spells directly from another Magic-User's spell book.
+
+  Many Magic-Users maintain several spell books, carrying only those needed for a particular journey. If you have no spell book available, the only spell you may prepare is Read Magic.
+
+  You may discover spell books, scrolls, or other magical writings during your adventures. These cannot be prepared directly. You must first decipher them using Read Magic, then spend the required time and expense copying the spell into one of your own spell books.
+
+    <div class="yellow-table compact-table">
+    | **Spell Level** | **Cost** | **Time** |
+    |:--:|:--:|:--:|
+    | **1st** | 50 Silver | 2 days |
+    | **2nd** | 1 Gold | 4 days |
+    | **3rd** | 10 Gold | 6 days |
+    | **4th** | 25 Gold | 8 days |
+    | **5th** | 100 Gold | 10 days |
+    | **6th** | 500 Gold | 20 days |
+    </div>
+
+  More information on spell books can be found in the equipment chapter.
+  </FeatureSection>
+
+  <FeatureSection title="Spell Preparation">
+  As part of a Safe Rest, you may spend one uninterrupted hour studying your spell books. During this time, you may prepare any spells recorded within them for which you have spell slots of the appropriate levels.
+
+  The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+  </FeatureSection>
+
+  <FeatureSection title="Reversible Spells">
+  When you prepare a reversible spell, you prepare the spell itself rather than choosing one of its forms. Each time you cast that preparation, choose whether to cast its primary or reverse form.
+  </FeatureSection>
+
+  <FeatureSection title="Casting Spells">
+  You use the Free-Hand casting method described in the spellcasting chapter. Your Casting Hand must be free to perform the spell's Components.
+
+  In addition, you cannot cast spells while wearing armor or wielding a shield.
+  </FeatureSection>
+
+  <FeatureSection title="Cantrips">
+  Cantrips are minor magical formulae that occupy little space within your mind.
+
+  By spending one uninterrupted hour studying your spell books, you may prepare the number of cantrips shown on your Spell Progression table from among those recorded within them. Unlike preparing non-cantrip spells, you do not need to complete a Safe Rest before preparing your cantrips.
+
+  Your Spell Progression table also shows the number of cantrip casts in your shared pool. You regain all expended cantrip casts when you complete a Night's Rest.
   </FeatureSection>
 </GameplayCard>
 

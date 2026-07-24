@@ -1,5 +1,8 @@
 ---
 title: Druid
+spellcasting:
+  type: Clerical
+  method: Free-Hand
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
@@ -65,7 +68,7 @@ Below is a list of information needed to play a Cleric at the various levels of 
   </FeatureSection>
 
   <FeatureSection title="Weapon Proficiency">
-  You begin play Familiar with **axes, bludgeons, crossbows, flails, light blades, maces, spears** and **staves**.
+  You begin play Familiar with **Brawling, Daggers, One-Handed Axes, Two-Handed Axes, Clubs and Maces, Two-Handed Bludgeons, Flails, Staves, Spears,** and **Crossbows**.
   </FeatureSection>
 </GameplayCard>
 
@@ -202,6 +205,7 @@ The Worldly Journey teaches the truths of mortal existence. Through meditation a
 
 </GameplayCard>
 
+{/* Previous Spellcasting feature retained for reference.
 <GameplayCard
   colorSet="spellcasting"
   title="Spellcasting"
@@ -214,11 +218,17 @@ Through ancient rites and forgotten mysteries, you have learned to prepare mirac
 A Druid's spells are considered clerical spells.
   
   <FeatureSection title="Spell Preparation">
-  Immediately after completing a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Druids may prepare any spell on the Druid spell list, so long as they have the correct level of spell slot. 
+  As part of a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Druids may prepare any spell on the Druid spell list, so long as they have the correct level of spell slot.
 
   For example, a 4th-level Druid prepares three 1st-level spells and two 2nd-level spells. Preparing the same spell multiple times allows you to cast it multiple times before resting again. Prepared spells remain in memory until cast.
   
-  Spell Preparation can only be done immediately following a Safe Rest.
+  The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+
+    <FeatureSubsection title="Material Components">
+      Some spells require material components during preparation. You must provide the listed components each time you prepare the spell. If you prepare the same spell more than once, you must provide its components separately for each preparation.
+
+      Unless the spell states otherwise, its material components are consumed when you complete the Safe Rest. If the Safe Rest is not completed, the components are not consumed. Once the spell has been prepared, those components are no longer required to cast it. Materials consumed during spell preparation are lost if you prepare over the spell slot without casting the spell.
+    </FeatureSubsection>
 
   </FeatureSection>
 
@@ -234,8 +244,6 @@ A Druid's spells are considered clerical spells.
   * Have the spell prepared.
   * On hand must be free to gesture.
   * Be able to speak clearly.
- 
-  Some spells also require material components. If so, the required component must be grasped in your free hand when casting this spell.
   
   After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
   </FeatureSection>
@@ -243,11 +251,48 @@ A Druid's spells are considered clerical spells.
   <FeatureSection title="Cantrips">
   Cantrips are simple prayers that require little devotion to prepare.
 
-  Whenever you prepare your spells after completing a Safe Rest, you also prepare a number of cantrips from the Druid cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
+  When you prepare your spells as part of a Safe Rest, you also prepare a number of cantrips from the Druid cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
 
   Each time you cast a prepared cantrip, you expend one available cantrip cast from your shared pool, regardless of which prepared cantrip you cast. Unlike leveled spells, cantrips are not erased from your memory when cast and remain prepared until you prepare your spells again.
 
   You regain all expended cantrip casts whenever you complete a night's rest.
+  </FeatureSection>
+</GameplayCard>
+*/}
+
+<GameplayCard
+  colorSet="spellcasting"
+  title="Spellcasting"
+  subeyebrow="2nd Level Druid Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Through ancient rites and forgotten mysteries, you have learned to prepare miracles within your mind. Each miracle can be held only temporarily. When invoked, it is expended and slips from memory until received again through meditation and ritual.
+
+Your spells are **clerical spells**, and you use the **Free-Hand** casting method. You otherwise follow the general rules in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/).
+
+  <FeatureSection title="Spell Preparation">
+  As part of a Safe Rest, you may perform a personal ritual of meditation and communion to prepare your spells.
+
+  You may prepare any spell on the Druid spell list for which you have a spell slot of the appropriate level. The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+  </FeatureSection>
+
+  <FeatureSection title="Reversible Spells">
+  Each time you prepare a reversible spell, choose whether you prepare its primary or reverse form. The chosen form is treated as the prepared spell.
+
+  Preparing one form does not prepare the other. To have both forms available, you must prepare each separately.
+  </FeatureSection>
+
+  <FeatureSection title="Casting Spells">
+  You use the Free-Hand casting method described in the spellcasting chapter. Your Casting Hand must be free to perform the spell's Components.
+  </FeatureSection>
+
+  <FeatureSection title="Cantrips">
+  Cantrips are simple mysteries that require little effort to prepare.
+
+  When you prepare your spells as part of a Safe Rest, you may also prepare the number of cantrips shown on your Spell Progression table from the Druid cantrip list.
+
+  Your Spell Progression table also shows the number of cantrip casts in your shared pool. You regain all expended cantrip casts when you complete a Night's Rest.
   </FeatureSection>
 </GameplayCard>
 
