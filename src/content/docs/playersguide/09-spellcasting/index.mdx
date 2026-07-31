@@ -97,9 +97,11 @@ Some spells include additional sections that describe improvements, valid creatu
 
 ### Components
 
-A spell's Components section describes anything that must be provided during preparation and any words, gestures, touches, or other actions required during casting.
+A spell's Components section describes any special actions or materials required to prepare the spell and any words, gestures, touches, or other actions required to cast it.
 
-Material components are supplied when the spell is prepared. All other instructions in the Components section are performed when the spell is cast unless the spell states otherwise.
+When a spell has special preparation requirements, its Components section includes a **Preparation** entry. If that entry is absent, preparing the spell requires no special materials or actions beyond those required by your class. A **Casting** entry describes what you must do when you cast the spell.
+
+A Preparation entry states what happens to each material component. A component may be consumed, altered by the preparation, or used as a focus for prayer, meditation, or study. A focus that remains intact can be kept and reused. Materials listed in a Casting entry are provided during casting instead.
 
 ## Spell Slots
 
@@ -124,18 +126,18 @@ When preparing spells:
 1. Choose an available spell slot.
 2. Choose a spell of the slot's level that your class allows you to prepare.
 3. Choose its form if your class requires you to choose between a spell and its reverse during preparation.
-4. Supply any material components listed by the spell.
+4. Fulfill the spell's Preparation entry, if it has one.
 5. Place the prepared spell in the chosen slot.
 
 If the slot already holds a prepared spell, the previous spell is replaced. A replaced spell is lost without being cast.
 
 ### Material Components
 
-Some spells require material components during preparation. You must provide the listed components each time you prepare the spell. If you prepare the same spell more than once, you must provide its components separately for each preparation.
+Some spells require material components during preparation. If a spell has a Preparation entry, you must follow it each time you prepare that spell.
 
-Unless the spell states otherwise, its material components are consumed when the spell is successfully prepared. When preparation is part of a Safe Rest, the components are consumed when you complete that rest. If the Safe Rest is not completed, the components are not consumed.
+Material components are not automatically consumed. The spell states whether each component is consumed, altered, or remains intact as a reusable focus. A reusable focus can be used to prepare the same spell more than once, including more than once during the same Safe Rest, unless the spell states otherwise.
 
-Materials consumed during spell preparation remain expended if you replace the prepared spell without casting it. They are not recovered when the spell is replaced or otherwise lost.
+When preparation is part of a Safe Rest, components that are consumed or altered are not expended until you complete that rest. If the Safe Rest is not completed, they remain unchanged. Once expended, they are not recovered if you replace the prepared spell or otherwise lose it without casting it.
 
 ### Reversible Spells
 

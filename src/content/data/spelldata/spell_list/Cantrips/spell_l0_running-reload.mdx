@@ -10,6 +10,7 @@ classes:
   - Magic-User
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Running Reload">
@@ -22,6 +23,8 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
     </FeatureSection>
 
     <FeatureSection title="Components">
-        To cast this spell, you must maintain a wavering whistle while miming the motions of reloading the weapon with one hand.
+        <FeatureSubsection title="Casting">
+        Maintain a wavering whistle while using your Casting Hand to mime drawing a piece of ammunition, setting it in place, and arming the weapon.
+        </FeatureSubsection>
     </FeatureSection>
 </SpellEntry>

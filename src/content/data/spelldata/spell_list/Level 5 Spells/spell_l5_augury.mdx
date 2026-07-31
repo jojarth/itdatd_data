@@ -1,0 +1,41 @@
+---
+datatype: spell
+title: Augury
+level: 5
+casting: 10 minutes
+range: Self
+duration: Special
+classes:
+  - Cleric
+  - Druid
+shortDescription: You seek answers for actions that you will take.
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Augury">
+    <FeatureSection title="Spell Effect">
+        While casting this spell, you must posit an action that you are considering taking in the immediate future, within 1 hour of finishing this spell. You learn if it will be beneficial or detrimental to you, and your party. 
+
+        This spell has a chance to succeed. The base chance is 50% + 2% per level you are. Your GM may assign additional adjustments based on the difficulty of the question, or the ambiguity of the outcome. Your GM should make this roll for you once your percentage is determined. 
+
+        <FeatureSubsection title="Success">
+        Your material components will fortell "weal" if the action you are considering will bring you fortune. Your matieral components will fortell "woe" if the action you are considering will bring you misfortune. It is possible for an outcome to measure as both.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Failure">
+        Your material components will fortell the opposite of what will happen. If the action would normally register as both, the GM will select one and tell you. 
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Casting">
+        This spell is a ritual, and its materials are provided while you cast it. You require wine or ale; a measure of mugwort, vervain, sage, or yarrow; a flame; and a specially prepared cup or bowl worth at least 5 gold.
+
+        Set the vessel before you. With the hand that is not your Casting Hand, crumble the herbs into the vessel, pour in the wine or ale, and stir the infusion clockwise while holding it over the flame. At the same time, hold your Casting Hand palm-down above the vessel and slowly trace a circle over it while stating the action you wish to judge.
+
+        When the infusion is ready, lift the vessel with both hands and consume it. Set it down again, then use the hand that is not your Casting Hand to swirl the remaining dregs three times and overturn the vessel so you can read the signs. The drink and herbs are consumed, but the cup or bowl is not.
+        </FeatureSubsection>
+    </FeatureSection>
+</SpellEntry>
