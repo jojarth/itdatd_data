@@ -1,0 +1,196 @@
+---
+import DefaultThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+import Select from '@astrojs/starlight/components/Select.astro';
+
+/*
+ * Add a theme here and it will automatically appear in the selector.
+ * Each heading color accepts any CSS color, including the shared palette variables in custom.css.
+ */
+const headingThemes = [
+  {
+    label: 'ITDATD',
+    value: 'itdatd',
+    colors: {
+      h2: 'var(--itdatd-theme-oxblood)',
+      h3: 'var(--itdatd-theme-cold-iron)',
+      h4: 'var(--itdatd-theme-tarnished-gold)',
+    },
+  },
+  {
+    label: 'Old ITDATD Site',
+    value: 'old-itdatd-site',
+    colors: {
+      h2: 'var(--itdatd-theme-notion-red)',
+      h3: 'var(--itdatd-theme-notion-blue)',
+      h4: 'var(--itdatd-theme-notion-yellow)',
+    },
+  },
+  {
+    label: 'Gilded',
+    value: 'gilded',
+    colors: {
+      h2: 'var(--itdatd-color-dragon-gold)',
+      h3: 'var(--itdatd-color-deep-teal)',
+      h4: 'var(--itdatd-color-mulberry)',
+    },
+  },
+  {
+    label: 'Verdigris',
+    value: 'verdigris',
+    colors: {
+      h2: 'var(--itdatd-color-verdigris)',
+      h3: 'var(--itdatd-color-terracotta)',
+      h4: 'var(--itdatd-color-powder-blue)',
+    },
+  },
+  {
+    label: 'Royal',
+    value: 'royal',
+    colors: {
+      h2: 'var(--itdatd-color-royal-blue)',
+      h3: 'var(--itdatd-color-dragon-gold)',
+      h4: 'var(--itdatd-color-dusty-rose)',
+    },
+  },
+  {
+    label: 'Arcane',
+    value: 'arcane',
+    colors: {
+      h2: 'var(--itdatd-color-arcane-violet)',
+      h3: 'var(--itdatd-color-fey-teal)',
+      h4: 'var(--itdatd-color-amber)',
+    },
+  },
+  {
+    label: 'Mulberry',
+    value: 'mulberry',
+    colors: {
+      h2: 'var(--itdatd-color-mulberry)',
+      h3: 'var(--itdatd-color-sage-green)',
+      h4: 'var(--itdatd-color-coral)',
+    },
+  },
+];
+
+const headingThemeConfig = {
+  defaultTheme: headingThemes[0].value,
+  palettes: Object.fromEntries(headingThemes.map(({ value, colors }) => [value, colors])),
+};
+---
+
+<script is:inline define:vars={{ headingThemeConfig }}>
+  (() => {
+    const themes = Object.keys(headingThemeConfig.palettes);
+    let storedTheme = '';
+
+    try {
+      storedTheme = localStorage.getItem('itdatd-heading-theme') || '';
+    } catch {}
+
+    const theme = themes.includes(storedTheme) ? storedTheme : headingThemeConfig.defaultTheme;
+    const palette = headingThemeConfig.palettes[theme];
+
+    document.documentElement.dataset.headingTheme = theme;
+    document.documentElement.style.setProperty('--itdatd-heading-h2', palette.h2);
+    document.documentElement.style.setProperty('--itdatd-heading-h3', palette.h3);
+    document.documentElement.style.setProperty('--itdatd-heading-h4', palette.h4);
+  })();
+</script>
+
+<div class="theme-pickers">
+  <DefaultThemeSelect />
+  <itdatd-heading-theme-select data-heading-theme-config={JSON.stringify(headingThemeConfig)}>
+    <Select
+      icon="pencil"
+      label="Heading theme"
+      options={headingThemes.map(({ label, value }) => ({
+        label,
+        value,
+        selected: value === headingThemeConfig.defaultTheme,
+      }))}
+      width="10.5em"
+    />
+  </itdatd-heading-theme-select>
+</div>
+
+<script>
+  type HeadingPalette = { h2: string; h3: string; h4: string };
+  type HeadingThemeConfig = {
+    defaultTheme: string;
+    palettes: Record<string, HeadingPalette>;
+  };
+
+  const headingThemeStorageKey = 'itdatd-heading-theme';
+
+  function getHeadingThemeConfig(): HeadingThemeConfig {
+    const picker = document.querySelector<HTMLElement>('itdatd-heading-theme-select');
+    if (!picker?.dataset.headingThemeConfig) {
+      return { defaultTheme: 'itdatd', palettes: {} };
+    }
+
+    return JSON.parse(picker.dataset.headingThemeConfig) as HeadingThemeConfig;
+  }
+
+  function parseHeadingTheme(value: unknown): string {
+    const config = getHeadingThemeConfig();
+    return typeof value === 'string' && value in config.palettes ? value : config.defaultTheme;
+  }
+
+  function loadHeadingTheme(): string {
+    try {
+      return parseHeadingTheme(localStorage.getItem(headingThemeStorageKey));
+    } catch {
+      return getHeadingThemeConfig().defaultTheme;
+    }
+  }
+
+  function applyHeadingTheme(theme: string): void {
+    const config = getHeadingThemeConfig();
+    const resolvedTheme = parseHeadingTheme(theme);
+    const palette = config.palettes[resolvedTheme];
+
+    if (!palette) return;
+
+    document.documentElement.dataset.headingTheme = resolvedTheme;
+    document.documentElement.style.setProperty('--itdatd-heading-h2', palette.h2);
+    document.documentElement.style.setProperty('--itdatd-heading-h3', palette.h3);
+    document.documentElement.style.setProperty('--itdatd-heading-h4', palette.h4);
+
+    try {
+      localStorage.setItem(headingThemeStorageKey, resolvedTheme);
+    } catch {}
+
+    document.querySelectorAll<HTMLSelectElement>('itdatd-heading-theme-select select').forEach((select) => {
+      select.value = resolvedTheme;
+    });
+  }
+
+  class ItdatdHeadingThemeSelect extends HTMLElement {
+    connectedCallback(): void {
+      const select = this.querySelector('select');
+      if (!(select instanceof HTMLSelectElement) || select.dataset.headingThemeReady) return;
+
+      select.dataset.headingThemeReady = 'true';
+      select.value = loadHeadingTheme();
+      select.addEventListener('change', () => applyHeadingTheme(parseHeadingTheme(select.value)));
+    }
+  }
+
+  if (!customElements.get('itdatd-heading-theme-select')) {
+    customElements.define('itdatd-heading-theme-select', ItdatdHeadingThemeSelect);
+  }
+
+  applyHeadingTheme(loadHeadingTheme());
+</script>
+
+<style>
+  .theme-pickers {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  itdatd-heading-theme-select {
+    display: block;
+  }
+</style>

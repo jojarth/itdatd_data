@@ -15,6 +15,7 @@ interface Props {
   toc?: boolean;
   tocDepth?: number;
   flavortext?: boolean;
+  compact?: boolean;
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   subsectionColor,
   headerOrder = ['eyebrow', 'title', 'subtitle'],
   flavortext = false,
+  compact = true,
 } = Astro.props as Props;
 
 const normalizeColorName = (value: string) => {
@@ -59,6 +61,7 @@ type ColorSet = {
 };
 
 const colorSets: Record<string, ColorSet> = {
+  system: { color: 'system-h2', sectionColor: 'system-h3', subsectionColor: 'system-h4' },
   gameplayfeature: { color: 'cobalt', sectionColor: 'mint', subsectionColor: 'coral' },
   proficiencies: { color: 'forest-green', sectionColor: 'royal-blue', subsectionColor: 'crimson' },
   spellcasting: { color: 'arcane-violet', sectionColor: 'fey-teal', subsectionColor: 'dragon-gold' },
@@ -85,7 +88,7 @@ const selectedColorSet = colorSetKey ? colorSets[colorSetKey] : undefined;
 
 if (colorSet && !selectedColorSet) {
   throw new Error(
-    `GameplayCard: unknown colorSet "${colorSet}". Use gameplayfeature, proficiencies, spellcasting, choicefeature, fixedfeature, characterfeature, or featureimprovement.`,
+    `GameplayCard: unknown colorSet "${colorSet}". Use System, gameplayfeature, proficiencies, spellcasting, choicefeature, fixedfeature, characterfeature, or featureimprovement.`,
   );
 }
 
@@ -102,6 +105,7 @@ const cardClass = [
   resolvedSectionColor ? `gameplay-card--section-${resolvedSectionColor}` : '',
   resolvedSubsectionColor ? `gameplay-card--subsection-${resolvedSubsectionColor}` : '',
   flavortext ? 'gameplay-card--flavortext' : '',
+  compact ? 'gameplay-card--compact' : '',
 ].filter(Boolean).join(' ');
 const headerFields: Record<HeaderField, string | undefined> = { eyebrow, subeyebrow, title, subtitle };
 const orderedHeaderFields = (headerOrder as HeaderField[]).filter(

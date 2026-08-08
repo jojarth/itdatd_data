@@ -19,7 +19,7 @@ const formatEp = (worn: number | string, carried: number | string) =>
       <tr>
         <th>Type</th>
         <th>AC</th>
-        <th>EP Worn/Carried</th>
+        <th>EP Equipped/Packed</th>
         <th>Cost</th>
       </tr>
     </thead>
@@ -28,7 +28,7 @@ const formatEp = (worn: number | string, carried: number | string) =>
         <tr>
           <td><strong><a href={`/data/armors/${entry.id}`}>{entry.data.title}</a></strong></td>
           <td>{entry.data.ac}</td>
-          <td>{formatEp(entry.data.epWorn, entry.data.epCarried)}</td>
+          <td>{formatEp(entry.data.epEquipped, entry.data.epPacked)}</td>
           <td>{entry.data.cost}</td>
         </tr>
       ))}

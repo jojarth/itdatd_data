@@ -51,6 +51,21 @@
   --itdatd-feature-subsection: var(--itdatd-color-gold);
   --itdatd-feature-subsection-tint: 6%;
 
+  /* Default ITDATD heading theme: oxblood, cold iron, and tarnished gold. */
+  --itdatd-theme-oxblood: #8f3d3d;
+  --itdatd-theme-cold-iron: #3f6372;
+  --itdatd-theme-tarnished-gold: #8a6f38;
+
+  /* The original site's Notion-inspired heading theme. */
+  --itdatd-theme-notion-red: #e03e3e;
+  --itdatd-theme-notion-blue: #0b6e99;
+  --itdatd-theme-notion-yellow: #dfab01;
+
+  /* Fallbacks used before the user-selectable heading palette initializes. */
+  --itdatd-heading-h2: var(--itdatd-theme-oxblood);
+  --itdatd-heading-h3: var(--itdatd-theme-cold-iron);
+  --itdatd-heading-h4: var(--itdatd-theme-tarnished-gold);
+
   /* Spell hierarchy colors: edit these four values to retheme spell entries. */
   --itdatd-spell-primary-section: var(--itdatd-color-muted-crimson);
   --itdatd-spell-primary-subsection: var(--itdatd-color-mint);
@@ -114,6 +129,37 @@
 
 .sl-markdown-content {
   max-width: 70rem;
+}
+
+/*
+ * Full-width heading tints. Styling the Starlight wrapper lets each band span the readable column
+ * while keeping gameplay cards and special components independent.
+ */
+.sl-markdown-content > .sl-heading-wrapper:is(.level-h2, .level-h3, .level-h4) {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sl-markdown-content > .sl-heading-wrapper.level-h2 {
+  padding: 0.42rem 0.65rem;
+  border-inline-start: 6px solid var(--itdatd-heading-h2);
+  background: color-mix(in srgb, var(--itdatd-heading-h2) 12%, transparent);
+}
+
+.sl-markdown-content > .sl-heading-wrapper.level-h3 {
+  padding: 0.34rem 0.65rem;
+  border-inline-start: 4px solid var(--itdatd-heading-h3);
+  border-block-end: 1px solid
+    color-mix(in srgb, var(--itdatd-heading-h3) 48%, var(--sl-color-hairline));
+  background: color-mix(in srgb, var(--itdatd-heading-h3) 9%, transparent);
+}
+
+.sl-markdown-content > .sl-heading-wrapper.level-h4 {
+  padding: 0.26rem 0.65rem 0.26rem 0.85rem;
+  border-inline-start: 2px dashed var(--itdatd-heading-h4);
+  border-block: 1px solid
+    color-mix(in srgb, var(--itdatd-heading-h4) 28%, var(--sl-color-hairline));
+  background: color-mix(in srgb, var(--itdatd-heading-h4) 7%, transparent);
 }
 
 /* Keep ordinary prose readable without Starlight's larger default stack gaps. */
@@ -701,6 +747,7 @@
 .gameplay-card--muted-crimson { --gameplay-card-accent: var(--itdatd-color-muted-crimson); }
 .gameplay-card--verdigris { --gameplay-card-accent: var(--itdatd-color-verdigris); }
 .gameplay-card--mulberry { --gameplay-card-accent: var(--itdatd-color-mulberry); }
+.gameplay-card--system-h2 { --gameplay-card-accent: var(--itdatd-heading-h2); }
 
 .gameplay-card__header {
   padding: 0.45rem 1rem 0.45rem 1.25rem;
@@ -758,6 +805,20 @@
 
 .gameplay-card__body > * {
   margin-block: 0;
+}
+
+.gameplay-card--compact > .gameplay-card__header {
+  padding-block: 0.35rem;
+}
+
+.gameplay-card--compact > .gameplay-card__body {
+  gap: 0.45rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.7rem;
+}
+
+.gameplay-card--compact.gameplay-card--flavortext > .gameplay-card__body {
+  padding-top: 0.2rem;
 }
 
 .gameplay-card--section-red,
@@ -840,6 +901,8 @@
 .feature-section--verdigris { --feature-section-accent: var(--itdatd-color-verdigris); }
 .gameplay-card--section-mulberry,
 .feature-section--mulberry { --feature-section-accent: var(--itdatd-color-mulberry); }
+.gameplay-card--section-system-h3,
+.feature-section--system-h3 { --feature-section-accent: var(--itdatd-heading-h3); }
 
 .gameplay-card--subsection-red,
 .feature-section--subsection-red,
@@ -961,6 +1024,9 @@
 .gameplay-card--subsection-mulberry,
 .feature-section--subsection-mulberry,
 .feature-subsection--mulberry { --feature-subsection-accent: var(--itdatd-color-mulberry); }
+.gameplay-card--subsection-system-h4,
+.feature-section--subsection-system-h4,
+.feature-subsection--system-h4 { --feature-subsection-accent: var(--itdatd-heading-h4); }
 
 .feature-section {
   padding-left: 1rem;
@@ -1025,8 +1091,7 @@
 }
 
 .feature-section__body > *,
-.feature-subsection__body > *,
-.order-tradition__body > * {
+.feature-subsection__body > * {
   margin-block: 0;
 }
 
@@ -1078,6 +1143,15 @@
   margin-top: 0;
 }
 
+.feature-subsection--compact {
+  gap: 0.1rem;
+  padding-block: 0.4rem;
+}
+
+.feature-subsection--compact > .feature-subsection__body {
+  gap: 0.25rem;
+}
+
 @media (max-width: 38rem) {
   .feature-section {
     padding-left: 0.75rem;
@@ -1096,74 +1170,12 @@
   }
 }
 
-.order-tradition {
-  --order-tradition-accent: var(--sl-color-accent);
-  display: grid;
-  gap: 0;
-  margin: 0.3rem 0 0 0.75rem;
-  padding-left: 0.8rem;
-  border-left: 2px solid var(--order-tradition-accent);
-}
-
-.order-tradition--military {
-  --order-tradition-accent: var(--itdatd-color-red);
-}
-
-.order-tradition--devotional {
-  --order-tradition-accent: var(--itdatd-color-violet);
-}
-
-.order-tradition--stewardship {
-  --order-tradition-accent: var(--itdatd-color-green);
-}
-
-.order-tradition__header {
-  padding-bottom: 0.65rem;
-  border-bottom: 1px solid var(--sl-color-gray-5);
-}
-
-.order-tradition__label {
-  display: inline-block;
-  margin-bottom: 0.3rem;
-  color: var(--order-tradition-accent);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.order-tradition__header h6 {
-  margin: 0;
-  font-size: 1rem;
-}
-
 .order-tradition__feature {
   margin: 0;
   color: var(--sl-color-gray-2);
   font-size: 0.8rem;
   font-style: italic;
   line-height: 1.25;
-}
-
-.order-tradition__body {
-  display: grid;
-  gap: 0.45rem;
-  margin-top: 0;
-  padding-top: 0.05rem;
-}
-
-.order-tradition__body > :first-child {
-  margin-top: 0;
-}
-
-.order-tradition__body > :last-child {
-  margin-bottom: 0;
-}
-
-@media (max-width: 38rem) {
-  .order-tradition {
-    margin-left: 0.35rem;
-  }
 }
 
 /* Headings injected for TOC only — hide visually */

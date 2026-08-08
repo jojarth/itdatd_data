@@ -21,6 +21,9 @@ export default defineConfig({
       },
       description: "Core rules, setting reference, and compendium for ITD&TD.",
       customCss: ["./src/styles/custom.css"],
+      components: {
+        ThemeSelect: "./src/components/HeadingThemeSelect.astro",
+      },
       social: [
         {
           icon: "github",

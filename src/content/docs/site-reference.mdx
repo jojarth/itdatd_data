@@ -291,6 +291,7 @@ Available shortcuts:
 
 | `colorSet` | Card | Section | Subsection |
 |:--|:--|:--|:--|
+| `System` | Active `##` color | Active `###` color | Active `####` color |
 | `gameplayfeature` | `cobalt` | `mint` | `coral` |
 | `proficiencies` | `forest-green` | `royal-blue` | `crimson` |
 | `spellcasting` | `arcane-violet` | `fey-teal` | `dragon-gold` |
@@ -300,6 +301,18 @@ Available shortcuts:
 | `featureimprovement` | `glacier-blue` | `periwinkle` | `deep-teal` |
 
 Hyphens and spaces in shortcut names are ignored, so `featureimprovement`, `feature-improvement`, and `feature improvement` are equivalent. `classfeature` is also accepted as an alias for `gameplayfeature`; the longer `classfeaturewithchoices` and `classfeaturewithoutchoices` aliases map to `choicefeature` and `fixedfeature`.
+
+`colorSet="System"` follows the reader's current Heading Theme selection. Its card, section, and subsection accents update immediately when that selection changes. The name is case-insensitive, so `System` and `system` are equivalent.
+
+<GameplayCard colorSet="System" title="System-Synchronized Card">
+  <FeatureSection title="Main Feature">
+    This section uses the active `###` color.
+
+    <FeatureSubsection title="Nested Feature">
+      This subsection uses the active `####` color.
+    </FeatureSubsection>
+  </FeatureSection>
+</GameplayCard>
 
 Individual color props override their part of a set:
 
@@ -505,10 +518,12 @@ Colors can be set once for the entire card or overridden for one section.
 | `GameplayCard` | `color` | Outer card sidebar | `purple` |
 | `GameplayCard` | `sectionColor` | Every main section sidebar in the card | The card's `color` |
 | `GameplayCard` | `subsectionColor` | Every nested subsection sidebar in the card | `--itdatd-feature-subsection` |
+| `GameplayCard` | `compact` | Uses the tighter card header and body spacing | `true` |
 | `FeatureSection` | `color` | This main section sidebar only | The card's `sectionColor` |
 | `FeatureSection` | `subsectionColor` | Nested subsections inside this section | The card's `subsectionColor` |
-| `FeatureSection` | `compact` | Reduces the gap between its title and body content | `false` |
+| `FeatureSection` | `compact` | Uses tighter title-to-body spacing | `true` |
 | `FeatureSubsection` | `color` | This nested subsection only | The nearest subsection color |
+| `FeatureSubsection` | `compact` | Uses tighter nested padding and body spacing | `true` |
 
 Card-wide colors:
 
@@ -549,10 +564,10 @@ In short:
 
 If `sectionColor` is omitted, sections inherit the GameplayCard's main `color`. If `subsectionColor` is omitted, nested sections use `--itdatd-feature-subsection` from the shared palette.
 
-Use `compact` for tightly related title-and-body combinations such as an Order name followed immediately by its motto. The reusable Order organization components already enable this automatically.
+Gameplay cards, feature sections, and feature subsections are compact by default. This includes reusable feature structures such as Orders, their organizations, and their traditions. Use `compact={false}` only when a particular element needs deliberately roomier spacing.
 
 ```mdx
-<FeatureSection title="Brotherhood of the Ashen Cross" compact>
+<FeatureSection title="An Especially Spacious Section" compact={false}>
   *Mercy through sacrifice*
 </FeatureSection>
 ```
@@ -608,15 +623,9 @@ This content is indented beneath the Invocation heading.
 </OrderFeatureCard>
 ```
 
-Order traditions use the same indented subsection geometry as `FeatureSubsection`: the sidebar continues beside both the tradition heading and its rules text, with a divider between them and no additional nested-card background.
+Order traditions render through `FeatureSubsection`, so they use the same spacing, tinted background, rail, and typography as every other nested feature. `OrderFeatureCard` defaults to `colorSet="System"`; without an override, organization sections use the active `###` color and traditions use the active `####` color.
 
-Military, Devotional, and Stewardship traditions retain their semantic colors:
-
-- Military uses `--itdatd-color-red`.
-- Devotional uses `--itdatd-color-violet`.
-- Stewardship uses `--itdatd-color-green`.
-
-The reusable Order organization components also accept an optional `traditionColor`. Use it when the surrounding Order is acting as a standardized choice feature and its nested traditions should share that category's subfeature color. If omitted, the semantic Military, Devotional, and Stewardship colors above remain unchanged.
+The reusable Order organization components also accept an optional `traditionColor`. Use it only when a specific tradition should deliberately override the card's subsection color.
 
 ```mdx
 <AshenCrossBrotherhood
@@ -630,9 +639,7 @@ The displayed tradition label, tradition name, and feature name remain controlle
 #### Live Example
 
 <GameplayCard
-  color="blue"
-  sectionColor="green"
-  subsectionColor="gold"
+  colorSet="System"
   title="Feature Name"
 >
   <FeatureSection title="The Traveller" label="Contemplation">

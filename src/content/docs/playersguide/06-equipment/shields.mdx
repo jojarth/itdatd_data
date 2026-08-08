@@ -1,0 +1,81 @@
+---
+title: Shields
+sidebar:
+  order: 70
+---
+import ShieldTable from "../../../../components/ShieldTable.astro";
+
+Shields provide passive protection and allow a trained wielder to absorb damage. You can benefit from only one shield at a time.
+
+## Wielding and Proficiency
+
+A shield must be wielded to provide its AC bonus, Reflex bonus, Critical Protection, or Shield Block. If you are proficient with the shield, its AC bonus also applies to Reflex Saving Throws against sources you can perceive.
+
+A proficient wielder gains **Critical Protection** while wielding a shield. Critical Protection causes a natural 20 to require a critical confirmation roll before it becomes a critical hit. See Chapter 8: Combat for critical-hit rules.
+
+## Reading the Shield Table
+
+- **EP Equipped/Packed** gives the shield's burden while wielded and while carried as cargo.
+- **AC** is the bonus applied to Armor Class while the shield is wielded.
+- **Block** is the shield's Block Value, used by the Shield Block Reaction.
+- **Break Die** is rolled after the shield blocks.
+- **Break Chance** is the highest result on the Break Die that worsens the shield's condition.
+- **Check Penalty** applies to Strength and Dexterity Skill Tests while the shield is wielded.
+
+If armor and a shield both impose a Check Penalty, apply only the worse penalty. A shield's penalty generally does not apply when its leverage is helpful, such as resisting an attempt to knock you prone or restrain you. The GM determines whether a shield hinders a particular test.
+
+### Bucklers
+
+<ShieldTable category="Buckler" colorTheme="teal-table" />
+
+### Small Shields
+
+<ShieldTable category="Small Shield" colorTheme="blue-table" />
+
+### Medium Shields
+
+<ShieldTable category="Medium Shield" colorTheme="indigo-table" />
+
+### Body Shields
+
+<ShieldTable category="Body Shield" colorTheme="purple-table" />
+
+## Shield Block
+
+A proficient wielder can use the **Shield Block Reaction** to reduce damage, after which the shield may be damaged. The complete trigger, timing, and resolution procedure appears in Chapter 8: Combat.
+
+## Break Rolls
+
+After you Shield Block, roll the shield's Break Die. If the result is equal to or below its Break Chance, the shield's condition worsens by one step. This roll is made even if the block reduced the damage to 0.
+
+Effects such as the Breaching and Denting weapon features can increase Break Chance. If the final Break Chance is 0 or lower, roll the Break Die twice; the shield's condition worsens only if both dice roll a 1.
+
+## Shield Conditions
+
+Shield conditions progress from **Good → Damaged → Broken → Destroyed**. A Break Roll can worsen a shield by only one step unless an effect explicitly says otherwise.
+
+### Good
+
+A shield in Good condition uses its normal statistics.
+
+### Damaged
+
+A Damaged shield retains its AC bonus and Block Value, but its Break Chance increases by 1.
+
+### Broken
+
+A Broken shield's AC bonus and Block Value are each reduced by 1, to a minimum of 0, and its Break Chance increases by 1. If its condition worsens again, it becomes Destroyed.
+
+### Destroyed
+
+A Destroyed shield provides no benefits, cannot Shield Block, and cannot be repaired by mundane means.
+
+## Repairing Shields
+
+A Damaged or Broken shield can be repaired during downtime or through an applicable field-repair rule. A shield cannot be restored beyond one step better than the worst condition it has reached: once a shield has become Broken, mundane repairs can restore it to Damaged but never to Good.
+
+## Shield Materials
+
+Wood is inexpensive and light but more likely to break. Reinforced shields balance price and durability. Metal shields are durable, heavy, and expensive.
+
+Other cultures may construct shields from bone or unusual materials. Such materials can modify a shield's statistics; their rules belong with the material itself. For example, a brittle bone shield might use a worse Break Die than its wooden counterpart.

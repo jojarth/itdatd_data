@@ -3,12 +3,14 @@ interface Props {
   title?: string;
   label?: string;
   color?: string;
+  compact?: boolean;
 }
 
-const { title, label, color } = Astro.props as Props;
+const { title, label, color, compact = true } = Astro.props as Props;
 const normalizeColorName = (value: string) => value.toLowerCase().trim().replace(/^gray$/, 'grey').replace(/^viloet$/, 'violet').replace(/\s+/g, '-');
 const subsectionClass = [
   'feature-subsection',
+  compact ? 'feature-subsection--compact' : '',
   color ? `feature-subsection--${normalizeColorName(color)}` : '',
 ].filter(Boolean).join(' ');
 ---

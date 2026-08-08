@@ -6,14 +6,17 @@ import MdxContentWrapper from "../../components/MdxContentWrapper.astro";
 import SpellHeader from "../../components/SpellHeader.astro";
 import SpellMetadata from "../../components/SpellMetadata.astro";
 import { spellAnchor } from "../../lib/spellAnchor";
+import { formatEncumbrance, formatStatePair } from "../../lib/formatEncumbrance";
 
 export async function getStaticPaths() {
-  const [spells, weapons, weaponProperties, weaponFeatures, armors] = await Promise.all([
+  const [spells, weapons, weaponProperties, weaponFeatures, armors, shields, items] = await Promise.all([
     getCollection("data"),
     getCollection("weapons"),
     getCollection("weaponProperties"),
     getCollection("weaponFeatures"),
     getCollection("armors"),
+    getCollection("shields"),
+    getCollection("items"),
   ]);
 
   return [
@@ -37,10 +40,18 @@ export async function getStaticPaths() {
       params: { slug: `armors/${entry.id}` },
       props: { collection: "armors", id: entry.id },
     })),
+    ...shields.map((entry) => ({
+      params: { slug: `shields/${entry.id}` },
+      props: { collection: "shields", id: entry.id },
+    })),
+    ...items.map((entry) => ({
+      params: { slug: `items/${entry.id}` },
+      props: { collection: "items", id: entry.id },
+    })),
   ];
 }
 
-type DetailCollection = "data" | "weapons" | "weaponProperties" | "weaponFeatures" | "armors";
+type DetailCollection = "data" | "weapons" | "weaponProperties" | "weaponFeatures" | "armors" | "shields" | "items";
 
 const { collection, id } = Astro.props as {
   collection: DetailCollection;
@@ -57,6 +68,8 @@ const { Content } = renderResult ?? {};
 const isSpell = collection === "data";
 const isWeapon = collection === "weapons";
 const isArmor = collection === "armors";
+const isShield = collection === "shields";
+const isItem = collection === "items";
 const spellClasses =
   isSpell && Array.isArray(entry.data.classes) && entry.data.classes.length > 0
     ? [...entry.data.classes].sort((a, b) => a.localeCompare(b))
@@ -81,9 +94,28 @@ const detailFields = isWeapon
     : isArmor
       ? [
           { key: "ac", label: "AC", value: `${entry.data.ac}` },
-          { key: "epWorn", label: "EP Worn", value: `${entry.data.epWorn}` },
-          { key: "epCarried", label: "EP Carried", value: `${entry.data.epCarried}` },
+          { key: "epEquipped", label: "EP Equipped", value: `${entry.data.epEquipped}` },
+          { key: "epPacked", label: "EP Packed", value: `${entry.data.epPacked}` },
           { key: "cost", label: "Cost", value: entry.data.cost },
+        ]
+    : isShield
+      ? [
+          { key: "category", label: "Type", value: entry.data.category },
+          { key: "material", label: "Material", value: entry.data.material },
+          { key: "cost", label: "Cost", value: entry.data.cost },
+          { key: "ep", label: "EP Equipped/Packed", value: formatStatePair(entry.data.encumbrance) },
+          { key: "ac", label: "AC Bonus", value: `${entry.data.acBonus}` },
+          { key: "block", label: "Block Value", value: `${entry.data.blockValue}` },
+          { key: "breakDie", label: "Break Die", value: entry.data.breakDie },
+          { key: "breakChance", label: "Break Chance", value: `${entry.data.breakChance}` },
+          { key: "checkPenalty", label: "Check Penalty", value: entry.data.checkPenalty === 0 ? "—" : `${entry.data.checkPenalty} Situation` },
+        ]
+    : isItem
+      ? [
+          { key: "category", label: "Category", value: entry.data.category },
+          { key: "cost", label: "Cost", value: entry.data.cost },
+          { key: "ep", label: "EP", value: formatEncumbrance(entry.data.encumbrance) },
+          { key: "notes", label: "Notes", value: entry.data.notes },
         ]
   : [];
 

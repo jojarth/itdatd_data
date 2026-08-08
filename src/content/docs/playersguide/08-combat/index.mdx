@@ -74,6 +74,20 @@ Because of the open nature of this combat system, it is very easy for a GM (or p
 
 During each round, you have **3 Actions** and **1 Reaction** to use across the round's 9 phases. Unused Actions and Reactions are lost at the end of the round.
 
+### Sluggish
+
+**Sluggish (X)** delays when you can Act. Increase the earliest phase in which you can perform an activity by your Sluggish value. An activity with no phase listed has a base phase of 1 for this purpose, while an activity with a phase listed as *Weapon* uses the weapon's Speed Factor as its base phase.
+
+For example, if you are Sluggish (2), an activity normally available in Phase 3 becomes available in Phase 5. A Phase-Locked activity has its locked phase increased by the same amount and remains Phase Locked. If Sluggish would delay an activity beyond Phase 9, you cannot perform that activity during the current round.
+
+Sluggish does not delay Reactions unless a rule explicitly says otherwise. If multiple effects make you Sluggish, use only the highest Sluggish value.
+
+### Slow
+
+**Slow (X)** reduces the number of Actions you have each round by its Slow value, to a minimum of 0 Actions. For example, if you are Slow (1), you have 2 Actions each round instead of 3.
+
+Slow does not reduce your number of Reactions or change how many Master Actions you can perform. If multiple effects make you Slow, use only the highest Slow value.
+
 In any one phase, you can do one of the following:
 
 - Act once, spending the Action cost of one activity.
@@ -158,6 +172,22 @@ You can take **one Reaction per round** when its trigger occurs. A Reaction does
 Reactions are instant responses to their triggers and interrupt the flow of combat. Thus, a Reaction can affect its triggering activity, unlike other actions. For example, if a creature is moving out of an ally's threatened range and that ally's Opportunity Attack deals enough damage to kill it, the creature dies in the space it was leaving and does not finish its movement.
 
 Using a Master Action does not prevent you from using your Reaction later in the round, provided you have not already used it and its trigger occurs in a later phase.
+
+### Shield Block
+
+**Trigger:** You are hit by an attack you can perceive while wielding a shield with which you are proficient.
+
+After the attack's damage is rolled but before it is applied, use your Reaction to reduce that damage by your shield's **Block Value + your Combat Proficiency**, to a minimum of 0. Shield Block can be used against a melee, ranged, or spell attack, but not against an effect that does not hit you with an attack. It reduces the damage of the triggering hit only, including the increased damage of a critical hit.
+
+After reducing the damage, make the shield's **Break Roll**, even if the damage was reduced to 0. Roll its Break Die. If the result is equal to or below its Break Chance, its condition worsens by one step: Good becomes Damaged, Damaged becomes Broken, and Broken becomes Destroyed. A Break Roll cannot worsen a shield by more than one step unless an effect explicitly says otherwise.
+
+Effects can modify a shield's Break Chance. If its final Break Chance is 0 or lower, roll the Break Die twice; its condition worsens only if both dice roll a 1.
+
+Shield statistics, condition effects, materials, and repair rules appear in Chapter 6: Equipment.
+
+#### Shield Block Example
+
+A character with Combat Proficiency 2 uses a shield with Block Value 3 and is hit for 9 damage. They use Shield Block and reduce the damage by 5, taking 4 damage. They then roll the shield's Break Die and compare the result to its current Break Chance.
 
 ### Master Reactions
 

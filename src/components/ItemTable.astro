@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import { formatEncumbrance } from "../lib/formatEncumbrance";
+
+interface Props {
+  category?: string;
+  colorTheme?: string;
+}
+
+const { category, colorTheme = "blue-table" } = Astro.props;
+const items = (await getCollection("items"))
+  .filter((entry) => !category || entry.data.category === category)
+  .sort((a, b) => (a.data.sortOrder ?? 1000) - (b.data.sortOrder ?? 1000) || a.data.title.localeCompare(b.data.title));
+---
+
+<div class={`item-table-scroll-pane ${colorTheme} compact-table`}>
+  <table>
+    <thead><tr><th>Item</th><th>Cost</th><th>EP</th><th>Notes</th></tr></thead>
+    <tbody>
+      {items.map((entry) => (
+        <tr>
+          <td><strong><a href={`/data/items/${entry.id}`}>{entry.data.title}</a></strong></td>
+          <td>{entry.data.cost}</td>
+          <td>{formatEncumbrance(entry.data.encumbrance)}</td>
+          <td>{entry.data.notes ?? "—"}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .item-table-scroll-pane { margin: 1.5rem auto; overflow-x: auto; }
+  table { width: max-content; border-collapse: collapse; }
+  th { background: var(--itdatd-table-header); color: var(--itdatd-table-header-text); border-color: var(--itdatd-table-border); }
+  td { background: var(--itdatd-table-row); border-color: color-mix(in srgb, var(--itdatd-table-border) 50%, transparent); }
+  th, td { padding: 0.5rem 1rem; white-space: nowrap; }
+  th:first-child, td:first-child, th:last-child, td:last-child { text-align: left; }
+  th:not(:first-child):not(:last-child), td:not(:first-child):not(:last-child) { text-align: center; }
+  tr:nth-child(even) td { background: var(--itdatd-table-row-alt); }
+  tr:hover td { background: var(--itdatd-table-hover); }
+</style>

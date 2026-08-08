@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import { formatStatePair } from "../lib/formatEncumbrance";
+
+interface Props {
+  category?: "Buckler" | "Small Shield" | "Medium Shield" | "Body Shield";
+  colorTheme?: string;
+}
+
+const { category, colorTheme = "blue-table" } = Astro.props;
+const categoryOrder = ["Buckler", "Small Shield", "Medium Shield", "Body Shield"];
+const materialOrder = ["Wood", "Reinforced", "Metal"];
+const shields = (await getCollection("shields"))
+  .filter((entry) => !category || entry.data.category === category)
+  .sort((a, b) => {
+    const categoryDifference = categoryOrder.indexOf(a.data.category) - categoryOrder.indexOf(b.data.category);
+    return categoryDifference || materialOrder.indexOf(a.data.material) - materialOrder.indexOf(b.data.material);
+  });
+---
+
+<div class={`shield-table-scroll-pane ${colorTheme} compact-table`}>
+  <table>
+    <thead>
+      <tr>
+        <th>Shield</th>
+        <th>Cost</th>
+        <th>EP Equipped/Packed</th>
+        <th>AC</th>
+        <th>Block</th>
+        <th>Break Die</th>
+        <th>Break Chance</th>
+        <th>Check Penalty</th>
+      </tr>
+    </thead>
+    <tbody>
+      {shields.map((entry) => (
+        <tr>
+          <td><strong><a href={`/data/shields/${entry.id}`}>{entry.data.title}</a></strong></td>
+          <td>{entry.data.cost}</td>
+          <td>{formatStatePair(entry.data.encumbrance)}</td>
+          <td>{entry.data.acBonus}</td>
+          <td>{entry.data.blockValue}</td>
+          <td>{entry.data.breakDie}</td>
+          <td>{entry.data.breakChance}</td>
+          <td>{entry.data.checkPenalty === 0 ? "—" : `${entry.data.checkPenalty} Situation`}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .shield-table-scroll-pane { margin: 1.5rem auto; overflow-x: auto; }
+  table { width: max-content; border-collapse: collapse; }
+  th { background: var(--itdatd-table-header); color: var(--itdatd-table-header-text); border-color: var(--itdatd-table-border); }
+  td { background: var(--itdatd-table-row); border-color: color-mix(in srgb, var(--itdatd-table-border) 50%, transparent); }
+  th, td { padding: 0.5rem 1rem; white-space: nowrap; }
+  th:not(:first-child), td:not(:first-child) { text-align: center; }
+  tr:nth-child(even) td { background: var(--itdatd-table-row-alt); }
+  tr:hover td { background: var(--itdatd-table-hover); }
+</style>

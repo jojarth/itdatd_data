@@ -85,12 +85,81 @@ const armors = defineCollection({
     datatype: z.literal("armor"),
     title: z.string(),
     ac: z.number(),
-    epWorn: z.union([z.number(), z.string()]),
-    epCarried: z.union([z.number(), z.string()]),
+    epEquipped: z.union([z.number(), z.string()]),
+    epPacked: z.union([z.number(), z.string()]),
     cost: z.string(),
   }),
   loader: glob({
     base: "./src/content/data/armordata/armorlist",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
+const encumbranceSchema = z.discriminatedUnion("type", [
+  z.object({
+    type: z.literal("fixed"),
+    value: z.number(),
+  }),
+  z.object({
+    type: z.literal("bundle"),
+    quantity: z.number().int().positive(),
+  }),
+  z.object({
+    type: z.literal("states"),
+    values: z.record(z.string(), z.union([z.number(), z.string()])),
+  }),
+  z.object({
+    type: z.literal("assumed"),
+  }),
+]);
+
+const shields = defineCollection({
+  schema: z.object({
+    datatype: z.literal("shield"),
+    title: z.string(),
+    category: z.enum(["Buckler", "Small Shield", "Medium Shield", "Body Shield"]),
+    material: z.enum(["Wood", "Reinforced", "Metal"]),
+    cost: z.string(),
+    encumbrance: encumbranceSchema,
+    acBonus: z.number(),
+    blockValue: z.number(),
+    breakDie: z.string(),
+    breakChance: z.number(),
+    checkPenalty: z.number(),
+  }),
+  loader: glob({
+    base: "./src/content/data/shielddata/shield_list",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
+const items = defineCollection({
+  schema: z.object({
+    datatype: z.literal("item"),
+    title: z.string(),
+    category: z.enum([
+      "Ammunition",
+      "Containers",
+      "Exploration Gear",
+      "Food and Drink",
+      "Light Sources",
+      "Religious Gear",
+      "Spellcasting Gear",
+      "Tools",
+      "Restraints",
+      "Mount and Transport Gear",
+      "Miscellaneous",
+    ]),
+    cost: z.string(),
+    encumbrance: encumbranceSchema,
+    consumable: z.boolean().optional(),
+    notes: z.string().optional(),
+    sortOrder: z.number().optional(),
+  }),
+  loader: glob({
+    base: "./src/content/data/itemdata/item_list",
     pattern: "**/*.mdx",
     generateId: preserveMdxId,
   }),
@@ -113,4 +182,6 @@ export const collections = {
   weaponProperties,
   weapons,
   armors,
+  shields,
+  items,
 };

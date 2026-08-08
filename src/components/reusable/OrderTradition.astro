@@ -1,4 +1,6 @@
 ---
+import FeatureSubsection from '../FeatureSubsection.astro';
+
 type Tradition = 'Military' | 'Devotional' | 'Stewardship';
 
 interface Props {
@@ -9,20 +11,14 @@ interface Props {
 }
 
 const { tradition, title, featureTitle, color } = Astro.props as Props;
-const variant = tradition.toLowerCase();
 const normalizedColor = color?.toLowerCase().trim().replace(/^gray$/, 'grey').replace(/^viloet$/, 'violet').replace(/\s+/g, '-');
-const colorStyle = normalizedColor
-  ? `--order-tradition-accent: var(--itdatd-color-${normalizedColor})`
-  : undefined;
 ---
 
-<section class={`order-tradition order-tradition--${variant}`} style={colorStyle}>
-  <header class="order-tradition__header">
-    <span class="order-tradition__label">{tradition} Tradition</span>
-    <h6>{title}</h6>
-  </header>
-  <div class="order-tradition__body">
-    <p class="order-tradition__feature">{featureTitle}</p>
-    <slot />
-  </div>
-</section>
+<FeatureSubsection
+  label={`${tradition} Tradition`}
+  title={title}
+  color={normalizedColor}
+>
+  <p class="order-tradition__feature">{featureTitle}</p>
+  <slot />
+</FeatureSubsection>
