@@ -319,6 +319,62 @@
   width: max-content;
 }
 
+/*
+ * Opt-in layout for rules tables with prose cells. The table remains inside the readable column,
+ * wraps long text, and vertically centers short supporting cells beside multi-line descriptions.
+ */
+.sl-markdown-content .wrap-table {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: visible;
+}
+
+.sl-markdown-content .wrap-table > table,
+.sl-markdown .wrap-table > table {
+  width: 100% !important;
+  min-width: 0;
+  table-layout: auto;
+}
+
+.sl-markdown-content .wrap-table :is(th, td),
+.sl-markdown .wrap-table :is(th, td) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  vertical-align: middle;
+}
+
+/* Wrapped tables do not scroll, so their first column no longer needs the global sticky treatment. */
+.sl-markdown-content .wrap-table tr > :first-child,
+.sl-markdown .wrap-table tr > :first-child {
+  position: static;
+  width: 28%;
+  min-width: 7.5rem;
+  left: auto;
+  z-index: auto;
+  box-shadow: none;
+}
+
+/* Preserve the active colored-table palette when overriding the sticky first-column background. */
+.sl-markdown-content .wrap-table th:first-child,
+.sl-markdown .wrap-table th:first-child {
+  background-color: var(--itdatd-table-header) !important;
+}
+
+.sl-markdown-content .wrap-table td:first-child,
+.sl-markdown .wrap-table td:first-child {
+  background-color: var(--itdatd-table-row) !important;
+}
+
+.sl-markdown-content .wrap-table tr:nth-child(even) td:first-child,
+.sl-markdown .wrap-table tr:nth-child(even) td:first-child {
+  background-color: var(--itdatd-table-row-alt) !important;
+}
+
+.sl-markdown-content .wrap-table tr:hover td:first-child,
+.sl-markdown .wrap-table tr:hover td:first-child {
+  background-color: var(--itdatd-table-hover) !important;
+}
+
 @media (min-width: 72rem) {
   .sl-markdown-content table {
     width: 100%;

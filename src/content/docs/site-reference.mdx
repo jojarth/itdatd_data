@@ -180,6 +180,24 @@ For generated spell progression tables, use the equivalent `compact` prop:
 
 Compact tables retain horizontal scrolling when their natural width exceeds the available space. Leave the class or prop off for full-width and large matrix tables.
 
+### Wrapping Tables
+
+Use the global `wrap-table` class for a table containing prose that should remain inside the readable column instead of becoming horizontally scrollable. It works alongside every colored-table class, allows cell text to wrap, and vertically centers cells beside multi-line content.
+
+Use the Markdown alignment row to center short supporting columns while leaving a prose column left-aligned:
+
+```mdx
+<div class="blue-table wrap-table">
+
+| Category | Effects |
+|:--------:| --- |
+| Example | A longer explanation that wraps within the readable area. |
+
+</div>
+```
+
+`wrap-table` is intended for prose-oriented tables. Continue using the normal or `compact-table` layouts for large numeric matrices where horizontal scrolling is preferable to wrapping every value.
+
 Spell slot tables include cantrip `Preparations` and `Casts` columns before leveled spell slots. The table header automatically groups those columns under `Cantrips` and groups `Level 1`, `Level 2`, and later spell slot columns under `Spell Slots`.
 
 ### Bolding Rows And Columns
