@@ -34,18 +34,21 @@ const shouldShow = (tradition: Tradition) => includedTraditions.includes(traditi
 
   {shouldShow('Military') && (
     <OrderTradition tradition="Military" title="The Shield Bearers" featureTitle="Consummate Protector" color={traditionColor}>
+      <p>You begin play Familiar with <b>Single-Handed Swords, Long-Gripped Swords, Spears,</b> and <b>Polearms</b>.</p>
       <p>For 1 Action starting in Phase 1, you can designate an adjacent ally as the target of your protection. So long as they are adjacent to you, they gain a +1 situation bonus to AC. This benefit lasts until you protect another ally.</p>
     </OrderTradition>
   )}
 
   {shouldShow('Devotional') && (
     <OrderTradition tradition="Devotional" title="The Lionhearts" featureTitle="Steadfast Conviction" color={traditionColor}>
+      <p>You begin play Familiar with <b>Clubs and Maces</b> and <b>Staves</b>.</p>
       <p>Any time you use the Help action in combat, or cast a beneficial spell that targets an ally, the ally who was the beneficiary of your action or spell gain a +1 situation bonus to their AC and Saving Throws until this phase next round.</p>
     </OrderTradition>
   )}
 
   {shouldShow('Stewardship') && (
     <OrderTradition tradition="Stewardship" title="The Wardens" featureTitle="Guardian's Eye" color={traditionColor}>
+      <p>You begin play Familiar with <b>Single-Handed Swords, Staves,</b> and <b>Crossbows</b>.</p>
       <p>You are unable to be surprised. Additionally, while exploring, you reduce the chances of any surprise ambush for your entire party by -1-in-Y.</p>
     </OrderTradition>
   )}

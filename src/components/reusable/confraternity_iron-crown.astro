@@ -35,18 +35,21 @@ const shouldShow = (tradition: Tradition) => includedTraditions.includes(traditi
 
   {shouldShow('Military') && (
     <OrderTradition tradition="Military" title="The Commanders" featureTitle="Commanding Presence" color={traditionColor}>
+      <p>You begin play Familiar with <b>Single-Handed Swords, Long-Gripped Swords, Pikes,</b> and <b>Flails</b>.</p>
       <p>If your allies can see and hear you, they can utilize the Help Activity 1 Phase earlier than normal. Additionally, such allies increase the bonuses provided by taking the Focus on Defense action by +1.</p>
     </OrderTradition>
   )}
 
   {shouldShow('Devotional') && (
     <OrderTradition tradition="Devotional" title="The Voices of Authority" featureTitle="Unyielding Authority" color={traditionColor}>
+      <p>You begin play Familiar with <b>Clubs and Maces, Staves,</b> and <b>Flails</b>.</p>
       <p>When an adjacent ally fails a Saving Throw against fear, charm, or an effect that would compel them to act against their beliefs, you may use your Reaction to allow them to reroll the Saving Throw.</p>
     </OrderTradition>
   )}
 
   {shouldShow('Stewardship') && (
     <OrderTradition tradition="Stewardship" title="The Seneschals" featureTitle="Voice of the Iron Crown" color={traditionColor}>
+      <p>You begin play Familiar with <b>Single-Handed Swords, Staves,</b> and <b>Crossbows</b>.</p>
       <p>You gain a bonus to your maximum henchmen and your hencmen's loyalty base equal to 1/2 your class level.</p>
     </OrderTradition>
   )}

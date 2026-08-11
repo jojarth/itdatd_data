@@ -35,12 +35,14 @@ const shouldShow = (tradition: Tradition) => includedTraditions.includes(traditi
 
   {shouldShow('Military') && (
     <OrderTradition tradition="Military" title="The Field Medics" featureTitle="Dedicated Ally" color={traditionColor}>
+      <p>You begin play Familiar with <b>Clubs and Maces, Hammers and Picks, Staves,</b> and <b>Crossbows</b>.</p>
       <p>Any time you use the Help action in combat, or cast a spell that restores Grit to an ally, you can perform the activity 1 Phase earlier than listed.</p>
     </OrderTradition>
   )}
 
   {shouldShow('Devotional') && (
     <OrderTradition tradition="Devotional" title="The Keepers of Mercy" featureTitle="Merciful Caregiver" color={traditionColor}>
+      <p>You begin play Familiar with <b>Clubs and Maces</b> and <b>Staves</b>.</p>
       <p>When you preform the Caregiving downtime activity, characters under your care recover additional grit equal to 1/2 the level of the class that provided this feature.</p>
 
       <p>If you are able to cast spells, when you cast any spell that restores grit based on a dice roll, increase the healing dice provided by 1 dice step.</p>
@@ -49,6 +51,7 @@ const shouldShow = (tradition: Tradition) => includedTraditions.includes(traditi
 
   {shouldShow('Stewardship') && (
     <OrderTradition tradition="Stewardship" title="The Hospitallers" featureTitle="Attending Physician" color={traditionColor}>
+      <p>You begin play Familiar with <b>Clubs and Maces, Staves,</b> and <b>Crossbows</b>.</p>
       <p>When you preform the Caregiving downtime activity, you can double the number of creatures you can have under your care. Additionally, if you are the primary caregiver, all support caregivers under you gain this benefit.</p>
 
       <p>If you are able to cast spells, when you cast any spell that restores grit, you can add two times the spell's level to the ammount healed by the spell. If you are able to cast cantrips, increase the grit healing provided by any cantrip by 1.</p>
