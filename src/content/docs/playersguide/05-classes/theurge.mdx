@@ -3,6 +3,9 @@ title: Theurge
 spellcasting:
   type: Clerical
   method: Sacred
+classSummary:
+  role: Devoted miracle-worker who serves a higher power through prayer, tradition, and chosen order.
+  armor: Light armor; bucklers and small shields
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
@@ -19,7 +22,7 @@ import BlackLionKnights from '../../../../components/reusable/knights_black-lion
 import IronCrownConfraternity from '../../../../components/reusable/confraternity_iron-crown.astro';
 import Establishment from '../../../../components/reusable/Establishment.astro';
 
-Theurges are devoted servants of a higher power who channel sacred magic through prayer, contemplation, and unwavering faith rather than martial discipline. Many take to the road to recover lost relics, spread the teachings of their faith, witness miracles firsthand, or confront the growing darkness wherever it is found.
+Theurges are devoted servants of a higher power, called to work miracles through prayer, contemplation, and steadfast faith. Their chosen order and tradition shape that calling, whether they travel to recover relics, preserve sacred teachings, comfort the suffering, or oppose a spreading darkness.
 
 ## Theurge Gameplay
 Below is a list of information needed to play a Theurge at the various levels of play.
@@ -38,7 +41,7 @@ Below is a list of information needed to play a Theurge at the various levels of
     </FeatureSection>
 
   <FeatureSection title="Prime Requisite">
-    Your prime requsite is reason, and you gain bonus experience points based on your reason score.
+    Your prime requisite is reason, and you gain bonus experience points based on your reason score.
     - If your reason score is 13 or higher, you gain a +5% bonus to all experience points earned.
     - If your reason score is 16 or higher, you gain a +10% bonus to all experience points earned.
   </FeatureSection>
@@ -68,20 +71,20 @@ Below is a list of information needed to play a Theurge at the various levels of
 <div class="green-table compact-table">
 | **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
 |:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
-| **1**     | 0               | +1d4 + 1 |  +1        | +0        | 15       | 14         | 14          | 14         | 12        |
-| **2**     | 800             | +1d4 + 1 |  +1        | +0        | 15       | 14         | 14          | 14         | 12        |
-| **3**     | 1,600           | +1d4 + 1 |  +1        | +0        | 14       | 13         | 14          | 14         | 12        |
-| **4**     | 4,000           | +1d4 + 1 |  +2        | +0        | 14       | 13         | 13          | 13         | 11        |
+| **1**     | 0               | +1d4 + 1 |  +1        |  +1       | 15       | 14         | 14          | 14         | 12        |
+| **2**     | 800             | +1d4 + 1 |  +1        |  +1       | 15       | 14         | 14          | 14         | 12        |
+| **3**     | 1,600           | +1d4 + 1 |  +1        |  +1       | 14       | 13         | 14          | 14         | 12        |
+| **4**     | 4,000           | +1d4 + 1 |  +2        |  +1       | 14       | 13         | 13          | 13         | 11        |
 | **5**     | 8,000           | +1d4 + 1 |  +2        |  +1       | 14       | 12         | 13          | 13         | 11        |
 | **6**     | 16,000          | +1d4 + 1 |  +2        |  +1       | 13       | 12         | 12          | 12         | 10        |
-| **7**     | 40,000          | +1d4 + 1 |  +3        |  +1       | 13       | 11         | 12          | 12         | 10        |
-| **8**     | 80,000          | +1d4 + 1 |  +3        |  +1       | 13       | 11         | 12          | 12         | 10        |
-| **9**     | 160,000         | +1d4 + 1 |  +3        |  +1       | 12       | 10         | 11          | 11         | 9         |
-| **10**    | 240,000         | +1       |  +4        |  +2       | 12       | 10         | 11          | 11         | 9         |
-| **11**    | 320,000         | +1       |  +4        |  +2       | 12       | 9          | 10          | 10         | 8         |
-| **12**    | 400,000         | +1       |  +4        |  +2       | 11       | 9          | 10          | 10         | 8         |
-| **13**    | 600,000         | +1       |  +5        |  +2       | 11       | 8          | 10          | 10         | 8         |
-| **14**    | 800,000         | +1       |  +5        |  +3       | 11       | 8          | 9           | 9          | 7         |
+| **7**     | 40,000          | +1d4 + 1 |  +3        |  +3       | 13       | 11         | 12          | 12         | 10        |
+| **8**     | 80,000          | +1d4 + 1 |  +3        |  +3       | 13       | 11         | 12          | 12         | 10        |
+| **9**     | 160,000         | +1d4 + 1 |  +3        |  +3       | 12       | 10         | 11          | 11         | 9         |
+| **10**    | 240,000         | +1       |  +4        |  +1       | 12       | 10         | 11          | 11         | 9         |
+| **11**    | 320,000         | +1       |  +4        |  +1       | 12       | 9          | 10          | 10         | 8         |
+| **12**    | 400,000         | +1       |  +4        |  +1       | 11       | 9          | 10          | 10         | 8         |
+| **13**    | 600,000         | +1       |  +5        |  +1       | 11       | 8          | 10          | 10         | 8         |
+| **14**    | 800,000         | +1       |  +5        |  +1       | 11       | 8          | 9           | 9          | 7         |
 </div>
 
 ### Spell Progression Table
@@ -113,71 +116,6 @@ To present your holy symbol, you must hold it aloft in clear view. This requires
   <BlackLionKnights include={['Devotional', 'Stewardship']} />
   <IronCrownConfraternity include={['Devotional', 'Stewardship']} />
 </OrderFeatureCard>
-
-{/* Previous Spellcasting feature retained for reference.
-<GameplayCard
-  colorSet="spellcasting"
-  title="Spellcasting"
-  subeyebrow="1st Level Theurge Feature"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Through prayer and unwavering faith, you have learned to prepare sacred miracles within your mind. Each miracle is a sacred blessing that can be held only temporarily. When invoked, that blessing is expended and slips from memory until it is prepared again through prayer.
-
-A Theurge's spells are considered clerical spells. 
-  
-    <FeatureSection title="Spell Preparation">
-        Immediately after completing a Safe Rest, you may perform a personal ritual to prepare your spells. During this ritual, you offer prayers to a higher power, beseeching it to grant you sacred miracles. Each prepared spell occupies one spell slot of its level. Theurges may prepare any spell on the Theurge spell list, so long as they have the correct level of spell slot. 
-
-        For example, a 3rd-level Theurge prepares three 1st-level spells and two 2nd-level spells. Preparing the same spell multiple times allows you to cast it multiple times before resting again. Prepared spells remain in memory until cast.
-
-        Spell Preparation can only be done immediately following a Safe Rest.
-
-        <FeatureSubsection title="Material Components">
-          Some spells require material components during preparation. You must provide the listed components each time you prepare the spell. If you prepare the same spell more than once, you must provide its components separately for each preparation.
-
-          Unless the spell states otherwise, its material components are consumed during preparation. Once the spell has been prepared, those components are no longer required to cast it. Materials consumed during spell preparation are lost if you prepare over the spell slot without casting the spell.
-        </FeatureSubsection>
-
-    </FeatureSection>
-
-    <FeatureSection title="Reversible Spells">
-        Some Theurge spells have a reverse form. Each time you prepare a reversible spell, you must choose whether you prepare the spell or its reverse. Your chosen form is treated as the prepared spell and occupies one spell slot of the spell's level. If the spell is a cantrip, the chosen form instead counts as one of your prepared cantrips.
-
-        Preparing one form does not also prepare the other. If you want both forms available, you must prepare each separately. If you prepare the same reversible spell multiple times, you make this choice separately for each preparation.
-    </FeatureSection>
-
-    <FeatureSection title="Casting Spells">
-        To cast a prepared spell, you must:
-
-        * Have the spell prepared.
-        * Be able to present your holy symbol.
-        * Be able to speak clearly.
-
-        After resolving the spell's effects, the sacred miracle fades from your memory. The spell slot becomes empty and cannot be used again until you prepare spells after completing another Safe Rest.
-
-        <FeatureSubsection title="Sacred Gestures">
-          Spell descriptions describe their gestures as though the caster had a free hand available. When you cast a spell, you must present your holy symbol and replace each gesture described in the spell's Components section with a similar action performed using the holy symbol. This substitution changes what the required hand does, but does not change the number of hands required.
-
-          For example, you may pass your holy symbol before your eyes instead of passing your fingers before them, direct your holy symbol toward a creature instead of pointing at it, or touch a creature with your holy symbol instead of touching it with your hand. If your holy symbol is emblazoned upon a shield, you perform the equivalent action with the shield.
-
-          Your holy symbol can fulfill the requirements of only one hand. If a spell requires two hands, your other hand must still perform the remaining gesture. A holy symbol cannot replace the manipulation of another required object or an action that the spell states must be performed exactly as described.
-
-          If a spell requires no gesture, you must still present your holy symbol while casting it.
-        </FeatureSubsection>
-    </FeatureSection>
-  
-    <FeatureSection title="Cantrips">
-        Cantrips are simple prayers that require little devotion to prepare.
-
-        Whenever you prepare your spells after completing a Safe Rest, you also prepare a number of cantrips from the Theurge cantrip list. The Spell Progression table shows how many cantrips you may prepare, as well as the number of cantrip casts available in your shared pool.
-
-        Each time you cast a prepared cantrip, you expend one available cantrip cast from your shared pool, regardless of which prepared cantrip you cast. Unlike leveled spells, cantrips are not erased from your memory when cast and remain prepared until you prepare your spells again.
-
-        You regain all expended cantrip casts whenever you complete a night's rest.
-    </FeatureSection>
-</GameplayCard>
-*/}
 
 <GameplayCard
   colorSet="System"

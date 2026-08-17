@@ -174,6 +174,10 @@ export const collections = {
           type: z.enum(["Clerical", "Magical"]),
           method: z.enum(["Free-Hand", "Sacred"]),
         }).optional(),
+        classSummary: z.object({
+          role: z.string(),
+          armor: z.string(),
+        }).optional(),
       }),
     }),
   }),

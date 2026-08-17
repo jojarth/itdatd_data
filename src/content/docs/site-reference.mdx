@@ -28,6 +28,20 @@ Keep this page in `src/content/docs`. Starlight only treats files in the docs co
 | Spell frontmatter schema | `src/content.config.ts` |
 | Reusable text/cards/tables | `src/components/reusable/` |
 
+## Class Chooser
+
+The **Choose a Class** section on the Classes page is generated automatically from the pages in `src/content/docs/playersguide/05-classes/`. Any new class page placed in that directory appears in the chooser without editing the index.
+
+Add this optional frontmatter to populate the card's concise description and armor line:
+
+```yaml
+classSummary:
+  role: A one-sentence description of how the class approaches play.
+  armor: Its armor and shield proficiencies.
+```
+
+The chooser also reads the existing `spellcasting` frontmatter. Omit that field for a non-spellcasting class; its card will display **None**.
+
 ## Reusable Blocks
 
 Use reusable Astro components when the same rules text, card, or table needs to appear in more than one place. This avoids copy/pasting and lets one edit update every reference.

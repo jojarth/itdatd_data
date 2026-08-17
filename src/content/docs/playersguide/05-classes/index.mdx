@@ -17,19 +17,35 @@ Classes describe a character's core adventuring discipline: how they survive, so
 
 Perhaps the most defining feature of your character, your class offers a vast array of benefits. Each class has a class gameplay section, a class table, and a class features section. Classes that gain the ability to cast spells also have a class spellcasting section.
 
-## Class List
+## Choose a Class
 
-<ul>
+The following summaries present each adventuring path at a glance. Consider how you want your character to face danger, aid their companions, and influence the world, then consult the class that best suits that calling.
+
+<div class="class-chooser">
   {classes.map(({ id, data }) => (
-    <li><a href={`/${id}/`}>{data.title}</a></li>
+    <a class="class-chooser__card" href={`/${id}/`}>
+      <h3>{data.title}</h3>
+      <p>{data.classSummary?.role ?? 'A new adventuring discipline.'}</p>
+      <dl>
+        <div>
+          <dt>Armor</dt>
+          <dd>{data.classSummary?.armor ?? 'See class page'}</dd>
+        </div>
+        <div>
+          <dt>Spellcasting</dt>
+          <dd>{data.spellcasting ? `${data.spellcasting.type} • ${data.spellcasting.method}` : 'None'}</dd>
+        </div>
+      </dl>
+      <span class="class-chooser__link">View class <span aria-hidden="true">→</span></span>
+    </a>
   ))}
-</ul>
+</div>
 
 ## Class Gameplay Section
 Your class gameplay section contains several sub-sections that include information such as any requirements that a created character must meet to enter the class, specialized rules for playing that class, your starting weapon familiarities, armor and shield proficiencies, and any other items you need to know about playing a character of this class.
 
 ### Class Keywords
-Your alcass grants you your class keywords. 
+Your class grants you your class keywords. 
 
 ### Class Requirements
 Some classes have certain attribute requirements or ancestral requirements to play. If none are listed, then anyone can enter that class. If any requirements are listed, you must meet them in order to enter the class.
@@ -44,7 +60,7 @@ Some classes have specialized rules for playing the class. If such a field is li
 Each class starts with a proficiency level of familiar with a small subset of weapons. As part of character creation, you will be granted a number of Weapon Proficiency Points to spend on weapon proficiencies. You can use these Weapon Proficiency Points to upgrade your character's proficiency level with any weapon groups, up to the maximum allowed by their class Offense Bonus.
 
 ### Armor and Shield Proficiency
-Each class tells you what armor you can wear and shields you can wield. If you wear armor or wield shields that are not allowed by your class, you may be subject to penalties. See Chapter 5 for more details.
+Each class tells you what armor you can wear and shields you can wield. If you wear armor or wield shields that are not allowed by your class, you may be subject to penalties. See Chapter 6 for more details.
 
 **Note**: Some classes grant you proficiency with armor and shields, but class features cannot function while wearing them. For example, Magic-Users can wear light armor and wield bucklers and small shields; however, while doing so, they cannot cast their spells, as magic-user spellcasting requires the caster to be unarmored and not wielding a shield.
 
@@ -102,4 +118,4 @@ This saving throw is used against spells and other magical effects not more appr
 Your class features tell you what kind of gameplay-altering things your class can do. Think of these class features as powers that only a member of that class can do. Some class features are granted as you level up, rather than at first level. Some features improve as your class climbs in level. Be sure to read what level you gain a feature on.
 
 ### Feature Call-Outs
-Some classes have special call-outs for specific features; for example Paladin's have "Oath-Dependant" features. These will be listed in the feature header. 
+Some classes have special call-outs for specific features; for example, Paladins have "Oath-Dependent" features. These are listed in the feature header. 
