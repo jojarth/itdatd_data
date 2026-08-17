@@ -1,0 +1,88 @@
+---
+title: Adding Armor & Shields
+description: How to add new armor and shield entries, and how the encumbrance system works.
+pagefind: false
+---
+
+## Adding a new armor entry
+
+**Where:** `src/content/data/armordata/armorlist/<armor-name>.mdx`
+
+```yaml
+---
+datatype: armor
+title: Plate Armors
+ac: 18
+epEquipped: 4
+epPacked: 5
+cost: 20 Gold
+---
+
+Plate Armor is a complete or nearly complete harness of fitted metal plates. Articulated defenses protect the torso, shoulders, arms, hands, hips, and legs, while mail and padded garments cover the joints and remaining gaps.
+```
+
+| Field | What it is |
+|:--|:--|
+| `datatype` | Always `armor` |
+| `title` | Display name |
+| `ac` | Armor Class the suit provides, as a plain number |
+| `epEquipped` | Encumbrance while worn (number, or a string like `"-"` if it doesn't apply) |
+| `epPacked` | Encumbrance while carried but not worn |
+| `cost` | Purchase price, free text |
+
+As soon as the file exists, it appears automatically — sorted by AC — on the [Armor](/playersguide/06-equipment/armorlist/) table, and gets its own detail page at `/data/armors/<filename>`.
+
+## Adding a new shield entry
+
+**Where:** `src/content/data/shielddata/shield_list/<category-folder>/<shield-name>.mdx`
+
+Shields are organized into subfolders by category (`body-shields/`, etc.) purely for your own tidiness.
+
+```yaml
+---
+datatype: shield
+title: Wood Body Shield
+category: Body Shield
+material: Wood
+cost: 75 Silver
+encumbrance: { type: states, values: { equipped: 3, packed: 5 } }
+acBonus: 3
+blockValue: 4
+breakDie: d10
+breakChance: 2
+checkPenalty: -3
+---
+
+A tall or exceptionally broad wooden shield designed to cover most of its wielder.
+```
+
+| Field | What it is | Allowed values |
+|:--|:--|:--|
+| `category` | Shield size class | Exactly one of: `Buckler`, `Small Shield`, `Medium Shield`, `Body Shield` |
+| `material` | What it's made of | Exactly one of: `Wood`, `Reinforced`, `Metal` |
+| `cost` | Purchase price | Free text |
+| `encumbrance` | See below | |
+| `acBonus` | AC bonus while wielded | Number |
+| `blockValue` | Shield Block value | Number |
+| `breakDie` | Die rolled on a Break Roll | e.g. `d10` |
+| `breakChance` | Highest die result that worsens the shield | Number |
+| `checkPenalty` | Penalty to Strength/Dexterity Skill Tests while wielded | Number, `0` shows as "—" on the table |
+
+Category and material must be spelled **exactly** as shown above (including capitalization) — they're checked against a strict list, and a typo will fail the build. See [Troubleshooting](/technicalmanual/10-troubleshooting/) if that happens.
+
+New shields appear automatically on the matching category table on the [Shields](/playersguide/06-equipment/shields/) page (grouped and sorted by category, then material), and get a detail page at `/data/shields/<filename>`.
+
+## The `encumbrance` field, explained
+
+Both shields and items use the same encumbrance system, and it's the one field on this page that isn't just plain text or a number. It's built to represent a few genuinely different ways an object's "how heavy is this to carry" can work:
+
+| Type | Meaning | Example |
+|:--|:--|:--|
+| `fixed` | One flat value, always the same | `{ type: fixed, value: 1 }` |
+| `bundle` | Comes in a bundle of a fixed quantity (e.g. arrows) | `{ type: bundle, quantity: 20 }` |
+| `states` | Different values depending on how it's carried (e.g. worn vs. packed) | `{ type: states, values: { equipped: 3, packed: 5 } }` |
+| `assumed` | Not tracked numerically — assumed to always be on hand | `{ type: assumed }` |
+
+Shields almost always use `states` (equipped vs. packed), since that's how the shield table displays them (`EP Equipped/Packed`). Pick whichever `type` actually matches how the object behaves — don't force everything into `fixed` if it genuinely has two different carry weights.
+
+You write this as one line of YAML using curly braces, exactly like the example above — note there are no quotes needed around `states`, `equipped`, etc.

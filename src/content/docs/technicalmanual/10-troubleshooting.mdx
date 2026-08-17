@@ -1,0 +1,62 @@
+---
+title: Troubleshooting
+description: Common error messages and odd behaviors, and what they actually mean.
+pagefind: false
+---
+
+## "GameplayCard: unknown colorSet ..."
+
+You passed a `colorSet` value that isn't one of the eight recognized names. The error message itself lists the valid options. See [Gameplay Cards & Reusable Blocks](/technicalmanual/06-gameplay-cards/#choosing-a-color-colorset-vs-individual-colors) for the full list and their aliases (`classfeature`, `classfeaturewithchoices`, etc.).
+
+## A weapon property/feature shows as a raw ID instead of its name (e.g. `denting` instead of "Denting")
+
+This means the ID you put in a weapon's `properties`/`proficient`/`skilled`/`expert`/`master`/`grandmaster` list doesn't match any actual filename in `src/content/data/weapondata/weapon_properties/` or `weapon_features/`. Check for:
+
+- A typo in the ID
+- Referencing a property where you meant a feature, or vice versa
+- The file not existing yet — see [Adding Weapons](/technicalmanual/02-adding-weapons/)
+
+## The site fails to build with a Zod/schema validation error
+
+This means a data file (a weapon, spell, armor, shield, or item) is missing a required field, or a field has the wrong type/value. The error will name the exact file and field. Common causes:
+
+- A `category` or `material`-style field (shields, items) spelled slightly differently than the exact allowed list — these are checked letter-for-letter, including capitalization. See the allowed values tables in [Adding Armor & Shields](/technicalmanual/03-adding-armor-and-shields/) and [Adding Items](/technicalmanual/04-adding-items/).
+- A number field written as quoted text where a plain number was expected, or vice versa
+- A required field (like `datatype`, `title`, `cost`) left out entirely
+
+If you genuinely need a new allowed value or a new field on a collection, that's a change to the schema itself in `src/content.config.ts` — not something you can fix by editing the data file alone.
+
+## "Cannot find module" / import errors in an MDX file
+
+Almost always an incorrect number of `../` in a component's import path. The number of `../` needed depends on how many folders deep your file lives relative to `src/components/`. When in doubt, copy the import lines from an existing sibling file at the same folder depth rather than writing them from scratch.
+
+## A new weapon/spell/item doesn't show up on its list page
+
+Check, in order:
+
+1. Did you restart or clear the cache? Run `rm -rf .astro dist` and `npm run dev` again (see [Getting Started](/technicalmanual/01-getting-started/)).
+2. Does the field the list page filters on (`group` for weapons, `category` for shields/items) match **exactly**, including spacing and capitalization?
+3. Is the file actually inside the right collection folder (e.g. `weapon_list/`, not just anywhere under `weapondata/`)?
+
+## A `toc` prop on a card isn't appearing in the table of contents
+
+`toc` only works when the card's `title` (or a reusable block's `tocTitle`) is written as a plain quoted string, e.g. `title="Spellcasting"` — not a variable or expression. See [Gameplay Cards & Reusable Blocks](/technicalmanual/06-gameplay-cards/#behind-the-scenes-the-automatic-table-of-contents).
+
+## A color/table theme doesn't look right in dark mode
+
+Some colors only have a light-mode value defined and quietly fall back to it in dark mode too, which can look washed out or too bright. Check whether that color has a matching override inside the `:root[data-theme="dark"] { }` block in `custom.css` — see [CSS Reference](/technicalmanual/08-css-reference/).
+
+## A page looks fine locally but you're not sure it'll look right on the live build
+
+Run the production build locally before pushing changes that touch layout or components broadly:
+
+```bash
+npm run build
+npm run preview
+```
+
+`npm run build` will also fail loudly on schema errors that `npm run dev` might let slide by more quietly in some cases, so it's a good final check before committing larger content batches.
+
+## Legacy note: a remark plugin that no longer does anything
+
+`src/remark-inject-properties.mjs` (and the integration that registers it, `src/integrations/inject-properties.mjs`) is build-time code left over from an earlier version of the weapon properties page. It only activates on a file path ending in `weapon_table.mdx`, which no longer exists anywhere in the project — today's [Weapon Properties and Features](/playersguide/06-equipment/weapon_properties/) page builds its property/feature list a different way, directly in its own MDX using `getCollection`. This plugin is harmless (it currently matches nothing) but isn't wired into anything — you can ignore it unless you're specifically investigating build-time plugin behavior.

@@ -1,0 +1,45 @@
+---
+title: Adding Items
+description: How to add a new piece of adventuring gear or other equipment.
+pagefind: false
+---
+
+**Where:** `src/content/data/itemdata/item_list/<category-folder>/<item-name>.mdx`
+
+Items are organized into subfolders by category (`spellcasting-gear/`, etc.) for your own tidiness — the folder name doesn't need to match the `category` field exactly, but it's good practice to keep them aligned.
+
+```yaml
+---
+datatype: item
+title: Silver Mirror
+category: Spellcasting Gear
+cost: 10 Gold
+encumbrance: { type: fixed, value: 1 }
+notes: Common spell component
+---
+
+A protected mirror backed or framed with silver, used in divination and other spells.
+```
+
+| Field | What it is | Notes |
+|:--|:--|:--|
+| `datatype` | Always `item` | |
+| `title` | Display name | |
+| `category` | Which gear category it belongs to | Must be exactly one of the values listed below |
+| `cost` | Purchase price | Free text |
+| `encumbrance` | How it's carried | See [Adding Armor & Shields](/technicalmanual/03-adding-armor-and-shields/#the-encumbrance-field-explained) for the four types (`fixed`, `bundle`, `states`, `assumed`) |
+| `consumable` | Optional — `true` if it's used up | Omit if not applicable |
+| `notes` | Optional short note shown in the table's Notes column | |
+| `sortOrder` | Optional number controlling manual sort order within its category | Lower numbers sort first; items without one sort last, alphabetically |
+
+### Allowed `category` values
+
+The category must be spelled exactly as one of:
+
+`Ammunition`, `Containers`, `Exploration Gear`, `Food and Drink`, `Light Sources`, `Religious Gear`, `Spellcasting Gear`, `Tools`, `Restraints`, `Mount and Transport Gear`, `Miscellaneous`
+
+If you need an entirely new category (not just a new item), that's a schema change — see the note at the bottom of [Getting Started](/technicalmanual/01-getting-started/) about `src/content.config.ts`, or the "unknown enum value" entry in [Troubleshooting](/technicalmanual/10-troubleshooting/).
+
+## Where new items show up
+
+Each category has its own `<ItemTable category="..." />` call on a docs page — for example, [Adventuring Gear](/playersguide/06-equipment/adventuring-gear/) lists most categories, and [Mounts and Transport](/playersguide/06-equipment/mounts-and-transport/) lists `Mount and Transport Gear` on its own. As soon as your item's `category` matches one of these, it appears automatically, sorted by `sortOrder` (if set) then alphabetically. It also gets its own detail page at `/data/items/<filename>`.

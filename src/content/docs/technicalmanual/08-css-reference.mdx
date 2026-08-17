@@ -1,0 +1,63 @@
+---
+title: CSS Reference
+description: A lookup table of "I want to change X — where's the CSS for that?"
+pagefind: false
+---
+
+Almost the entire visual system for ITD&TD lives in **one file**: `src/styles/custom.css`. There's a second, much smaller file, `src/styles/book-home.css`, used only by the site's front page. This chapter tells you exactly where to go for any given visual change.
+
+## The one file that matters most: `src/styles/custom.css`
+
+This file has four rough sections, top to bottom:
+
+1. **Color variables** (`:root { ... }` at the very top, plus its dark-mode twin `:root[data-theme="dark"] { ... }`) — every named color used by gameplay cards, tables, and headings.
+2. **Layout and heading styles** — page width, the colored heading bands (H2/H3/H4), the class chooser grid, general table plumbing.
+3. **Colored table themes** — one block per named table color (`.green-table`, `.blue-table`, etc.), plus a shared "extended palette" block that auto-derives a full table theme from a single accent color.
+4. **Gameplay card / feature section / feature subsection styles** — the card shell, every `--color` variant, and the sidebar/nesting rules.
+
+## "I want to change..." lookup table
+
+| I want to... | Edit this in `custom.css` |
+|:--|:--|
+| Change what a named color (e.g. `purple`, `dragon-gold`) actually looks like, in both light and dark mode | The `--itdatd-color-*` variable in the top `:root { }` block, and its dark-mode override in `:root[data-theme="dark"] { }` if the color should differ there |
+| Change the four spell hierarchy colors (primary section/subsection, reverse section/subsection) | `--itdatd-spell-primary-section`, `--itdatd-spell-primary-subsection`, `--itdatd-spell-reverse-section`, `--itdatd-spell-reverse-subsection` in the top `:root { }` block |
+| Change the default heading-band colors (the H2/H3/H4 colored bars) for a specific named theme | The `colors: { h2, h3, h4 }` values inside `src/components/HeadingThemeSelect.astro` (the theme picker itself), which reference the `--itdatd-theme-*` and `--itdatd-color-*` variables defined in `custom.css` |
+| Change one specific colored table's palette (border/header/row/hover colors) | Its own block, e.g. `.green-table { ... }`, `.blue-table { ... }` — the "Original" seven colors each have their own hand-tuned block; everything else derives automatically from `--itdatd-table-accent` |
+| Change the general table look shared by every table (padding, font size, sticky first column, scroll behavior) | The `.sl-markdown-content table` / `.sl-markdown th, td` rules, and the "Side-Bar CSS" section near the bottom that handles sticky first columns and horizontal scroll containers |
+| Change `compact-table` or `wrap-table` behavior | The `.sl-markdown-content .compact-table` and `.sl-markdown-content .wrap-table` rule blocks |
+| Change gameplay card shell styling (border, shadow, radius, spacing) | The base `.gameplay-card { ... }` rule, plus `--itdatd-card-radius` and `--itdatd-shadow` at the top of `:root` |
+| Change what a specific `color="..."` value looks like on a `GameplayCard` | `.gameplay-card--<colorname>` |
+| Change what a specific section/subsection color looks like | `.gameplay-card--section-<colorname>` / `.feature-section--<colorname>` for sections, `.gameplay-card--subsection-<colorname>` / `.feature-subsection--<colorname>` for subsections |
+| Change `FeatureSection` / `FeatureSubsection` spacing or borders | `.feature-section`, `.feature-section__header`, `.feature-subsection`, `.feature-subsection__header` blocks |
+| Change the class-picker cards on the Classes landing page | `.class-chooser` and `.class-chooser__card` |
+| Change the homepage's "choose a book" cards | `src/styles/book-home.css` — **not** `custom.css`. See the note below. |
+| Change the sidebar navigation text size/weight | The "Side-Bar CSS" section near the bottom (`.sidebar-content summary .large`, `.sidebar-content ul a`) |
+| Change a `Spoiler`'s look | `Spoiler.astro` has its own `<style>` block at the bottom of that component file — it isn't in `custom.css` at all, since it's fully self-contained |
+
+## A few styles that live inside their own component instead
+
+Not everything is in `custom.css`. A handful of components ship their own `<style>` block because their look is specific to that one component and never reused elsewhere:
+
+- `Spoiler.astro` — the collapsible reveal box
+- `SpellCard.astro`, `SpellEntry.astro`, `SpellHeader.astro`, `SpellMetadata.astro`, `SpellSummary.astro` — the spell page layout
+- `WeaponCard.astro`, `WeaponList.astro`, `WeaponLookup.astro` — the (currently unused) card-grid weapon list, and the property/feature tooltip links
+- `WeaponTable.astro`, `ArmorTable.astro`, `ShieldTable.astro` — each data table's own scroll/border wrapper, plus `WeaponTable`'s hover-tooltip script
+- `SpellSlotTable.astro` — the cantrip/spell-slot column grouping borders
+
+If you're trying to change something and it's not in `custom.css`, check the matching component file in `src/components/` for a `<style>` block at the bottom before assuming it's missing.
+
+## Homepage cards are a special case: `book-home.css`
+
+The homepage (`src/content/docs/index.mdx`) explicitly imports its own separate stylesheet, `src/styles/book-home.css`, which **also** defines `.book-card` and `.book-grid` class names. `custom.css` defines its own `.book-card`/`.book-grid` too, for potential reuse elsewhere — but since the homepage imports `book-home.css` after the shared styles, its version wins on that page specifically. If you ever add a "choose a book" style grid to another page (not the homepage), it will use the `custom.css` version instead. Keep this in mind if a book-card style change on the homepage doesn't seem to be doing anything — you may be editing the wrong file.
+
+## Adding a brand-new color
+
+To add a color that doesn't already exist (for a table, a gameplay card, or both):
+
+1. Define it in the top `:root { }` block of `custom.css`: `--itdatd-color-mycolor: #hexvalue;`
+2. If it should look different in dark mode, add an override in `:root[data-theme="dark"] { }`.
+3. For a **table** theme, add one line to the "extended table themes" list: `.mycolor-table { --itdatd-table-accent: var(--itdatd-color-mycolor); }` — this automatically derives a full light/dark table palette from that single accent. You don't need to hand-tune border/header/row colors unless you want a fully custom look (the way `.green-table`, `.blue-table`, etc. do).
+4. For a **gameplay card** color, add: `.gameplay-card--mycolor { --gameplay-card-accent: var(--itdatd-color-mycolor); }`
+5. For that color to also work as a **section** or **subsection** accent, add the matching `.gameplay-card--section-mycolor, .feature-section--mycolor { --feature-section-accent: var(--itdatd-color-mycolor); }` and/or the `-subsection-` equivalent.
+
+Once these exist, `mycolor` immediately works as a `color`/`sectionColor`/`subsectionColor` prop on `GameplayCard`, `FeatureSection`, and `FeatureSubsection`, and `mycolor-table` works as a `colorTheme` anywhere a table accepts one.

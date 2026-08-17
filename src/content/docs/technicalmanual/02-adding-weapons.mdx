@@ -1,0 +1,126 @@
+---
+title: Adding Weapons
+description: How to add a new weapon, weapon property, or weapon feature.
+pagefind: false
+---
+
+Weapons are the most built-out part of the site, with three connected pieces:
+
+1. **Weapons** — the actual weapon entries (War Hammer, Bec de Corbin, etc.)
+2. **Weapon Properties** — always-on traits a weapon has regardless of skill (e.g. *Reach*)
+3. **Weapon Features** — traits unlocked by proficiency tier (Proficient → Skilled → Expert → Master → Grand Master)
+
+A weapon file doesn't contain the description text for its properties or features — it just *points at them by name*, and the site fills in the tooltip/link automatically. This means editing a feature's wording once updates it everywhere that feature is used.
+
+## Adding a new weapon
+
+**Where:** `src/content/data/weapondata/weapon_list/<group-folder>/<weapon-name>.mdx`
+
+Weapons are organized into subfolders by group (`hammers-and-picks/`, `daggers/`, `bows/`, etc.) — this is just for your own organization, it doesn't affect anything. Pick the matching group folder, or create a new one if you're adding a brand-new weapon group.
+
+Copy this template and fill it in (based on the real War Hammer entry):
+
+```yaml
+---
+datatype: "weapon"
+title: "War Hammer"
+group: "Hammers and Picks"
+cost: "2 Silver"
+ep: 1
+damage: "d6 B"
+speed: 7
+range: "-"
+properties: []
+proficient:
+  - "denting"
+skilled:
+  - "brutal"
+expert:
+  - "critical"
+master:
+  - "savage"
+grandmaster:
+  - "harsh"
+---
+
+## Description
+
+A war hammer mounts a compact hammer face, often opposite a beak, on a one-handed haft. It is built to concentrate force against rigid defenses and is far smaller and more controllable than a toolmaker's sledge.
+```
+
+### Field-by-field
+
+| Field | What it is | Notes |
+|:--|:--|:--|
+| `datatype` | Always `"weapon"` | Don't change this |
+| `title` | Display name | |
+| `group` | Weapon group (e.g. `"Hammers and Picks"`) | Must match the group used in the `<WeaponTable group="..." />` call for it to show up on that group's table — see [Tables](/technicalmanual/07-tables/) |
+| `cost` | Purchase price, as free text | e.g. `"2 Silver"`, `"10 Gold"` |
+| `ep` | Encumbrance Points | A number, or a string if it varies |
+| `damage` | Damage dice and type | e.g. `"d6 B"` |
+| `speed` | Weapon speed | A number |
+| `range` | Range, or `"-"` for melee-only weapons | |
+| `properties` | List of weapon property IDs | See below — leave as `[]` if it has none |
+| `proficient` / `skilled` / `expert` / `master` / `grandmaster` | Lists of weapon feature IDs unlocked at each tier | Leave as `[]` if a tier grants nothing |
+
+### How `properties` and feature lists work — the "ID" system
+
+Each entry in `properties`, `proficient`, `skilled`, `expert`, `master`, and `grandmaster` is not text — it's the **filename** (without `.mdx`) of a weapon property or weapon feature file. For example, `"denting"` refers to `src/content/data/weapondata/weapon_features/denting.mdx`.
+
+This is what makes the tooltips and cross-links work: the site looks up that ID, pulls the real title and description, and renders a hoverable link automatically. If you misspell an ID or reference one that doesn't exist, the link will just display the raw ID text instead of a name — see [Troubleshooting](/technicalmanual/10-troubleshooting/).
+
+You don't need to add anything else for a weapon to appear in its group's table — as soon as the file exists with a valid `group`, it shows up automatically the next time the site builds.
+
+## Adding a new weapon property
+
+**Where:** `src/content/data/weapondata/weapon_properties/<property-id>.mdx`
+
+Properties are simpler — no proficiency tiers, since they always apply.
+
+```yaml
+---
+datatype: "weapon_property"
+title: "Reach"
+shortDescription: "Extends the weapon's working distance while creating a close-range weakness."
+---
+
+Your melee range with this weapon is 10 feet. You threaten creatures 10 feet away but do not threaten creatures within 5 feet with this weapon. When you attack a creature within 5 feet, reduce the weapon's damage dice by 1 step.
+```
+
+The **filename** (`reach.mdx`) is the ID you'll reference from a weapon's `properties` list. `shortDescription` is what shows up in the hover tooltip on weapon tables — keep it to one clear sentence. The body text below the frontmatter is the full rules text shown on the property's own page and on the [Weapon Properties and Features](/playersguide/06-equipment/weapon_properties/) list page.
+
+## Adding a new weapon feature
+
+**Where:** `src/content/data/weapondata/weapon_features/<feature-id>.mdx`
+
+Same shape as a property, just a different `datatype`:
+
+```yaml
+---
+datatype: "weapon_feature"
+title: "Feint"
+shortDescription: "Causes a missed attack to set up a later technique without improving accuracy."
+---
+
+When you miss a creature with this weapon, your next attack with the same weapon against that creature is treated as though it benefits from a situation bonus. It receives no actual bonus to the attack roll. This effect ends at the end of your next round.
+```
+
+Once this file exists, any weapon can reference `"feint"` in its `proficient`, `skilled`, `expert`, `master`, or `grandmaster` list.
+
+## Where new weapons show up automatically
+
+- **Group tables**, e.g. the tables in [Weapon List](/playersguide/06-equipment/weapon_list/), which are built with `<WeaponTable group="..." />`. See [Tables](/technicalmanual/07-tables/).
+- **The individual weapon's own page**, at `/data/weapons/<filename-without-extension>` — this is generated automatically, you never create this page yourself.
+- **The [Weapon Properties and Features](/playersguide/06-equipment/weapon_properties/) page**, for new properties/features specifically.
+
+## Two components built but not currently used
+
+Two components exist for a card-grid style weapon list — `WeaponList.astro` (a filterable grid of cards) and `WeaponCard.astro` (a single weapon card) — but no page on the site currently uses them; every weapon page today uses the big `WeaponTable`. If you ever want a smaller "at a glance" grid of weapons instead of a full stat table (for example, a curated list of starting-kit weapons on a background page), you can import `WeaponList` the same way you'd import any other component:
+
+```mdx
+import WeaponList from '../../../../components/WeaponList.astro';
+
+<WeaponList group="Daggers" title="Starting Daggers" />
+```
+
+Useful `WeaponList` props: `group`, `property`, `feature`, `titleIncludes` (all optional filters), `sortBy`, `sortDir`, `title`, `showHeading`, `displayFields` (which stats to show on each card — defaults to group, cost, EP, damage, speed, range, and properties).

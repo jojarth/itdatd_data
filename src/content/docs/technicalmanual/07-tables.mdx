@@ -1,0 +1,119 @@
+---
+title: Tables
+description: Colored Markdown tables, layout options, and the automatic data-driven tables.
+pagefind: false
+---
+
+There are two completely different kinds of tables on this site, and it's worth knowing which one you need:
+
+1. **Colored Markdown tables** — you type out a normal Markdown table by hand (class level tables, saving throw tables, anything you're hand-authoring).
+2. **Data-driven tables** — a component (`WeaponTable`, `ArmorTable`, `ShieldTable`, `ItemTable`) automatically pulls rows from the matching content collection. You never hand-type these rows — you just add/edit the underlying data files (see the previous chapters).
+
+## Colored Markdown tables
+
+Wrap a normal Markdown table in a `<div>` with a color class:
+
+```mdx
+<div class="green-table">
+
+| Level | XP To Level | Grit |
+|:-----:|:-----------:|:----:|
+| 1 | 0 | 1d4 |
+| 10 | 450,000 | 9d4 + 1 |
+
+</div>
+```
+
+**Keep the blank lines** between the `<div>` and the table — without them, MDX won't parse the table correctly.
+
+### Available colors
+
+- Original: `red`, `orange`, `yellow`, `green`, `blue`, `grey`, `pink`, `purple`, `gold`, `indigo`, `teal`, `violet`, `black`, `brown`, `azure`
+- High Contrast: `crimson`, `royal-blue`, `forest-green`
+- Pastel: `dusty-rose`, `powder-blue`, `sage-green`
+- Modern: `coral`, `cobalt`, `mint`
+- Fantasy: `dragon-gold`, `arcane-violet`, `fey-teal`
+- Cool: `glacier-blue`, `periwinkle`, `deep-teal`
+- Warm: `ember`, `amber`, `terracotta`
+- Easter Pastel: `easter-pink`, `robin-egg`, `easter-lilac`
+
+Append `-table` to any of these (e.g. `blue-table`, `dragon-gold-table`) to get the class name. These groupings are just suggestions — mix any color with any layout freely.
+
+### Layout modifiers
+
+Add a second class alongside the color to change the table's width behavior:
+
+| Class | Effect | Best for |
+|:--|:--|:--|
+| *(none)* | Full width, horizontally scrollable if too wide | Large numeric matrices (class tables, weapon stats) |
+| `compact-table` | Only as wide as its content, centered | Small tables (armor stats, a short lookup table) |
+| `wrap-table` | Stays in the readable column, text wraps instead of scrolling | Prose-heavy tables (a table where one column is a paragraph of rules text) |
+
+```mdx
+<div class="blue-table compact-table">
+| Name | Value |
+|:-----|------:|
+| Example | 10 |
+</div>
+```
+
+```mdx
+<div class="blue-table wrap-table">
+
+| Category | Effects |
+|:--------:| --- |
+| Example | A longer explanation that wraps within the readable area instead of forcing horizontal scroll. |
+
+</div>
+```
+
+For `wrap-table`, use the Markdown alignment row (`:--------:`) to center short columns while leaving a prose column left-aligned.
+
+## Data-driven tables
+
+These pull live from a content collection — you never edit their rows directly, you add/edit files in `src/content/data/…` (see [Adding Weapons](/technicalmanual/02-adding-weapons/), [Adding Armor & Shields](/technicalmanual/03-adding-armor-and-shields/), [Adding Items](/technicalmanual/04-adding-items/)).
+
+### WeaponTable
+
+```mdx
+import WeaponTable from "../../../../components/WeaponTable.astro";
+
+<WeaponTable group="Hammers and Picks" colorTheme="grey-table" />
+```
+
+- `group` (optional) — only show weapons with this exact `group` value (case-insensitive). Omit it to show every weapon on the site.
+- `colorTheme` (optional, defaults to `blue-table`) — any of the color classes above.
+
+Weapon property and feature cells automatically become hoverable, linked tooltips — that's handled for you by an internal `WeaponLookup` component, you don't need to do anything extra.
+
+### ArmorTable
+
+```mdx
+<ArmorTable colorTheme="blue-table" />
+```
+
+No filters — it always shows every armor entry, sorted by AC ascending.
+
+### ShieldTable
+
+```mdx
+<ShieldTable category="Body Shield" colorTheme="purple-table" />
+```
+
+- `category` (optional) — one of `Buckler`, `Small Shield`, `Medium Shield`, `Body Shield`. Omit to show all shields (sorted by category, then material).
+
+### ItemTable
+
+```mdx
+<ItemTable category="Spellcasting Gear" colorTheme="royal-blue-table" />
+```
+
+- `category` (optional) — must match one of the item categories listed in [Adding Items](/technicalmanual/04-adding-items/#allowed-category-values). Omit to show every item, sorted by `sortOrder` then title.
+
+### SpellSlotTable
+
+Covered in detail in [Adding Spells](/technicalmanual/05-adding-spells/#spell-slot-tables) since it's tied closely to how spell progressions work, but it accepts the same `colorTheme` values as every other table here, plus `compact`, `boldHeader`, `boldColumn`/`boldColumns`, and `boldRow`/`boldRows`.
+
+## Adding a brand-new table color
+
+If you want a color that isn't in the list above, add it in `src/styles/custom.css` — see the ["I want a new color"](/technicalmanual/08-css-reference/#adding-a-brand-new-color) entry in the CSS Reference for the exact steps.

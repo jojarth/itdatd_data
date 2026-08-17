@@ -1,0 +1,59 @@
+---
+title: Getting Started
+description: Running the site locally and understanding the project's folder layout.
+pagefind: false
+---
+
+## Running the site on your computer
+
+From the project's root folder, in a terminal:
+
+```bash
+npm run dev
+```
+
+This starts a local copy of the site, usually at `http://localhost:4321`. It automatically reloads whenever you save a file, so keep it running in the background while you edit.
+
+Other useful commands:
+
+```bash
+npm run build     # Builds the full static site into dist/ (checks that everything compiles)
+npm run preview   # Serves the built dist/ folder, close to what the live site will do
+```
+
+### When something looks stale or broken for no reason
+
+Astro caches generated types and data. If you add a brand-new content file and the site acts like it doesn't exist, or you see a strange error that doesn't match what's in your file, clear the caches and restart:
+
+```bash
+rm -rf .astro dist
+npm run dev
+```
+
+## The folder map
+
+Here's where things live, and when you'd touch each one:
+
+| Folder | What's in it | When you'd edit it |
+|:--|:--|:--|
+| `src/content/docs/` | The actual rulebook pages (Player's Guide, GM's Guide, Folio of Fiends, World of Cerrix, this Technical Manual) | Writing or editing prose rules content |
+| `src/content/data/weapondata/` | One file per weapon, weapon property, and weapon feature | Adding/editing weapons |
+| `src/content/data/armordata/` | One file per armor entry | Adding/editing armor |
+| `src/content/data/shielddata/` | One file per shield entry | Adding/editing shields |
+| `src/content/data/itemdata/` | One file per item | Adding/editing adventuring gear |
+| `src/content/data/spelldata/` | One file per spell, plus the spell slot progression tables | Adding/editing spells |
+| `src/components/` | Reusable building blocks (`GameplayCard`, `WeaponTable`, `SpellList`, etc.) | Only when you need a *new kind* of component, not for everyday content |
+| `src/components/reusable/` | Larger prewritten rules blocks that get reused across multiple class pages (Orders, Keyword Features, Establishment) | Editing shared rules text that appears on more than one page |
+| `src/styles/custom.css` | Every color, table theme, and card style on the site | Changing colors, adding a new color/table theme |
+| `src/content.config.ts` | The strict schema (required fields) for every data collection | Only when you need to add a brand-new *field* to weapons/spells/etc. |
+| `astro.config.mjs` | The site's navigation sidebar | Adding a new top-level book or chapter to the visible sidebar |
+
+## "Docs" vs. "Data" — the one concept worth understanding
+
+**Docs pages** (`src/content/docs/…`) are what a reader sees when they click through the sidebar. They're mostly prose, with some special components sprinkled in (tables, gameplay cards, spell lists). You write these the way you'd write in any Markdown editor.
+
+**Data entries** (`src/content/data/…`) are different. Each weapon, spell, armor, shield, or item is its own small file with a required set of fields at the top (the frontmatter, between the `---` lines). Astro checks every one of these files against a strict template — called a *schema* — defined in `src/content.config.ts`. If a required field is missing or misspelled, the site will refuse to build and tell you exactly which file and field is the problem.
+
+This split is what lets things like the weapon table auto-populate from 100+ individual weapon files, and what lets a weapon's "Feint" feature link automatically to its full description everywhere it's mentioned, instead of you having to copy/paste that text by hand into every weapon that uses it.
+
+The next few chapters walk through adding a new entry to each data collection, step by step.

@@ -1,0 +1,173 @@
+---
+title: Gameplay Cards & Reusable Blocks
+description: The colored feature-card system used for class features, ancestry traits, and shared rules text.
+pagefind: false
+---
+
+Most rules "boxes" you see on class pages — feature callouts, requirement summaries, spellcasting rules — are built from three nesting components: `GameplayCard` → `FeatureSection` → `FeatureSubsection`. Learning this trio covers the vast majority of formatted content on the site.
+
+## The basic card
+
+```mdx
+import GameplayCard from '../../../../components/GameplayCard.astro';
+
+<GameplayCard
+  color="purple"
+  eyebrow="Class Feature"
+  title="Feature Name"
+  subtitle="A short summary of what the feature does."
+>
+  Write the feature text here.
+</GameplayCard>
+```
+
+The import path's `../` count depends on how deep your page lives. From a class page at `src/content/docs/playersguide/05-classes/`, the path above is correct.
+
+### Header fields
+
+A card can show up to four header fields, in this default order: `eyebrow`, `title`, `subtitle`. Add `subeyebrow` and reorder them with `headerOrder`:
+
+```mdx
+<GameplayCard
+  color="purple"
+  title="Spellcasting"
+  subeyebrow="1st Level Magic-User Feature"
+  headerOrder={['title', 'subeyebrow']}
+>
+  Write the feature text here.
+</GameplayCard>
+```
+
+### Putting a card in the table of contents
+
+Add `toc` and the card's title appears in the right-hand table of contents, like a heading would:
+
+```mdx
+<GameplayCard title="Spellcasting" toc>
+  ...
+</GameplayCard>
+```
+
+This only works when `title` is written as a plain quoted string (`title="Spellcasting"`), not a computed value. It defaults to a level-3 heading; use `tocDepth={2}` to make it a bigger section instead. If a quoted `subeyebrow` starts with an ordinal level (like `"7th Level Paladin Feature"`), the ToC entry automatically becomes `7th Level: Spellcasting`.
+
+## Choosing a color: `colorSet` vs. individual colors
+
+You *can* set colors one at a time (`color`, `sectionColor`, `subsectionColor`), but the easier path for a typical feature card is `colorSet`, which sets all three together from one of eight named combinations:
+
+| `colorSet` | Card | Section | Subsection | Typical use |
+|:--|:--|:--|:--|:--|
+| `System` | follows reader's heading theme | " | " | Requirements/proficiency blocks that should match the page's active color theme |
+| `gameplayfeature` | cobalt | mint | coral | General class features |
+| `proficiencies` | forest-green | royal-blue | crimson | Proficiency/requirement blocks |
+| `spellcasting` | arcane-violet | fey-teal | dragon-gold | Spellcasting rules |
+| `choicefeature` | easter-lilac | robin-egg | easter-pink | Features where the player picks an option |
+| `fixedfeature` | powder-blue | sage-green | dusty-rose | Fixed (no-choice) features |
+| `characterfeature` | amber | terracotta | ember | Universal character features (Keyword Features, Establishment) |
+| `featureimprovement` | glacier-blue | periwinkle | deep-teal | Features that scale/improve at higher levels |
+
+```mdx
+<GameplayCard colorSet="gameplayfeature" title="Requirements and Requisites">
+  ...
+</GameplayCard>
+```
+
+`colorSet="System"` is special — its card/section/subsection colors follow whatever heading theme the reader has picked in the theme switcher (see [Classes & Site Setup](/technicalmanual/09-classes-and-site-config/#the-heading-theme-picker)), instead of a fixed palette. It's what most Fighter/class "Requirements and Requisites" and "Proficiencies" cards use.
+
+`classfeature` is accepted as a shorthand alias for `gameplayfeature`, and `classfeaturewithchoices`/`classfeaturewithoutchoices` alias to `choicefeature`/`fixedfeature`. Passing an unrecognized `colorSet` name will fail the build with a clear error listing the valid options.
+
+### Overriding one piece of a color set
+
+Individual color props override just their part:
+
+```mdx
+<GameplayCard colorSet="spellcasting" subsectionColor="amber" title="Special Spellcasting">
+  ...
+</GameplayCard>
+```
+
+### The full standalone color list
+
+If you're not using a `colorSet`, `color`/`sectionColor`/`subsectionColor` accept any of: `red`, `orange`, `yellow`, `gold`, `green`, `blue`, `indigo`, `teal`, `violet`, `purple`, `pink`, `grey`, `black`, `brown`, `azure`, plus the extended palette: `crimson`, `royal-blue`, `forest-green`, `dusty-rose`, `powder-blue`, `sage-green`, `coral`, `cobalt`, `mint`, `dragon-gold`, `arcane-violet`, `fey-teal`, `glacier-blue`, `periwinkle`, `deep-teal`, `ember`, `amber`, `terracotta`, `easter-pink`, `robin-egg`, `easter-lilac`, `deep-blue`, `muted-crimson`, `verdigris`, `mulberry`.
+
+Every one of these names has its own CSS variable — see [CSS Reference](/technicalmanual/08-css-reference/) for exactly where to add or edit one.
+
+## Sections and subsections
+
+Use `FeatureSection` for a titled block inside a card, and `FeatureSubsection` for something nested one level deeper:
+
+```mdx
+<GameplayCard color="blue" sectionColor="green" subsectionColor="gold" title="Feature Name">
+  <FeatureSection title="The Traveller" label="Contemplation">
+    Increase your base Move Speed by +5 feet.
+
+    <FeatureSubsection title="Invocation">
+      This movement does not provoke Opportunity Actions.
+    </FeatureSubsection>
+  </FeatureSection>
+
+  <FeatureSection title="Second Section" color="azure" subsectionColor="pink">
+    Write the second rule section here.
+  </FeatureSection>
+</GameplayCard>
+```
+
+- `title` is the real heading text. `label` is an optional small category word shown above the title (like "Contemplation" above) — it's never generated for you, so only add it where it genuinely helps.
+- A `FeatureSection`'s own `color`/`subsectionColor` override just that one section, without needing to touch the rest of the card.
+- If you have existing Markdown content using a level-six heading (`###### Invocation`) instead of a `FeatureSubsection`, it still gets the nested subsection styling automatically — but prefer `FeatureSubsection` for anything new, since it gives you explicit title/label/color control.
+
+### Compact spacing
+
+Cards, sections, and subsections default to a tighter "compact" spacing. Pass `compact={false}` on any one of them if a specific block genuinely needs more breathing room — this is the exception, not the norm.
+
+## Spoilers
+
+Use `Spoiler` for anything that should stay collapsed until a reader clicks to reveal it (an answer, a GM secret, a twist):
+
+```mdx
+import Spoiler from '../../components/Spoiler.astro';
+
+<Spoiler color="cobalt" title="Reveal the answer">
+  The hidden information goes here.
+</Spoiler>
+```
+
+`color` accepts the same names as tables and gameplay cards. Pass `open` to have it start expanded. Note this only hides content visually — the text is still present in the page's HTML, so don't rely on it to actually keep secrets from a determined reader (e.g. a player checking "view source").
+
+## Reusable blocks — for rules text repeated on multiple pages
+
+Some rules text (Keyword Features, the 10th-level Establishment feature, class Orders) appears verbatim across several class pages. Instead of copy/pasting, these live once as their own component in `src/components/reusable/` and get imported wherever they're needed.
+
+```mdx
+import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
+import Establishment from '../../../../components/reusable/Establishment.astro';
+
+<KeywordFeatureCard toc />
+<Establishment toc />
+```
+
+Both default to the `characterfeature` color set, and both accept `colorSet`/`color`/`sectionColor`/`subsectionColor` overrides if a particular page needs to stand out. **Editing the wording inside `KeywordFeatureCard.astro` or `Establishment.astro` updates every page that uses it** — that's the entire point, but it also means don't edit these files for a one-off change specific to a single class; write that directly on the class's own page instead.
+
+### Order / Tradition blocks
+
+Divine classes (Cleric, Paladin, Theurge) use a deeper reusable pattern for religious Orders. `OrderFeatureCard` wraps the shared "you belong to an Order" framing text, and each actual Order (like the Brotherhood of the Ashen Cross) is its own component under `reusable/` listing its Military/Devotional/Stewardship traditions via `OrderTradition`:
+
+```mdx
+import OrderFeatureCard from '../../../../components/reusable/OrderFeatureCard.astro';
+import AshenCrossBrotherhood from '../../../../components/reusable/brotherhood_ashen-cross.astro';
+
+<OrderFeatureCard
+  className="Cleric"
+  traditions={['Military', 'Devotional', 'Stewardship']}
+  toc
+>
+  <AshenCrossBrotherhood include={['Military', 'Devotional', 'Stewardship']} />
+</OrderFeatureCard>
+```
+
+To add a **brand-new Order** (a new religious/martial fellowship a divine caster can join), copy an existing file like `src/components/reusable/brotherhood_ashen-cross.astro` as your starting template — it already shows the expected shape (a `FeatureSection` wrapping one `OrderTradition` per tradition, each granting a feature). Give the new file a descriptive lowercase-with-underscores name and import it the same way.
+
+`include` lets a class page show only some of an Order's traditions (some classes might only grant access to certain traditions). `traditionColor` on the Order component overrides the subsection color for that one Order, if it needs to stand out from its default (which follows the surrounding card's subsection color).
+
+## Behind the scenes: the automatic table of contents
+
+You don't need to do anything for `toc` to work beyond adding the prop — a build-time script (`src/remark-gameplay-card-toc.mjs`) scans every page for `toc` props on cards and reusable blocks and quietly inserts an invisible heading for the sidebar ToC to pick up. If a card's `toc` entry isn't showing up as expected, double check that `title` (or `tocTitle`) is a plain quoted string rather than an expression.

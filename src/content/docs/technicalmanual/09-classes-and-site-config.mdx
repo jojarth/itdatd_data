@@ -1,0 +1,65 @@
+---
+title: Classes & Site Setup
+description: How the class chooser is generated, class frontmatter fields, and the heading theme picker.
+pagefind: false
+---
+
+## Adding a new class
+
+A class is just a normal docs page at `src/content/docs/playersguide/05-classes/<class-name>.mdx`. There's no separate registration step — the [Classes](/playersguide/05-classes/) landing page automatically scans every page in that folder (except `index.mdx` itself) and builds its "Choose a Class" card grid from whatever it finds, sorted alphabetically by title. Add the file, and it appears on the chooser the next time the site builds.
+
+### Frontmatter that powers the class chooser card
+
+```yaml
+---
+title: Fighter
+classSummary:
+  role: Front-line defender who masters weapons, armor, and sheer endurance.
+  armor: All armor and shields
+spellcasting:
+  type: Magical
+  method: Free-Hand
+---
+```
+
+- `classSummary.role` — the one-sentence description shown on the chooser card. If omitted, the card falls back to a generic "A new adventuring discipline." placeholder — so it's worth filling in even for an early draft class.
+- `classSummary.armor` — the armor/shield line on the chooser card. Falls back to "See class page" if omitted.
+- `spellcasting` — omit this entirely for a non-spellcasting class; its card will show "None". If present, `type` must be `Clerical` or `Magical`, and `method` must be `Free-Hand` or `Sacred`.
+
+### The rest of a class page
+
+Beyond that frontmatter, a class page is built the same way as any other prose page — using `GameplayCard`/`FeatureSection`/`FeatureSubsection` for its Requirements, Proficiencies, and Features sections (see [Gameplay Cards & Reusable Blocks](/technicalmanual/06-gameplay-cards/)), a class table built as a colored Markdown table (see [Tables](/technicalmanual/07-tables/)), and `SpellList` blocks if it casts spells (see [Adding Spells](/technicalmanual/05-adding-spells/#listing-spells-on-a-page)).
+
+The existing class files are the best templates to copy from directly: **Fighter** (`fighter.mdx`) is the simplest, minimal example; **Paladin** and **Druid** are the most developed, showing Order/Tradition patterns and a full spellcasting section.
+
+## The heading theme picker
+
+Every page has a small selector (next to Starlight's light/dark switcher) that lets a reader pick which color scheme the H2/H3/H4 headings use across the whole site — this is separate from light/dark mode, and separate from `GameplayCard` colors.
+
+**Where:** `src/components/HeadingThemeSelect.astro`
+
+To add a new heading theme option, add an entry to the `headingThemes` array at the top of that file:
+
+```js
+{
+  label: 'My New Theme',
+  value: 'my-new-theme',
+  colors: {
+    h2: 'var(--itdatd-color-dragon-gold)',
+    h3: 'var(--itdatd-color-deep-teal)',
+    h4: 'var(--itdatd-color-mulberry)',
+  },
+},
+```
+
+`value` must be unique and URL/attribute-safe (lowercase, hyphens). Each `h2`/`h3`/`h4` color can point at any existing `--itdatd-color-*` or `--itdatd-theme-*` variable from `custom.css`, or a raw CSS color. It appears in the dropdown automatically — no other file needs to change. A reader's chosen theme is remembered in their browser (`localStorage`) so it persists across visits.
+
+This is also what `colorSet="System"` on a `GameplayCard` follows — see [Gameplay Cards & Reusable Blocks](/technicalmanual/06-gameplay-cards/#choosing-a-color-colorset-vs-individual-colors).
+
+## Adding a whole new book (top-level section) to the sidebar
+
+The site's visible navigation — what shows in the left sidebar — is entirely controlled by the `sidebar` array in `astro.config.mjs`, not by folder structure alone. Having files in `src/content/docs/somefolder/` does **not** make them appear in navigation; you have to add a matching entry to that array.
+
+This is exactly the mechanism that keeps this Technical Manual hidden: its folder exists, its pages are real and reachable by direct link, but there is deliberately no entry for `technicalmanual` in `astro.config.mjs`, so it never shows up in the sidebar, and it carries `pagefind: false` in its frontmatter so it's excluded from on-site search too.
+
+To add a new **visible** book (like a new "Bestiary Two" section, for example), add a new top-level object to the `sidebar` array, following the existing pattern — either `{ autogenerate: { directory: "..." } }` to automatically list every page in a folder, or an explicit `items` list if you want manual control over order and labels.

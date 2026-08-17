@@ -1,0 +1,179 @@
+---
+title: Adding Spells
+description: How to write a new spell, including reversible spells, and how spell slot tables work.
+pagefind: false
+---
+
+Spells live in their own collection and have more moving parts than weapons or gear, because each spell page renders custom sections (Spell Effect, Improvements, Components) rather than a single block of prose.
+
+## Adding a standard (non-reversible) spell
+
+**Where:** `src/content/data/spelldata/spell_list/<Level N Spells>/<spell-id>.mdx`
+
+Spells are grouped into folders by level (`Level 1 Spells`, `Level 2 Spells`, etc.) for organization.
+
+```yaml
+---
+datatype: spell
+title: Magic Missile
+level: 1
+casting: Special; see spell description
+range: 60 feet
+duration: 1 hour
+shortDescription: Fires magical force missiles at targets.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Magic Missile">
+    <FeatureSection title="Spell Effect">
+        To cast this spell, spend 1 Master Action beginning on Phase 4. You conjure 2 magical bolts of force that hover above your head for 1 hour.
+
+        <FeatureSubsection title="Launching Bolts">
+        By spending 1 Action beginning on Phase 2, you may launch one of your remaining bolts at creatures you can see within the spell's range.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+        * You create 4 bolts instead of 2.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+        Roll a polished glass bead wrapped in copper wire between your fingers.
+        </FeatureSubsection>
+        <FeatureSubsection title="Casting">
+        Chant the spell aloud while raising your Casting Hand above your head.
+        </FeatureSubsection>
+    </FeatureSection>
+</SpellEntry>
+```
+
+Count the `../` in the import paths carefully — it depends on how deep your spell's folder is. The example above (`spell_list/Level 1 Spells/…mdx`) needs five levels up to reach `src/components/`. If Astro can't find the component, that's almost always an off-by-one in these import paths — see [Troubleshooting](/technicalmanual/10-troubleshooting/).
+
+### Frontmatter fields
+
+| Field | Required? | Notes |
+|:--|:--|:--|
+| `datatype` | Yes | Always `spell` |
+| `title` | Yes | |
+| `level` | Yes | `0` for a cantrip |
+| `casting` | Yes | Free text, e.g. `"1 Master Action; Phase 3"` |
+| `range` | No | Free text |
+| `duration` | No | Free text |
+| `classes` | No | List of class names that can cast it, e.g. `["Cleric", "Theurge"]` |
+| `shortDescription` | No | One-sentence summary shown on spell list cards and the spell's own page subtitle |
+| `school` | No | Free text, shown on list cards if you use it |
+
+### Body structure
+
+Wrap the spell's rules in a `<SpellEntry title="...">` block. Inside it, use `<FeatureSection title="...">` for each major heading (by convention: **Spell Effect**, **Spell Improvements**, **Components** — in that order), and `<FeatureSubsection title="...">` for anything nested underneath one of those (a named improvement tier, a component step, a special case).
+
+Always use `FeatureSubsection` rather than a raw `###### heading` for these nested bits — it keeps the colored sidebar and spacing consistent with every other spell on the site.
+
+## Adding a reversible spell (like Bless / Curse)
+
+A reversible spell lives in **one file**, with two `<SpellEntry>` blocks — a primary and a reverse. The reverse form automatically gets its own list card, its own anchor link, and inherits the primary's level/casting/range/duration unless you override them.
+
+```yaml
+---
+datatype: spell
+title: Bless
+shortDescription: Bolsters allies with divine favor.
+reverseTitle: Curse
+reverseShortDescription: Afflicts foes with divine condemnation.
+level: 1
+casting: 1 Master Action; Phase 4
+range: 30 feet
+duration: 1 minute
+classes:
+  - Cleric
+  - Theurge
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Bless">
+  <FeatureSection title="Spell Effect">
+    Write the Bless effect here.
+  </FeatureSection>
+</SpellEntry>
+
+<SpellEntry
+  title="Curse"
+  summary="Afflicts foes with divine condemnation."
+  variant="reverse"
+  metadata={props.reverseMetadata}
+>
+  <FeatureSection title="Spell Effect">
+    Write the Curse effect here.
+  </FeatureSection>
+</SpellEntry>
+```
+
+Extra reverse-only frontmatter fields, all optional — only add the ones that actually differ from the primary spell:
+
+- `reverseTitle` — required to turn on the reverse form at all
+- `reverseShortDescription`
+- `reverseCasting`, `reverseRange`, `reverseDuration` — omit any of these to inherit the primary's value
+
+The reverse `<SpellEntry>` must include `variant="reverse"` and `metadata={props.reverseMetadata}` exactly as shown — that's what pulls in the resolved (inherited-or-overridden) casting/range/duration automatically.
+
+## Listing spells on a page
+
+To show a filtered list of spell cards (for example, a class's 1st-level spell list), use `SpellList`:
+
+```mdx
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+
+export const allEntries = await getCollection("data");
+
+<SpellList
+  entries={allEntries}
+  datatype="spell"
+  level={1}
+  className="Cleric"
+  sortBy="title"
+  sortDir="asc"
+  showReverse
+  showHeading={false}
+  displayFields={['casting', 'shortDescription']}
+/>
+```
+
+Useful filters: `level`, `className` (must match an entry in that spell's `classes` list), `tag`. Useful display options: `sortBy` (`"title"` or `"level"`), `sortDir`, `showHeading`, `showReverse` (show reverse forms as their own cards), `hidePrimary` (only show reverse forms — useful for a page that's specifically about "curse" style effects), and `displayFields` (any of `level`, `casting`, `school`, `classes`, `excerpt`/`shortDescription`).
+
+Every class page (Cleric, Magic-User, Theurge, Paladin, Druid) already has a `SpellList` block per level — copy the pattern from one of those files when adding a spell list to a new page, rather than starting from scratch.
+
+## Spell Slot Tables
+
+Class spell-progression tables (how many spells you can prepare/cast at each level) live in one shared JSON file, not per-spell:
+
+**Where:** `src/content/data/spelldata/spell_slots/spell_slots.json`
+
+It's organized by "rank" (`A` through `E`) — one rank per distinct progression curve, shared by any classes that advance at the same rate. To change how fast a class gains spells, edit the numbers in the matching rank's arrays (each array is one column, indexed by class level 1–14).
+
+To render one of these progressions on a page:
+
+```mdx
+import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+
+<SpellSlotTable rank="A" colorTheme="blue-table" boldHeader boldColumn={1} />
+```
+
+- `rank` — which progression to use (`A`–`E`)
+- `colorTheme` — any of the table color classes from [Tables](/technicalmanual/07-tables/#colored-tables)
+- `compact` — use only the width the table needs, centered, instead of full width
+- `boldHeader` — bold the header row
+- `boldColumn` / `boldColumns` — bold one or more columns by number (1 = Class Level)
+- `boldRow` / `boldRows` — bold one or more body rows by number (1-based, header not counted)
+
+Cantrip columns (Preparations/Casts) and leveled Spell Slot columns are automatically grouped under shared headers — you don't need to do anything extra for that.
+
+If you add a brand-new rank letter to the JSON, it "just works" — pass that letter as `rank` on any page.

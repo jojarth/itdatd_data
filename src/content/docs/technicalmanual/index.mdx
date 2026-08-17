@@ -1,0 +1,41 @@
+---
+title: Technical Manual
+description: A friendly, no-jargon guide to building and editing ITD&TD content — weapons, spells, cards, tables, and the CSS behind them.
+pagefind: false
+---
+
+Welcome! This book is for **you**, the person building ITD&TD — not for players browsing the rules. It is not linked from the homepage and does not appear in search, so casual readers of the Player's Guide will never stumble into it. Bookmark this page (`/technicalmanual/`) if you want to find it again quickly.
+
+Nothing in here is game lore. It's the "how the sausage is made" manual: how to add a new weapon, how to write a spell, how a colored table works, and where to go when a page looks wrong. The goal is that you can make most day-to-day content changes without needing to ask an AI assistant to do it for you.
+
+## How to use this book
+
+Each chapter is written as a standalone how-to. You don't need to read them in order — jump straight to the chapter that matches what you're trying to do today, and come back to the others later.
+
+## Chapters
+
+- [Getting Started](/technicalmanual/01-getting-started/) — running the site locally, and how the project's folders fit together.
+- [Adding Weapons](/technicalmanual/02-adding-weapons/) — new weapons, weapon properties, and weapon features.
+- [Adding Armor & Shields](/technicalmanual/03-adding-armor-and-shields/) — new armor and shield entries, including the encumbrance system.
+- [Adding Items](/technicalmanual/04-adding-items/) — adventuring gear and other equipment.
+- [Adding Spells](/technicalmanual/05-adding-spells/) — writing spells, including reversible spells and spell slot tables.
+- [Gameplay Cards & Reusable Blocks](/technicalmanual/06-gameplay-cards/) — the colored feature-card system used for class features, ancestry traits, and more.
+- [Tables](/technicalmanual/07-tables/) — colored Markdown tables and the automatic data-driven tables.
+- [CSS Reference](/technicalmanual/08-css-reference/) — a lookup table of "I want to change X, where's the CSS for that?"
+- [Classes & Site Setup](/technicalmanual/09-classes-and-site-config/) — the class chooser, spellcasting frontmatter, and the heading theme picker.
+- [Troubleshooting](/technicalmanual/10-troubleshooting/) — common error messages and what they mean.
+
+## A quick word on how this site is built
+
+ITD&TD's website is built with [Astro](https://astro.build) and its documentation toolkit, [Starlight](https://starlight.astro.build). You don't need to know either tool deeply to edit content — almost everything you'll do is:
+
+1. Add or edit a text file (Markdown/MDX or YAML-style frontmatter).
+2. Run the site locally to check it looks right.
+3. Commit the change.
+
+The one idea worth understanding up front is that this project keeps two different kinds of content side by side:
+
+- **`src/content/docs/`** — the actual pages people read (the Player's Guide, GM's Guide, this manual, etc.). These are prose pages, written mostly as normal Markdown/MDX.
+- **`src/content/data/`** — structured "database" entries: one small file per weapon, spell, armor, shield, or item. Each one has a strict set of required fields (its *schema*) so that tables and cross-references can be generated automatically instead of hand-typed.
+
+Everything in this manual explains one or the other of those two things.
