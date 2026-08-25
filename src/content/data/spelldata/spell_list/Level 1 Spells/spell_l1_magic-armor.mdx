@@ -1,0 +1,33 @@
+---
+datatype: spell
+title: Magic Armor
+level: 1
+casting: 1 Master Action; Phase 2
+range: Touch
+duration: 24 Hours
+shortDescription: You surround your ally with a magic, providing protection.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Magic Armor">
+    <FeatureSection title="Spell Effect">
+        You touch a valid creature, and that creature becomes surrounded with magic. Their AC becomes 13.
+    </FeatureSection>
+    <FeatureSection title="Creature Interactions">
+        <FeatureSubsection title="Valid Creatures">
+        * Any creature who is not currently donning armor. Additionally, this spell immediately ends if the target dons armor while it is active. 
+        </FeatureSubsection>
+    </FeatureSection>
+    <FeatureSection title="Spell Improvements">
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+        * Their AC becomes 14.
+        </FeatureSubsection>
+        <FeatureSubsection title="When you can cast 5th-level spells">
+        * Their AC becomes 15.
+        </FeatureSubsection>
+    </FeatureSection>
+</SpellEntry>

@@ -87,7 +87,7 @@ shortDescription: "Extends the weapon's working distance while creating a close-
 Your melee range with this weapon is 10 feet. You threaten creatures 10 feet away but do not threaten creatures within 5 feet with this weapon. When you attack a creature within 5 feet, reduce the weapon's damage dice by 1 step.
 ```
 
-The **filename** (`reach.mdx`) is the ID you'll reference from a weapon's `properties` list. `shortDescription` is what shows up in the hover tooltip on weapon tables — keep it to one clear sentence. The body text below the frontmatter is the full rules text shown on the property's own page and on the [Weapon Properties and Features](/playersguide/06-equipment/weapon_properties/) list page.
+The **filename** (`reach.mdx`) is the ID you'll reference from a weapon's `properties` list. `shortDescription` is what shows up in the hover tooltip on weapon tables — keep it to one clear sentence. The body text below the frontmatter is the full rules text shown on the property's own page and on the [Weapon Properties and Features](/playersguide/06-equipment/05-weapon_properties/) list page.
 
 ## Adding a new weapon feature
 
@@ -109,9 +109,9 @@ Once this file exists, any weapon can reference `"feint"` in its `proficient`, `
 
 ## Where new weapons show up automatically
 
-- **Group tables**, e.g. the tables in [Weapon List](/playersguide/06-equipment/weapon_list/), which are built with `<WeaponTable group="..." />`. See [Tables](/technicalmanual/07-tables/).
+- **Group tables**, e.g. the tables in [Weapon List](/playersguide/06-equipment/04-weapon_list/), which are built with `<WeaponTable group="..." />`. See [Tables](/technicalmanual/07-tables/).
 - **The individual weapon's own page**, at `/data/weapons/<filename-without-extension>` — this is generated automatically, you never create this page yourself.
-- **The [Weapon Properties and Features](/playersguide/06-equipment/weapon_properties/) page**, for new properties/features specifically.
+- **The [Weapon Properties and Features](/playersguide/06-equipment/05-weapon_properties/) page**, for new properties/features specifically.
 
 ## Two components built but not currently used
 
