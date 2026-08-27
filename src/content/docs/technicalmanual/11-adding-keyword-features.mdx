@@ -1,0 +1,41 @@
+---
+title: Adding Keyword Features
+description: How to create a Keyword Feature and list its keyword and other prerequisites.
+pagefind: false
+---
+
+**Where:** `src/content/data/keywordfeaturedata/keyword_features/<feature-name>.mdx`
+
+Each Keyword Feature is a separate data file. The filename becomes the end of its detail-page URL, so use a short lowercase, hyphen-separated name, such as `plate-armor-training.mdx`.
+
+```yaml
+---
+datatype: keyword_feature
+title: Plate Armor Training
+shortDescription: Gain proficiency with Plate Armor.
+keywords:
+  - Priest
+  - Soldier
+otherPrerequisites: You must be proficient with light, medium, and heavy armor.
+---
+
+You become proficient with Plate Armor.
+```
+
+| Field | What it is | Notes |
+|:--|:--|:--|
+| `datatype` | Identifies this as a Keyword Feature | Always `keyword_feature` |
+| `title` | Display name | Used in the chapter and on the detail page |
+| `shortDescription` | One-sentence summary | Used as the detail page's introductory text and search description |
+| `keywords` | Required character keywords | A YAML list with at least one entry; all listed keywords are required |
+| `otherPrerequisites` | Optional non-keyword requirement | Omit it when the feature has no additional prerequisite |
+
+Write the feature's complete rules text below the closing `---`, using normal Markdown. You can include multiple paragraphs, lists, and headings when a feature needs them.
+
+## Where new features show up
+
+New files are picked up automatically by the [Keyword Features](/playersguide/11-character_advancement/keywordfeatures/) chapter. That page sorts them alphabetically and displays the required keywords, optional other prerequisite, and the full rules text.
+
+Every feature also receives a standalone detail page at `/data/keyword-features/<feature-name>`. For example, the file `plate-armor-training.mdx` creates `/data/keyword-features/plate-armor-training/`.
+
+You do not need to import a component or edit the chapter page when adding an ordinary Keyword Feature. Add the data file, make sure the frontmatter uses the fields above, and run the site to check the result.

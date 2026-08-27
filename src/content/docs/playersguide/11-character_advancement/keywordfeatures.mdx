@@ -1,28 +1,34 @@
 ---
 title: Keyword Features
 ---
-import GameplayCard from '../../../../components/GameplayCard.astro';
+import { getCollection, render } from "astro:content";
+
+export const keywordFeatures = await Promise.all(
+  (await getCollection("keywordFeatures"))
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
+    .map(async (entry) => ({
+      entry,
+      Content: (await render(entry)).Content,
+    }))
+);
 
 Keyword Features are special character options that turn the nature, heritage, training, and experiences represented by your keywords into a defining ability. Each Keyword Feature lists one or more prerequisite keywords, and you can select that feature only if your character possesses all of the listed prerequisites. Keyword Features are presented in this chapter and may also appear in campaign guides.
 
 ## Gaining a Keyword Feature
 
-When you reach reache 5th level, select one Keyword Feature whose prerequisites you meet and gain its benefits. Consider every keyword your character possesses when determining which features are available to you, regardless of which class, ancestry, feature, or adventure granted the keyword.
+When you reach 5th level, select one Keyword Feature whose prerequisites you meet and gain its benefits. Consider every keyword your character possesses when determining which features are available to you, regardless of which class, ancestry, feature, or adventure granted the keyword.
 
 A multi-class character gains only one Keyword Feature, taken when one of their classes first reaches 5th level. Reaching 5th level in another class does not grant an additional Keyword Feature.
 
 Keyword Features are different from **Class Keyword Features**. A Class Keyword Feature is an ancestry feature selected during character creation based on one of your Class Keywords; a Keyword Feature is a separate character feature selected at 5th level and may use any of your keywords as prerequisites.
 
-<GameplayCard
-  colorSet="characterfeature"
-  title="Ambuscader"
-  eyebrow="Keywords: Adept"
-  subeyebrow="Keyword Feature"
-  headerOrder={['title','subeyebrow', 'eyebrow']}
-  flavortext
-  toc
->
-_**Other Prerequisites:** Your class must grant you a feature that allows you to deal Ambush Damage._
+## Keyword Features
 
-Increase the damage dice of Ambush Damage you deal by 1 dice step. 
-</GameplayCard>
+{keywordFeatures.map(({ entry: feature, Content }) => (
+  <section style="margin-bottom: 2rem; border-left: 4px solid var(--sl-color-accent); padding-left: 1rem;">
+    <h3><a href={`/data/keyword-features/${feature.id}`}>{feature.data.title}</a></h3>
+    <p><strong>Keywords:</strong> {feature.data.keywords.join(", ")}</p>
+    {feature.data.otherPrerequisites ? <p><strong>Other Prerequisites:</strong> {feature.data.otherPrerequisites}</p> : null}
+    <Content />
+  </section>
+))}

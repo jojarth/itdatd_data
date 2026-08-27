@@ -165,6 +165,21 @@ const items = defineCollection({
   }),
 });
 
+const keywordFeatures = defineCollection({
+  schema: z.object({
+    datatype: z.literal("keyword_feature"),
+    title: z.string(),
+    shortDescription: z.string(),
+    keywords: z.array(z.string()).min(1),
+    otherPrerequisites: z.string().optional(),
+  }),
+  loader: glob({
+    base: "./src/content/data/keywordfeaturedata/keyword_features",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
 export const collections = {
   docs: defineCollection({
     loader: docsLoader(),
@@ -188,4 +203,5 @@ export const collections = {
   armors,
   shields,
   items,
+  keywordFeatures,
 };

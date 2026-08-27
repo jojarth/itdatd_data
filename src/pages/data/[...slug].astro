@@ -9,7 +9,7 @@ import { spellAnchor } from "../../lib/spellAnchor";
 import { formatEncumbrance, formatStatePair } from "../../lib/formatEncumbrance";
 
 export async function getStaticPaths() {
-  const [spells, weapons, weaponProperties, weaponFeatures, armors, shields, items] = await Promise.all([
+  const [spells, weapons, weaponProperties, weaponFeatures, armors, shields, items, keywordFeatures] = await Promise.all([
     getCollection("data"),
     getCollection("weapons"),
     getCollection("weaponProperties"),
@@ -17,6 +17,7 @@ export async function getStaticPaths() {
     getCollection("armors"),
     getCollection("shields"),
     getCollection("items"),
+    getCollection("keywordFeatures"),
   ]);
 
   return [
@@ -48,10 +49,14 @@ export async function getStaticPaths() {
       params: { slug: `items/${entry.id}` },
       props: { collection: "items", id: entry.id },
     })),
+    ...keywordFeatures.map((entry) => ({
+      params: { slug: `keyword-features/${entry.id}` },
+      props: { collection: "keywordFeatures", id: entry.id },
+    })),
   ];
 }
 
-type DetailCollection = "data" | "weapons" | "weaponProperties" | "weaponFeatures" | "armors" | "shields" | "items";
+type DetailCollection = "data" | "weapons" | "weaponProperties" | "weaponFeatures" | "armors" | "shields" | "items" | "keywordFeatures";
 
 const { collection, id } = Astro.props as {
   collection: DetailCollection;
@@ -70,6 +75,7 @@ const isWeapon = collection === "weapons";
 const isArmor = collection === "armors";
 const isShield = collection === "shields";
 const isItem = collection === "items";
+const isKeywordFeature = collection === "keywordFeatures";
 const spellClasses =
   isSpell && Array.isArray(entry.data.classes) && entry.data.classes.length > 0
     ? [...entry.data.classes].sort((a, b) => a.localeCompare(b))
@@ -117,6 +123,11 @@ const detailFields = isWeapon
           { key: "ep", label: "EP", value: formatEncumbrance(entry.data.encumbrance) },
           { key: "notes", label: "Notes", value: entry.data.notes },
         ]
+      : isKeywordFeature
+        ? [
+            { key: "keywords", label: "Keywords", value: entry.data.keywords.join(", ") },
+            { key: "otherPrerequisites", label: "Other Prerequisites", value: entry.data.otherPrerequisites },
+          ]
   : [];
 
 const description = entry.data.shortDescription ?? entry.data.excerpt ?? undefined;
