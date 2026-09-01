@@ -35,13 +35,6 @@ If an activity has its phase listed as *Weapon*, use the Speed Factor of the wea
 ### Spells
 Spells have the number of actions required, as well as the phase you can perform them on, listed in the "casting" section of each spell.
 
-### Phase Lock
-If an activity is Phase Locked, you must begin it in the listed phase. You cannot perform it earlier or delay it to a later phase.
-
-An ability listed as *Phase 3* can be used in *Phase 3, 4, 5, 6, 7, 8,* or *9.* It simply cannot be used in *Phase 1* or *2.*
-
-However, if an ability is listed as *Phase Lock 3,* it must be used in Phase 3. All channeled activities are Phase Locked.
-
 ## Adjudicating at the Same Time
 Adjudicating at the same time means that all activities in a phase happen at the same time, regardless of who rolls first. If you are attempting to act in a phase, you get to do so unless a ***Reaction*** stops you.
 
@@ -72,29 +65,27 @@ Because of the open nature of this combat system, it is very easy for a GM (or p
 
 ## Taking Your Turns
 
-During each round, you have **3 Actions** and **1 Reaction** to use across the round's 9 phases. Unused Actions and Reactions are lost at the end of the round.
-
-### Sluggish
-
-**Sluggish (X)** delays when you can Act. Increase the earliest phase in which you can perform an activity by your Sluggish value. An activity with no phase listed has a base phase of 1 for this purpose, while an activity with a phase listed as *Weapon* uses the weapon's Speed Factor as its base phase.
-
-For example, if you are Sluggish (2), an activity normally available in Phase 3 becomes available in Phase 5. A Phase-Locked activity has its locked phase increased by the same amount and remains Phase Locked. If Sluggish would delay an activity beyond Phase 9, you cannot perform that activity during the current round.
-
-Sluggish does not delay Reactions unless a rule explicitly says otherwise. If multiple effects make you Sluggish, use only the highest Sluggish value.
-
-### Slow
-
-**Slow (X)** reduces the number of Actions you have each round by its Slow value, to a minimum of 0 Actions. For example, if you are Slow (1), you have 2 Actions each round instead of 3.
-
-Slow does not reduce your number of Reactions or change how many Master Actions you can perform. If multiple effects make you Slow, use only the highest Slow value.
-
-In any one phase, you can do one of the following:
+During each round, you have **3 Actions** and **1 Reaction** to use across the round's 9 phases. Unused Actions and Reactions are lost at the end of the round. In any one phase, you can do one of the following:
 
 - Act once, spending the Action cost of one activity.
 - React once, if its trigger occurs and you have not already used your Reaction this round.
 - Do nothing.
 
 You cannot both Act and React in the same phase, nor can you Act or React more than once in that phase. This limit applies regardless of how many Actions an activity costs or how many movements, attacks, or other effects it includes.
+
+### Sluggish
+
+**Sluggish (X)** delays when you can Act. Increase the earliest phase in which you can perform an activity by your Sluggish value. An activity with no phase listed has a base phase of 1 for this purpose, while an activity with a phase listed as *Weapon* uses the weapon's Speed Factor as its base phase.
+
+For example, if you are Sluggish (2), an activity normally available in Phase 3 becomes available in Phase 5. A Phase-Locked activity has its locked phase increased by the same amount and remains Phase Locked. If Sluggish would delay an activity beyond Phase 9, you perform the activity in Phase 9. 
+
+Sluggish does not delay Reactions unless a rule explicitly says otherwise. If multiple effects make you Sluggish, use only the highest Sluggish value.
+
+### Slow
+
+**Slow (X)** reduces the number of Actions you have each round by its Slow value, to a minimum of 1 Action. For example, if you are Slow (1), you have 2 Actions each round instead of 3.
+
+Slow does not reduce your number of Reactions or change how many Master Actions you can perform. If multiple effects make you Slow, use only the highest Slow value.
 
 ## Actions
 
@@ -106,7 +97,7 @@ When you Act, choose one activity and spend its entire Action cost. You cannot b
 
 An activity that costs 2 or 3 Actions is still only one activity. Unless it is channeled, you pay the full cost and resolve the entire activity during the phase in which you Act. Paying more than 1 Action does not allow you to Act more than once during that phase.
 
-An activity that costs 0 Actions, if a feature grants one, still counts as Acting and uses your turn for that phase.
+An activity that costs 0 Actions, if a feature grants one, still counts as Acting and uses your turn for that phase. A GM may allow some 0 Action activities to be performed at the same time (such as shouting a command while moving or attacking).
 
 Unless otherwise noted, you can attempt a specific activity only once per round. Spending Actions does not prevent you from taking later turns; if you have Actions remaining, you can Act again in a later phase.
 
@@ -134,37 +125,6 @@ You can perform only **one Master Action per round**. A Master Action still cost
 
 If a Master Action is interrupted, fails, or otherwise has no effect after you attempt it, it still counts as your Master Action for the round.
 
-### Channeling
-
-Every channeled activity is a **Phase-Locked Master Action**. When you begin a channel, spend its entire Action cost and use your Master Action for the round. Unlike an ordinary multi-Action activity, a channel does not resolve immediately. It resolves after a number of phases equal to its Action cost.
-
-For example, ***Cost: 3 Actions; Master Action; Phase Lock 3; Channel*** begins in Phase 3 and resolves in Phase 6:
-
-| Phase 3 | Phase 4 | Phase 5 | Phase 6 |
-| --- | --- | --- | --- |
-| Begin channel | Channeling | Channeling | Resolve effect |
-
-Beginning a channel counts as Acting during its starting phase. Its later completion is automatic: it does not cost another Action and is not another turn. Channeling does not otherwise prevent you from spending any remaining Actions or using your Reaction in later phases.
-
-While channeling, you are susceptible to interruption. If you take any damage, whether to Grit or Hit Points, or are required to make a Saving Throw after the starting phase and before the completion phase, the channel is interrupted. You lose the activity, all Actions spent on it remain spent, and you lose any resource used to begin it, such as a spell slot.
-
-<aside>
-<img src="/icons/exclamation-mark_gray.svg" alt="/icons/exclamation-mark_gray.svg" width="40px" />
-
-**Channeling Interruption Timing**
-
-The starting and completion phases are not part of a channel's normal interruption window because activities in the same phase are adjudicated simultaneously. In the example above, ordinary damage or a Saving Throw interrupts the channel only during Phases 4 and 5. A Reaction that explicitly stops an activity can still do so according to that Reaction's rules.
-
-</aside>
-
-Unless an activity states otherwise, a channel must be able to finish before the end of the round. Because every channel is Phase Locked, its locked phase must leave enough phases for the channel to resolve.
-
-### Uninterruptible Channel
-
-An uninterruptible channel is written out as ***Uninterruptible Channel*** rather than marked with a single-letter modifier. For example: ***Cost: 3 Actions; Master Action; Phase Lock 3; Uninterruptible Channel***.
-
-An Uninterruptible Channel is not interrupted by taking damage or being required to make a Saving Throw. It continues through its completion phase. This does not guarantee that the activity will have an effect: its target must still be valid and in range when it resolves, and any rule that specifically ends an Uninterruptible Channel can still do so.
-
 ## Reactions
 
 You can take **one Reaction per round** when its trigger occurs. A Reaction does not spend one of your 3 Actions unless it says otherwise, but it counts as your turn for the phase. You cannot React in a phase in which you have already Acted, and after you React, you cannot Act later in that same phase. The most common Reactions are the Opportunity Attack and Shield Block.
@@ -177,7 +137,7 @@ Using a Master Action does not prevent you from using your Reaction later in the
 
 **Trigger:** You are hit by an attack you can perceive while wielding a shield with which you are proficient.
 
-After the attack's damage is rolled but before it is applied, use your Reaction to reduce that damage by your shield's **Block Value + your Combat Proficiency**, to a minimum of 0. Shield Block can be used against a melee, ranged, or spell attack, but not against an effect that does not hit you with an attack. It reduces the damage of the triggering hit only, including the increased damage of a critical hit.
+After the attack's damage is rolled but before it is applied, use your Reaction to reduce that damage by your shield's **Block Value + your Combat Proficiency**, to a minimum of 0. Shield Block can be used against a melee, or ranged attacks. It reduces the damage of the triggering hit only, including the increased damage of a critical hit.
 
 After reducing the damage, make the shield's **Break Roll**, even if the damage was reduced to 0. Roll its Break Die. If the result is equal to or below its Break Chance, its condition worsens by one step: Good becomes Damaged, Damaged becomes Broken, and Broken becomes Destroyed. A Break Roll cannot worsen a shield by more than one step unless an effect explicitly says otherwise.
 
