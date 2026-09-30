@@ -1,0 +1,30 @@
+---
+datatype: spell
+title: Aura Flare
+level: 2
+casting: 1 Master Action; Phase 4
+range: Special, see spell description
+duration: Instantaneous
+classes:
+  - Paladin
+shortDescription: Your aura deals damage and heals allies.
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Aura Falre">
+    <FeatureSection title="Spell Effect">
+        You cause divine energy to arc throughout your Aura of Power. If your Aura of Power is somehow not active, this spell has no effect. 
+
+        All creatures you consider foes inside your Aura must make a Save vs Spell. If they fail, they take 4d6 points of Sacred Damage. If they succeed, they take 1/2 damage.
+
+        All creatures you consider allies instead gain 4d6 points of Grit. 
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Casting">
+        You raise your Casting Hand into the air while shouting a condemnation to your foes, then swiftly bring it down while uttering a prayer for protection of your allies. 
+        </FeatureSubsection>
+    </FeatureSection>
+</SpellEntry>
