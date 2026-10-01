@@ -6,6 +6,7 @@ classSummary:
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
 import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
 import Establishment from '../../../../components/reusable/Establishment.astro';
 
@@ -94,18 +95,19 @@ Additionally, when you make an Attribute Test to accomplish feats of stealth, le
 >
 When you attack with a one-handed melee weapon or a ranged weapon that lacks the Heavy property, you deal an additional 1d4 Ambush damage if either of the following is true:
 
-* You have Combat Supremacy over the target.
+* You hold Combat Supremacy over the target.
 * The target is adjacent to one of your allies.
 
 When making a ranged or thrown attack, the target must also be within 30 feet or the weapon's first range increment, whichever is shorter.
 
-    <FeatureSection title="5th Level Improvements">
-    Increase the additional Ambush damage to **2d4**.
-    </FeatureSection>
-
-    <FeatureSection title="10th Level Improvements">
-    Increase the additional Ambush damage to **3d4**.
-    </FeatureSection>
+  <FeatureSection title="Feature Improvements">
+      <FeatureSubsection title="When you Reach 5th Level">
+        * Increase the additional Ambush damage to **2d4**.
+      </FeatureSubsection>
+      <FeatureSubsection title="When you Reach 10th Level">
+        * Increase the additional Ambush damage to **3d4**.
+      </FeatureSubsection>
+  </FeatureSection>
 </GameplayCard>
 
 <GameplayCard
@@ -135,55 +137,33 @@ This action does not allow a Thief to disappear into a shadow, and follows the n
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Starting at 3rd level, you learn to decipher and activate magical items beyond the limits of your training. You can use spell scrolls of 1st level or lower. You are treated as having any ancestry for the purpose of using magical items.
-    <FeatureSection title="5th Level Improvements">
-    You can utilize 2nd-level Spell Scrolls.
-    </FeatureSection>
+Starting at 3rd level, you learn to decipher and activate magical items beyond the limits of your training. You gain the following benefits:
 
-    <FeatureSection title="7th Level Improvements">
-    You can utilize 3rd-level Spell Scrolls. You can ignore any keyword requirements to utilize magic items.
-    </FeatureSection>
+  * You can use spell scrolls of 1st level or lower. 
+  * You are treated as having any ancestry for the purpose of using magical items.
 
-    <FeatureSection title="9th Level Improvements">
-    You can utilize 4th-level Spell Scrolls.
-    </FeatureSection>
-
-    <FeatureSection title="11th Level Improvements">
-    You can utilize 5th-level Spell Scrolls. You immediately recognize when an item is cursed before its effect takes hold. You may choose to stop interacting with the item before the curse applies.
-    </FeatureSection>
-
-    <FeatureSection title="13th Level Improvements">
-    You can utilize 6th-level Spell Scrolls
-    </FeatureSection>
+  <FeatureSection title="Feature Improvements">
+      <FeatureSubsection title="When you Reach 5th Level">
+        * You can utilize 2nd-level Spell Scrolls.
+      </FeatureSubsection>
+      <FeatureSubsection title="When you Reach 7th Level">
+        * You can utilize 3rd-level Spell Scrolls. 
+        * You can ignore any keyword requirements to utilize magic items.
+      </FeatureSubsection>
+      <FeatureSubsection title="When you Reach 9th Level">
+        * You can utilize 4th-level Spell Scrolls.
+      </FeatureSubsection>
+      <FeatureSubsection title="When you Reach 11th Level">
+        * You can utilize 5th-level Spell Scrolls. 
+        * You immediately recognize when an item is cursed before its effect takes hold. You may choose to stop interacting with the item before the curse applies.
+      </FeatureSubsection>
+      <FeatureSubsection title="When you Reach 13th Level">
+        * You can utilize 6th-level Spell Scrolls.
+      </FeatureSubsection>
+  </FeatureSection>
 </GameplayCard>
 
-<GameplayCard
-  colorSet="System"
-  title="Backstab"
-  subeyebrow="5th Level Thief Feature Improvement"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 5th level, your [Backstab](#backstab) Feature Improves.
-    <FeatureSection title="5th Level Improvements">
-    Increase the additional Ambush damage to **2d4**.
-    </FeatureSection>
-  </GameplayCard>
-
 <KeywordFeatureCard toc />
-
-<GameplayCard
-  colorSet="System"
-  title="Magic Item Aptitude"
-  subeyebrow="5th Level Thief Feature Improvement"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 5th level, your [Magic Item Aptitude](#magic-item-aptitude) Feature Improves.
-    <FeatureSection title="5th Level Improvements">
-    You can utilize 2nd-level Spell Scrolls.
-    </FeatureSection>
-  </GameplayCard>
 
 <GameplayCard
   colorSet="fixedfeature"
@@ -208,70 +188,3 @@ Upon reaching 7th level, a Thief can climb upon surfaces that seemingly have no 
 
 Thieves who meet these conditions can climb any walls. They must follow all other rules for climbing, but are able to scale surfaces thought to be impossible to scale unless by magic.
 </GameplayCard>
-
-<GameplayCard
-  colorSet="System"
-  title="Magic Item Aptitude"
-  subeyebrow="7th Level Thief Feature Improvement"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 7th level, your [Magic Item Aptitude](#magic-item-aptitude) Feature Improves.
-    <FeatureSection title="7th Level Improvements">
-    You can utilize 3rd-level Spell Scrolls. You can ignore any keyword requirements to utilize magic items.
-    </FeatureSection>
-  </GameplayCard>
-
-<GameplayCard
-  colorSet="System"
-  title="Magic Item Aptitude"
-  subeyebrow="9th Level Thief Feature Improvement"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 9th level, your [Magic Item Aptitude](#magic-item-aptitude) Feature Improves.
-    <FeatureSection title="9th Level Improvements">
-    You can utilize 4th-level Spell Scrolls.
-    </FeatureSection>
-  </GameplayCard>
-
-<GameplayCard
-  colorSet="System"
-  title="Backstab"
-  subeyebrow="10th Level Thief Feature Improvement"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 10th level, your [Backstab](#backstab) Feature Improves.
-    <FeatureSection title="10th Level Improvements">
-    Increase the additional Ambush damage to **3d4**.
-    </FeatureSection>
-  </GameplayCard>
-
-<Establishment toc />
-
-<GameplayCard
-  colorSet="System"
-  title="Magic Item Aptitude"
-  subeyebrow="11th Level Thief Feature Improvement"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 11th level, your [Magic Item Aptitude](#magic-item-aptitude) Feature Improves.
-    <FeatureSection title="11th Level Improvements">
-    You can utilize 5th-level Spell Scrolls. You immediately recognize when an item is cursed before its effect takes hold. You may choose to stop interacting with the item before the curse applies.
-    </FeatureSection>
-  </GameplayCard>
-
-<GameplayCard
-  colorSet="System"
-  title="Magic Item Aptitude"
-  subeyebrow="13th Level Thief Feature Improvement"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 13th level, your [Magic Item Aptitude](#magic-item-aptitude) Feature Improves.
-    <FeatureSection title="13th Level Improvements">
-    You can utilize 6th-level Spell Scrolls
-    </FeatureSection>
-  </GameplayCard>

@@ -42,7 +42,7 @@ const shields = (await getCollection("shields"))
           <td>{entry.data.blockValue}</td>
           <td>{entry.data.breakDie}</td>
           <td>{entry.data.breakChance}</td>
-          <td>{entry.data.checkPenalty === 0 ? "—" : `${entry.data.checkPenalty} Situation`}</td>
+          <td>{entry.data.checkPenalty === 0 ? "—" : entry.data.checkPenalty}</td>
         </tr>
       ))}
     </tbody>

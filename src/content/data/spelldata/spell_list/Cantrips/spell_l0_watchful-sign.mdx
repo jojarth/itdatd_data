@@ -1,0 +1,36 @@
+---
+datatype: spell
+title: Watchful Sign
+level: 0
+casting: 1 Action; Phase 4
+range: Touch
+duration: 2 hours
+shortDescription: A sacred mark warns you when undead or umbral creatures approach.
+classes:
+  - Cleric
+  - Theurge
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Watchful Sign">
+    <FeatureSection title="Spell Effect">
+        Touch a door, object, or point on a solid surface and place a sacred sign upon it. The sign is visible to you and lasts for the spell's duration. If a creature with the **Necros** or **Umbra** keyword comes within 5 feet of the sign, it flashes brightly and gives a brief chime audible to you if you are within 60 feet. The spell then ends.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+        * Increase the spell's duration to 4 hours.
+        </FeatureSubsection>
+        <FeatureSubsection title="When you can cast 5th-level spells">
+        * Increase the spell's duration to 8 hours.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Casting">
+        Trace a small sign of your faith upon the chosen surface with your Casting Hand and whisper a prayer of vigilance.
+        </FeatureSubsection>
+    </FeatureSection>
+</SpellEntry>

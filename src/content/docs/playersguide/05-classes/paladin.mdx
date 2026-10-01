@@ -126,18 +126,6 @@ Below is a list of information needed to play a Paladin at the various levels of
 As a Paladin, you gain the following class features.
 
 <GameplayCard
-  colorSet="fixedfeature"
-  title="Holy Symbol"
-  subeyebrow="1st Level Paladin Feature"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Many of your class features require you to present your holy symbol. A holy symbol is a physical representation of your faith and devotion, and may take nearly any form, such as an amulet, prayer beads, a reliquary, or another relic sacred to your beliefs.
-
-To present your holy symbol, you must hold it aloft in clear view. This requires a free hand. Alternatively, you may emblazon your holy symbol upon a shield. Presenting such a shield fulfills any requirement to present your holy symbol.
-</GameplayCard>
-
-<GameplayCard
   colorSet="System"
   title="Lay on Hands"
   subeyebrow="1st Level Paladin Feature • Oath-Dependent"
@@ -148,9 +136,11 @@ You can use this feature to cast the *Minor Healing* cantrip without expending a
 
 Once you use this feature, you must complete a Night's Rest before you can use it again.
 
-<FeatureSection title="11th Level Improvements">
-Starting at 11th level, when you use this feature, you may choose to remove one disease affecting the target. If you do, the Minor Healing cantrip restores its normal amount of Grit rather than the Grit provided by this feature.
-</FeatureSection>
+  <FeatureSection title="Feature Improvements">
+      <FeatureSubsection title="When you Reach 11th Level">
+        * When you use this feature, you may choose to remove one disease affecting the target. If you do, the Minor Healing cantrip restores its normal amount of Grit rather than the Grit provided by this feature.
+      </FeatureSubsection>
+  </FeatureSection>
 
 </GameplayCard> 
 
@@ -185,9 +175,11 @@ Some Paladin spells are cast in conjunction with utilizing this feature. When th
   </FeatureSubsection>
 </FeatureSection>
 
-<FeatureSection title="4th Level Improvements">
-Starting at 4th level, when you utilize this feature, you also can add 1/2 your Paladin Level to the damage done.
-</FeatureSection>
+  <FeatureSection title="Feature Improvements">
+      <FeatureSubsection title="When you Reach 4th Level">
+        * When you utilize this feature, you also can add 1/2 your Paladin Level to the damage done.
+      </FeatureSubsection>
+  </FeatureSection>
 </GameplayCard>
 
 <GameplayCard
@@ -197,7 +189,7 @@ Starting at 4th level, when you utilize this feature, you also can add 1/2 your 
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Upon reaching 3rd level, Paladins can channel sacred power to drive back the undead. To use this ability, you must openly present a symbol of your faith. **Turn Undead** requires **1 Master Action** and may be performed beginning in **Phase 1**. You must present your holy symbol to Turn Undead. 
+Upon reaching 3rd level, Paladins can channel sacred power to drive back the undead. To use this ability, you must present your holy symbol as described under Sacred Casting in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/). **Turn Undead** requires **1 Master Action** and may be performed beginning in **Phase 1**.
 
   <FeatureSection title="Determine Highest Level">
     When you attempt to Turn Undead, first determine the highest-level Valid Creature you can affect.
@@ -219,7 +211,7 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
   </FeatureSection>
 
   <FeatureSection title="Determine Turning Capacity">
-    Next, determine the total number of creature levels you can affect. Roll **2d6** and add** half your Paladin Level** (rounded down), then subtract 1. The result is your **Turning Capacity.**
+    Next, determine the total number of creature levels you can affect. Roll **2d6** and add **half your Paladin Level** (rounded down), then subtract 1. The result is your **Turning Capacity**.
   </FeatureSection>
 
   <FeatureSection title="Turn Undead Effect">
@@ -233,6 +225,10 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
       * A creature with the **Necros** keyword is a Valid Creature.
     </FeatureSubsection>
   </FeatureSection>
+
+  <FeatureSection title="Paladin-Specific Notes">
+  If an effect modifies or otherwise interacts with Turn Undead but does not specify how it applies to Paladins, it applies to you. For that effect, treat your Cleric level as two levels lower than your Paladin level.
+  </FeatureSection>
 </GameplayCard>
 
 <GameplayCard
@@ -243,21 +239,6 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
   toc
 >
 Upon reaching 3rd level, you become immune to diseases. 
-</GameplayCard>
-
-<GameplayCard
-  colorSet="System"
-  title="Smite"
-  subeyebrow="4th Level Paladin Feature Improvement • Oath-Dependent" 
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-Upon reaching 4th level, your [Smite](#smite) feature improves.
-
-<FeatureSection title="4th Level Improvements">
-Starting at 4th level, when you utilize this feature, you also can add 1/2 your Paladin Level to the damage done.
-</FeatureSection>
-
 </GameplayCard>
 
 <KeywordFeatureCard toc />
@@ -301,12 +282,16 @@ Your spells are **clerical spells**, and you use the **Sacred** casting method. 
   You may prepare any spell on the Paladin spell list for which you have a spell slot of the appropriate level. The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
   </FeatureSection>
 
+  <FeatureSection title="Spell Scrolls">
+  You can cast a spell from a Spell Scroll if it appears on the Paladin spell list and its level is no higher than the highest-level spell you can cast.
+  </FeatureSection>
+
   <FeatureSection title="Reversible Spells">
   You may prepare only the primary form of a reversible spell. You cannot prepare or cast its reverse form, even if the reversible spell appears on the Paladin spell list.
   </FeatureSection>
 
   <FeatureSection title="Casting Spells">
-  You use the Sacred casting method described in the spellcasting chapter. You must present your holy symbol when casting a spell, and the hand used to present it is your Casting Hand. Your Holy Symbol feature explains how you present it.
+  You use the Sacred casting method described in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/), including its rules for presenting your holy symbol and using your Casting Hand.
   </FeatureSection>
 
   <FeatureSection title="Cantrips">
@@ -322,19 +307,6 @@ Your spells are **clerical spells**, and you use the **Sacred** casting method. 
 
 <Establishment toc />
 
-<GameplayCard
-  colorSet="System"
-  title="Lay on Hands"
-  subeyebrow="11th Level Paladin Feature Imrpvement • Oath-Dependent"
-  headerOrder={['title', 'subeyebrow']}
-  toc
->
-At 11th level, your [Lay on Hands](#lay-on-hands) feature improves. 
-
-<FeatureSection title="11th Level Improvements">
-Starting at 11th level, when you use this feature, you may choose to remove one disease affecting the target. If you do, the Minor Healing cantrip restores its normal amount of Grit rather than three times your Paladin level.
-</FeatureSection>
-</GameplayCard>
 
 ## Paladin Spell List
 <Tabs>
