@@ -1,0 +1,33 @@
+---
+datatype: spell
+title: Conjure Magic Arrow
+level: 0
+casting: Weapon
+range: Weapon
+duration: Instantaneous
+shortDescription: You create and fire a magical arrow.
+classes:
+    - Magic-User
+    - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Conjure Magic Arrow">
+
+    <FeatureSection title="Spell Effect">
+        You must be wielding a bow or crossbow. Cast this cantrip as part of an attack with that weapon. Make the attack using its normal attack roll, range, speed factor, and damage. You do not need to provide ammunition, as this spell will create the magical ammunition as part of it. This created ammunition counts as a magical weapon.
+
+        You still must reload a crossbow to fire it appropriately.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Cast this cantrip as part of the bow or crossbow attack. Draw and release the weapon normally while naming the target; the ammunition forms as the weapon is fired.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

@@ -2,3 +2,198 @@
 title: Spell Lists
 description: The chapter hub for building a player character.
 ---
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+export const allEntries = await getCollection("data");
+
+<Tabs>
+    <TabItem label="Cleric">
+        <Tabs>
+            <TabItem label="Cantrips">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={0}
+                        className="Cleric"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="1st Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={1}
+                        className="Cleric"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="2nd Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={2}
+                        className="Cleric"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="3rd Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={3}
+                        className="Cleric"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="4th Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={4}
+                        className="Cleric"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="5th Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={5}
+                        className="Cleric"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem label="Druid">
+        <Tabs>
+            <TabItem label="Cantrips">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={0}
+                        className="Druid"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="1st Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={1}
+                        className="Druid"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="2nd Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={2}
+                        className="Druid"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="3rd Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={3}
+                        className="Druid"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="4th Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={4}
+                        className="Druid"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+            <TabItem label="5th Level">
+                <main>
+                    <SpellList
+                        entries={allEntries}
+                        datatype="spell"
+                        level={5}
+                        className="Druid"
+                        sortBy="title"
+                        sortDir="asc"
+                        showReverse
+                        showHeading={false}
+                        displayFields={['classes', 'shortDescription']}
+                    />
+                </main>
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>

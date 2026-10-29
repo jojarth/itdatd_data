@@ -10,36 +10,45 @@ classes:
     - Cleric
     - Theurge
     - Paladin
+    - Druid
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Minor Healing">
+
     <FeatureSection title="Spell Effect">
         Touch a nearby Valid Creature. The target regains 1 Grit.
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
-        <FeatureSubsection title="Valid Creatures">
-        * A creature with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keyword is a Valid Creature.
-        * A creature with the **Necros** or **Umbra** keyword is a Valid Creature. However, it is entitled to a Saving Throw vs Spell. On a success, nothing happens. On a failure, it suffers 1 point of Sacred damage instead of regaining Grit.
 
+        <FeatureSubsection title="Valid Creatures">
+            * A creature with the **Aeon**, **Animus**, **Cosmic**, or **Fey** keyword is a Valid Creature.
+            * A creature with the **Necros** or **Umbra** keyword is a Valid Creature. However, it is entitled to a Saving Throw vs Spell. On a success, nothing happens. On a failure, it suffers 1 point of Sacred damage instead of regaining Grit.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Spell Improvements">
+
         <FeatureSubsection title="When you can cast 3rd-level spells">
-        * Increase the healing provided, as well as the damage delt to *Necros* and *Umbra* creatures, to 2.
+            * Increase the healing provided, as well as the damage delt to *Necros* and *Umbra* creatures, to 2.
         </FeatureSubsection>
+
         <FeatureSubsection title="When you can cast 5th-level spells">
-        * Increase the healing provided, as well as the damage delt to *Necros* and *Umbra* creatures, to 3.
+            * Increase the healing provided, as well as the damage delt to *Necros* and *Umbra* creatures, to 3.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Components">
+
         <FeatureSubsection title="Casting">
-        Hold your Casting Hand open before you and utter a prayer or plea of one to five words. Then lay that hand upon the target.
+            Hold your Casting Hand open before you and utter a prayer or plea of one to five words. Then lay that hand upon the target.
         </FeatureSubsection>
+
     </FeatureSection>
+
 </SpellEntry>

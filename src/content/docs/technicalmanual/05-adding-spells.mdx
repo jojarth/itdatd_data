@@ -106,7 +106,6 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry
   title="Curse"
-  summary="Afflicts foes with divine condemnation."
   variant="reverse"
   metadata={props.reverseMetadata}
 >
@@ -122,7 +121,7 @@ Extra reverse-only frontmatter fields, all optional — only add the ones that a
 - `reverseShortDescription`
 - `reverseCasting`, `reverseRange`, `reverseDuration` — omit any of these to inherit the primary's value
 
-The reverse `<SpellEntry>` must include `variant="reverse"` and `metadata={props.reverseMetadata}` exactly as shown — that's what pulls in the resolved (inherited-or-overridden) casting/range/duration automatically.
+The reverse `<SpellEntry>` must include `variant="reverse"` and `metadata={props.reverseMetadata}` exactly as shown — that's what pulls in the resolved (inherited-or-overridden) casting/range/duration automatically. Its header summary comes from `reverseShortDescription` in front matter, so don't add a separate `summary` prop.
 
 ## Listing spells on a page
 

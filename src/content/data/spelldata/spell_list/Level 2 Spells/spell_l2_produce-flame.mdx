@@ -1,0 +1,35 @@
+---
+datatype: spell
+title: Produce Flame
+level: 2
+casting: 1 Master Action; Phase 4
+range: Self
+duration: 10 minutes
+shortDescription: Create a flame in your hand
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Produce Flame">
+
+    <FeatureSection title="Spell Effect">
+        Create a flame in your hand. As an Action, direct it at one creature within 30 feet; it makes a Save vs Spell, taking 3d8 fire damage on failure or half on success. Add 1d8 at 3rd-level and another 1d8 at 5th-level spellcasting. The flame sheds light.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">Increase the damage by 1d8.</FeatureSubsection>
+
+            <FeatureSubsection title="When you can cast 5th-level spells">Increase the damage by another 1d8.</FeatureSubsection>
+                </FeatureSection>
+
+                <FeatureSection title="Components">
+
+                    <FeatureSubsection title="Casting">
+                        Turn your Casting Hand palm-up and speak a word of ignition as a flame kindles above it. To hurl it, flick your hand toward the target.
+                    </FeatureSubsection>
+
+                </FeatureSection>
+
+                </SpellEntry>

@@ -1,0 +1,32 @@
+---
+datatype: spell
+title: Magic Mouth
+level: 2
+casting: 1 Master Action; Phase 4
+range: Touch
+duration: 30 days
+shortDescription: Touch an object and set a simple trigger
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Magic Mouth">
+
+    <FeatureSection title="Spell Effect">
+        Touch an object and set a simple trigger. When it occurs within 30 feet, the object speaks a message of up to 25 words in your voice. It triggers once within 30 days.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Preparation">
+            Before preparing the spell, write the message on a small strip of paper and fold it toward the object that will carry it. The paper is consumed when the spell is successfully prepared.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Touch the object with your Casting Hand, speak the message aloud, and describe the event that should cause the object to repeat it.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

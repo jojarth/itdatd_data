@@ -11,66 +11,84 @@ reverseShortDescription: Afflicts foes with divine condemnation.
 classes:
   - Cleric
   - Theurge
+  - Paladin
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Bless">
+
     <FeatureSection title="Spell Effect">
         Select 3 targets within the spell's range. None of the targets can be engaged in melee combat. The selected targets gain a +1 magic bonus to attack rolls and a +1 magic bonus to saving throws for the duration of the spell.
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
+
         <FeatureSubsection title="Invalid Creatures">
-        * A creature with the **Profane** keyword cannot be the target of this spell. 
+            * A creature with the **Defiled** keyword cannot be the target of this spell.
         </FeatureSubsection>
 
         <FeatureSubsection title="Non-Player Characters">
-        * In addition to the normal effects of this spell, a non-player character gains a +1 magic bonus to morale.
+            * In addition to the normal effects of this spell, a non-player character gains a +1 magic bonus to morale.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Spell Improvements">
+
         <FeatureSubsection title="When you can cast 3rd-level spells">
-        * You can target 4 creatures instead of 3.
+            * You can target 4 creatures.
         </FeatureSubsection>
+
         <FeatureSubsection title="When you can cast 5th-level spells">
-        * You can target 5 creatures instead of 4.
+            * You can target 5 creatures.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Components">
+
         <FeatureSubsection title="Casting">
-        Hold your Casting Hand palm-up before you, then sweep it in an arc toward the targets while speaking a brief prayer of blessing.
+            Hold your Casting Hand palm-up before you, then sweep it in an arc toward the targets while speaking a brief prayer of blessing.
         </FeatureSubsection>
+
     </FeatureSection>
+
 </SpellEntry>
 
-<SpellEntry title="Curse" summary="Afflicts foes with divine condemnation." variant="reverse" metadata={props.reverseMetadata}>
+<SpellEntry title="Curse" variant="reverse" metadata={props.reverseMetadata}>
 
     <FeatureSection title="Spell Effect">
         Select 3 targets within the spell's range. None of the targets can be engaged in melee combat. The selected targets suffer a -1 magic penalty to attack rolls and a -1 magic penalty to saving throws for the duration of the spell.
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
+
         <FeatureSubsection title="Non-Player Characters">
-        * In addition to the normal effects of this spell, a non-player character suffers a -1 magic bonus to morale.
+            * In addition to the normal effects of this spell, a non-player character suffers a -1 magic bonus to morale.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Spell Improvements">
+
         <FeatureSubsection title="When you can cast 3rd-level spells">
-        * You can target 4 creatures instead of 3.
+            * You can target 4 creatures instead of 3.
         </FeatureSubsection>
+
         <FeatureSubsection title="When you can cast 5th-level spells">
-        * You can target 5 creatures instead of 4.
+            * You can target 5 creatures instead of 4.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Components">
+
         <FeatureSubsection title="Casting">
-        Hold your Casting Hand palm-down before you, then sweep it in an arc toward the targets while speaking a solemn word of condemnation.
+            Hold your Casting Hand palm-down before you, then sweep it in an arc toward the targets while speaking a solemn word of condemnation.
         </FeatureSubsection>
+
     </FeatureSection>
+
 </SpellEntry>

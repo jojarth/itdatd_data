@@ -1,0 +1,28 @@
+---
+datatype: spell
+title: Hold Person
+level: 2
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 minute
+shortDescription: One person within 60 feet makes a Save vs Spell
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Hold Person">
+
+    <FeatureSection title="Spell Effect">
+        One person within 60 feet makes a Save vs Spell. On a failure it is Paralyzed for the duration and may repeat the save at the end of each turn.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Point your Casting Hand at the target and close your fingers into a fist while speaking a word of stillness.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

@@ -1,0 +1,45 @@
+---
+datatype: spell
+title: Color Spray
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 round
+shortDescription: A cone of color erupts from your hands, causing creatures to suffer a variety of penalties.
+classes:
+    - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Color Spray">
+
+    <FeatureSection title="Spell Effect">
+        You create a 15-foot cone of scintillating color from your open hand. Creatures caught in the cone suffer penalties based on their level compared to yours. Regardless of the number of creatures caught in the cone, this spell can only affected up to 1d6 of them.
+
+        If there are more creatures in the cone than you rolled, you get to select which creatures are affected.
+
+        <FeatureSubsection title="If the target's level is equal to or lower than yours">
+            Targets affected are knocked unconcsious for 2d4 rounds. A target who is level 4 or higher is allowed to attempt a Save vs Spell. If they succeed they ignore the effects of the spell.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="If the target's level is up to two levels higher than yours">
+            Targets affected must make a Save vs Spell. If they succeed, nothing happens. If they fail, they are blinded for 1d4 rounds.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="If the target's level is three or more levels higher than yours">
+            Targets affected must make a Save vs Spell. If they succeed, nothing happens. If they fail, they must spend a total of 3 Actions fighting the spell effects before they can take other actions. If the target cannot spend all three required actions before the end of the current round, they must spend additional actions beginning in Phase 1 of the next round until all 3 actions have been spent.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Place your Casting Hand in a pocket, sachel, bag, or some other storgage, swiftly draw it out while pointing in the direction you wish this spell to affect.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

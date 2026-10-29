@@ -5,7 +5,7 @@ import SpellMetadata from "./SpellMetadata.astro";
 
 interface Props {
   title: string;
-  summary?: string;
+  reverseSummary?: string;
   variant?: "primary" | "reverse";
   label?: string;
   id?: string;
@@ -19,7 +19,7 @@ interface Props {
 
 const {
   title,
-  summary,
+  reverseSummary,
   variant = "primary",
   label = variant === "reverse" ? "Reverse Spell" : "Spell",
   id,
@@ -34,7 +34,7 @@ const isReverse = variant === "reverse";
     <SpellHeader
       title={title}
       level={metadata?.level}
-      summary={summary}
+      summary={reverseSummary}
       variant={variant}
       label={label}
     />

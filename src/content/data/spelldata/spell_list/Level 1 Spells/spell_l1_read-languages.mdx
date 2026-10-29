@@ -1,0 +1,32 @@
+---
+datatype: spell
+title: Read Languages
+level: 1
+casting: 1 Master Action; Phase 4
+range: Self feet
+duration: 1 hour
+shortDescription: You can read non-magical text.
+classes:
+  - Theurge
+  - Magic-User
+  - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Read Languages">
+
+    <FeatureSection title="Spell Effect">
+        For the duration of this spell, you can read and understand any non-magical text. This includes text written in languages you don't know.  
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Pass your Casting Hand before the writing from left to right while speaking a phrase asking for understanding.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

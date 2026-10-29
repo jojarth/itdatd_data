@@ -1,0 +1,31 @@
+---
+datatype: spell
+title: Whisper
+level: 0
+casting: 1 Action; Phase 4
+range: 60 feet
+duration: Instantaneous
+shortDescription: Send a brief whispered message to one creature you can see within 60 feet
+classes:
+    - Magic-User
+    - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Whisper">
+
+    <FeatureSection title="Spell Effect">
+        Send a brief whispered message to one creature you can see within 60 feet. Only that creature hears it; this spell does not let you hear a reply.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Cup your Casting Hand beside your mouth and whisper the message into your palm, then open your hand toward the recipient.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

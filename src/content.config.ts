@@ -72,6 +72,14 @@ const weapons = defineCollection({
     expert: z.array(reference("weaponFeatures")),
     master: z.array(reference("weaponFeatures")),
     grandmaster: z.array(reference("weaponFeatures")),
+    crossTrainedFrom: z.array(z.object({
+      type: z.enum(["group", "exotic"]),
+      name: z.string(),
+    })).optional(),
+    crossTrainsWith: z.array(z.object({
+      type: z.enum(["group", "exotic"]),
+      name: z.string(),
+    })).optional(),
   }),
   loader: glob({
     base: "./src/content/data/weapondata/weapon_list",
@@ -187,7 +195,7 @@ export const collections = {
       extend: z.object({
         spellcasting: z.object({
           type: z.enum(["Clerical", "Magical"]),
-          method: z.enum(["Free-Hand", "Sacred"]),
+          method: z.enum(["Free-Hand", "Devotional"]),
         }).optional(),
         classSummary: z.object({
           role: z.string(),

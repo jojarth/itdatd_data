@@ -1,0 +1,81 @@
+---
+datatype: spell
+title: Remove Fear
+level: 1
+casting: 1 Master Action; Phase 4
+range: 30 Feet
+duration: Instantaneous
+shortDescription: You rally an ally to no longer be affected by fear.
+reverseTitle: Cause Fear
+reverseShortDescription: Causes your foes to become frightened of you. 
+reverseCasting: 1 Master Action; Phase 4
+reverseRange: 30 feet
+reverseDuration: 1 round
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Remove Fear">
+
+    <FeatureSection title="Spell Effect">
+        You can cast this spell upon a creature suffering from Magical Fear effects. The magical fear affecting them ends immediately. Additionally, for 1 minute, that ally gains a +2 Magical bonus on any Saving Throw they make to avoid the effects of Magical Fear. Casting this spell upon an ally that is not suffering from a Magical Fear effect does not impart this Saving Throw bonus. 
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * You can target up to two creatures within range of the spell.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * You can target up to three creatures within range of the spell.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Hold your Casting Hand upon high, speaking strong words of unity and strength. 
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>
+
+<SpellEntry title="Cause Fear" variant="reverse" metadata={props.reverseMetadata}>
+
+    <FeatureSection title="Spell Effect">
+        Select a Valid Creature within range of this spell. The target must make a Save vs Spell. If they succeed, nothing happens. If they fail, they become Frighted (2), with you being the source, for the duration of the spell. 
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Valid Creatures">
+            * A creature who is 2 levels higher than you, or lower is a Valid Creature. 
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * You can select two Valid Creatures within range of this spell to be affected, and the duration is increased to 2 rounds. 
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * You can select three Valid Creatures within range of this spell to be affected, and the duration is increased to 3 rounds. 
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Point suddenly at the target and bark a word of alarm, then thrust your Casting Hand away as though driving it back.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

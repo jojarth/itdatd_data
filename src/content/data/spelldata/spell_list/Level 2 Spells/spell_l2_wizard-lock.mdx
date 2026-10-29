@@ -1,0 +1,48 @@
+---
+datatype: spell
+title: Wizard Lock
+level: 2
+casting: 1 Master Action; Phase 4
+range: Touch
+duration: Until dispelled
+shortDescription: Touch and magically lock a closed portal or container for the duration
+reverseTitle: Knock
+reverseShortDescription: Magically open a locked, barred, or stuck portal.
+reverseRange: 60 feet
+reverseDuration: Instantaneous
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Wizard Lock">
+
+    <FeatureSection title="Spell Effect">
+        Touch and magically lock a closed portal or container for the duration. You may open it freely; a successful Brawn check against your spell difficulty can force it open.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Touch the portal or container with your Casting Hand and trace a closed loop around its latch while speaking a word of sealing.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>
+
+<SpellEntry title="Knock" variant="reverse" metadata={props.reverseMetadata}>
+
+    <FeatureSection title="Spell Effect">
+        Choose one locked, barred, or stuck door, gate, or container within range. It opens immediately. This spell makes a loud knock audible within 300 feet, and it cannot open a portal sealed by a more powerful magical effect.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Strike the air once with your Casting Hand while speaking a sharp word of opening.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

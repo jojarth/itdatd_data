@@ -1,0 +1,93 @@
+---
+datatype: spell
+title: Chromatic Orb
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: Instantaneous
+shortDescription: You hurl a colored orb at one creature, dealing damage or inflicting another harmful effect.
+classes:
+    - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Chromatic Orb">
+
+    <FeatureSection title="Spell Effect">
+        You create an orb of pure, scintillating color and hurl it at one creature within range. The orb strikes unerringly, but the target can attempt a Save vs Spell, with the effect determined by the orb's color.
+
+        The orb's color depends on the gemstone you provide when casting the spell. You need both hands: one to hold the gemstone and your casting hand to form and throw the orb. Each color requires a gemstone of a specific type and minimum value. A more valuable gemstone produces the enhanced effect. A gemstone that qualifies as more than one color can be used for any qualifying color, provided it meets that color's value requirement.
+
+        <FeatureSubsection title="Clear Gemstone">
+            When you cast this spell, provide a diamond, goshenite, danburite, achroite, or a similar clear gemstone worth at least 25 silver. To enhance the spell, provide a similar gemstone worth at least 1 gold.
+
+            You create a clear orb. The target must make a Save vs Spell. On a success, the spell has no effect. On a failure, the target takes 3d4 force damage and sheds bright light in a 5-foot radius and dim light for 5 feet beyond that. While illuminated this way, the target cannot become invisible.
+
+            Enhancing the spell increases the bright-light radius to 10 feet, with dim light extending 10 feet beyond that.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Red Gemstone">
+            When you cast this spell, provide a ruby, rhodolite, pezzottaite, almandine, or a similar red gemstone worth at least 50 silver. To enhance the spell, provide a similar gemstone worth at least 1 gold and 50 silver.
+
+            You create a red orb. The target must make a Save vs Spell. On a success, the spell has no effect. On a failure, the target takes 3d6 fire damage and suffers a −2 magic penalty to Armor Class for 1d4 rounds.
+
+            Enhancing the spell extends the Armor Class penalty to 2d4 rounds.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Orange Gemstone">
+            When you cast this spell, provide a citrine, spessartite, sunstone, padparadscha, or a similar orange gemstone worth at least 1 gold. To enhance the spell, provide a similar gemstone worth at least 3 gold.
+
+            You create an orange orb. The target must make a Save vs Spell. On a success, the spell has no effect. On a failure, the target takes 3d10 fire damage.
+
+            Enhancing the spell increases its damage to 3d12 fire damage.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Black Gemstone">
+            When you cast this spell, provide an onyx, schorl, obsidian, jet, or a similar black gemstone worth at least 2 gold. To enhance the spell, provide a similar gemstone worth at least 6 gold.
+
+            You create a black orb. The target must make a Save vs Spell. On a success, the spell has no effect. On a failure, the target takes 3d6 profane damage and becomes Blind for 1d4 rounds.
+
+            Enhancing the spell increases its damage to 3d8 profane damage and causes the target to become Blind for 1d4 days.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Green Gemstone">
+            When you cast this spell, provide an emerald, jade, malachite, peridot, or a similar green gemstone worth at least 4 gold. To enhance the spell, provide a similar gemstone worth at least 12 gold.
+
+            You create a green orb. The target must make a Save vs Spell. On a success, the spell has no effect. On a failure, the target takes 3d6 acid damage and the orb erupts in a stinking vapor centered on it. The cloud lingers on the target for 1d6 rounds and follows it wherever it goes. At the start of each round on Phase 1, the target and all creatures within 5 feet of it must make a Save vs Doom. On a success, there is no effect. On a failure, the creature becomes Sluggish 1 for that round.
+
+            Enhancing the spell causes creatures affected by the stinking vapor to become Sluggish 1 and Slow 1 for the round.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Grey Gemstone">
+            When you cast this spell, provide a labradorite, larvikite, galaxite, hawk's eye, or a similar grey gemstone worth at least 8 gold. To enhance the spell, provide a similar gemstone worth at least 24 gold.
+
+            You create a grey orb. The target must make a Save vs Spell. On a success, the spell has no effect. On a failure, the target takes 3d4 force damage and suffers a −2 magic penalty to attack rolls for 1d4 rounds.
+
+            Enhancing the spell extends the attack-roll penalty to 2d4 rounds.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Blue Gemstone">
+            When you cast this spell, provide a sapphire, aquamarine, larimar, hauyne, or a similar blue gemstone worth at least 16 gold. To enhance the spell, provide a similar gemstone worth at least 48 gold.
+
+            You create a blue orb. The target must make a Save vs Spell. On a success, the spell has no effect. On a failure, the target takes 3d8 cold damage and becomes Paralyzed for 1d4 rounds. When the paralysis ends, the target must make a Save vs Binding. On a success, the paralysis ends. On a failure, the target remains Paralyzed for an additional 1d4 rounds.
+
+            Enhancing the spell causes the target to repeat the Save vs Binding each time the paralysis ends, remaining Paralyzed until it succeeds.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Preparing">
+            While preparing this spell, hold any gemstone in the palm of your hand and rotate it clockwise a quarter turn. The gemstone used during preparation does not need to be the one used for casting.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            This spell requires two hands to cast. Hold the gemstone in one free hand and form and throw the orb with your casting hand.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

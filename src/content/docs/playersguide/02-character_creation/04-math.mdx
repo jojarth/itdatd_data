@@ -5,6 +5,7 @@ sidebar:
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import CrossTrainingTable from '../../../../components/CrossTrainingTable.astro';
 
 At this point, we need to fill out a few things, including your offenses, defenses, spell calculations, special skills, and languages. You will need to know some information from your Attributes, Class, and Equipment to get these calculations done.
 
@@ -14,9 +15,9 @@ It should be noted that all calculations below assume that you are proficient wi
 The following calculations are used for defensive properties of your character.
 
 ### Grit
-Grit is an abstract calculation of your character’s ability to survive. It is part skill, part luck, part willpower, and part toughness. Your grit is shown by two statistics, current grit (often just refered to as grit), and maximum grit. Your grit can never exceed your Maximum Grit, and it can never be lower than 0. While adventuring, most sources of damage you take will be deducted from your Grit. When your Grit reaches 0, you will start to take damage to your hit points. Most healing effects restore Grit.
+Grit is an abstract calculation of your character’s ability to survive. It is part skill, part luck, part willpower, and part toughness. Your grit is shown by two statistics, current grit (often just referred to as grit), and maximum grit. Your grit can never exceed your Maximum Grit, and it can never be lower than 0. While adventuring, most sources of damage you take will be deducted from your Grit. When your Grit reaches 0, you will start to take damage to your hit points. Most healing effects restore Grit.
 
-Your maximum grit is determined by three factors: your class, your heartiness score, and your presence score. Your class will provide it's grit contribution in the form of grit dice plus a bonus, and add it to the Grit Contribution based on your Heartiness and Presence scores.
+Your maximum grit is determined by three factors: your class, your Heartiness score, and your presence score. Your class will provide it's grit contribution in the form of grit dice plus a bonus, and add it to the Grit Contribution based on your Heartiness and Presence scores.
 
 **Note**: Characters should not start play with the maximum roll on their grit, and should actually roll the dice.
 
@@ -25,7 +26,7 @@ Hit points are actually how much physical damage your character can take. In com
 
 Taking a point of hit point damage is a traumatic event, as these are actual wounds that your character suffers. Like grit, you have a hit point maximum and current hit points, and your current hit points can never be higher than your maximum. Certain injuries will reduce your maximum hit points until recovered. Hit point damage is difficult to recover from, as very little magic can actually mend the kinds of wounds that hit point damage represent. If your hit points ever reach 0, you die.
 
-Your maximum hit points is based on your heartines score, simply find the Max HP section of the heartiness table to determine your maximum hit points.
+Your maximum hit points is based on your Heartiness score, simply find the Max HP section of the Heartiness table to determine your maximum hit points.
 
 ### Move Speed
 Your ancestry will apply a base move speed, but it can be altered by your Agility. Simply look at the Move Speed section of your agility table to see if your high or low agility can impact your movement speed.
@@ -33,7 +34,7 @@ Your ancestry will apply a base move speed, but it can be altered by your Agilit
 ### Armor Class
 The armor you wear will dictate your armor class (AC). However, many factors can alter it. A high agility can impact your armor class (see the AC adjustment on the agility table), and wielding a shield can too.
 
-AC is listed in two different types of values, your primary source of armor class is represented by a static number (for example, 10), and a your adjustments are represented as a bonus or penalty (for example, -1). Your primary source of armor class is set, if you somehow have multiple sources of primary armor class, you must select which one to use. Bonuses and penalties apply where possible. Your Combat Bonus is added to your AC.
+AC is listed in two different types of values, your primary source of armor class is represented by a static number (for example, 10), and a your adjustments are represented as a bonus or penalty (for example, -1). Your primary source of armor class is set, if you somehow have multiple sources of primary armor class, you must select which one to use. Bonuses and penalties apply where possible. 
 
 ## Offensive Calculations
 The following calculations are used for offensive properties of your character.
@@ -43,7 +44,7 @@ Weapon Proficiency determines how effectively your character can wield different
  
 > **Non-Proficient → Familiar → Proficient → Skilled → Expert → Master → Grand Master**
 
-During character creation, you will normally only encounter the first three ranks.
+During character creation, you will only encounter the first three ranks.
 
 #### Gaining Weapon Proficiency
 Each class begins play Familiar with specific weapon groups, as described in its Gameplay section. In addition, you gain Weapon Proficiency Points (WPPs) equal to twice your Combat Bonus (minimum 2). You must spend all WPPs gained during character creation.
@@ -68,43 +69,11 @@ The highest proficiency rank you may attain is determined by your Combat Bonus.
 
 Training with some weapon groups gives you enough transferable experience to use related weapons more effectively. When you are at least **Proficient** with a weapon group, you are **Cross-Trained** with each of its related weapon groups.
 
-When using a weapon with which you are Cross-Trained, you add your Combat Bonus to attack and damage rolls. You remain Non-Proficient with that weapon for all other purposes. In particular, you cannot use any of its Proficiency Features, and attacks with it can never roll more than one damage die.
+When using a weapon with which you are Cross-Trained, you add your Combat Bonus to attack and damage rolls. You remain Non-Proficient with that weapon for all other purposes. In particular, attacks with it can never roll more than one damage die.
 
 Cross-Trained is not a Weapon Proficiency rank, cannot be purchased with WPPs, and does not count as Familiar for requirements or other rules. Cross-Training never creates additional Cross-Training. If you become Familiar or better with a weapon group, use that proficiency normally instead.
 
-<div class="green-table">
-| **Training Source** | **Cross-Trains With** |
-|---------------------|-----------------------|
-| **Brawling** | Punch Dagger |
-| **Daggers** | Sickle, Punch Dagger |
-| **Single-Handed Swords** | Long-Gripped Swords |
-| **Long-Gripped Swords** | Single-Handed Swords, Great Swords |
-| **Great Swords** | Long-Gripped Swords |
-| **Single-Handed Axes** | Two-Handed Axes |
-| **Two-Handed Axes** | Single-Handed Axes, Two-Handed Bludgeons, Polearms |
-| **Clubs and Maces** | Hammers and Picks, Goedendag, Sap, Cosh |
-| **Hammers and Picks** | Clubs and Maces |
-| **Two-Handed Bludgeons** | Two-Handed Axes |
-| **Staves** | Spears, Polearms, Shepherd's Crook |
-| **Spears** | Staves, Pikes, Mounted Lances, Polearms, Goedendag |
-| **Pikes** | Spears |
-| **Mounted Lances** | Spears |
-| **Polearms** | Staves, Spears, Two-Handed Axes, Man-Catcher, War Scythe |
-| **Crossbows** | Hand Crossbow |
-| **Goedendag** | Clubs and Maces, Spears |
-| **Hand Crossbow** | Crossbows |
-| **Man-Catcher** | Polearms |
-| **Punch Dagger** | Brawling, Daggers |
-| **Sap** | Clubs and Maces, Cosh |
-| **Cosh** | Clubs and Maces, Sap |
-| **Scourge** | Whip |
-| **Shepherd's Crook** | Staves |
-| **Sickle** | Daggers |
-| **Sling** | Staff Sling |
-| **Staff Sling** | Sling |
-| **War Scythe** | Polearms |
-| **Whip** | Scourge |
-</div>
+<CrossTrainingTable />
 
 Training sources not listed in this table do not grant Cross-Training. Exotic Weapons never grant or receive Cross-Training unless listed here or specified by another rule.
 

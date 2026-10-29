@@ -1,0 +1,44 @@
+---
+datatype: spell
+title: Read Magic
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 hour
+shortDescription: You are able to read and understand magical text.
+classes:
+  - Cleric
+  - Theurge
+  - Druid
+  - Magic-User
+  - Paladin
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Read Magic">
+
+    <FeatureSection title="Spell Effect">
+        For the duration of the spell, you are able to read magical runes and text, albeit slowly. You can read about 1 page of text per minute. After reading any magical text with this spell, you can later read the same text without this spell. 
+
+        All spell books writings are considered magical, and thus cannot be read by anyone except the author of the book, unless this spell is used to read them.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Preparation Notes">
+        Any class who is required to prepare spells out of Spell Books (for example, the Magic-User), does not need access to a spell book to prepare this spell, and can prepare it from memory alone. 
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Preparation">
+            Before preparing the spell, copy a line of unfamiliar script in dark ink, then study the marks until their shapes are clear. The ink is consumed when the spell is successfully prepared.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Trace the first line of magical writing in the air with your Casting Hand and quietly sound out its opening marks.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

@@ -1,0 +1,76 @@
+---
+datatype: spell
+title: Glamour
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 4 hours
+shortDescription: You slightly alter your appearance.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Glamour">
+
+    <FeatureSection title="Spell Effect">
+        You wrap yourself in Illusion magics, causing you to look like another humanoid. When you cast this spell, select one of the following options:
+
+        <FeatureSubsection title="Imagined Form">
+            You can take on the appearance of an imaginary person. Casting this spell in this way does not allow you to look like an individual. Attempts to do so will be met with obvious flaws in the appearnce.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Duplicate">
+            You are able to make a complete copy of an individual. In order to do so, you must be able to touch them, which can be done as part of the action used to cast this spell. If the individual is not willing, the are allowed to make a Save vs Spell. If they succeed, you do not change forms. If they fail, you appear as a duplicate of them.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Spell Limitations">
+        This spell does have some limitations on what the effects it can produce.
+
+        <FeatureSubsection title="Creature Limitations">
+            The creature you create must have the *Animus* and *Humanoid* keywords. Additionally, it must share at least 1 Species Keyword with you.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Height and Weight">
+            You can only alter your appearance up to 1 foot in height in either direction. Your weight can be altered in any way.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Clothing and Equipment">
+            Your clothing and equipment can take any form you wish. If duplicating a creature, you appear wearing the clothing and equipment they were wearing when you cast this spell.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Dispelling the Illusion">
+            You appear for all intents and purposes as a different creature. However, any creature who touches you is allowed a Save vs Spell. If they fail, nothing happens. If they succeed, they can tell that you are acting under an illusion.
+
+            If you duplicate a creature, any familiar with the creature you duplicate are allowed the same Save vs Spell as above simply by looking upon you. They must be quite familiar with the creature you appear; good friends or more.
+
+            If you ever utilize a peice of gear that isn't part of the glamour, creatures who observe you do so are allowed the save Save vs Spell by observing your retreive the gear.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Illusion Spell">
+            * This spell is a 1st-level Illusion spell. As such, a creature with a Logic Score of 19 or higher is immune to it. A creature immune to it recognize the spell as the illusion it is, but can still see the glamour.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting (Imagined Form)">
+            Brush your Casting Hand over your clothing and hair while describing the appearance you wish others to see.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting (Duplicate)">
+            While waving your casting hand over parts of your body and uttering the spell, you reach out and touch the other creature you wish to duplicate. Casting the spell in this maner requires two hands.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

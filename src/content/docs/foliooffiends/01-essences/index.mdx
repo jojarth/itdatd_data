@@ -1,0 +1,116 @@
+---
+title: Essences
+description: What each Essence means, how to assign one to a creature, and how players learn what they are facing.
+sidebar:
+  order: 0
+---
+import { getCollection } from 'astro:content';
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+
+export const essences = (await getCollection('docs'))
+  .filter(({ id }) => {
+    const parts = id.split('/');
+    return parts.length === 3
+      && parts[0] === 'foliooffiends'
+      && parts[1] === '01-essences'
+      && parts[2] !== 'index';
+  })
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+Every creature in Cerrix has exactly one Essence. The Player's Guide gives players the short version: what an Essence is, the three families, and a line or two about each. This chapter is the long version, written for you, the Game Master.
+
+Use it when you write a new creature, when a player asks a question you can't answer from the stat block, or when you need to decide whether that pale thing in the barrow should burn when the cleric lays hands on it.
+
+## Essence List
+
+<ul>
+  {essences.map(({ id, data }) => (
+    <li><a href={`/${id}/`}>{data.title}</a> — {data.description}</li>
+  ))}
+</ul>
+
+## Essence Families
+The core rules for Essences, including the families, live in [Core Rules](/playersguide/01-core_rules/#essence-keywords). As a quick reminder, each Essence belongs to one of three families, and most spells and features affect a whole family rather than naming each Essence.
+
+<div class="green-table">
+
+| **Family** | **Essences** | **In short** |
+|:--|:--|:--|
+| **Living** | Aeon, Animus, Cosmic, Fey | Alive in some sense. Life-giving magic works on them normally. |
+| **Wrought** | Construct, Elemental | Animated by an outside force. Neither alive nor dead. |
+| **Severed** | Necros, Umbra | Sustained by death or corruption. Life-giving magic works against them. |
+
+</div>
+
+Families describe how supernatural forces treat a creature, not its biology. A Cosmic horror that has no heart and breathes no air is still Living. Healing still knits its flesh, however strange that flesh may be.
+
+## Assigning an Essence
+When you create a new creature, ask the questions below **in order**. The first question you can answer "yes" decides its Essence. The order matters, because the earlier questions catch the creatures that are easiest to get wrong.
+
+<GameplayCard colorSet="System" title="Essence Questions" toc tocDepth={3}>
+
+  <FeatureSection title="1. Is it kept going by death itself?" label="Necros">
+  Ghosts, vampires, and the walking dead. Ask this before the Construct question: ordinary animated corpses are Necros, even when a necromancer raised them.
+  </FeatureSection>
+
+  <FeatureSection title="2. Is it made of corruption or malice?" label="Umbra">
+  Demons, devils, and possessing spirits. Its existence is a wound in the world.
+  </FeatureSection>
+
+  <FeatureSection title="3. Was it made rather than born?" label="Construct">
+  Golems, animated statues, and crafted guardians. A golem built from bones is still a Construct; the bones are only its building material.
+  </FeatureSection>
+
+  <FeatureSection title="4. Is its body a force or substance?" label="Elemental">
+  Living flame, walking stone, a storm with a will.
+  </FeatureSection>
+
+  <FeatureSection title="5. Does it come from outside the world's rules?" label="Cosmic">
+  Things from beyond the stars, from impossible places, or from somewhere the mind refuses to picture.
+  </FeatureSection>
+
+  <FeatureSection title="6. Is it bound by custom, place, or oath?" label="Fey">
+  Hidden folk, hearth-spirits, and the courts beneath the hills.
+  </FeatureSection>
+
+  <FeatureSection title="7. Is it a legend or principle given flesh?" label="Aeon">
+  Dragons, phoenixes, and guardians older than any kingdom.
+  </FeatureSection>
+
+  <FeatureSection title="8. None of the above?" label="Animus">
+  It is born, it grows, and it dies. Most creatures in Cerrix, from peasants to owlbears, are Animus.
+  </FeatureSection>
+
+</GameplayCard>
+
+If a creature seems to fit two answers, read the "Telling Them Apart" section on each Essence's page. When you are still unsure, pick the Essence that makes the most interesting things happen at the table, and write it down so you rule the same way next time.
+
+## Revealing an Essence
+Players don't automatically know a creature's Essence. Is the thing in the barrow a restless ghost, a Fey guardian bound to the grave, or something worse wearing a dead man's face? Finding out is part of the adventure, and the answer can be the difference between a party that lives and one that doesn't.
+
+Characters can learn a creature's Essence in several ways.
+
+- **Observation.** Describe what the characters see, hear, and smell, and let the players draw their own conclusions. A creature that leaves no footprints, casts no heat, or speaks in a voice that seems to come from inside the listener's skull is telling them something.
+- **Lore.** A character can make a Logic test to recall what they know. Use Eligibility to decide who can try: a priest has likely been taught about the dead and the damned, a hunter knows beasts, and a sailor may know the old stories about things in deep water. A shoemaker probably knows none of it.
+- **Magic.** Detection spells, and spells that only affect certain creatures, reveal a great deal. If a creature is unaffected by a spell, tell the players so. They paid for that information with a spell slot.
+- **Consequences.** Sometimes the party learns the hard way. A cleric's healing touch that burns instead of mends is a lesson nobody forgets.
+
+:::tip[Tell them what they learn]{icon="information"}
+When a character succeeds at learning a creature's Essence, name it outright: "It's Necros." The mystery is in finding out, not in decoding your hints afterward. Once players know, they can make real decisions about which spells to cast and which weapons to draw.
+:::
+
+## Hallowed and Defiled Creatures
+**Hallowed** and **Defiled** are not Essences. They are Story keywords that describe a creature personally marked by holy or unholy power, and a creature of any Essence can bear one. See [Core Rules](/playersguide/01-core_rules/) for the full rules.
+
+When you build a creature, decide its Essence first, then ask whether it has been marked. Most creatures haven't been. A murderous bandit chief is Animus and nothing more, no matter how many villages he has burned. Keep these keywords rare, and they will mean something when they do appear.
+
+<GameplayCard color="green" title="Assigning an Essence Example">
+You are writing a new creature: the bone-reaper, a towering figure of stitched-together skeletons that a mad sorcerer built to guard his tomb.
+
+- **Is it kept going by death itself?** No. The sorcerer's enchantment animates it, not death. The bones are only material.
+- **Is it made of corruption or malice?** No.
+- **Was it made rather than born?** Yes. The bone-reaper is a **Construct**, in the **Wrought** family.
+
+A cleric who tries to heal it finds that the spell does nothing at all. Later, you write a second creature: the sorcerer himself, who has risen from his tomb and hungers for the warmth of the living. He is kept going by death itself, so the first question catches him. He is **Necros**, in the **Severed** family. Because he has also made pacts with dark powers in life and death, you decide he bears the **Defiled** keyword as well.
+</GameplayCard>

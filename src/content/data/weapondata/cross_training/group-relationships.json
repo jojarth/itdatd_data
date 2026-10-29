@@ -1,0 +1,89 @@
+[
+  {
+    "source": "Single-Handed Swords",
+    "targets": [
+      "Long-Gripped Swords"
+    ]
+  },
+  {
+    "source": "Long-Gripped Swords",
+    "targets": [
+      "Single-Handed Swords",
+      "Great Swords"
+    ]
+  },
+  {
+    "source": "Great Swords",
+    "targets": [
+      "Long-Gripped Swords"
+    ]
+  },
+  {
+    "source": "Single-Handed Axes",
+    "targets": [
+      "Two-Handed Axes"
+    ]
+  },
+  {
+    "source": "Two-Handed Axes",
+    "targets": [
+      "Single-Handed Axes",
+      "Two-Handed Bludgeons",
+      "Polearms"
+    ]
+  },
+  {
+    "source": "Clubs and Maces",
+    "targets": [
+      "Hammers and Picks"
+    ]
+  },
+  {
+    "source": "Hammers and Picks",
+    "targets": [
+      "Clubs and Maces"
+    ]
+  },
+  {
+    "source": "Two-Handed Bludgeons",
+    "targets": [
+      "Two-Handed Axes"
+    ]
+  },
+  {
+    "source": "Staves",
+    "targets": [
+      "Spears",
+      "Polearms"
+    ]
+  },
+  {
+    "source": "Spears",
+    "targets": [
+      "Staves",
+      "Pikes",
+      "Mounted Lances",
+      "Polearms"
+    ]
+  },
+  {
+    "source": "Pikes",
+    "targets": [
+      "Spears"
+    ]
+  },
+  {
+    "source": "Mounted Lances",
+    "targets": [
+      "Spears"
+    ]
+  },
+  {
+    "source": "Polearms",
+    "targets": [
+      "Staves",
+      "Spears",
+      "Two-Handed Axes"
+    ]
+  }
+]

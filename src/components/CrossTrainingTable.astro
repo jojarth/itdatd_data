@@ -1,0 +1,122 @@
+---
+import { getCollection } from "astro:content";
+import groupRelationships from "../content/data/weapondata/cross_training/group-relationships.json";
+import groupSlugs from "../content/data/weapondata/cross_training/group-slugs.json";
+
+interface Props {
+  /** Exact training source name, e.g. "Brawling". */
+  source?: string;
+  /** Exact Cross-Trains With target name, e.g. "Punch Dagger". */
+  target?: string;
+  /** Exact name matched in either relationship column. */
+  involving?: string;
+  /** Show only group-to-group relationships or relationships involving exotic weapons. */
+  category?: "groups" | "exotics";
+  /** Any named table theme class, e.g. "green-table" or "purple-table". */
+  colorTheme?: string;
+}
+
+const { source, target, involving, category, colorTheme = "green-table" } = Astro.props;
+const weapons = await getCollection("weapons");
+const exoticWeapons = weapons.filter((weapon) => weapon.data.group === "Exotic Weapons");
+
+type Relationship = { source: string; target: string };
+const groupToGroup: Relationship[] = groupRelationships.flatMap(({ source, targets }) =>
+  targets.map((target) => ({ source, target }))
+);
+const groupToExotic: Relationship[] = [];
+const exoticToExotic: Relationship[] = [];
+
+for (const weapon of exoticWeapons) {
+  const title = weapon.data.title;
+  for (const source of weapon.data.crossTrainedFrom ?? []) {
+    const rel = { source: source.name, target: title };
+    if (source.type === "group") groupToExotic.push(rel);
+    else exoticToExotic.push(rel);
+  }
+  for (const target of weapon.data.crossTrainsWith ?? []) {
+    const rel = { source: title, target: target.name };
+    if (target.type === "group") groupToExotic.push(rel);
+    else exoticToExotic.push(rel);
+  }
+}
+
+const matches = (relationship: Relationship) => {
+  const normalizedSource = source?.trim().toLocaleLowerCase();
+  const normalizedTarget = target?.trim().toLocaleLowerCase();
+  const normalizedInvolving = involving?.trim().toLocaleLowerCase();
+  const relationshipSource = relationship.source.toLocaleLowerCase();
+  const relationshipTarget = relationship.target.toLocaleLowerCase();
+
+  return (!normalizedSource || relationshipSource === normalizedSource)
+    && (!normalizedTarget || relationshipTarget === normalizedTarget)
+    && (!normalizedInvolving || relationshipSource === normalizedInvolving || relationshipTarget === normalizedInvolving);
+};
+
+const sections = [
+  { title: "Group-to-Group", category: "groups", relationships: groupToGroup },
+  { title: "Group-to-Exotic", category: "exotics", relationships: groupToExotic },
+  { title: "Exotic-to-Exotic", category: "exotics", relationships: exoticToExotic },
+].map((section) => ({
+  ...section,
+  relationships: section.relationships.filter((relationship) =>
+    (!category || category === section.category) && matches(relationship)
+  ),
+})).filter((section) => section.relationships.length > 0);
+
+function link(name: string) {
+  const weapon = exoticWeapons.find((entry) => entry.data.title === name);
+  if (weapon) return `/data/weapons/${weapon.id}`;
+  const slug = groupSlugs[name as keyof typeof groupSlugs];
+  return slug ? `/data/weapon-groups/${slug}/` : undefined;
+}
+---
+
+{sections.map(({ title, relationships }) => (
+  <>
+    <h3>{title}</h3>
+    <div class={`cross-training-table-scroll-pane ${colorTheme} compact-table`}>
+      <table>
+        <thead><tr><th>Training Source</th><th>Cross-Trains With</th></tr></thead>
+        <tbody>
+          {relationships.map(({ source, target }) => (
+            <tr>
+              <td>{link(source) ? <a href={link(source)}>{source}</a> : source}</td>
+              <td>{link(target) ? <a href={link(target)}>{target}</a> : target}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </>
+))}
+
+<style>
+  .cross-training-table-scroll-pane {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0 2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cross-training-table-scroll-pane table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--itdatd-table-border);
+  }
+  .cross-training-table-scroll-pane th {
+    background: var(--itdatd-table-header);
+    color: var(--itdatd-table-header-text);
+    border: 1px solid var(--itdatd-table-border);
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
+  .cross-training-table-scroll-pane td {
+    background: var(--itdatd-table-row);
+    border: 1px solid color-mix(in srgb, var(--itdatd-table-border) 50%, transparent);
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
+  .cross-training-table-scroll-pane tr:nth-child(even) td { background: var(--itdatd-table-row-alt); }
+  .cross-training-table-scroll-pane tr:hover td { background: var(--itdatd-table-hover); }
+</style>

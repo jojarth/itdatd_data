@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import WeaponTable from "../../../components/WeaponTable.astro";
+import CrossTrainingTable from "../../../components/CrossTrainingTable.astro";
+import groupSlugs from "../../../content/data/weapondata/cross_training/group-slugs.json";
+
+export function getStaticPaths() {
+  return Object.entries(groupSlugs).map(([group, slug]) => ({
+    params: { slug },
+    props: { group },
+  }));
+}
+
+const { group } = Astro.props as { group: string };
+const weapons = await getCollection("weapons");
+const groupWeapons = weapons.filter((weapon) => weapon.data.group === group);
+if (groupWeapons.length === 0) throw new Error(`No weapons found for group: ${group}`);
+---
+
+<StarlightPage frontmatter={{ title: group, description: `Weapons in the ${group} group.` }}>
+  <article class="weapon-group-page">
+    <p><a href="/playersguide/06-equipment/04-weapon_list/">Back to the full weapon list</a></p>
+    <WeaponTable group={group} colorTheme="blue-table" />
+    <h2>Cross-Training</h2>
+    {group === "Exotic Weapons"
+      ? <CrossTrainingTable category="exotics" />
+      : <CrossTrainingTable involving={group} />}
+  </article>
+</StarlightPage>

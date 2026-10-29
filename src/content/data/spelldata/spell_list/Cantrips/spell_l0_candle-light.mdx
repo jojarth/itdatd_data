@@ -1,0 +1,33 @@
+---
+datatype: spell
+title: Candle Light
+level: 0
+casting: 1 Action; Phase 4
+range: Self
+duration: 1 hour
+shortDescription: Create a steady candle-like light in your open hand or at a point within arm's reach.
+classes:
+    - Cleric
+    - Theurge
+    - Magic-User
+    - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Candle Light">
+
+    <FeatureSection title="Spell Effect">
+        Create a steady candle-like light in a free, open hand. You cannot wield other items while keeping this spell active. It sheds bright light in a 5-foot radius and dim light for 5 more feet.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Cup your Casting Hand as if shielding a candle flame and whisper a word of illumination. Open your fingers toward the place where the light should appear.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

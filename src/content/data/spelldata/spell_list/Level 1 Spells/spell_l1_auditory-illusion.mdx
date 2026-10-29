@@ -1,0 +1,38 @@
+---
+datatype: spell
+title: Auditory Illusion
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 minute
+shortDescription: You create sounds in space.
+classes:
+    - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Auditory Illusion">
+
+    <FeatureSection title="Spell Effect">
+        Create a sound from a point within range of this spell that can be quick, or last up to the duration. It cannot produce intelligible speech, and it can only produce one type of sound per casting. The volume of the sound can be as low as a whisper, and as loud as a normal shout, but will not be loud enough to cause any damage to hearing, even if generated right next to someone's ear.
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Illusion Spell">
+            * This spell is a 1st-level Illusion spell. As such, a creature with a Logic Score of 19 or higher is immune to it. A creature immune to it recognize the spell as the illusion it is, but can still hear the sound.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Point your Casting Hand toward the chosen point and imitate the sound you want heard as it begins.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

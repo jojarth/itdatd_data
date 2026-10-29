@@ -1,0 +1,63 @@
+---
+datatype: spell
+title: Animal Friendship
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 hour
+shortDescription: You attempt to befriend an animal.
+classes:
+    - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Animal Friendship">
+
+    <FeatureSection title="Spell Effect">
+        You must cast this spell on a Valid Creature. The target attempts a Save vs Spell. If they succeed, nothing happens. If they succeed, the target will become friendly to you, and follow you for the duration of this spell. This spell does grant you additional means to communicate with the target. Taking an action that may be deemed as hostile or dangerous to the creature immediately ends the spell.
+
+        At any point during the duration of this spell, you can start a binding ritual to permanently befriend a target. This ritual takes 6 hours to perform, during which the target will quietly and calmly wait for it to finish. Once this ritual starts, the time of the ritual becomes the new duration of this spell. If the ritual is interrupted, this spell immediately ends.
+
+        If the spell ends on anything but a success, the target goes back to normal.
+    </FeatureSection>
+
+    <FeatureSection title="Binding Ritual">
+        Once you succeed on performing the binding ritual, the animal becomes your constant companion. It sees you as a trusted friend and master, following them wherever they go. The creature will now take reasonable risks for their master, including participating in combat. Upon finishing this ritual, this spell becomes permanent, although he effects of it can end if the target of this spell is left alone for more than three days in during the first three months after casting this spell. If this happens, it reverts to it's normal behaviors.
+    </FeatureSection>
+
+    <FeatureSection title="Maximum Animal Friends">
+        You can only befriend a number of levels worth of animals equal to 3 levels. This can be one 3rd-level creatures, three 1st-level creatures or anything between. If you attempt this spell while already at the maximum number of creatures, or attempting to cast this spell upon a creature that would put you above your maximum, the spell simply does not function.
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Valid Creatures">
+            * A creature must have both the *Animus* and *Animal* keywords to be a Valid Creature.
+            * A creature must have a Logic score of 5 or lower to be a Valid Creature.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * You can have a maximum of 6 levels worth of animals befriended by means of this spell.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * You can have a maximum of 9 levels worth of animals befriended by means of this spell.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Lower yourself toward the animal, hold your Casting Hand open and low, and make a gentle sound of greeting.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

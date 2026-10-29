@@ -1,0 +1,54 @@
+---
+datatype: spell
+title: Locate Plant or Animal
+level: 1
+casting: 1 Master Action; Phase 4
+range: Self
+duration: 10 minutes
+shortDescription: Name a familiar kind of plant or animal
+classes:
+  - Druid
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Locate Plant or Animal">
+
+    <FeatureSection title="Spell Effect">
+        This spell can be cast in three different ways. Choose how you cast it each time you use the spell.
+
+        <FeatureSubsection title="Locate Plant">
+            As part of the casting of this spell, you must name a specific type of non-magical, and non-sentient plant. For the duration of the spell, you can use 1 Action to determine the direction, but not distance, of the closest plant you named casting the spell, so long as such a plant exists within 250 feet of you. Each time you use this Action, you can decide to omit up to 10 feet around you from your Locate Plant attempt.
+
+            If the plant you named isn't in range, the spell continues to function, allowing you to move around attempting to Locate until the spell ends.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Locate Animal (Generic)">
+            As part of the casting of this spell, you must name a species of animal, such as a horse, a donkey, a cat, or a wolf. The animal selected must have the *Animus* and *Animal* keywords. For the duration of the spell, you can use 1 Action to determine the direction, but not distance, of the closest animal of that type you named casting the spell, so long as such an animal exists within 250 feet of you. Each time you use this Action, you can decide to omit up to 10 feet around you from your Locate Animal attempt.
+
+            If the animal you named isn't in range, the spell continues to function, allowing you to move around attempting to Locate until the spell ends.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Locate Animal (Specific)">
+            As part of the casting of this spell, you must name a specific animal, for example: Grumpkin, the orange tabby cat that belongs to the Crone. The animal selected must have the *Animus* and *Animal* keywords. For the duration of the spell, you can use 1 Action to determine the direction, but not distance, of the animal that you named casting the spell, so long as that animal exists within 250 feet of you.
+
+            If the animal you named isn't in range, the spell continues to function, allowing you to move around attempting to Locate until the spell ends.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Preparation">
+            Before preparing the spell, press a leaf or a strand of fur from the kind of creature or plant you intend to seek between the pages of your notes. The specimen is consumed when the spell is successfully prepared.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Hold your Casting Hand beside your brow, name the plant or animal sought, then point in the direction you wish to search.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

@@ -1,0 +1,42 @@
+---
+datatype: spell
+title: Predict Weather
+level: 1
+casting: 1 Minute Ritual
+range: Self
+duration: Instantaneous
+shortDescription: You learn exact weather patterns nearby.
+classes:
+  - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Predict Weather">
+
+    <FeatureSection title="Spell Effect">
+        Upon finishing this spell, you learn the exact weather pattern will be in a 3-mile radius from you for the next 24 hours. This spell cannot detect or determine magical weather.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * You learn the exact weather pattern for a 5-mile radius for the next 48 hours.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * You learn the exact weather pattern for a 7-mile radius for the next 72 hours.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Raise your Casting Hand toward the sky and trace the shape of the clouds while reciting a short weather verse.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

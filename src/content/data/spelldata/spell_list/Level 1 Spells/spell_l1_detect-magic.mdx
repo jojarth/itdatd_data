@@ -1,0 +1,54 @@
+---
+datatype: spell
+title: Detect Magic
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 10 minutes
+shortDescription: For the duration, sense whether visible creatures or objects within 30 feet are magical
+classes:
+  - Theurge
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Detect Magic">
+
+    <FeatureSection title="Spell Effect">
+        While this spell is active, Valid Creatures and Objects appear to glow faintly to you.
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Valid Creatures">
+            * A creature carrying a magic item is a considered a Valid Creature. Note that Artifact-level magical items do not count as magical items for the purposes of this spell.
+            * A creature under the effect of any spell is considered a Valid Creature.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Object Interactions">
+
+        <FeatureSubsection title="Valid Objects">
+            * Magical items are considered Valid Objects.
+            * Objects under the effect of any spell are considered a Valid Object.
+            * Artifact-level magical items are not Valid Objects for the purposes of this spell.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Preparation">
+            Before preparing the spell, sift a pinch of iron filings through your fingers while studying the difference between the mundane and the enchanted. The filings are consumed when the spell is successfully prepared.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Pass your open Casting Hand slowly before your eyes and recite a brief phrase of discernment.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

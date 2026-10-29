@@ -1,0 +1,68 @@
+---
+datatype: spell
+title: Shield
+level: 1
+casting: 1 Master Action; Phase 4
+range: Self
+duration: 1 hour
+shortDescription: A magical barrier floats in front of you, deflecting attacks. 
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Shield">
+
+    <FeatureSection title="Spell Effect">
+        Upon finishing the spell, a small magical barrier appears in front of you, moving around your body to attempt to deflect attacks. This magical barrier functions similar to a shield with an AC Bonus of 2, a Block Value of 2, a Break Dice of d6, and a Break Chance of 2. It requires no hands to use. While this spell is active, you can utilize the Shield Block, and Cinematic Shield Block Reactions, even if you lack normal shield training, but only with this spell. You cannot benefit from wielding a shield at the same time as this spell. 
+
+        Additionally, if you are the target of a spell that doesn't require a saving throw, and will do Force damage to you, you can use a special reaction granted to you by this spell. This reaction allows you to use the shield to perform a Shield Block, or Cinematic Shield Block against such spells. For spells that target you multiple times in one Phase, such as Magic Missile, one Reaction allows you to attempt to block each one rolled against you that Phase, but you must roll your break chance for each one blocked. 
+
+        If your shield spell reaches the Destroyed status, the spell ends.
+
+        <div class="pink-table">
+        |Status|AC Bonus|Block|Break Die|Break Chance|
+        |:--|:--:|:--:|:--:|:--:|
+        |Good|+2|2|d6|2|
+        |Damaged|+2|2|d6|3|
+        |Broken|+1|1|d6|4|
+        </div>
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * Increase the Block Value of your spell to 3, and the Break Dice to d8.
+
+            <div class="pink-table">
+            |Status|AC Bonus|Block|Break Die|Break Chance|
+            |:--|:--:|:--:|:--:|:--:|
+            |Good|+2|3|d8|2|
+            |Damaged|+2|3|d8|3|
+            |Broken|+1|2|d8|4|
+            </div>
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * Reduce the Break Chance of your spell to 1. 
+
+            <div class="pink-table">
+            |Status|AC Bonus|Block|Break Die|Break Chance|
+            |:--|:--:|:--:|:--:|:--:|
+            |Good|+2|3|d8|1|
+            |Damaged|+2|3|d8|2|
+            |Broken|+1|2|d8|3|
+            </div>
+        </FeatureSubsection>
+    
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Sweep your Casting Hand across your body in a sharp arc and speak a brief word of warding.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

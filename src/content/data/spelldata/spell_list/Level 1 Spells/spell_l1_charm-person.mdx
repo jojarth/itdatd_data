@@ -1,0 +1,66 @@
+---
+datatype: spell
+title: Charm Person
+level: 1
+casting: 1 Master Action; Phase 4
+range: 30 feet
+duration: Special; see spell description
+shortDescription: You attempt to sway a creature to your side
+classes:
+    - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Charm Person">
+
+    <FeatureSection title="Spell Effect">
+        Select a Valid Creature within range of this spell. The target of this spell must make a Save vs Spell. If they succeed, nothing happens. If they fail, they become charmed by you. This charm is permanent until dispelled or a successful saving throw is made. A creature may make repeated attempts at a Saving Throw, the time of which is determined by their attributes.
+    </FeatureSection>
+
+    <FeatureSection title="Charmed by You">
+        While charmed by you, the target regards you and your allies as trusted friends and may even defend you. If you share a language, you can give the target commands. The target will likely follow commands that seem reasonable and aren’t contrary to their habits or nature, but will never obey a command that is suicidal or obviously harmful.
+    </FeatureSection>
+
+    <FeatureSection title="Repeating the Saving Throw">
+        A target can repeat the saving throw every so often. To determine how often a Save is repeated, look at the target's Logic, Reason, Savvy, or Presence value, whichever is highest. Logical creatures will spot contradictions in their feelings and how they act. Reasonable creatures will have their judgement class against the spell. Shrewd characters (high savvy) will notice the manipulation of the magic. Commanding creatures (high presence) will be able to hold onto their true self.
+
+        | Highest Score | Save Repeat   |
+        |---------------|---------------|
+        | 1 to 8        | Every 14 days |
+        | 9 to 12       | Every 7 days  |
+        | 13 or higher  | Every day     |
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Valid Creatures">
+            * A creature must have both the *Animus* and *Humanoid* keywords to be a Valid Creature.
+            * A creature with the *Fey* keyword has additional saving throw provisions, seen below.
+            * A creature must be of large size or smaller to be a Valid Creature.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Mind-Affecting Spell">
+            * This spell is a 1st-level Mind-Affecting spell. As such, a creature with a Reason Score of 19 or higher is immune to it. A creature immune to it recognize that they have had a spell cast upon them, and what that spell was attempting to compel them to do.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Fey Keyword">
+            * A creature with the *Fey* keyword rolls their Saving Throw twice, and uses the better result.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Preparing">
+            While preparing this spell, you must gaze into the distance, and preform a short, practiced, warm conversation as if you were greeting an old friend.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Gazing fixedly at the target, you extend your Casting Hand toward them, and speak to the target in a warm, familiar tone.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

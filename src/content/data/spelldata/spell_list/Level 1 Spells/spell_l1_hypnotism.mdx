@@ -1,0 +1,52 @@
+---
+datatype: spell
+title: Hypnotism
+level: 1
+casting: 1 Master Action; Phase 3
+range: 30 feet
+duration: Special, see spell description
+shortDescription: You attempt to facinate creatures.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Hypnotism">
+
+    <FeatureSection title="Spell Effect">
+        You begin to gesture and hum, causing one or more creatures in range of the spell to stop what they are doing, and stand slack-jawed, watching and listening to you. This spell can affect 1d6 Valid Creatures within range, you can chose which Valid Creatures are affected. Each target is allowed to make a Save vs Spell. If they succeed, they are unaffected. If the fail, they stand rooted in the spot, watching you intently, and unable to act. They lose any remaining actions they may have this round.
+
+        Begining on Phase 1 of the next round, you must use 3 Actions to maintain this spell. Failing to do so causes the spell to immediately end. While you maintain the spell, all affected creatures remain affected by the spell, and use all of their actions watching you. You can maintaint this spell a maximum of 2 additional rounds.
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Valid Creatures">
+            * Creatures with the *Animus*, *Elemental*, *Fey*, and *Umbra* keywords are valid creatures.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * You can hold this spell an additional 4 rounds.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * You can hold this spell an additional 6 rounds, and you roll a 1d8 to determine the number of Valid Creatures you can impact.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            You must produce a metronome that you made. It can be as easy as a rock on a string, but you must have crafted it yourself. While you cast this spell, you must maintain the metronome.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

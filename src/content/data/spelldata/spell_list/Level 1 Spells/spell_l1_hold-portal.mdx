@@ -1,0 +1,37 @@
+---
+datatype: spell
+title: Hold Portal
+level: 1
+casting: 1 Master Action; Phase 4
+range: Touch
+duration: 1 hour
+shortDescription: You cause a portal to be held shut.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Hold Portal">
+
+    <FeatureSection title="Spell Effect">
+        You must cast this spell upon a door, gate, window, or some sort of portal with a covering. The covering of the portal is held in place by magic until the spell expires, and cannot be bypassed outside of the means below.
+
+        <FeatureSubsection title="Opening the Held Portal">
+            Any creature who is at least 3 levels higher than you can open the portal by any normal means. Depending on how the portal was sealed they may still need to unlock it, pick the lock, or break the open the portal covering.
+
+            The Knock spell will immediately dispel the magic holding the portal.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Place your Casting Hand against the closed portal and trace a line down its center while speaking a word of binding.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

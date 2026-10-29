@@ -1,0 +1,47 @@
+---
+datatype: spell
+title: Entangle
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 minute
+shortDescription: Plants attempt to bind creatures to the ground.
+classes:
+  - Druid
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Entangle">
+
+    <FeatureSection title="Spell Effect">
+        Magical, ghostly plants burst in a 20-foot radius from a point that you select in range of the spell. All creatures inside the area of effect are allowed to make a Save vs Spell. If they fail, they are entangled by the plants and cannot move. If they succeed, they can move through the area, but all movement inside the area is done at half speed.
+
+        Any creature who enters the area after the initial spell has taken effect are not subject to a Saving Throw, but can only move through the area at half speed.
+
+        Any creature who failed their initial saving throw can use 3 Actions starting at Phase 1 to attempt a Save vs Binding. If they succeed, they are now able to move, but still are subject to moving at half speed through the affected area.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * You may improve the area of effect to 25 feet when you cast the spell.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * You may improve the area of effect to 30 feet when you cast the spell.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Press your Casting Hand toward the ground and curl your fingers upward as though drawing roots from the soil; while speaking a command for the plants to seize.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

@@ -1,0 +1,34 @@
+---
+datatype: spell
+title: Sleep
+level: 1
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 10 minutes
+shortDescription: You attempt to force creatures to fall asleep.
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Sleep">
+
+    <FeatureSection title="Spell Effect">
+        You create a 30-foot burst of lethargy in range of the spell, and roll 2d6. The result of this dice is the number of levels worth of Valid Creatures you can attempt to put to sleep. 
+        
+        Starting with the lowest level creatures in the area, creatures are rendered Incapacitated, as they fall into a deep sleep. Afterwhich, you subtract their Level from your remaining levels worth of valid creatures, and you continue to put foes to sleep until you are out of Valid Creatures in the area, or you don't have enough levels worth of Valid Creatures to impact remaining creatures. 
+
+        Creatures who are higher level than you are allowed to Save vs Spell. If they succeed, they still count towards the number of levels that you can impact, but suffer no consequence. If they fail, they are affected by this spell per normal. 
+
+        Valid Creatures 3 levels or more higher than you cannot be affected by this spell. Additionally, Valid Creatures of 6th level or higher are also immune to this spell. 
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Lower your Casting Hand toward the targets in a slow, calming motion and softly repeat a lullaby or soothing phrase.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

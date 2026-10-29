@@ -1,0 +1,33 @@
+---
+datatype: spell
+title: Magic Strike
+level: 0
+casting: Weapon
+range: Weapon
+duration: Instantaneous
+shortDescription: You infuse your weapon with power, and attack.
+classes:
+    - Magic-User
+    - Cleric
+    - Paladin
+    - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Magic Strike">
+
+    <FeatureSection title="Spell Effect">
+        Cast this cantrip as part of a weapon attack. If the attack hits, increase the damage dice of your attack by 1 dice step, and treat the weapon as if it were magical for this attack.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Cast this cantrip as part of the weapon attack. As the weapon begins its attack, speak a sharp word of force and drive the strike through to completion.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

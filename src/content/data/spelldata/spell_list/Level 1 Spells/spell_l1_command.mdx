@@ -9,44 +9,52 @@ shortDescription: Forces a creature to perform a short action.
 classes:
   - Cleric
   - Theurge
+  - Paladin
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Command">
+
     <FeatureSection title="Spell Effect">
         Choose a Valid Creature within range that can both see and hear you, then speak a single-word command. The target must make a Save vs Spell.
 
         On a successful save, the spell has no effect.
 
-        On a failed save, the target immediately begins obeying your command. It must spend a total of three actions carrying out the command, including at least one Master Action. Until it has spent all three actions, it can take only actions necessary to fulfill the command. The spell ends once the creature has spent the required actions preforming the command. 
+        On a failed save, the target immediately begins obeying your command. It must spend a total of three actions carrying out the command, including at least one Master Action. Until it has spent all three actions, it can take only actions necessary to fulfill the command. The spell ends once the creature has spent the required actions preforming the command.
 
         <FeatureSubsection title="Issuing the Command">
-        The command must be a single, clear, and unambiguous word. The target follows the command to the best of its ability, but will not knowingly harm itself or directly harm one of its allies.
+            The command must be a single, clear, and unambiguous word. The target follows the command to the best of its ability, but will not knowingly harm itself or directly harm one of its allies.
 
-        If the command cannot reasonably be carried out, the target instead spends the required actions attempting to comply. For example, a creature commanded to "die" collapses to the ground and remains motionless for the duration of the effect.
+            If the command cannot reasonably be carried out, the target instead spends the required actions attempting to comply. For example, a creature commanded to "die" collapses to the ground and remains motionless for the duration of the effect.
 
-        Common commands include **back**, **fall**, **flee**, **go**, **halt**, **leave**, **rest**, **run**, **sleep**, **stop**, and **surrender**.
+            Common commands include **back**, **fall**, **flee**, **go**, **halt**, **leave**, **rest**, **run**, **sleep**, **stop**, and **surrender**.
         </FeatureSubsection>
 
         <FeatureSubsection title="Over Multiple Rounds">
-        If the target cannot spend all three required actions before the end of the current round, it continues obeying the command beginning in Phase 1 of the next round until all required actions have been spent.
+            If the target cannot spend all three required actions before the end of the current round, it continues obeying the command beginning in Phase 1 of the next round until all required actions have been spent.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
+
         <FeatureSubsection title="Valid Creatures">
-        * Valid Creatures have both the **Animus** and **Humanoid** keywords.
+            * Valid Creatures have both the **Animus** and **Humanoid** keywords.
             * You must share a language with the target, and the command must be spoken in a language you both understand.
             * Valid Creatures that are three or more levels higher than your level automatically succeed on their Saving Throw.
             * Valid Creatures with a Presence attribute of 6 or lower automatically fail their Saving Throw.
         </FeatureSubsection>
+
     </FeatureSection>
 
     <FeatureSection title="Components">
+
         <FeatureSubsection title="Casting">
-        Raise your Casting Hand with its palm facing the target. As you speak the command in a clear, commanding voice, close that hand except for one finger, which you point directly at the target.
+            Raise your Casting Hand with its palm facing the target. As you speak the command in a clear, commanding voice, close that hand except for one finger, which you point directly at the target.
         </FeatureSubsection>
+
     </FeatureSection>
+
 </SpellEntry>

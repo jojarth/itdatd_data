@@ -1,0 +1,38 @@
+---
+datatype: spell
+title: Invisibility to Animals
+level: 1
+casting: 1 Master Action; Phase 4
+range: Touch
+duration: 1 hour
+shortDescription: Ordinary animals are unable to sense the subject of this spell. 
+classes:
+  - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Invisibility to Animals">
+
+    <FeatureSection title="Spell Effect">
+        You reach out and touch a target. For the duration of this spell Valid Creatures cannot sense them using any of their 5 senses for the duration. If the target of this spell takes an action that requires them to be perceived, for example, they touch a Valid Creature, the spell immediately ends. This spell also immediately ends if the target casts a spell, or performs any hostile combat action.
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Valid Creatures">
+            * A creature must have both the *Animus* and *Animal* keywords to be a Valid Creature.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Draw your Casting Hand down your outline from head to foot while speaking a spell of concealment from the wild.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

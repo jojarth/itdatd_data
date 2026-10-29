@@ -147,7 +147,16 @@ export default defineConfig({
         {
           label: "Folio of Fiends",
           collapsed: true,
-          items: [{ label: "Overview", slug: "foliooffiends" }],
+          items: [
+            { label: "Overview", slug: "foliooffiends" },
+            {
+              label: "Chapter 01: Essences",
+              collapsed: true,
+              items: [
+                { autogenerate: { directory: "foliooffiends/01-essences" } },
+              ],
+            },
+          ],
         },
         {
           label: "World of Cerrix",

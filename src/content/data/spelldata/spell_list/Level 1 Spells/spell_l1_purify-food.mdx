@@ -1,0 +1,68 @@
+---
+datatype: spell
+title: Purify Food and Drink
+level: 1
+casting: 1 Master Action; Phase 4
+range: 5 feet
+duration: Instantaneous
+shortDescription: Make food edible and water potable.
+reverseTitle: Putrefy Food and Drink
+reverseShortDescription: Spoil food and water.
+classes:
+  - Cleric
+  - Theurge
+  - Druid
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Purify Food">
+
+    <FeatureSection title="Spell Effect">
+        This spell must target food or water within range. You can target 1 lb of food, or 1 gallon of drink, or a combination of both. This spell cannot affect magical foods or drink (such as Potions).
+
+        When you finish this spell, most non-magical issues with the food or drink are purged, and the food is edible, and the drink is potable. This includes spoilage, natural contamination or diseases, or rot. This spell does not prevent future spoilage.
+
+        This spell cannot remove poisons, nor can it remove magical contamination of the food.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * You can target 5 lbs of food\5 gallons of drink.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="When you can cast 5th-level spells">
+            * You can target 10 lbs of food\10 gallons of drink. 
+        </FeatureSubsection>
+    
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Touch the provisions with your Casting Hand and trace a small circle above them while speaking a blessing over the food and drink.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>
+
+<SpellEntry title="Putrefy Food" variant="reverse" metadata={props.reverseMetadata}>
+
+    <FeatureSection title="Spell Effect">
+        This spell must target food or water within range. You can target 1 lb of food, or 1 gallon of drink, or a combination of both. This spell cannot affect magical foods or drink (such as Potions).
+
+        When you finish this spell, the targeted food and drink become spoiled, rotten, brackish, and otherwise inedible\undrinkable.        
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Touch the provisions with your Casting Hand and trace a circle in the opposite direction while speaking a word of spoilage.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

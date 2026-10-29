@@ -1,0 +1,60 @@
+---
+datatype: spell
+title: Heat Metal
+level: 2
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 round
+shortDescription: Choose one metal object within 60 feet
+reverseTitle: Chill Metal
+reverseShortDescription: Magically chill a metal object and damage its holder.
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Heat Metal">
+
+    <FeatureSection title="Spell Effect">
+        Choose one metal object within 60 feet. Its holder makes a Save vs Spell, taking 2d6 fire damage on failure or half on success; on failure it drops the object if able. The object cools at the end of your next turn.
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">Increase the damage by 1d6.</FeatureSubsection>
+
+            <FeatureSubsection title="When you can cast 5th-level spells">Increase the damage by another 1d6.</FeatureSubsection>
+                </FeatureSection>
+
+                <FeatureSection title="Components">
+
+                    <FeatureSubsection title="Casting">
+                        Point at the metal object and rub your thumb against two fingers of your Casting Hand while speaking a word of heat.
+                    </FeatureSubsection>
+
+                </FeatureSection>
+
+                </SpellEntry>
+
+                <SpellEntry title="Chill Metal" variant="reverse" metadata={props.reverseMetadata}>
+
+                    <FeatureSection title="Spell Effect">
+                        Choose one metal object within range. Its holder makes a Save vs Spell, taking 2d6 cold damage on a failed save or half damage on a success. On a failed save, the holder drops the object if able. The object returns to its normal temperature at the end of your next turn.
+                    </FeatureSection>
+
+                    <FeatureSection title="Spell Improvements">
+
+                        <FeatureSubsection title="When you can cast 3rd-level spells">Increase the damage by 1d6.</FeatureSubsection>
+
+                            <FeatureSubsection title="When you can cast 5th-level spells">Increase the damage by another 1d6.</FeatureSubsection>
+                                </FeatureSection>
+
+                                <FeatureSection title="Components">
+
+                                    <FeatureSubsection title="Casting">
+                                        Point at the metal object and rub your thumb against two fingers of your Casting Hand while speaking a word of cold.
+                                    </FeatureSubsection>
+
+                                </FeatureSection>
+
+                                </SpellEntry>
