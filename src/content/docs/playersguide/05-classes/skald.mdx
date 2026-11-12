@@ -1,0 +1,341 @@
+---
+title: Skald
+spellcasting:
+  type: Clerical
+  method: Free-Hand
+classSummary:
+  # DRAFT: role is a placeholder suggestion
+  role: Warrior-poet who fights in the shield wall and turns battle into saga.
+  armor: Light and medium armor; bucklers, small shields, and medium shields
+---
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
+import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+export const allEntries = await getCollection("data");
+import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
+import Establishment from '../../../../components/reusable/Establishment.astro';
+
+:::caution[Draft class]
+This class is a work in progress. Its class features have not been written yet, and anything marked **[DRAFT]** is a placeholder suggestion to review.
+:::
+
+**[DRAFT]** Skalds are warrior-poets. They stand in the shield wall beside those whose deeds they sing, and their chants can stir allies to battle fury. When the fighting is done, it is the skald who decides how it will be remembered.
+
+## Skald Gameplay
+Below is a list of information needed to play a skald at the various levels of play.
+
+<GameplayCard
+  colorSet="System"
+  title="Requirements and Requisites"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Keywords">
+  **Archetype:** **Adept**, **Priest**, **Soldier**
+  </FeatureSection>
+
+  <FeatureSection title="Prime Requisite">
+    **[DRAFT]** Your prime requisites are brawn and presence, and you gain bonus experience points based on your brawn and presence scores.
+    - If your brawn and presence scores are 13 or higher, you gain a +5% bonus to all experience points earned.
+    - If your brawn and presence scores are 16 or higher, you gain a +10% bonus to all experience points earned.
+  </FeatureSection>
+  </GameplayCard>
+
+<GameplayCard
+  colorSet="System"
+  title="Proficiencies"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Armor Proficiency">
+    You are proficient with **light** and **medium armor**.
+  </FeatureSection>
+
+  <FeatureSection title="Shield Proficiency">
+    You are proficient with **bucklers, small,** and **medium shields**.
+  </FeatureSection>
+
+  <FeatureSection title="Weapon Proficiency">
+    **[DRAFT]** You begin play Familiar with **Brawling, Daggers, Single-Handed Swords, Long-Gripped Swords, Single-Handed Axes, Two-Handed Axes, Clubs and Maces, Hammers and Picks, Spears, Bows,** and **Throwing Darts**.
+  </FeatureSection>
+</GameplayCard>
+
+### Class Table
+
+<div class="green-table compact-table">
+| **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
+|:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
+| **1** | 0 | +1d8 + 2 | +2 | +1 | 15 | 15 | 15 | 15 | 15 |
+| **2** | 1,350 | +1d8 + 2 | +2 | +1 | 14 | 15 | 14 | 14 | 15 |
+| **3** | 2,700 | +1d8 + 2 | +3 | +1 | 14 | 14 | 14 | 14 | 14 |
+| **4** | 6,750 | +1d8 + 2 | +3 | +1 | 13 | 14 | 13 | 13 | 14 |
+| **5** | 13,500 | +1d8 + 2 | +3 | +1 | 13 | 14 | 13 | 13 | 14 |
+| **6** | 27,000 | +1d8 + 2 | +4 | +1 | 12 | 13 | 12 | 12 | 13 |
+| **7** | 67,500 | +1d8 + 2 | +4 | +2 | 12 | 13 | 12 | 12 | 13 |
+| **8** | 135,000 | +1d8 + 2 | +5 | +2 | 11 | 13 | 11 | 11 | 13 |
+| **9** | 270,000 | +1d8 + 2 | +5 | +2 | 11 | 12 | 11 | 11 | 12 |
+| **10** | 405,000 | +2 | +5 | +2 | 10 | 12 | 10 | 10 | 12 |
+| **11** | 540,000 | +2 | +6 | +2 | 10 | 12 | 10 | 10 | 12 |
+| **12** | 675,000 | +2 | +6 | +2 | 9 | 11 | 9 | 9 | 11 |
+| **13** | 1,012,500 | +2 | +7 | +2 | 9 | 11 | 9 | 9 | 11 |
+| **14** | 1,350,000 | +2 | +7 | +3 | 9 | 11 | 9 | 9 | 11 |
+</div>
+
+### Spell Progression Table
+
+<SpellSlotTable rank="E" colorTheme="blue-table compact-table" boldColumn={1} boldHeader />
+
+## Skald Features
+As a skald, you gain the following class features.
+
+<div class="powder-blue-table compact-table">
+| **Level** | **Features** |
+|:---------:|:-------------|
+| **1**     | Lesser Thief Skills, Witness of Deeds |
+| **3**     | Stirring the Blood |
+| **4**     | Keyword Feature |
+| **5**     | Climb Sheer Surfaces, Stirring the Blood (improvement) |
+| **7**     | Galdr, Spellcasting |
+| **8**     | Keyword Feature |
+| **9**     | Stirring the Blood (improvement) |
+| **10**    | Establishment |
+| **13**    | Stirring the Blood (improvement) |
+</div>
+
+<GameplayCard
+  colorSet="choicefeature"
+  title="Lesser Thief Skills"
+  subeyebrow="1st Level Skald Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+A skald's road runs through raided halls and barred gates. Choose one of the following thief skills. Once made, this choice can't be changed.
+
+  <FeatureSection title="Pick Locks">
+    You are able to ***Pick Locks***.
+  </FeatureSection>
+
+  <FeatureSection title="Disarm Fine Traps">
+    You are able to ***Disarm Fine Traps***.
+  </FeatureSection>
+</GameplayCard>
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Witness of Deeds"
+  subeyebrow="1st Level Skald Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Those who fight where a skald can see them know their deeds will be remembered. Your henchmen and hirelings within 30 feet of you who can see or hear you gain a +2 Situation Bonus to Morale.
+</GameplayCard>
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Stirring the Blood"
+  subeyebrow="3rd Level Skald Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 3rd level, you can roar a war-verse that sets an ally's blood burning. As an activity costing 2 Actions, starting in Phase 2, choose one ally within 30 feet who can see and hear you. That ally gains the Battle Trance condition for as long as your Stirring the Blood lasts. You cannot stir an ally who is Slow or Sluggish, although gaining either condition while stirred does not cause it to end.
+
+<FeatureSection title="Battle Trance Effects">
+  * The ally reduces the Speed Factor of any melee weapon they wield by 1 (to a minimum of 2).
+  * The ally cannot cast spells, read spell scrolls, use magical rods, staves, or wands, or perform delicate tasks or tasks that require concentration.
+</FeatureSection>
+
+<FeatureSection title="Maintaining the Battle Trance">
+  * Each round after the round you start it, you must spend 1 Action to maintain your Stirring the Blood. The ally must still be within 30 feet of you and able to see and hear you.
+  * If you have not maintained your Stirring the Blood by the end of Phase 9, it ends.
+  * Stirring the Blood is not a Spellsong. You can weave its chant into your Galdr, maintaining it while you perform a Spellsong without ending either.
+  * If you can't be heard, such as when you are struck mute or magically silenced, you can't start or maintain Stirring the Blood.
+</FeatureSection>
+
+<FeatureSection title="Ending the Battle Trance">
+  * Your Stirring the Blood lasts a number of rounds equal to your Presence score. You can end it early at any time (no Action required).
+  * You can stir only one ally at a time. Stirring a new ally ends the Battle Trance on the first.
+  * When the Battle Trance ends for any reason, the ally is Sluggish (2) until the end of the following round.
+</FeatureSection>
+
+<FeatureSection title="Feature Improvements">
+  <FeatureSubsection title="When you Reach 5th Level">
+    * The ally also increases the damage dice of their melee weapon attacks by 1 dice step.
+  </FeatureSubsection>
+  <FeatureSubsection title="When you Reach 9th Level">
+    * If the ally makes a melee weapon attack using a Master Action, or takes any damage, during a round, your Stirring the Blood is maintained for that round without spending an Action.
+  </FeatureSubsection>
+  <FeatureSubsection title="When you Reach 13th Level">
+    * When the Battle Trance ends, the ally is Sluggish (1) instead of Sluggish (2).
+  </FeatureSubsection>
+</FeatureSection>
+</GameplayCard>
+
+<KeywordFeatureCard level={4} toc />
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Climb Sheer Surfaces"
+  subeyebrow="5th Level Skald Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 5th level, a Skald can climb upon surfaces that seemingly have no handholds. While other allies may be able to scale walls with good handholds or ropes, Skalds need no such things to be able to scale a wall. Skalds must be wearing light or no armor, and be lightly encumbered or less to perform this action.
+
+Skalds who meet these conditions can climb any walls. They must follow all other rules for climbing, but are able to scale surfaces thought to be impossible to scale unless by magic.
+</GameplayCard>
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Galdr"
+  subeyebrow="7th Level Skald Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 7th level, your verses become galdr, chanted spell-charms that carry over the din of battle. You can cast Spellsongs, following the rules in [*Spellsongs*, Chapter 9: Spellcasting](/playersguide/09-spellcasting/#spellsongs).
+
+<FeatureSection title="Preparing Spellsongs">
+  * When you prepare spells, you can prepare **Spellsong** in place of a specific spell, in a spell slot of any level you can cast.
+  * When you cast a prepared Spellsong, choose any Spellsong on the skald spell list whose level is equal to or lower than the slot's level. A spell slot can't be used to cast a cantrip Spellsong.
+  * Cantrip Spellsongs work the same way. Prepare **Spellsong** as one of your cantrips, then choose any cantrip Spellsong when you cast it.
+</FeatureSection>
+
+<FeatureSection title="Accompaniment">
+  * You accompany a Spellsong by beating out its rhythm as you start or refresh it: clashing a weapon against your shield, pounding your armor with weapon or fist, or beating a war-drum.
+  * You can accompany a Spellsong whenever you are wearing armor or holding a weapon, shield, or drum. It requires no free hands and costs no additional Actions.
+</FeatureSection>
+</GameplayCard>
+
+<GameplayCard
+  colorSet="spellcasting"
+  title="Spellcasting"
+  subeyebrow="7th Level Skald Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 7th level, you have sung enough deeds into memory that the words have begun to answer back. The old poems are not only remembered; they are heard, by the living and by whatever listens beyond them. Each spell is a verse you have hammered into memory. When you perform it, the words are spent and slip from your mind until you rehearse them again.
+
+Your spells are **clerical spells**, and you use the **Free-Hand** casting method. You otherwise follow the general rules in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/).
+
+  <FeatureSection title="Spell Preparation">
+  As part of a Safe Rest, you may rehearse your spells. During this rehearsal, you recite the old verses aloud, beat out their rhythm, and fix each one firmly in memory.
+
+  You may prepare any spell on the Skald spell list for which you have a spell slot of the appropriate level. The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+
+    <FeatureSubsection title="Spellsongs">
+    You can prepare **Spellsong** in any spell slot and choose the song when you cast it (see *Galdr*, 7th Level Skald Feature).
+    </FeatureSubsection>
+  </FeatureSection>
+
+  <FeatureSection title="Spell Scrolls">
+  You can cast spells from Spell Scrolls only if the spell appears on the Skald spell list.
+  </FeatureSection>
+
+  <FeatureSection title="Reversible Spells">
+  Each time you prepare a reversible spell, choose whether you prepare its primary or reverse form. The chosen form is treated as the prepared spell.
+
+  Preparing one form does not prepare the other. To have both forms available, you must prepare each separately.
+  </FeatureSection>
+
+  <FeatureSection title="Casting Spells">
+  You use the Free-Hand casting method described in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/). Spellsongs don't require a Casting Hand (see *Spellsongs* in Chapter 9: Spellcasting).
+  </FeatureSection>
+
+  <FeatureSection title="Cantrips">
+  Cantrips are war-cries and short verses, easily called to mind.
+
+  When you prepare your spells as part of a Safe Rest, you may also prepare the number of cantrips shown on your Spell Progression table from the Skald cantrip list.
+
+  Your Spell Progression table also shows the number of cantrip casts in your shared pool. You regain all expended cantrip casts when you complete a Night's Rest.
+
+    <FeatureSubsection title="Spellsongs">
+    You can prepare **Spellsong** as one of your cantrips and choose any cantrip Spellsong when you cast it (see *Galdr*, 7th Level Skald Feature).
+    </FeatureSubsection>
+  </FeatureSection>
+</GameplayCard>
+
+<KeywordFeatureCard level={8} toc />
+
+<Establishment toc />
+
+## Skald Spell List
+<Tabs>
+  <TabItem label="Cantrips">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={0}
+    className="Skald"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="1st-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={1}
+    className="Skald"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="2nd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={2}
+    className="Skald"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="3rd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={3}
+    className="Skald"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="4th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={4}
+    className="Skald"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+</Tabs>

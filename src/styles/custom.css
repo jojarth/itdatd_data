@@ -66,6 +66,13 @@
   --itdatd-heading-h3: var(--itdatd-theme-cold-iron);
   --itdatd-heading-h4: var(--itdatd-theme-tarnished-gold);
 
+  /* Feature-type card colors. Each heading theme can override these (see HeadingThemeSelect.astro). */
+  --itdatd-feature-fixed: var(--itdatd-color-powder-blue);
+  --itdatd-feature-choice: var(--itdatd-color-easter-pink);
+  --itdatd-feature-spellcasting: var(--itdatd-color-arcane-violet);
+  --itdatd-feature-improvement: var(--itdatd-color-mint);
+  --itdatd-feature-character: var(--itdatd-color-coral);
+
   /* Spell hierarchy colors: edit these four values to retheme spell entries. */
   --itdatd-spell-primary-section: var(--itdatd-color-muted-crimson);
   --itdatd-spell-primary-subsection: var(--itdatd-color-mint);
@@ -869,6 +876,11 @@
 .gameplay-card--verdigris { --gameplay-card-accent: var(--itdatd-color-verdigris); }
 .gameplay-card--mulberry { --gameplay-card-accent: var(--itdatd-color-mulberry); }
 .gameplay-card--system-h2 { --gameplay-card-accent: var(--itdatd-heading-h2); }
+.gameplay-card--feature-fixed { --gameplay-card-accent: var(--itdatd-feature-fixed); }
+.gameplay-card--feature-choice { --gameplay-card-accent: var(--itdatd-feature-choice); }
+.gameplay-card--feature-spellcasting { --gameplay-card-accent: var(--itdatd-feature-spellcasting); }
+.gameplay-card--feature-improvement { --gameplay-card-accent: var(--itdatd-feature-improvement); }
+.gameplay-card--feature-character { --gameplay-card-accent: var(--itdatd-feature-character); }
 
 .gameplay-card__header {
   padding: 0.45rem 1rem 0.45rem 1.25rem;

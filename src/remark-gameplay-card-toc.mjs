@@ -65,7 +65,7 @@ function ordinal(value) {
 }
 
 const reusableTocDetails = {
-  KeywordFeatureCard: { title: 'Keyword Feature', level: 5 },
+  KeywordFeatureCard: { title: 'Keyword Feature', level: 4, levelAttribute: 'level' },
   OrderFeatureCard: { title: 'Order', level: 1, levelAttribute: 'level' },
   Establishment: { title: 'Establishment', level: 10 },
 };

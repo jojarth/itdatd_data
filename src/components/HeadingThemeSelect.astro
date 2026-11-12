@@ -3,6 +3,19 @@ import DefaultThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro'
 import Select from '@astrojs/starlight/components/Select.astro';
 
 /*
+ * Feature colors color-code GameplayCards by feature type (colorSet="fixedfeature", etc.).
+ * A theme can override any of these with its own `features` entry; anything it leaves out
+ * falls back to these defaults.
+ */
+const defaultFeatureColors = {
+  fixed: 'var(--itdatd-color-powder-blue)',
+  choice: 'var(--itdatd-color-easter-pink)',
+  spellcasting: 'var(--itdatd-color-arcane-violet)',
+  improvement: 'var(--itdatd-color-mint)',
+  character: 'var(--itdatd-color-coral)',
+};
+
+/*
  * Add a theme here and it will automatically appear in the selector.
  * Each heading color accepts any CSS color, including the shared palette variables in custom.css.
  */
@@ -15,6 +28,13 @@ const headingThemes = [
       h3: 'var(--itdatd-theme-cold-iron)',
       h4: 'var(--itdatd-theme-tarnished-gold)',
     },
+    features: {
+      fixed: 'var(--itdatd-color-powder-blue)',
+      choice: 'var(--itdatd-color-easter-pink)',
+      spellcasting: 'var(--itdatd-color-arcane-violet)',
+      improvement: 'var(--itdatd-color-mint)',
+      character: 'var(--itdatd-color-coral)',
+    },
   },
   {
     label: 'Old ITDATD Site',
@@ -23,6 +43,13 @@ const headingThemes = [
       h2: 'var(--itdatd-theme-notion-red)',
       h3: 'var(--itdatd-theme-notion-blue)',
       h4: 'var(--itdatd-theme-notion-yellow)',
+    },
+    features: {
+      fixed: 'var(--itdatd-color-powder-blue)',
+      choice: 'var(--itdatd-color-easter-lilac)',
+      spellcasting: 'var(--itdatd-color-arcane-violet)',
+      improvement: 'var(--itdatd-color-fey-teal)',
+      character: 'var(--itdatd-color-terracotta)',
     },
   },
   {
@@ -33,6 +60,13 @@ const headingThemes = [
       h3: 'var(--itdatd-color-deep-teal)',
       h4: 'var(--itdatd-color-mulberry)',
     },
+    features: {
+      fixed: 'var(--itdatd-color-powder-blue)',
+      choice: 'var(--itdatd-color-easter-pink)',
+      spellcasting: 'var(--itdatd-color-arcane-violet)',
+      improvement: 'var(--itdatd-color-sage-green)',
+      character: 'var(--itdatd-color-terracotta)',
+    },
   },
   {
     label: 'Verdigris',
@@ -41,6 +75,13 @@ const headingThemes = [
       h2: 'var(--itdatd-color-verdigris)',
       h3: 'var(--itdatd-color-terracotta)',
       h4: 'var(--itdatd-color-powder-blue)',
+    },
+    features: {
+      fixed: 'var(--itdatd-color-cobalt)',
+      choice: 'var(--itdatd-color-easter-lilac)',
+      spellcasting: 'var(--itdatd-color-mulberry)',
+      improvement: 'var(--itdatd-color-forest-green)',
+      character: 'var(--itdatd-color-amber)',
     },
   },
   {
@@ -51,6 +92,13 @@ const headingThemes = [
       h3: 'var(--itdatd-color-dragon-gold)',
       h4: 'var(--itdatd-color-dusty-rose)',
     },
+    features: {
+      fixed: 'var(--itdatd-color-powder-blue)',
+      choice: 'var(--itdatd-color-easter-lilac)',
+      spellcasting: 'var(--itdatd-color-arcane-violet)',
+      improvement: 'var(--itdatd-color-fey-teal)',
+      character: 'var(--itdatd-color-terracotta)',
+    },
   },
   {
     label: 'Arcane',
@@ -59,6 +107,13 @@ const headingThemes = [
       h2: 'var(--itdatd-color-arcane-violet)',
       h3: 'var(--itdatd-color-fey-teal)',
       h4: 'var(--itdatd-color-amber)',
+    },
+    features: {
+      fixed: 'var(--itdatd-color-powder-blue)',
+      choice: 'var(--itdatd-color-easter-pink)',
+      spellcasting: 'var(--itdatd-color-mulberry)',
+      improvement: 'var(--itdatd-color-sage-green)',
+      character: 'var(--itdatd-color-terracotta)',
     },
   },
   {
@@ -69,12 +124,27 @@ const headingThemes = [
       h3: 'var(--itdatd-color-sage-green)',
       h4: 'var(--itdatd-color-coral)',
     },
+    features: {
+      fixed: 'var(--itdatd-color-powder-blue)',
+      choice: 'var(--itdatd-color-easter-pink)',
+      spellcasting: 'var(--itdatd-color-arcane-violet)',
+      improvement: 'var(--itdatd-color-fey-teal)',
+      character: 'var(--itdatd-color-amber)',
+    },
   },
 ];
 
 const headingThemeConfig = {
   defaultTheme: headingThemes[0].value,
-  palettes: Object.fromEntries(headingThemes.map(({ value, colors }) => [value, colors])),
+  palettes: Object.fromEntries(
+    headingThemes.map((theme) => [
+      theme.value,
+      {
+        ...theme.colors,
+        features: { ...defaultFeatureColors, ...('features' in theme ? theme.features : {}) },
+      },
+    ]),
+  ),
 };
 ---
 
@@ -94,6 +164,9 @@ const headingThemeConfig = {
     document.documentElement.style.setProperty('--itdatd-heading-h2', palette.h2);
     document.documentElement.style.setProperty('--itdatd-heading-h3', palette.h3);
     document.documentElement.style.setProperty('--itdatd-heading-h4', palette.h4);
+    Object.entries(palette.features || {}).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(`--itdatd-feature-${key}`, value);
+    });
   })();
 </script>
 
@@ -114,7 +187,7 @@ const headingThemeConfig = {
 </div>
 
 <script>
-  type HeadingPalette = { h2: string; h3: string; h4: string };
+  type HeadingPalette = { h2: string; h3: string; h4: string; features?: Record<string, string> };
   type HeadingThemeConfig = {
     defaultTheme: string;
     palettes: Record<string, HeadingPalette>;
@@ -155,6 +228,9 @@ const headingThemeConfig = {
     document.documentElement.style.setProperty('--itdatd-heading-h2', palette.h2);
     document.documentElement.style.setProperty('--itdatd-heading-h3', palette.h3);
     document.documentElement.style.setProperty('--itdatd-heading-h4', palette.h4);
+    Object.entries(palette.features ?? {}).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(`--itdatd-feature-${key}`, value);
+    });
 
     try {
       localStorage.setItem(headingThemeStorageKey, resolvedTheme);

@@ -54,6 +54,29 @@ To add a new heading theme option, add an entry to the `headingThemes` array at 
 
 `value` must be unique and URL/attribute-safe (lowercase, hyphens). Each `h2`/`h3`/`h4` color can point at any existing `--itdatd-color-*` or `--itdatd-theme-*` variable from `custom.css`, or a raw CSS color. It appears in the dropdown automatically — no other file needs to change. A reader's chosen theme is remembered in their browser (`localStorage`) so it persists across visits.
 
+### Feature colors
+
+Each theme can also include a `features` entry, which sets the card color for each feature type:
+
+```js
+{
+  label: 'My New Theme',
+  value: 'my-new-theme',
+  colors: { h2: '…', h3: '…', h4: '…' },
+  features: {
+    fixed: 'var(--itdatd-color-powder-blue)',
+    choice: 'var(--itdatd-color-easter-pink)',
+    spellcasting: 'var(--itdatd-color-arcane-violet)',
+    improvement: 'var(--itdatd-color-mint)',
+    character: 'var(--itdatd-color-coral)',
+  },
+},
+```
+
+These drive the `fixedfeature`, `choicefeature`, `spellcasting`, `featureimprovement` and `characterfeature` card sets. Anything a theme leaves out falls back to `defaultFeatureColors` at the top of the same file (which matches the ITDATD theme). The same defaults live in `custom.css` as `--itdatd-feature-fixed`, `--itdatd-feature-choice` and so on, for the moment before the picker loads.
+
+When choosing colors for a theme, keep the five clearly different from each other *and* from that theme's three heading colors, and prefer the extended palette colors (they have dark-mode versions). The ITDATD theme's colors are also the ones to use for print.
+
 This is also what `colorSet="System"` on a `GameplayCard` follows — see [Gameplay Cards & Reusable Blocks](/technicalmanual/06-gameplay-cards/#choosing-a-color-colorset-vs-individual-colors).
 
 ## Adding a whole new book (top-level section) to the sidebar

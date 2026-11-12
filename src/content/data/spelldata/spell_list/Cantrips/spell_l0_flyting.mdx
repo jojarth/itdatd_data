@@ -1,0 +1,44 @@
+---
+datatype: spell
+title: Flyting
+level: 0
+casting: 1 Action; Phase 2
+range: 30 feet
+duration: Spellsong (see below)
+shortDescription: Your verse-insults goad a foe into fighting you.
+classes:
+  - Skald
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Flyting">
+
+    <FeatureSection title="Spellsong">
+        This spell is a Spellsong and follows the Spellsong rules (see *Spellsongs* in Chapter 9: Spellcasting).
+
+        <FeatureSubsection title="Song Duration">
+            * **Lingering:** 1 round
+            * **Refresh:** 1 Action
+            * **Maximum:** 3 rounds
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Song Effect">
+        Choose one foe within range who can hear you and understands your language. It must make a Saving Throw vs Spell. On a failure, it suffers a -1 magic penalty to attack rolls against creatures other than you.
+
+        <FeatureSubsection title="Accompaniment">
+            The penalty increases to a -2 magic penalty.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Hurl a barbed verse at your foe, mocking its lineage, its courage, and its looks.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

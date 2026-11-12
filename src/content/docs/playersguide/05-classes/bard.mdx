@@ -1,0 +1,327 @@
+---
+title: Bard
+spellcasting:
+  type: Clerical
+  method: Free-Hand
+classSummary:
+  role: Keeper of lore, song, and memory, at home in every hall and as good at talking as at fighting.
+  armor: Light armor; bucklers and small shields
+---
+import GameplayCard from '../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
+import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+import SpellList from "../../../../components/SpellList.astro";
+export const allEntries = await getCollection("data");
+import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
+import Establishment from '../../../../components/reusable/Establishment.astro';
+
+Bards are the keepers of memory. They carry the old songs, the lineages of kings, and the lore of the wise, and their words can open doors, soothe tempers, or start a war. Few things are beyond a bard's reach, even if many are beyond their mastery.
+
+## Bard Gameplay
+Below is a list of information needed to play a bard at the various levels of play.
+
+<GameplayCard
+  colorSet="System"
+  title="Requirements and Requisites"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Keywords">
+  **Archetype:** **Adept**, **Priest**
+  </FeatureSection>
+
+  <FeatureSection title="Prime Requisite">
+    Your prime requisites are presence and reason, and you gain bonus experience points based on your presence and reason scores.
+    - If your presence and reason scores are 13 or higher, you gain a +5% bonus to all experience points earned.
+    - If your presence and reason scores are 16 or higher, you gain a +10% bonus to all experience points earned.
+  </FeatureSection>
+  </GameplayCard>
+
+<GameplayCard
+  colorSet="System"
+  title="Proficiencies"
+  toc
+  tocDepth={3}
+>
+  <FeatureSection title="Armor Proficiency">
+    You are proficient with **light armor**.
+  </FeatureSection>
+
+  <FeatureSection title="Shield Proficiency">
+    You are proficient with **bucklers** and **small shields**.
+  </FeatureSection>
+
+  <FeatureSection title="Weapon Proficiency">
+    You begin play Familiar with **Brawling, Daggers, Single-Handed Swords, Clubs and Maces, Staves, Bows,** and **Throwing Darts**.
+  </FeatureSection>
+</GameplayCard>
+
+### Class Table
+
+<div class="green-table compact-table">
+| **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
+|:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
+| **1** | 0 | +1d6 + 2 | +2 | +1 | 15 | 15 | 15 | 15 | 15 |
+| **2** | 1,300 | +1d6 + 2 | +2 | +1 | 15 | 15 | 14 | 14 | 14 |
+| **3** | 2,600 | +1d6 + 2 | +2 | +1 | 14 | 14 | 14 | 14 | 14 |
+| **4** | 6,500 | +1d6 + 2 | +3 | +1 | 14 | 14 | 13 | 13 | 13 |
+| **5** | 13,000 | +1d6 + 2 | +3 | +2 | 14 | 14 | 13 | 13 | 13 |
+| **6** | 26,000 | +1d6 + 2 | +3 | +2 | 13 | 13 | 12 | 12 | 12 |
+| **7** | 65,000 | +1d6 + 2 | +4 | +2 | 13 | 13 | 12 | 12 | 12 |
+| **8** | 130,000 | +1d6 + 2 | +4 | +2 | 13 | 13 | 11 | 11 | 11 |
+| **9** | 260,000 | +1d6 + 2 | +4 | +2 | 12 | 12 | 11 | 11 | 11 |
+| **10** | 390,000 | +2 | +5 | +3 | 12 | 12 | 10 | 10 | 10 |
+| **11** | 520,000 | +2 | +5 | +3 | 12 | 12 | 10 | 10 | 10 |
+| **12** | 650,000 | +2 | +5 | +3 | 11 | 11 | 9 | 9 | 9 |
+| **13** | 975,000 | +2 | +6 | +3 | 11 | 11 | 9 | 9 | 9 |
+| **14** | 1,300,000 | +2 | +6 | +3 | 11 | 11 | 9 | 9 | 9 |
+</div>
+
+### Spell Progression Table
+
+<SpellSlotTable rank="C" colorTheme="blue-table compact-table" boldColumn={1} boldHeader />
+
+## Bard Features
+As a bard, you gain the following class features.
+
+<div class="powder-blue-table compact-table">
+| **Level** | **Features** |
+|:---------:|:-------------|
+| **1**     | Jack of All Trades, Lesser Thief Skills, Promise of Renown |
+| **2**     | Bardsong, Spellcasting |
+| **4**     | Keyword Feature |
+| **6**     | Lore |
+| **8**     | Keyword Feature |
+| **10**    | Establishment |
+| **11**    | Bardsong (improvement) |
+</div>
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Jack of all Trades"
+  subeyebrow="1st Level Bard Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+You are at least Partially Eligible to participate in any Attribute Test.
+</GameplayCard>
+
+<GameplayCard
+  colorSet="choicefeature"
+  title="Lesser Thief Skills"
+  subeyebrow="1st Level Bard Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+A bard's travels take them through many doors, not all of them open. Choose one of the following thief skills. Once made, this choice can't be changed.
+
+  <FeatureSection title="Pick Locks">
+    You are able to ***Pick Locks***.
+  </FeatureSection>
+
+  <FeatureSection title="Disarm Fine Traps">
+    You are able to ***Disarm Fine Traps***.
+  </FeatureSection>
+</GameplayCard>
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Promise of Renown"
+  subeyebrow="1st Level Bard Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Those who follow a bard may one day hear their own names in song. Increase your Max Hench by 1, and increase your Hench Loyalty Bonus by 2.
+</GameplayCard>
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Bardsong"
+  subeyebrow="2nd Level Bard Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 2nd level, you can weave your spells into song, verse, and music. You can cast Spellsongs, following the rules in [*Spellsongs*, Chapter 9: Spellcasting](/playersguide/09-spellcasting/#spellsongs).
+
+<FeatureSection title="Preparing Spellsongs">
+  * When you prepare spells, you can prepare **Spellsong** in place of a specific spell, in a spell slot of any level you can cast.
+  * When you cast a prepared Spellsong, choose any Spellsong on the bard spell list whose level is equal to or lower than the slot's level. A spell slot can't be used to cast a cantrip Spellsong.
+  * Cantrip Spellsongs work the same way. Prepare **Spellsong** as one of your cantrips, then choose any cantrip Spellsong when you cast it.
+</FeatureSection>
+
+<FeatureSection title="Accompaniment">
+  * You accompany a Spellsong by playing a musical instrument held in both hands as you start or refresh it.
+</FeatureSection>
+
+<FeatureSection title="Feature Improvements">
+  <FeatureSubsection title="When you Reach 11th Level">
+    * The Lingering duration of every Spellsong you perform increases by 1 round.
+  </FeatureSubsection>
+</FeatureSection>
+</GameplayCard>
+
+<GameplayCard
+  colorSet="spellcasting"
+  title="Spellcasting"
+  subeyebrow="2nd Level Bard Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 2nd level, you have learned that the oldest words still hold power. The verses, chants, and invocations passed from bard to bard carry a little of the sacred in them, and a trained voice can wake it. Each spell is a passage you have committed to memory. When you perform it, the words are spent and slip from your mind until you rehearse them again.
+
+Your spells are **clerical spells**, and you use the **Free-Hand** casting method. You otherwise follow the general rules in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/).
+
+  <FeatureSection title="Spell Preparation">
+  As part of a Safe Rest, you may rehearse your spells. During this rehearsal, you recite the old verses aloud, tune your instrument, and fix each passage firmly in memory.
+
+  You may prepare any spell on the Bard spell list for which you have a spell slot of the appropriate level. The spells you prepare take effect when you complete the Safe Rest. If the Safe Rest is not completed, the spells are not prepared.
+
+    <FeatureSubsection title="Spellsongs">
+    You can prepare **Spellsong** in any spell slot and choose the song when you cast it (see *Bardsong*, 2nd Level Bard Feature).
+    </FeatureSubsection>
+  </FeatureSection>
+
+  <FeatureSection title="Spell Scrolls">
+  A bard learns a little of every tongue and script. You can cast spells from any Spell Scroll, magical or clerical, as long as you can cast spells of the scroll's level.
+  </FeatureSection>
+
+  <FeatureSection title="Reversible Spells">
+  Each time you prepare a reversible spell, choose whether you prepare its primary or reverse form. The chosen form is treated as the prepared spell.
+
+  Preparing one form does not prepare the other. To have both forms available, you must prepare each separately.
+  </FeatureSection>
+
+  <FeatureSection title="Casting Spells">
+  You use the Free-Hand casting method described in [Chapter 09: Spellcasting](/playersguide/09-spellcasting/). Spellsongs don't require a Casting Hand (see *Spellsongs* in Chapter 9: Spellcasting).
+  </FeatureSection>
+
+  <FeatureSection title="Cantrips">
+  Cantrips are short snatches of verse, easily called to mind.
+
+  When you prepare your spells as part of a Safe Rest, you may also prepare the number of cantrips shown on your Spell Progression table from the Bard cantrip list.
+
+  Your Spell Progression table also shows the number of cantrip casts in your shared pool. You regain all expended cantrip casts when you complete a Night's Rest.
+
+    <FeatureSubsection title="Spellsongs">
+    You can prepare **Spellsong** as one of your cantrips and choose any cantrip Spellsong when you cast it (see *Bardsong*, 2nd Level Bard Feature).
+    </FeatureSubsection>
+  </FeatureSection>
+</GameplayCard>
+
+
+<KeywordFeatureCard level={4} toc />
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Lore"
+  subeyebrow="6th Level Bard Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 6th level, you carry the memory of ages: histories and genealogies, the deeds of heroes, the legends of ruined places, and the old names of things. You gain the following benefits:
+
+  * You are always Fully Eligible to participate in Attribute Tests made to recall knowledge of the past, and you gain a +2 Situation Bonus to those tests.
+  * By spending 1 round examining an item, you can tell whether it is magical.
+  * You immediately recognize when an item is cursed before its effect takes hold. You may choose to stop interacting with the item before the curse applies.
+</GameplayCard>
+
+<KeywordFeatureCard level={8} toc />
+
+<Establishment toc />
+
+## Bard Spell List
+<Tabs>
+  <TabItem label="Cantrips">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={0}
+    className="Bard"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="1st-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={1}
+    className="Bard"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="2nd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={2}
+    className="Bard"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="3rd-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={3}
+    className="Bard"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="4th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={4}
+    className="Bard"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+  <TabItem label="5th-Level">
+  <main>
+  <SpellList
+    entries={allEntries}
+    datatype="spell"
+    level={5}
+    className="Bard"
+    sortBy="title"
+    sortDir="asc"
+    showReverse
+    showHeading={false}
+    displayFields={['shortDescription']}
+  />
+  </main>
+  </TabItem>
+</Tabs>

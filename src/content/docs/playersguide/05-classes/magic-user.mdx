@@ -28,8 +28,8 @@ Below is a list of information needed to play a magic-user at the various levels
   toc
   tocDepth={3}
 >
-  <FeatureSection title="Class Keywords">
-  **Arcanist**
+  <FeatureSection title="Keywords">
+  **Archetype:** **Arcanist**
   </FeatureSection>
 
   <FeatureSection title="Prime Requisite">
@@ -87,8 +87,18 @@ Below is a list of information needed to play a magic-user at the various levels
 ## Magic-User Features
 As a magic-user, you gain the following class features.
 
+<div class="powder-blue-table compact-table">
+| **Level** | **Features** |
+|:---------:|:-------------|
+| **1**     | Spellcasting |
+| **3**     | Signature Spell |
+| **4**     | Keyword Feature |
+| **8**     | Keyword Feature |
+| **10**    | Establishment |
+</div>
+
 <GameplayCard
-  colorSet="System"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="1st Level Magic-User Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -162,7 +172,9 @@ Upon reaching 3rd level, select one 1st-level spell recorded in your spell books
 You gain one additional 1st-level spell slot. This slot may only be used to prepare the chosen spell.
 </GameplayCard>
 
-<KeywordFeatureCard toc />
+<KeywordFeatureCard level={4} toc />
+
+<KeywordFeatureCard level={8} toc />
 
 <Establishment toc />
 

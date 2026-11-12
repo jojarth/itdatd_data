@@ -32,8 +32,8 @@ Below is a list of information needed to play a Cleric at the various levels of 
   toc
   tocDepth={3}
 >
-  <FeatureSection title="Class Keywords">
-  **Priest**
+  <FeatureSection title="Keywords">
+  **Archetype:** **Priest**
   </FeatureSection>
 
   <FeatureSection title="Prime Requisite">
@@ -90,10 +90,20 @@ Below is a list of information needed to play a Cleric at the various levels of 
 ## Cleric Features
 As a cleric, you gain the following class features.
 
+<div class="powder-blue-table compact-table">
+| **Level** | **Features** |
+|:---------:|:-------------|
+| **1**     | Order, Turn Undead |
+| **2**     | Spellcasting |
+| **4**     | Keyword Feature |
+| **8**     | Keyword Feature |
+| **10**    | Establishment |
+</div>
+
 <OrderFeatureCard
   className="Cleric"
   traditions={['Military', 'Devotional']}
-  colorSet="System"
+  colorSet="choicefeature"
   toc
 >
   <AshenCrossBrotherhood include={['Military', 'Devotional']} />
@@ -102,7 +112,7 @@ As a cleric, you gain the following class features.
 </OrderFeatureCard>
 
 <GameplayCard
-  colorSet="System"
+  colorSet="fixedfeature"
   title="Turn Undead"
   subeyebrow="1st Level Cleric Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -147,7 +157,7 @@ Clerics can channel sacred power to drive back the undead. To use this ability, 
 </GameplayCard>
 
 <GameplayCard
-  colorSet="System"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="2nd Level Cleric Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -186,7 +196,9 @@ Your spells are **clerical spells**, and you use the **Devotional** casting meth
   </FeatureSection>
 </GameplayCard>
 
-<KeywordFeatureCard toc />
+<KeywordFeatureCard level={4} toc />
+
+<KeywordFeatureCard level={8} toc />
 
 <Establishment toc />
 

@@ -6,7 +6,7 @@ import FeatureSection from '../../../../components/FeatureSection.astro';
 
 Around Cerrix, dwarves have a reputation for being dour and stoic, hiding in their homes and not having dealings or goes-on with other folks. But people who view dwarves as this have never been friends with a dwarf. Although slow to accept, and slower to trust, once a dwarf has opened up to you, you will have a loyal, life-long friend.
 
-Dwarves are shorter than humans, although their broad bodies mean they weigh about the same. Dwarves are known for being of strong body and having great insight. Their culture doesn't tend to value education in the same manner as others, instead training at a young age for specific jobs. Because of how they view education, dwarves tend to be gruff and unsociable, but also produces a large number of experts in specific fields. Due to their homes, and the value they can get from their goods, dwarves have an abundance of expert miners, expert smiths, and expert jewel crafters, all of whose craftsmanship rivals that of the rare experts outside of dwarven culture (with some exceptions from the elves, of course).
+Dwarves are shorter than humans, although their broad bodies mean they weigh about the same. Dwarves are known for being of strong body and having great insight. Their culture doesn't tend to value education in the same manner as others, instead training at a young age for specific jobs. Because of how they view education, dwarves tend to be gruff and unsociable, but also produces a large number of experts in specific fields. Due to their homes, and the value they can get from their goods, dwarves have an abundance of expert miners, expert smiths, and expert jewel craftsmen, all of whose craftsmanship rivals that of the rare experts outside of dwarven culture (with some exceptions from the elves, of course).
 
 Dwarves tend to be a very lawful people, and have little crime in their homeland. Since not every dwarf has a well-rounded education, most dwarven cities understand the need to take care of each other, and build a well-rounded community, where everyone plays a part. Crime is rare in dwarven communities, and is usually swiftly punished.
 
@@ -51,9 +51,9 @@ As a dwarf, you automatically gain access to all features below.
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Dwarves are deeply attuned to the underlying stability of the world. This attunement limits their ability to interact with certain forms of magical manipulation. A dwarf cannot select a class that grants the _arcanist_ keyword.
+Dwarves are deeply attuned to the underlying stability of the world. This attunement limits their ability to interact with certain forms of magical manipulation. A dwarf cannot select a class that grants the _arcanist_ keyword. 
 
-However, this same attunement makes them exceptionally resistant to such magic. When a dwarf makes a Saving Throw against a magical spell or an effect created by one, they gain a +4 ancestry bonus to the Saving Throw.
+However, this same attunement makes them exceptionally resistant to such magic. When a dwarf makes a Saving Throw vs Spell against a Magical Effect, they apply their Dwarven Fortitde bonus to the Saving Throw. This has no effect on Clerical Spells.
 </GameplayCard>
 
 <GameplayCard
@@ -108,14 +108,15 @@ Dwarven culture find work meditative. As such, when you take the Background Work
 You gain bonuses when interacting with stone or ground. Any time you make any Attribute Test related to stones or ground, you gain a +1 Ancestry Bonus to your test, or a +1-in-Y.
 </GameplayCard>
 
-## Class Keyword Features
-After selecting your class, you gain access to an additional ancestral feature based on your selected classes keyword. If your class has multiple keywords, or you are a multi-classed character, you can select 1 of the keywords granted to you by your class, and gain the feature with that keyword listed below.
+## Ancestral Training
+After selecting your class, you gain access to an additional ancestral feature based on your class's Archetype keyword. If your class has multiple Archetype keywords, or you are a multi-classed character, select one of the Archetype keywords granted to you by your classes, and gain the feature listed below for that keyword.
 
 <GameplayCard
   color="orange"
-  title="Adept"
-  subeyebrow="Class Keyword Ancestry Feature"
-  headerOrder={['title', 'subeyebrow']}
+  eyebrow="Adept"
+  title="Underhanded"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['eyebrow', 'title', 'subeyebrow']}
   toc
 >
 Reduce the number of Actions required to Reload a weapon with the Heavy and Reload properties by 1, to a minimum of 1 Action.
@@ -125,9 +126,10 @@ Additionally, you treat all weapons in the Single-Handed Axes, Clubs and Maces, 
 
 <GameplayCard
   color="orange"
-  title="Priest"
-  subeyebrow="Class Keyword Ancestry Feature"
-  headerOrder={['title', 'subeyebrow']}
+  eyebrow="Priest"
+  title="Stone Vigor"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['eyebrow', 'title', 'subeyebrow']}
   toc
 >
 The Grit die granted by the class that provided your Priest keyword increases by one die step, to a maximum of d8. This feature does not affect any static Grit bonuses.
@@ -139,9 +141,10 @@ A Cleric normally gains 1d6+2 Grit per level from levels 1-9. A dwarf with this 
 
 <GameplayCard
   color="orange"
-  title="Soldier"
-  subeyebrow="Class Keyword Ancestry Feature"
-  headerOrder={['title', 'subeyebrow']}
+  eyebrow="Soldier"
+  title="Standing Stone"
+  subeyebrow="Ancestry Feature"
+  headerOrder={['eyebrow', 'title', 'subeyebrow']}
   toc
 >
 When determining how much damage you can block with your Shield Block reaction, you can add the damage bonus you gain from your Brawn to the amount blocked.
@@ -150,10 +153,10 @@ When determining how much damage you can block with your Shield Block reaction, 
 ## Dwarf Ages
 Dwarves come late into their strength, but hold it long, enduring where others falter. Their bodies are slow to fail, and their will slower still, hardening into iron with age. The eldest among them are not swift, but they are immovable, and their word carries the weight of stone.
 
-To randomly roll your starting age, you must first determine your class keywords. If you have 1 class keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 class keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each class keyword you have.
+To randomly roll your starting age, you must first determine your archetype keywords. If you have 1 archetype keyword, take the Base Age for the keyword, and add the result of the Roll for the keyword as well. If you have more than 1 archetype keyword, you use the highest base age for your keywords, but roll all dice in the roll column for each archetype keyword you have.
 
 <div class="green-table">
-| **Class Keyword** | **Base Age** | **Roll** |
+| **Archetype Keyword** | **Base Age** | **Roll** |
 |:-----------------:|:------------:|:--------:|
 | **Adept**         | 15           | 5d10     |
 | **Priest**        | 40           | 5d12     |
@@ -161,7 +164,7 @@ To randomly roll your starting age, you must first determine your class keywords
 </div>
 
 :::tip[Two Dwarves]{icon="information"}
-Cerrig has selected the Thief class, which contains the Adept class keyword. Thus, he rolls 5d10, getting a total of 24. He adds that to the base age of 15, and Cerrig is 39 years old, still quite the youthful dwarf!
+Cerrig has selected the Thief class, which contains the Adept archetype keyword. Thus, he rolls 5d10, getting a total of 24. He adds that to the base age of 15, and Cerrig is 39 years old, still quite the youthful dwarf!
 
 However, Miranda is a Cleric\Fighter, which has the Priest and Solider keywords. Since the base age of priest is higher, her base age is 40. She then rolls 5d12 + 6d6, getting 23 for the 5d12, and 21 for the 6d6. Miranda is 84 years old (40 + 23 + 21), which is in her Prime.
 :::

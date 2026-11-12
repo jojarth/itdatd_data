@@ -52,18 +52,20 @@ This only works when `title` is written as a plain quoted string (`title="Spellc
 
 ## Choosing a color: `colorSet` vs. individual colors
 
-You *can* set colors one at a time (`color`, `sectionColor`, `subsectionColor`), but the easier path for a typical feature card is `colorSet`, which sets all three together from one of eight named combinations:
+You *can* set colors one at a time (`color`, `sectionColor`, `subsectionColor`), but the easier path for a typical feature card is `colorSet`, which sets all three together from one of eight named combinations.
+
+The five **feature-type** sets (`fixedfeature`, `choicefeature`, `spellcasting`, `featureimprovement`, `characterfeature`) are color-coded *and* follow the reader's heading theme: each theme defines one card color per feature type, and the card's sections and subsections use that theme's H3 and H4 colors. Switching themes recolors every feature card while keeping the types distinct from one another.
 
 | `colorSet` | Card | Section | Subsection | Typical use |
 |:--|:--|:--|:--|:--|
 | `System` | follows reader's heading theme | " | " | Requirements/proficiency blocks that should match the page's active color theme |
 | `gameplayfeature` | cobalt | mint | coral | General class features |
 | `proficiencies` | forest-green | royal-blue | crimson | Proficiency/requirement blocks |
-| `spellcasting` | arcane-violet | fey-teal | dragon-gold | Spellcasting rules |
-| `choicefeature` | easter-lilac | robin-egg | easter-pink | Features where the player picks an option |
-| `fixedfeature` | powder-blue | sage-green | dusty-rose | Fixed (no-choice) features |
-| `characterfeature` | amber | terracotta | ember | Universal character features (Keyword Features, Establishment) |
-| `featureimprovement` | glacier-blue | periwinkle | deep-teal | Features that scale/improve at higher levels |
+| `spellcasting` | theme's spellcasting color | heading H3 | heading H4 | Spellcasting rules |
+| `choicefeature` | theme's choice color | heading H3 | heading H4 | Features where the player picks an option (Orders, Druid Journeys, Signature Spell) |
+| `fixedfeature` | theme's fixed color | heading H3 | heading H4 | Fixed (no-choice) features |
+| `characterfeature` | theme's character color | heading H3 | heading H4 | Universal character features (Keyword Features, Establishment) |
+| `featureimprovement` | theme's improvement color | heading H3 | heading H4 | Features that scale/improve at higher levels |
 
 ```mdx
 <GameplayCard colorSet="gameplayfeature" title="Requirements and Requisites">
@@ -71,7 +73,20 @@ You *can* set colors one at a time (`color`, `sectionColor`, `subsectionColor`),
 </GameplayCard>
 ```
 
-`colorSet="System"` is special — its card/section/subsection colors follow whatever heading theme the reader has picked in the theme switcher (see [Classes & Site Setup](/technicalmanual/09-classes-and-site-config/#the-heading-theme-picker)), instead of a fixed palette. It's what most Fighter/class "Requirements and Requisites" and "Proficiencies" cards use.
+`colorSet="System"` is special — its card/section/subsection colors follow whatever heading theme the reader has picked in the theme switcher (see [Classes & Site Setup](/technicalmanual/09-classes-and-site-config/#the-heading-theme-picker)), instead of a fixed palette. It's what every class's "Requirements and Requisites" and "Proficiencies" cards use. Class *features* should use one of the feature-type sets instead, so the reader can tell at a glance whether a feature is fixed, a choice, spellcasting, an improvement or a universal character feature.
+
+### Which set should a class feature use?
+
+| If the feature… | Use |
+|:--|:--|
+| Is the Requirements or Proficiencies block | `System` |
+| Works the same for everyone who has it | `fixedfeature` |
+| Asks the player to pick an option (including Orders) | `choicefeature` |
+| Is the class's Spellcasting rules | `spellcasting` |
+| Is its own card improving an earlier feature | `featureimprovement` |
+| Is shared by every class (Keyword Features, Establishment) | `characterfeature` (the reusable blocks already default to it) |
+
+To change what a feature type looks like in a given theme, edit that theme's `features` entry — see [Classes & Site Setup](/technicalmanual/09-classes-and-site-config/#feature-colors).
 
 `classfeature` is accepted as a shorthand alias for `gameplayfeature`, and `classfeaturewithchoices`/`classfeaturewithoutchoices` alias to `choicefeature`/`fixedfeature`. Passing an unrecognized `colorSet` name will fail the build with a clear error listing the valid options.
 

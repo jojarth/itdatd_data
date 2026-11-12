@@ -36,8 +36,8 @@ Below is a list of information needed to play a Theurge at the various levels of
     To become a theurge, you must have a Reason score of 8 or higher.
     </FeatureSection>
     
-    <FeatureSection title="Class Keywords">
-    **Priest**
+    <FeatureSection title="Keywords">
+    **Archetype:** **Priest**
     </FeatureSection>
 
   <FeatureSection title="Prime Requisite">
@@ -94,10 +94,20 @@ Below is a list of information needed to play a Theurge at the various levels of
 ## Theurge Features
 As a theurge, you gain the following class features.
 
+<div class="powder-blue-table compact-table">
+| **Level** | **Features** |
+|:---------:|:-------------|
+| **1**     | Order, Spellcasting |
+| **3**     | Miracle Worker |
+| **4**     | Keyword Feature |
+| **8**     | Keyword Feature |
+| **10**    | Establishment |
+</div>
+
 <OrderFeatureCard
   className="Theurge"
   traditions={['Devotional', 'Stewardship']}
-  colorSet="System"
+  colorSet="choicefeature"
   toc
 >
   <AshenCrossBrotherhood include={['Devotional', 'Stewardship']} />
@@ -106,7 +116,7 @@ As a theurge, you gain the following class features.
 </OrderFeatureCard>
 
 <GameplayCard
-  colorSet="System"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="1st Level Theurge Feature"
   headerOrder={['title', 'subeyebrow']}
@@ -155,7 +165,9 @@ Your spells are **clerical spells**, and you use the **Devotional** casting meth
 Starting at 3rd level, you can spend one uninterrupted hour in prayer to replace a prepared spell with another spell of the same level that restores Grit or allows a target to recover from one or more negative effects.
 </GameplayCard>
 
-<KeywordFeatureCard toc />
+<KeywordFeatureCard level={4} toc />
+
+<KeywordFeatureCard level={8} toc />
 
 <Establishment toc />
 

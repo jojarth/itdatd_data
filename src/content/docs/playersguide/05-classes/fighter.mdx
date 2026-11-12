@@ -6,6 +6,7 @@ classSummary:
 ---
 import GameplayCard from '../../../../components/GameplayCard.astro';
 import FeatureSection from '../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
 import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
 import Establishment from '../../../../components/reusable/Establishment.astro';
 
@@ -19,8 +20,8 @@ Below is a list of information needed to play a fighter at the various levels of
   toc
   tocDepth={3}
 >
-  <FeatureSection title="Class Keywords">
-  **Soldier**
+  <FeatureSection title="Keywords">
+  **Archetype:** **Soldier**
   </FeatureSection>
 
   <FeatureSection title="Prime Requisite">
@@ -73,6 +74,19 @@ Below is a list of information needed to play a fighter at the various levels of
 ## Fighter Features
 As a fighter, you gain the following class features.
 
+<div class="powder-blue-table compact-table">
+| **Level** | **Features** |
+|:---------:|:-------------|
+| **1**     | Laden Fighting, Weapon Master |
+| **3**     | Unyielding |
+| **4**     | Keyword Feature |
+| **6**     | Hard-Won Lessons |
+| **8**     | Keyword Feature |
+| **9**     | Weapon Master (improvement) |
+| **10**    | Establishment |
+| **11**    | Unyielding (improvement) |
+</div>
+
 <GameplayCard
   colorSet="fixedfeature"
   title="Laden Fighting"
@@ -93,7 +107,14 @@ When determining how much you can carry, treat your EP breakpoints as if they we
 When determining your Weapon Proficiency Points, you gain an amount equal to three times your Combat Bonus instead of the normal value. You must spend all WPPs at 1st level like normal.
 
 Additionally, you gain a +15% bonus to success chances when undertaking Weapon Training Downtime Events.
+
+  <FeatureSection title="Feature Improvements">
+      <FeatureSubsection title="When you Reach 9th Level">
+        * Reduce the Speed Factor of any weapon you wield by 1 (to a minimum of 2) if you are at least Expert with its weapon group.
+      </FeatureSubsection>
+  </FeatureSection>
 </GameplayCard>
+
 
 <GameplayCard
   colorSet="fixedfeature"
@@ -102,9 +123,28 @@ Additionally, you gain a +15% bonus to success chances when undertaking Weapon T
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Upon reaching 3rd level, after failing a saving throw, you can use this feature and reroll it. Once you use this feature, you cannot use it again until you finish a *Meditation Downtime Event*.
+Upon reaching 3rd level, when you fail a Saving Throw, you can reroll it, but you must use the new result. Once you use this feature, you can't use it again until you finish a *Meditation Downtime Event*.
+
+  <FeatureSection title="Feature Improvements">
+    <FeatureSubsection title="When you Reach 11th Level">
+      * You can use this feature twice, and you regain both uses when you finish a *Meditation Downtime Event*. You can't use it more than once on the same Saving Throw.
+    </FeatureSubsection>
+  </FeatureSection>
 </GameplayCard>
 
-<KeywordFeatureCard toc />
+
+<KeywordFeatureCard level={4} toc />
+
+<GameplayCard
+  colorSet="fixedfeature"
+  title="Hard-Won Lessons"
+  subeyebrow="6th Level Fighter Feature"
+  headerOrder={['title', 'subeyebrow']}
+  toc
+>
+Upon reaching 6th level, you gain one additional Keyword Feature, following the rules in [*Keyword Features* in Chapter 11: Advancement](/playersguide/11-character_advancement/keywordfeatures/). The feature you select must list **Soldier** among its prerequisite keywords.
+</GameplayCard>
+
+<KeywordFeatureCard level={8} toc />
 
 <Establishment toc />

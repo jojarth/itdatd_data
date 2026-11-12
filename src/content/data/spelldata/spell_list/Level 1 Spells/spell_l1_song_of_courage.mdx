@@ -1,0 +1,61 @@
+---
+datatype: spell
+title: Song of Courage
+level: 1
+casting: 3 Actions; Phase 2
+range: 30 feet
+duration: Spellsong (see below)
+shortDescription: Your song steels allies against fear.
+classes:
+  - Bard
+  - Skald
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Song of Courage">
+
+    <FeatureSection title="Spellsong">
+        This spell is a Spellsong and follows the Spellsong rules (see *Spellsongs* in Chapter 9: Spellcasting).
+
+        <FeatureSubsection title="Song Duration">
+            * **Lingering:** 3 rounds
+            * **Refresh:** 1 Action
+            * **Maximum:** 10 minutes
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Song Effect">
+        Each ally within range who can hear you gains a +2 magic bonus to Saving Throws made to resist fear effects.
+
+        <FeatureSubsection title="Accompaniment">
+            When you start or refresh this song with Accompaniment, each affected ally who is currently under a fear effect can immediately attempt a new Saving Throw against it, with this song's bonus.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Non-Player Characters">
+            * In addition to the normal effects of this spell, an affected non-player character gains a +2 magic bonus to Morale.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Spell Improvements">
+
+        <FeatureSubsection title="When you can cast 3rd-level spells">
+            * The song's Lingering duration increases to 4 rounds.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Sing, chant, or recite a stirring verse of a hero who stood firm when others fled.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

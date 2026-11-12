@@ -47,8 +47,10 @@ Below is a list of information needed to play a Paladin at the various levels of
     These demanding requirements reflect the exceptional character expected of a paladin. Few possess the strength, resolve, wisdom, and force of personality required to uphold the sacred oath.
     </FeatureSection>
 
-    <FeatureSection title="Class Keywords">
-        **Priest**, **Soldier**, **Paladin**, **Hallowed**
+    <FeatureSection title="Keywords">
+        **Archetype:** **Priest**, **Soldier**
+
+        **Story:** **Paladin**, **Hallowed**
     </FeatureSection>
 
     <FeatureSection title="Prime Requisite">
@@ -125,8 +127,21 @@ Below is a list of information needed to play a Paladin at the various levels of
 ## Paladin Features
 As a Paladin, you gain the following class features.
 
+<div class="powder-blue-table compact-table">
+| **Level** | **Features** |
+|:---------:|:-------------|
+| **1**     | Lay on Hands, Order, Smite |
+| **3**     | Turn Undead, Divine Health |
+| **4**     | Keyword Feature, Smite (improvement) |
+| **6**     | Aura of Power |
+| **7**     | Spellcasting |
+| **8**     | Keyword Feature |
+| **10**    | Establishment |
+| **11**    | Lay on Hands (improvement) |
+</div>
+
 <GameplayCard
-  colorSet="System"
+  colorSet="fixedfeature"
   title="Lay on Hands"
   subeyebrow="1st Level Paladin Feature • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -147,7 +162,7 @@ Once you use this feature, you must complete a Night's Rest before you can use i
 <OrderFeatureCard
   className="Paladin"
   traditions={['Military', 'Stewardship']}
-  colorSet="System"
+  colorSet="choicefeature"
   toc
 >
   <AshenCrossBrotherhood include={['Military', 'Stewardship']} />
@@ -156,9 +171,9 @@ Once you use this feature, you must complete a Night's Rest before you can use i
 </OrderFeatureCard>
 
 <GameplayCard
-  colorSet="System"
-  title="Smite"
-  subeyebrow="1st Level Paladin Feature"
+  colorSet="fixedfeature"
+  title="Righteous Smite"
+  subeyebrow="1st Level Paladin Feature • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
   toc
 >
@@ -183,7 +198,7 @@ Some Paladin spells are cast in conjunction with utilizing this feature. When th
 </GameplayCard>
 
 <GameplayCard
-  colorSet="System"
+  colorSet="fixedfeature"
   title="Turn Undead"
   subeyebrow="3rd Level Paladin Feature • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -203,10 +218,10 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
     | :-------------------------- | :------------------------: |
     | **Presence +6** | Paladin Level -4 |
     | **Presence +3** | Paladin Level -3 |
-    | **Presence**    | Paladin Level -2  |
-    | **Presence -3** | Paladin Level - 1 |
-    | **Presence -6** | Paladin Level     |
-    | **Presence -9** | Paladin Level +1  |
+    | **Presence**    | Paladin Level -2 |
+    | **Presence -3** | Paladin Level -1 |
+    | **Presence -6** | Paladin Level    |
+    | **Presence -9** | Paladin Level +1 |
     </div>
   </FeatureSection>
 
@@ -227,7 +242,7 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
   </FeatureSection>
 
   <FeatureSection title="Paladin-Specific Notes">
-  If an effect modifies or otherwise interacts with Turn Undead but does not specify how it applies to Paladins, it applies to you. For that effect, treat your Cleric level as two levels lower than your Paladin level.
+    If an effect modifies or otherwise interacts with Turn Undead but does not specify how it applies to Paladins, it still applies to you. For that effect, treat yourself as a Cleric of your Paladin level minus 2.
   </FeatureSection>
 </GameplayCard>
 
@@ -241,10 +256,10 @@ Upon reaching 3rd level, Paladins can channel sacred power to drive back the und
 Upon reaching 3rd level, you become immune to diseases. 
 </GameplayCard>
 
-<KeywordFeatureCard toc />
+<KeywordFeatureCard level={4} toc />
 
 <GameplayCard
-  colorSet="System"
+  colorSet="fixedfeature"
   title="Aura of Power"
   subeyebrow="6th Level Paladin Feature • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -266,7 +281,7 @@ Your aura is always active and cannot be suppressed. However, it ceases to funct
 </GameplayCard>
 
 <GameplayCard
-  colorSet="System"
+  colorSet="spellcasting"
   title="Spellcasting"
   subeyebrow="7th Level Paladin Feature • Oath-Dependent"
   headerOrder={['title', 'subeyebrow']}
@@ -304,6 +319,8 @@ Your spells are **clerical spells**, and you use the **Devotional** casting meth
   Your Spell Progression table also shows the number of cantrip casts in your shared pool. You regain all expended cantrip casts when you complete a Night's Rest.
   </FeatureSection>
 </GameplayCard>
+
+<KeywordFeatureCard level={8} toc />
 
 <Establishment toc />
 
