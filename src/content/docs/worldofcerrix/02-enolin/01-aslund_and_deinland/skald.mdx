@@ -4,26 +4,21 @@ spellcasting:
   type: Clerical
   method: Free-Hand
 classSummary:
-  # DRAFT: role is a placeholder suggestion
   role: Warrior-poet who fights in the shield wall and turns battle into saga.
   armor: Light and medium armor; bucklers, small shields, and medium shields
 ---
-import GameplayCard from '../../../../components/GameplayCard.astro';
-import FeatureSection from '../../../../components/FeatureSection.astro';
-import FeatureSubsection from '../../../../components/FeatureSubsection.astro';
-import SpellSlotTable from '../../../../components/SpellSlotTable.astro';
+import GameplayCard from '../../../../../components/GameplayCard.astro';
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellSlotTable from '../../../../../components/SpellSlotTable.astro';
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { getCollection } from "astro:content";
-import SpellList from "../../../../components/SpellList.astro";
+import SpellList from "../../../../../components/SpellList.astro";
 export const allEntries = await getCollection("data");
-import KeywordFeatureCard from '../../../../components/reusable/KeywordFeatureCard.astro';
-import Establishment from '../../../../components/reusable/Establishment.astro';
+import KeywordFeatureCard from '../../../../../components/reusable/KeywordFeatureCard.astro';
+import Establishment from '../../../../../components/reusable/Establishment.astro';
 
-:::caution[Draft class]
-This class is a work in progress. Its class features have not been written yet, and anything marked **[DRAFT]** is a placeholder suggestion to review.
-:::
-
-**[DRAFT]** Skalds are warrior-poets. They stand in the shield wall beside those whose deeds they sing, and their chants can stir allies to battle fury. When the fighting is done, it is the skald who decides how it will be remembered.
+Skalds are warrior-poets. They stand in the shield wall beside those whose deeds they sing, and their chants can stir allies to battle fury. When the fighting is done, it is the skald who decides how it will be remembered.
 
 ## Skald Gameplay
 Below is a list of information needed to play a skald at the various levels of play.
@@ -39,7 +34,7 @@ Below is a list of information needed to play a skald at the various levels of p
   </FeatureSection>
 
   <FeatureSection title="Prime Requisite">
-    **[DRAFT]** Your prime requisites are brawn and presence, and you gain bonus experience points based on your brawn and presence scores.
+    Your prime requisites are brawn and presence, and you gain bonus experience points based on your brawn and presence scores.
     - If your brawn and presence scores are 13 or higher, you gain a +5% bonus to all experience points earned.
     - If your brawn and presence scores are 16 or higher, you gain a +10% bonus to all experience points earned.
   </FeatureSection>
@@ -60,7 +55,7 @@ Below is a list of information needed to play a skald at the various levels of p
   </FeatureSection>
 
   <FeatureSection title="Weapon Proficiency">
-    **[DRAFT]** You begin play Familiar with **Brawling, Daggers, Single-Handed Swords, Long-Gripped Swords, Single-Handed Axes, Two-Handed Axes, Clubs and Maces, Hammers and Picks, Spears, Bows,** and **Throwing Darts**.
+    You begin play Familiar with **Brawling, Daggers, Single-Handed Swords, Single-Handed Axes, Staves,** and **Spears**.
   </FeatureSection>
 </GameplayCard>
 
@@ -69,20 +64,20 @@ Below is a list of information needed to play a skald at the various levels of p
 <div class="green-table compact-table">
 | **Level** | **XP To Level** | **Grit** | **Combat** | **Skill** | **Doom** | **Device** | **Binding** | **Breath** | **Spell** |
 |:---------:|:---------------:|:--------:|:----------:|:---------:|:--------:|:----------:|:-----------:|:----------:|:---------:|
-| **1** | 0 | +1d8 + 2 | +2 | +1 | 15 | 15 | 15 | 15 | 15 |
-| **2** | 1,350 | +1d8 + 2 | +2 | +1 | 14 | 15 | 14 | 14 | 15 |
-| **3** | 2,700 | +1d8 + 2 | +3 | +1 | 14 | 14 | 14 | 14 | 14 |
-| **4** | 6,750 | +1d8 + 2 | +3 | +1 | 13 | 14 | 13 | 13 | 14 |
-| **5** | 13,500 | +1d8 + 2 | +3 | +1 | 13 | 14 | 13 | 13 | 14 |
-| **6** | 27,000 | +1d8 + 2 | +4 | +1 | 12 | 13 | 12 | 12 | 13 |
-| **7** | 67,500 | +1d8 + 2 | +4 | +2 | 12 | 13 | 12 | 12 | 13 |
-| **8** | 135,000 | +1d8 + 2 | +5 | +2 | 11 | 13 | 11 | 11 | 13 |
-| **9** | 270,000 | +1d8 + 2 | +5 | +2 | 11 | 12 | 11 | 11 | 12 |
-| **10** | 405,000 | +2 | +5 | +2 | 10 | 12 | 10 | 10 | 12 |
-| **11** | 540,000 | +2 | +6 | +2 | 10 | 12 | 10 | 10 | 12 |
-| **12** | 675,000 | +2 | +6 | +2 | 9 | 11 | 9 | 9 | 11 |
-| **13** | 1,012,500 | +2 | +7 | +2 | 9 | 11 | 9 | 9 | 11 |
-| **14** | 1,350,000 | +2 | +7 | +3 | 9 | 11 | 9 | 9 | 11 |
+| **1** | 0 | +1d8 + 2 | +2 | +1 | 15 | 16 | 15 | 15 | 16 |
+| **2** | 1,350 | +1d8 + 2 | +2 | +1 | 15 | 15 | 15 | 15 | 15 |
+| **3** | 2,700 | +1d8 + 2 | +3 | +1 | 14 | 15 | 14 | 14 | 15 |
+| **4** | 6,750 | +1d8 + 2 | +3 | +1 | 14 | 15 | 14 | 14 | 15 |
+| **5** | 13,500 | +1d8 + 2 | +3 | +1 | 13 | 14 | 13 | 14 | 14 |
+| **6** | 27,000 | +1d8 + 2 | +4 | +1 | 13 | 14 | 13 | 13 | 14 |
+| **7** | 67,500 | +1d8 + 2 | +4 | +2 | 13 | 14 | 13 | 13 | 14 |
+| **8** | 135,000 | +1d8 + 2 | +5 | +2 | 12 | 13 | 12 | 13 | 13 |
+| **9** | 270,000 | +1d8 + 2 | +5 | +2 | 12 | 13 | 12 | 12 | 13 |
+| **10** | 405,000 | +2 | +5 | +2 | 11 | 13 | 11 | 12 | 13 |
+| **11** | 540,000 | +2 | +6 | +2 | 11 | 12 | 11 | 12 | 12 |
+| **12** | 675,000 | +2 | +6 | +2 | 11 | 12 | 11 | 11 | 12 |
+| **13** | 1,012,500 | +2 | +7 | +2 | 10 | 12 | 10 | 11 | 12 |
+| **14** | 1,350,000 | +2 | +7 | +3 | 10 | 11 | 10 | 11 | 11 |
 </div>
 
 ### Spell Progression Table
@@ -98,12 +93,11 @@ As a skald, you gain the following class features.
 | **1**     | Lesser Thief Skills, Witness of Deeds |
 | **3**     | Stirring the Blood |
 | **4**     | Keyword Feature |
-| **5**     | Climb Sheer Surfaces, Stirring the Blood (improvement) |
+| **5**     | Climb Sheer Surfaces |
 | **7**     | Galdr, Spellcasting |
 | **8**     | Keyword Feature |
 | **9**     | Stirring the Blood (improvement) |
 | **10**    | Establishment |
-| **13**    | Stirring the Blood (improvement) |
 </div>
 
 <GameplayCard
@@ -141,35 +135,27 @@ Those who fight where a skald can see them know their deeds will be remembered. 
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Upon reaching 3rd level, you can roar a war-verse that sets an ally's blood burning. As an activity costing 2 Actions, starting in Phase 2, choose one ally within 30 feet who can see and hear you. That ally gains the Battle Trance condition for as long as your Stirring the Blood lasts. You cannot stir an ally who is Slow or Sluggish, although gaining either condition while stirred does not cause it to end.
+Upon reaching 3rd level, you can roar a war-verse that sets an ally's blood burning. As an activity costing 2 Actions, starting in Phase 2, choose one ally within 30 feet who can see and hear you. That ally gains the [Battle Trance](/playersguide/08-combat/#battle-trance) condition for as long as your Stirring the Blood lasts.
 
 <FeatureSection title="Battle Trance Effects">
   * The ally reduces the Speed Factor of any melee weapon they wield by 1 (to a minimum of 2).
-  * The ally cannot cast spells, read spell scrolls, use magical rods, staves, or wands, or perform delicate tasks or tasks that require concentration.
 </FeatureSection>
 
 <FeatureSection title="Maintaining the Battle Trance">
-  * Each round after the round you start it, you must spend 1 Action to maintain your Stirring the Blood. The ally must still be within 30 feet of you and able to see and hear you.
-  * If you have not maintained your Stirring the Blood by the end of Phase 9, it ends.
+  * You, not the ally, spend the Action to maintain the ally's Battle Trance. The ally must be within 30 feet of you and able to see and hear you when you do.
   * Stirring the Blood is not a Spellsong. You can weave its chant into your Galdr, maintaining it while you perform a Spellsong without ending either.
   * If you can't be heard, such as when you are struck mute or magically silenced, you can't start or maintain Stirring the Blood.
 </FeatureSection>
 
 <FeatureSection title="Ending the Battle Trance">
-  * Your Stirring the Blood lasts a number of rounds equal to your Presence score. You can end it early at any time (no Action required).
+  * You, as well as the ally, can end your Stirring the Blood at any time (no Action required).
   * You can stir only one ally at a time. Stirring a new ally ends the Battle Trance on the first.
-  * When the Battle Trance ends for any reason, the ally is Sluggish (2) until the end of the following round.
 </FeatureSection>
 
 <FeatureSection title="Feature Improvements">
-  <FeatureSubsection title="When you Reach 5th Level">
-    * The ally also increases the damage dice of their melee weapon attacks by 1 dice step.
-  </FeatureSubsection>
   <FeatureSubsection title="When you Reach 9th Level">
-    * If the ally makes a melee weapon attack using a Master Action, or takes any damage, during a round, your Stirring the Blood is maintained for that round without spending an Action.
-  </FeatureSubsection>
-  <FeatureSubsection title="When you Reach 13th Level">
-    * When the Battle Trance ends, the ally is Sluggish (1) instead of Sluggish (2).
+    * You can stir up to two allies at a time. When you start Stirring the Blood, you can choose up to two allies, and a single Action maintains the Battle Trance for both of them.
+    * If you stir a new ally while two allies are already stirred, choose which of them loses their Battle Trance.
   </FeatureSubsection>
 </FeatureSection>
 </GameplayCard>

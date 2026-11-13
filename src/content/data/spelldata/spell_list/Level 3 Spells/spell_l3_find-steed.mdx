@@ -1,0 +1,121 @@
+---
+datatype: spell
+title: Find Steed
+level: 3
+casting: 10 minutes
+range: 30 feet
+duration: 8 hours
+shortDescription: Call your bound, mystical warhorse to your side.
+reverseTitle: Call the Hel-Horse
+reverseShortDescription: Call your bound Hel-Horse, the three-legged steed of the dead.
+reverseRange: 30 feet
+reverseDuration: 8 hours
+classes:
+  - Cleric
+  - Theurge
+  - Skald
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Find Steed">
+
+    <FeatureSection title="Spell Effect">
+        You call your steed, a mystical warhorse bound to you alone. At the end of the casting, it appears within range: a warhorse, or a sturdy pony if you are a small sized creature. It steps out of the mist, rounds a bend in the road, or stands waiting where a moment ago there was nothing, as though it had always been meant to find you. You choose its color and markings the first time you cast this spell. Every time after, the same steed answers your call.
+
+        While the spell lasts, the steed is a living warhorse in every way that matters. It must eat, drink, sleep, and be cared for like any other mount, and it suffers hunger, exhaustion, and injury as one would.
+
+        The steed is loyal to you and understands your spoken commands, though it cannot speak. It obeys your commands in and out of combat, and it allows only you and those you permit to ride it. It never flees in fear while you ride it.
+
+        <FeatureSubsection title="The Steed">
+            * **Move Speed:** 60 feet.
+            * **Grit:** three times your level in the class that cast this spell. **Hit Points:** 15.
+            * **Combat Bonus and Saving Throws:** the same as yours.
+            * **Attack:** hooves, 1d6 bludgeoning damage.
+            * **Burden:** it carries you and your gear, plus up to 10 EP of additional cargo, without being encumbered. Gear carried by the steed does not count toward your own EP.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Ending the Spell">
+            * The spell ends when its duration runs out, when the steed is reduced to 0 Hit Points, or when you dismiss it (1 Action, any phase). When the spell ends, the steed sets down any rider and cargo where it stands, then departs to wherever it waits until you call it again.
+            * A steed reduced to 0 Hit Points falls, but it is not lost to you. The next time you cast this spell, it answers whole and unharmed.
+            * You can have only one steed from this spell at a time. If you cast it while your steed is already with you, the spell instead restarts its duration.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Mistreating the Steed">
+            Your steed is bound to you by trust. If you mistreat it, such as by starving it, abusing it, or abandoning it, this spell no longer functions for you until you atone in a way the GM deems appropriate.
+
+            A steed that falls in battle while serving you has not been mistreated.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Steed Keywords">
+            * The steed has the **Aeon** and **Hallowed** keywords.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Stand facing the open road, recite an oath of service, and call out the steed's name three times. A clean bridle, freely given or honestly bought, must be in your hand as you finish. The bridle is not consumed, and the steed appears wearing it.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>
+
+<SpellEntry title="Call the Hel-Horse" variant="reverse" metadata={props.reverseMetadata}>
+
+    <FeatureSection title="Spell Effect">
+        You call your Hel-Horse, the three-legged steed of the dead, bound to you alone. At the end of the casting, it appears within range: a gaunt black warhorse, or a gaunt black pony if you are a small sized creature, standing on three legs as surely as any horse stands on four. It climbs out of a barrow, steps from the mist on a road no one walks, or is simply there when you look up from the grave you knelt beside. The first time you cast this spell, you choose its markings. Every time after, the same Hel-Horse answers your call.
+
+        Folk say that whoever sees the Hel-Horse pass will be dead within the year. Most of them are wrong, but not all of them.
+
+        While the spell lasts, the Hel-Horse must eat, drink, and rest like any other mount, and it suffers hunger, exhaustion, and injury as one would. It eats only raw flesh, never grain or fodder, and it will not rest on Hallowed ground.
+
+        The Hel-Horse obeys you and understands your spoken commands, though it cannot speak. It obeys your commands in and out of combat, and it allows only you and those you permit to ride it. It never flees in fear while you ride it.
+
+        <FeatureSubsection title="The Hel-Horse">
+            * **Move Speed:** 60 feet.
+            * **Grit:** three times your level in the class that cast this spell. **Hit Points:** 15.
+            * **Combat Bonus and Saving Throws:** the same as yours.
+            * **Attack:** hooves, 1d6 bludgeoning damage.
+            * **Burden:** it carries you and your gear, plus up to 10 EP of additional cargo, without being encumbered. Gear carried by the Hel-Horse does not count toward your own EP.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Ending the Spell">
+            * The spell ends when its duration runs out, when the Hel-Horse is reduced to 0 Hit Points, or when you dismiss it (1 Action, any phase). When the spell ends, the Hel-Horse sets down any rider and cargo where it stands, then departs to wherever it waits among the dead until you call it again.
+            * A Hel-Horse reduced to 0 Hit Points falls, but it is not lost to you. The next time you cast this spell, it answers whole and unharmed.
+            * You can have only one Hel-Horse at a time. If you cast this spell while your Hel-Horse is already with you, the spell instead restarts its duration.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Showing Fear">
+            Your Hel-Horse is bound to you by dread, not trust, and it will not carry a coward. If you flee from a fight or yield to a foe while it is with you, this spell no longer functions for you until you prove your nerve in a way the GM deems appropriate.
+
+            Being carried off while unconscious, or driven away by magic, does not count. A Hel-Horse that falls in battle has not been failed; it was always owed that much.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Creature Interactions">
+
+        <FeatureSubsection title="Hel-Horse Keywords">
+            * The Hel-Horse has the **Necros** and **Defiled** keywords.
+            * Like all Necros creatures, it is Severed: magic that heals the living harms it, and magic that harms the living may mend it.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Casting">
+            Stand facing a grave or a burial mound, speak an oath of slaughter, and call out the Hel-Horse's name three times. A bridle taken from a horse that died beneath its rider must be in your hand as you finish. The bridle is not consumed, and the Hel-Horse appears wearing it.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

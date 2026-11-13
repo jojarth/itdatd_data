@@ -161,7 +161,73 @@ export default defineConfig({
         {
           label: "World of Cerrix",
           collapsed: true,
-          items: [{ label: "Overview", slug: "worldofcerrix" }],
+          items: [
+            { label: "Overview", slug: "worldofcerrix" },
+            {
+              label: "Chapter 01: The World",
+              collapsed: true,
+              items: [
+                { autogenerate: { directory: "worldofcerrix/01-the_world" } },
+              ],
+            },
+            {
+              label: "Chapter 02: Enolin",
+              collapsed: true,
+              items: [
+                { label: "Overview", slug: "worldofcerrix/02-enolin" },
+                {
+                  label: "Aslund and Deinland",
+                  collapsed: true,
+                  items: [
+                    {
+                      label: "Overview",
+                      slug: "worldofcerrix/02-enolin/01-aslund_and_deinland",
+                    },
+                    {
+                      label: "Berserkir",
+                      slug: "worldofcerrix/02-enolin/01-aslund_and_deinland/berserkir",
+                    },
+                    {
+                      label: "Jofurr",
+                      slug: "worldofcerrix/02-enolin/01-aslund_and_deinland/jofurr",
+                    },
+                    {
+                      label: "Skald",
+                      slug: "worldofcerrix/02-enolin/01-aslund_and_deinland/skald",
+                    },
+                    {
+                      label: "Ulfhednar",
+                      slug: "worldofcerrix/02-enolin/01-aslund_and_deinland/ulfhednar",
+                    },
+                  ],
+                },
+                {
+                  label: "Vigorio, Lannion, and Arencia",
+                  slug: "worldofcerrix/02-enolin/02-vigorio_lannion_and_arencia",
+                },
+                { label: "Oraktos", slug: "worldofcerrix/02-enolin/03-oraktos" },
+                {
+                  label: "The Northern Isles",
+                  slug: "worldofcerrix/02-enolin/04-the_northern_isles",
+                },
+                { label: "Mahased", slug: "worldofcerrix/02-enolin/05-mahased" },
+              ],
+            },
+            {
+              label: "Chapter 03: Religions",
+              collapsed: true,
+              items: [
+                { autogenerate: { directory: "worldofcerrix/03-religions" } },
+              ],
+            },
+            {
+              label: "Chapter 04: Magic",
+              collapsed: true,
+              items: [
+                { autogenerate: { directory: "worldofcerrix/04-magic" } },
+              ],
+            },
+          ],
         },
       ],
     }),

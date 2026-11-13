@@ -13,6 +13,10 @@ export const classes = (await getCollection('docs'))
   })
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
+export const regionalClasses = (await getCollection('docs'))
+  .filter(({ id, data }) => id.startsWith('worldofcerrix/') && data.classSummary)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
 Classes describe a character's core adventuring discipline: how they survive, solve problems, and grow in power. A class is a broad definition of abilities and features that define how your character interacts with the world from a game-mechanics standpoint, although it has a large impact on how you roleplay as well.
 
 Perhaps the most defining feature of your character, your class offers a vast array of benefits. Each class has a class gameplay section, a class table, and a class features section. Classes that gain the ability to cast spells also have a class spellcasting section.
@@ -40,6 +44,16 @@ The following summaries present each adventuring path at a glance. Consider how 
     </a>
   ))}
 </div>
+
+### Regional Classes
+
+Some classes belong to a particular region of Cerrix, and are found with that region in the *World of Cerrix*. With your GM's permission, you can choose one of these classes instead:
+
+<ul>
+  {regionalClasses.map(({ id, data }) => (
+    <li><a href={`/${id}/`}><strong>{data.title}</strong></a>: {data.classSummary?.role}</li>
+  ))}
+</ul>
 
 ## Class Gameplay Section
 Your class gameplay section contains several sub-sections that include information such as any requirements that a created character must meet to enter the class, specialized rules for playing that class, your starting weapon familiarities, armor and shield proficiencies, and any other items you need to know about playing a character of this class.
