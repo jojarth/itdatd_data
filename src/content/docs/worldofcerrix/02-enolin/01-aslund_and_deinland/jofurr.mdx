@@ -9,6 +9,7 @@ import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import KeywordFeatureCard from '../../../../../components/reusable/KeywordFeatureCard.astro';
 import Establishment from '../../../../../components/reusable/Establishment.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
 
 Jofurr are boar-warriors consecrated to the gods. They stand at the point of the battle wedge beneath helms crowned with the boar, and the holy power that wards them holds firm where other warriors would break.
 
@@ -97,7 +98,7 @@ As a jofurr, you gain the following class features.
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-As an activity costing 2 Actions, starting in Phase 2, you can enter a battle trance called the Svinfylking. You gain the [Battle Trance](/playersguide/08-combat/#battle-trance) condition for as long as your Svinfylking lasts.
+As an activity costing 2 Actions, starting in Phase 2, you can enter a battle trance called the Svinfylking. You gain the <ConditionLink id="battle-trance" /> condition for as long as your Svinfylking lasts.
 
 <FeatureSection title="Battle Trance Effects">
   * You can move through a space that a foe occupies, so long as you do not end your movement there.
@@ -105,7 +106,7 @@ As an activity costing 2 Actions, starting in Phase 2, you can enter a battle tr
 </FeatureSection>
 
 <FeatureSection title="Ending the Battle Trance">
-  * When your Svinfylking ends for any reason, you are Slow (2) until the end of the following round.
+  * When your Svinfylking ends for any reason, you are <ConditionLink id="slow" text="Slow (2)" /> until the end of the following round.
 </FeatureSection>
 
 <FeatureSection title="Feature Improvements">
@@ -113,7 +114,7 @@ As an activity costing 2 Actions, starting in Phase 2, you can enter a battle tr
     * At the start of each Phase, each ally adjacent to you gains the benefits of your Svinfylking until the end of that Phase.
   </FeatureSubsection>
   <FeatureSubsection title="When you Reach 13th Level">
-    * When your Svinfylking ends, you are Slow (1) instead of Slow (2).
+    * When your Svinfylking ends, you are <ConditionLink id="slow" text="Slow (1)" /> instead of Slow (2).
   </FeatureSubsection>
 </FeatureSection>
 </GameplayCard>

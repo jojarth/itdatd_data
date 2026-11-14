@@ -1,0 +1,175 @@
+---
+title: Afflictions and Conditions
+description: Poisons, diseases, curses, and the conditions that change your state of being.
+sidebar:
+  order: 55
+---
+import ConditionList from '../../../../components/conditions/ConditionList.astro';
+
+:::caution[Placeholder]
+Short introduction: some of the most dangerous threats in the world are not blades but poisons, diseases, and curses, and the lingering states they leave behind.
+:::
+
+## Afflictions vs. Conditions
+
+:::caution[Working Notes: Needs Rework]
+Afflictions are effects that can potentially harm you over time, including inflicting you with conditions. Conditions change your state of being.
+
+Think of them this way: an affliction is like a disease, an infection, or a virus. They don't strictly cause you any conditions, but you suffer conditions because of them. Getting the flu (affliction) can lead to exhaustion (condition).
+
+Afflictions can cause conditions, but conditions cannot cause afflictions.
+:::
+
+## Conditions
+
+### General Rules
+
+:::caution[Placeholder]
+How conditions are gained, how long they last, how they end, and how multiple instances of the same condition combine.
+:::
+
+:::note[Decision Needed: Stacking]
+Each condition card states how multiple effects combine: **highest value only** (Sluggish, Slow), **values add together**, or **only one at a time** (Battle Trance). Decide whether "add together" should exist at all, and whether the general rule should default to "highest value only" with exceptions noted on the condition.
+:::
+
+### Condition List
+
+<ConditionList toc tocDepth={4} />
+
+## Afflictions
+
+:::caution[Working Notes: Needs Rework]
+Afflictions are a multi-stage problem that afflicts your character, potentially causing additional harm over time. Afflictions will be listed in a card format, with some information.
+
+The most common examples of Afflictions are Curses, Diseases, and Poisons.
+:::
+
+### Reading an Affliction
+
+:::caution[Working Notes: Needs Rework]
+**Affliction Details.** At the top of an affliction card contains the affliction details. This includes the name, type of infliction it is, and the way to gain the affliction. Most poisons must be ingested, most diseases involve being close to a creature already afflicted, and most curses derive from magical effects.
+
+**Saving Throw.** When you are targeted with an affliction, you are able to make a Saving Throw. The Affliction will tell you the type of Save, as well as the DC.
+
+**Onset and Maximum Duration.** Many, but not all, afflictions don't immediately affect you. Once you fail a saving throw, there is an onset period where you suffer no ill effects from the affliction. Think of this like an incubation period. You may get the flu from a co-worker at work, but you don't feel it's effects for a day or two after exposure.
+
+In addition, the Max Duration is listed, this is the absolute maximum amount of time you can be affected by the affliction. Once this period is over, you are completely cured of the affliction, although you may continue to suffer longer-term consequences of it. Negative effects imparted to you by an affliction are handled separate from the affliction itself.
+:::
+
+:::note[Rework: Saving Throws]
+There are no DCs or Fortitude saves. An affliction should name one of the five saves (Doom, Device, Binding, Breath, Spell) and, if it is especially potent, a penalty to the roll. Core Rules does not yet say what each save covers; poison and disease most naturally fall under Doom.
+:::
+
+### Stages
+
+:::caution[Working Notes: Needs Rework]
+An affliction is divided up into multiple stages. Each stage will be listed with a few things: what happens to you when you reach that stage, and a new time.
+
+When you fail your initial saving throw, after the Onset Period has passed, you gain Stage 1 of the affliction, suffering the listed effects of that stage, suffering no further penalties until the time listed in the stage passes. When this happens, you make a new saving throw, succeeding means you move down 1 stage, and failing means you move up 1 stage. If you ever reach Stage 0, you are cured of the affliction (unless otherwise noted). If you ever reach a stage higher than listed in the affliction, you stay at the highest stage, and suffer the effects again.
+
+Note the following information on stages: any damage dealt by an affliction happens only once per failed saving throw. Thus, if you take 2d6 poison damage as part of a stage, and the stage lasts for 10 minutes, you only take the 2d6 poison damage once, not every round. However, if the stage lists a condition, that condition lasts until you lose that stage. Finally, when you increase or decrease a stage, you only suffer the effects of the stage you are on. If a condition is supposed to last through multiple stages, it will be listed on all stages.
+:::
+
+:::note[Rework: Damage and Time]
+- Decide whether affliction damage reduces Grit like other damage, or bypasses Grit and reduces Hit Points.
+- Stage lengths can now use rounds, turns, hours, and days.
+:::
+
+### Multiple Afflictions
+
+:::caution[Working Notes: Needs Rework]
+You can be subject to multiple different afflictions, and must keep track of them separately. If separate afflictions cause the same condition, and the condition is a stacking condition (see conditions for more information), then these conditions stack.
+
+However, if your character is exposed to the same affliction multiple times, things are handled slightly differently. If the affliction is a curse or disease, nothing happens. You cannot be extra cursed or extra diseased.
+
+If the affliction is a poison, you must make a saving throw per exposure. If you fail these saving throws, you lose your current stage, gaining one higher. This counts during the on-set period. If you fail multiple saving throws during the onset period of a poison, you gain additional stages based on the number of failed saving throws. The onset period is not reset.
+
+For example, if you are shot with a poisoned arrow, and you fail your saving throw, but it has an onset period of 1 minute, you do not suffer the effects of Stage 1 for 1 minute. At the 40 second mark, you are shot by another poison arrow, and fail your saving throw again. The onset period does not reset, but at the 60 second mark, you immediately gain Stage 2 of the poison, instead of Stage 1.
+
+Some afflictions are known by different names across the world, so consult with a GM if you become afflicted by multiple afflictions at the same time.
+:::
+
+### Virulent Afflictions
+
+:::caution[Working Notes: Needs Rework]
+If an affliction is Virulent, it is much more dangerous. When you make your saving throw, you roll your saving throw twice. In order to succeed, both saving throws must be a success. If one or both are failures, then the saving throw is considered to be a failure.
+:::
+
+### Afflictions in Combat
+
+:::caution[Working Notes: Needs Rework]
+With the phase combat system, it's often hard to know when to determine the effects of an affliction. Here are the guidelines on when saving throws should happen.
+
+**Exposure.** When you are exposed to an affliction, you should roll your save in that same phase that you were exposed.
+
+**Onset.** If the affliction has no onset period, then you resolve the affliction at the end of the phase per normal.
+
+**Stages.** If you must make saving throws in combat against stages of an affliction, do so in between rounds. If your conditions worsens, or betters with the saving throw, you use the new stage on the next round.
+:::
+
+:::note[Rework: Combat Timing]
+Tie these timings to Tracking Durations in Chapter 08: Combat. A round now has 9 phases.
+:::
+
+### Lasting Effects
+
+:::caution[Placeholder]
+Effects that outlast the affliction itself, such as temporary attribute loss, and how they recover. Replaces the old "Cure Condition" entry, since "condition" now has its own meaning.
+:::
+
+:::note[Decision Needed: Attribute Loss]
+There is no general rule for temporary attribute loss yet. Decide how it works and how it relates to injuries that reduce maximum Hit Points.
+:::
+
+### Example Affliction
+
+:::caution[Working Notes: Needs Rework]
+This example predates the current rules: it uses Dexterity, Fortitude saves, a Save DC, Armor Class and Reflex saves, and a round that ends at Phase 5.
+
+**Ghoul Touch Poison**
+*Although not technically from a ghoul, this poison is a combination of venoms and poisons that was carefully crafted to paralyze a foe, like a ghouls touch.*
+
+<div class="green-table">
+
+| Type | Save | Save DC | Onset | Max Duration |
+|:--|:--|:--|:--|:--|
+| Poison | Fortitude | 17 | Instantaneous | 1 Hour |
+
+</div>
+
+**Afflicting a Creature:** To afflict a creature with this poison, the creature must ingest it, or it must be delivered to the bloodstream via a wound from a slashing or piercing weapon.
+
+**Stage 1 (1 Round):** Treat your Dexterity Score as if it were 4 points lower, unless you were affected by a higher Stage. See Curing Conditions for more details.
+
+**Stage 2 (1 Round):** Treat your Dexterity Score as if it were 8 points lower, unless you were affected by a higher Stage. See Curing Conditions for more details.
+
+**Stage 3 (1 Round):** Treat your Dexterity Score as if it were 12 points lower. See Curing Conditions for more details.
+
+**Stage 4 (10 Minutes):** You gain the Paralyzed condition.
+
+**Cure Condition:** Dexterity loss from this poison is temporary. Once you lose the dexterity from a higher stage, it doesn't go away when you recover to a lower stage. Instead, you remain plagued by Dexterity loss until the poison is removed from your body. Once that is done, you recover 1 point of Dexterity every hour until fully recovered, 2 points per hour if you do nothing but rest.
+
+---
+
+In phase 5, our Example character, who has a Dexterity of 13, has been stabbed by a blade containing this poison. Our example character was acting during the melee phase, so they still get to attack, but at the end of the round, they must make a Fortitude Saving Throw, they fail.
+
+Immediately, their Dexterity is treated as if it were 4 points lower. They now treat their Dexterity as if it were 9, lowering their Armor Class, and Reflex Saving Throws. The onset of this poison was instant, so for the rest of the round, they have this penalty. However, the round is ending now, as Phase 5 was the last phase. Stage 1 of this poison lasts for 1 round, since they were poisoned this round, we don't need to make another save.
+
+The next round goes through, and at the end of the round (not Phase 5, where they were poisoned, but after Phase 5, as we are now doing things at the end of the round), they must make another Save. They fail, and move to Stage 2. Stage 2 replaces Stage 1, so our example character treats their Dexterity Score as if were 8 lower, their Dexterity Score is now 5, further reducing their AC and Saving Throws.
+
+At the end of the next round, they make their save again, and fail again, now they are at Stage 3, and they are treated as if they have 12 lower Dexterity. Now their Dexterity Score is treated as if it were 1.
+
+At the end of the next round, they fail their save again, uh oh! Stage 4 says they are completely Paralyzed, and it has a 10 minute duration! This means that now, instead of Saving Every round, you are saving every 10 minutes instead. Our example character is now Paralyzed, at least for 10 minutes.
+
+After 10 minutes is up, they fail their Save AGAIN! Well, there is no Stage 5 for this poison, so we repeat Stage 4. Nothing has changed.
+
+After 10 minutes is up, we finally succeed on a Saving Throw! We reduce the Stage down to Stage 3. Our example character is no longer paralyzed, but still treat's their Dexterity as if it were 12 points lower, so they are still very sluggardly, and we have to make another save at the end of the round (roughly 6 seconds!), so unless they Save again, this brief time of not being paralyzed is just a short respite.
+
+Let's pretend they Save again, lowering down to Stage 2. Most afflictions they would lose all effects of Stage 3 when this happens, however this Affliction has a note that the highest level of Dexterity Loss persists through the duration of the poison, after which is starts recovering at a rate of 1 point per 10 minutes (or 2 points per 10 minutes in some cases). Since Stage 3 caused 12 points of dexterity loss, and stage 2 is 8, we can safely ignore further dexterity loss from this poison.
+
+This poison can end in one of two ways. Succeed at Fortitude Saving Throws until you go down to Stage 0, or 1 hour has passed. Regardless of how the condition ends, there is a special ***Cure Condition*** that deals with recovering the lost Dexterity Points.
+:::
+
+:::note[Planned: Affliction Cards]
+Specific afflictions will become data entries shown with an `AfflictionCard` component, once the rules above are reworked. The catalogue of poisons, diseases, and curses belongs in the Game Master's Guide and the Folio of Fiends.
+:::

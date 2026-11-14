@@ -4,6 +4,8 @@ sidebar:
   order: 30
 ---
 
+import ConditionLink from '../../../../components/conditions/ConditionLink.astro';
+
 Adventurers need weapons, protection, light, food, water, and tools, but every additional precaution becomes another burden. Encumbrance asks players to balance preparation against mobility.
 
 ## Encumbrance Points
@@ -75,14 +77,14 @@ The effects of encumbrance are not cumulative. Apply only the effects of your cu
 | Unencumbered | None. |
 | Lightly Encumbered | No general penalty, although some class features may require you to be Lightly Encumbered or less, or completely Unencumbered. |
 | Moderately Encumbered | Reduce your Move Speed by 5 feet. |
-| Heavily Encumbered | Reduce your Move Speed by 10 feet, suffer a -1 Situation penalty to applicable physical Attribute Tests, and become Sluggish (1). |
-| Over Encumbered | Your Move Speed becomes 5 feet, you suffer a -3 Situation penalty to applicable physical Attribute Tests, and you become Sluggish (2) and Slow (1). |
+| Heavily Encumbered | Reduce your Move Speed by 10 feet, suffer a -1 Situation penalty to applicable physical Attribute Tests, and become <ConditionLink id="sluggish" text="Sluggish (1)" />. |
+| Over Encumbered | Your Move Speed becomes 5 feet, you suffer a -3 Situation penalty to applicable physical Attribute Tests, and you become <ConditionLink id="sluggish" text="Sluggish (2)" /> and <ConditionLink id="slow" text="Slow (1)" />. |
 
 </div>
 
 Encumbrance cannot reduce your Move Speed below 5 feet. Its Situation penalty applies when the carried load could reasonably interfere with a physical Attribute Test, such as one made to climb, jump, swim, balance, tumble, crawl, or move stealthily. It does not apply to Attack Rolls or Damage Rolls.
 
-Sluggish and Slow are defined in Chapter 8: Combat.
+Sluggish and Slow are defined in [Afflictions and Conditions](/playersguide/07-adventuring/05-afflictions-and-conditions/) in Chapter 07: Adventuring.
 
 ### Size Adjustments
 

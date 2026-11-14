@@ -1,0 +1,28 @@
+---
+// Inline link to a Downtime Event, with its short description as a tooltip.
+// Usage: <DowntimeEventLink id="recovery" />  or  <DowntimeEventLink id="recovery" text="Recovery Downtime Event" />
+import { getEntry } from "astro:content";
+import { DOWNTIME_PAGE } from "./downtimePaths";
+
+interface Props {
+  id: string;
+  text?: string;
+}
+
+const { id, text } = Astro.props as Props;
+const entry = await getEntry("downtimeEvents", id);
+
+if (!entry) {
+  throw new Error(`DowntimeEventLink: no Downtime Event found with id "${id}". Check src/content/data/downtimedata.`);
+}
+
+const label = text ?? entry.data.title;
+---
+
+<a href={`${DOWNTIME_PAGE}#${entry.id}`} class="downtime-link" title={entry.data.shortDescription}>{label}</a>
+
+<style>
+  .downtime-link {
+    text-decoration-style: dashed;
+  }
+</style>

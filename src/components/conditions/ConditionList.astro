@@ -1,0 +1,27 @@
+---
+// Shows every condition, alphabetically, or only those with a given tag.
+// Usage: <ConditionList />  or  <ConditionList tag="combat" />
+// Add toc to list each condition in the page's table of contents: <ConditionList toc />
+// (The id prop shows a single condition; the table-of-contents plugin uses it.)
+import { getCollection } from "astro:content";
+import ConditionCard from "./ConditionCard.astro";
+
+interface Props {
+  tag?: string;
+  id?: string;
+  anchor?: boolean | string;
+}
+
+const { tag, id, anchor = true } = Astro.props as Props;
+const all = await getCollection("conditions");
+const entries = all
+  .filter((e) => !id || e.id === id)
+  .filter((e) => !tag || (e.data.tags ?? []).includes(tag))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+if (entries.length === 0) {
+  throw new Error(`ConditionList: no conditions found${id ? ` with id "${id}"` : ""}${tag ? ` with tag "${tag}"` : ""}.`);
+}
+---
+
+{entries.map((entry) => <ConditionCard entry={entry} anchor={anchor} />)}

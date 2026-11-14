@@ -1,0 +1,43 @@
+---
+// Shows one Downtime Event from src/content/data/downtimedata.
+// Usage: <DowntimeEventCard id="recovery" />
+// Add toc to list it in the page's table of contents: <DowntimeEventCard id="recovery" toc />
+// Pass anchor={false} if the same event is shown twice on one page.
+import { getEntry, render } from "astro:content";
+import GameplayCard from "../GameplayCard.astro";
+
+interface Props {
+  id?: string;
+  entry?: any;
+  anchor?: boolean | string;
+}
+
+const { id, entry: passedEntry, anchor = true } = Astro.props as Props;
+const showAnchor = anchor !== false && anchor !== "false";
+const entry = passedEntry ?? (id ? await getEntry("downtimeEvents", id) : undefined);
+
+if (!entry) {
+  throw new Error(`DowntimeEventCard: no Downtime Event found with id "${id}". Check src/content/data/downtimedata.`);
+}
+
+const { Content } = await render(entry);
+---
+
+<div class="downtime-card" id={showAnchor ? entry.id : undefined}>
+  <GameplayCard colorSet="System" eyebrow="Downtime Event" title={entry.data.title} headerOrder={["eyebrow", "title"]}>
+    <p class="downtime-card__meta">
+      <strong>Time:</strong> {entry.data.time}
+      {entry.data.requirements && (<><br /><strong>Requirements:</strong> {entry.data.requirements}</>)}
+    </p>
+    <Content />
+  </GameplayCard>
+</div>
+
+<style>
+  .downtime-card {
+    scroll-margin-top: 5rem;
+  }
+  .downtime-card__meta {
+    font-size: var(--sl-text-sm);
+  }
+</style>

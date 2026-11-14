@@ -1,3 +1,93 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Data-driven cards that support the toc attribute. Each entry maps a card
+// component and its list component to the folder holding their data files.
+const DATA_CARDS = {
+  conditions: {
+    dir: path.resolve(process.cwd(), 'src/content/data/conditiondata'),
+    card: 'ConditionCard',
+    list: 'ConditionList',
+  },
+  downtimeEvents: {
+    dir: path.resolve(process.cwd(), 'src/content/data/downtimedata'),
+    card: 'DowntimeEventCard',
+    list: 'DowntimeEventList',
+  },
+};
+
+function dataCardFor(name) {
+  return Object.values(DATA_CARDS).find((config) => config.card === name || config.list === name);
+}
+
+// Reads title and tags from each data file's frontmatter. Read fresh on every
+// page so edits to the data show up without restarting the dev server.
+function readEntries(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((file) => file.endsWith('.mdx'))
+    .map((file) => {
+      const id = file.replace(/\.mdx$/, '');
+      const text = fs.readFileSync(path.join(dir, file), 'utf8');
+      const frontmatter = text.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
+      const title = frontmatter.match(/^title:\s*["']?(.*?)["']?\s*$/m)?.[1] ?? id;
+      const tagBlock = frontmatter.match(/^tags:\s*\n((?:\s+-\s*.*\n?)*)/m)?.[1] ?? '';
+      const tags = [...tagBlock.matchAll(/-\s*["']?(.*?)["']?\s*$/gm)].map((m) => m[1]);
+      return { id, title, tags };
+    });
+}
+
+function tocHeading(title, depth, id) {
+  return {
+    type: 'heading',
+    depth,
+    children: [{ type: 'text', value: title }],
+    data: {
+      hProperties: {
+        className: ['gameplay-card-toc-heading'],
+        ...(id ? { id } : {}),
+      },
+    },
+  };
+}
+
+function stringAttribute(name, value) {
+  return { type: 'mdxJsxAttribute', name, value };
+}
+
+// <ConditionCard id="x" toc /> gets a hidden heading whose id is the entry id,
+// so Link anchors still work. The card itself then skips its own anchor.
+function expandDataCard(child, entries) {
+  const id = getStringAttribute(child, 'id');
+  const condition = entries.find((entry) => entry.id === id);
+  if (!condition) return undefined;
+  const depth = getNumericAttribute(child, 'tocDepth', 3);
+  child.attributes = child.attributes.filter((a) => a.name !== 'anchor' && a.name !== 'toc');
+  child.attributes.push(stringAttribute('anchor', 'false'));
+  return [tocHeading(condition.title, depth, condition.id), child];
+}
+
+// <ConditionList toc /> becomes one hidden heading plus one single-entry
+// list per entry, so each entry appears in the table of contents.
+function expandDataList(child, all) {
+  const tag = getStringAttribute(child, 'tag');
+  const depth = getNumericAttribute(child, 'tocDepth', 3);
+  const entries = all
+    .filter((entry) => !tag || entry.tags.includes(tag))
+    .sort((a, b) => a.title.localeCompare(b.title));
+  if (entries.length === 0) return undefined;
+  return entries.flatMap((entry) => [
+    tocHeading(entry.title, depth, entry.id),
+    {
+      type: 'mdxJsxFlowElement',
+      name: child.name,
+      attributes: [stringAttribute('id', entry.id), stringAttribute('anchor', 'false')],
+      children: [],
+    },
+  ]);
+}
+
 function getAttribute(node, name) {
   return node.attributes?.find((attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === name);
 }
@@ -102,6 +192,18 @@ function visitChildren(parent) {
 
   for (let index = 0; index < parent.children.length; index += 1) {
     const child = parent.children[index];
+
+    const dataCard = child.type === 'mdxJsxFlowElement' ? dataCardFor(child.name) : undefined;
+    if (dataCard && hasTruthyAttribute(child, 'toc')) {
+      const entries = readEntries(dataCard.dir);
+      const replacement =
+        child.name === dataCard.card ? expandDataCard(child, entries) : expandDataList(child, entries);
+      if (replacement) {
+        parent.children.splice(index, 1, ...replacement);
+        index += replacement.length - 1;
+        continue;
+      }
+    }
 
     if (child.type === 'mdxJsxFlowElement' && hasTruthyAttribute(child, 'toc')) {
       const title = getTocTitle(child);

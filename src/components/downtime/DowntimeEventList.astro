@@ -1,0 +1,27 @@
+---
+// Shows every Downtime Event, alphabetically, or only those with a given tag.
+// Usage: <DowntimeEventList />  or  <DowntimeEventList tag="recovery" />
+// Add toc to list each event in the page's table of contents: <DowntimeEventList toc />
+// (The id prop shows a single event; the table-of-contents plugin uses it.)
+import { getCollection } from "astro:content";
+import DowntimeEventCard from "./DowntimeEventCard.astro";
+
+interface Props {
+  tag?: string;
+  id?: string;
+  anchor?: boolean | string;
+}
+
+const { tag, id, anchor = true } = Astro.props as Props;
+const all = await getCollection("downtimeEvents");
+const entries = all
+  .filter((e) => !id || e.id === id)
+  .filter((e) => !tag || (e.data.tags ?? []).includes(tag))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+if (entries.length === 0) {
+  throw new Error(`DowntimeEventList: no Downtime Events found${id ? ` with id "${id}"` : ""}${tag ? ` with tag "${tag}"` : ""}.`);
+}
+---
+
+{entries.map((entry) => <DowntimeEventCard entry={entry} anchor={anchor} />)}

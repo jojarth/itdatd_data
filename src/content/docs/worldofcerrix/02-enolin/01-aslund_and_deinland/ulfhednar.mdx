@@ -9,6 +9,7 @@ import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import KeywordFeatureCard from '../../../../../components/reusable/KeywordFeatureCard.astro';
 import Establishment from '../../../../../components/reusable/Establishment.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
 
 Ulfhednar are wolf-warriors who hunt in packs. Clad in the skins of wolves, they raid and skirmish, strike from ambush, and run down their enemies with a wolf's speed and cunning.
 
@@ -99,7 +100,7 @@ As an ulfhednar, you gain the following class features.
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-As an activity costing 2 Actions, starting in Phase 2, you can enter a Pack Fury. You gain the [Battle Trance](/playersguide/08-combat/#battle-trance) condition for as long as your Pack Fury lasts.
+As an activity costing 2 Actions, starting in Phase 2, you can enter a Pack Fury. You gain the <ConditionLink id="battle-trance" /> condition for as long as your Pack Fury lasts.
 
 <FeatureSection title="Your Pack">
   * When you enter your Pack Fury, choose one ally within 30 feet who can see or hear you. That ally becomes your **Packmate** until you choose a new one, it moves more than 60 feet away from you, or your Pack Fury ends.
@@ -112,7 +113,7 @@ As an activity costing 2 Actions, starting in Phase 2, you can enter a Pack Fury
 </FeatureSection>
 
 <FeatureSection title="Ending the Battle Trance">
-  * When your Pack Fury ends for any reason, you are Slow (2) until the end of the following round.
+  * When your Pack Fury ends for any reason, you are <ConditionLink id="slow" text="Slow (2)" /> until the end of the following round.
 </FeatureSection>
 
 <FeatureSection title="Feature Improvements">
@@ -124,7 +125,7 @@ As an activity costing 2 Actions, starting in Phase 2, you can enter a Pack Fury
   </FeatureSubsection>
   <FeatureSubsection title="When you Reach 13th Level">
     * You can have two Packmates at a time. Whenever you choose a Packmate, you can choose up to two allies instead of one.
-    * When your Pack Fury ends, you are Slow (1) instead of Slow (2).
+    * When your Pack Fury ends, you are <ConditionLink id="slow" text="Slow (1)" /> instead of Slow (2).
   </FeatureSubsection>
 </FeatureSection>
 </GameplayCard>

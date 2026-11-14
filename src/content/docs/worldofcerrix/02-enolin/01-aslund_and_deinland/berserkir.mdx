@@ -9,6 +9,7 @@ import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import KeywordFeatureCard from '../../../../../components/reusable/KeywordFeatureCard.astro';
 import Establishment from '../../../../../components/reusable/Establishment.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
 
 Berserkir fight in a fury that others fear to stand beside. Whether driven by a warrior cult, an oath, or something darker in the blood, they hurl themselves into battle and give up caution for raw, overwhelming violence.
 
@@ -97,7 +98,7 @@ As a berserkir, you gain the following class features.
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-As an activity costing 2 Actions, starting in Phase 2, you can enter a Berserker Fury. You gain the [Battle Trance](/playersguide/08-combat/#battle-trance) condition for as long as your Berserker Fury lasts.
+As an activity costing 2 Actions, starting in Phase 2, you can enter a Berserker Fury. You gain the <ConditionLink id="battle-trance" /> condition for as long as your Berserker Fury lasts.
 
 <FeatureSection title="Battle Trance Effects">
   * Each time you take Grit damage, reduce the damage you take by 3. Each time you take Hit Point damage, reduce the damage you take by 1.
@@ -105,7 +106,7 @@ As an activity costing 2 Actions, starting in Phase 2, you can enter a Berserker
 </FeatureSection>
 
 <FeatureSection title="Ending the Battle Trance">
-  * When your Berserker Fury ends for any reason, you are Slow (2) until the end of the following round.
+  * When your Berserker Fury ends for any reason, you are <ConditionLink id="slow" text="Slow (2)" /> until the end of the following round.
 </FeatureSection>
 
 <FeatureSection title="Feature Improvements">
@@ -116,7 +117,7 @@ As an activity costing 2 Actions, starting in Phase 2, you can enter a Berserker
     * Each time you take Grit damage, reduce the damage you take by 7.
   </FeatureSubsection>
   <FeatureSubsection title="When you Reach 13th Level">
-    * When your Berserker Fury ends, you are Slow (1) instead of Slow (2).
+    * When your Berserker Fury ends, you are <ConditionLink id="slow" text="Slow (1)" /> instead of Slow (2).
   </FeatureSubsection>
 </FeatureSection>
 </GameplayCard>
@@ -128,7 +129,7 @@ As an activity costing 2 Actions, starting in Phase 2, you can enter a Berserker
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Upon reaching 3rd level, while you are under any Battle Trance, increase your Move Speed by 5 feet.
+Upon reaching 3rd level, while you are under any <ConditionLink id="battle-trance" />, increase your Move Speed by 5 feet.
 </GameplayCard>
 
 <KeywordFeatureCard level={4} toc />
@@ -140,7 +141,7 @@ Upon reaching 3rd level, while you are under any Battle Trance, increase your Mo
   headerOrder={['title', 'subeyebrow']}
   toc
 >
-Upon reaching 5th level, while you are under any Battle Trance, increase the damage dice of your melee weapon attacks that use Brawn by 1 dice step.
+Upon reaching 5th level, while you are under any <ConditionLink id="battle-trance" />, increase the damage dice of your melee weapon attacks that use Brawn by 1 dice step.
 </GameplayCard>
 
 <KeywordFeatureCard level={8} toc />

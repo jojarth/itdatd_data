@@ -188,6 +188,42 @@ const keywordFeatures = defineCollection({
   }),
 });
 
+const conditions = defineCollection({
+  schema: z.object({
+    datatype: z.literal("condition"),
+    title: z.string(),
+    shortDescription: z.string(),
+    // Whether the condition takes a value, such as Sluggish (2).
+    valued: z.boolean().default(false),
+    // How multiple instances combine: highest value only, add together,
+    // or only one can apply at a time.
+    stacking: z.enum(["highest", "stacks", "exclusive"]),
+    tags: z.array(z.string()).optional(),
+  }),
+  loader: glob({
+    base: "./src/content/data/conditiondata",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
+const downtimeEvents = defineCollection({
+  schema: z.object({
+    datatype: z.literal("downtime_event"),
+    title: z.string(),
+    shortDescription: z.string(),
+    // How long the event takes, e.g. "1 Downtime Week".
+    time: z.string(),
+    requirements: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+  loader: glob({
+    base: "./src/content/data/downtimedata",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
 export const collections = {
   docs: defineCollection({
     loader: docsLoader(),
@@ -212,4 +248,6 @@ export const collections = {
   shields,
   items,
   keywordFeatures,
+  conditions,
+  downtimeEvents,
 };

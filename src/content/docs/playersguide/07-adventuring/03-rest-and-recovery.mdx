@@ -1,0 +1,146 @@
+---
+title: Rest and Recovery
+description: The Night's Rest, the Safe Rest, and recovering from harm.
+sidebar:
+  order: 40
+---
+import DowntimeEventCard from '../../../../components/downtime/DowntimeEventCard.astro';
+import DowntimeEventLink from '../../../../components/downtime/DowntimeEventLink.astro';
+
+
+:::caution[Placeholder]
+Short introduction: rest is how adventurers recover, and where and how they rest determines what they recover.
+:::
+
+## Night's Rest
+
+A **Night's Rest** is the rest an adventurer needs to keep going: sleep, food, and enough quiet to let body and nerve recover. Despite its name, it need not happen at night. A party that delves through the dark hours and sleeps through the day still takes a Night's Rest.
+
+### Completing a Night's Rest
+
+A Night's Rest takes **10 hours**. This time covers everything a party does to make and break camp: setting up, eating, resting, standing watch, preparing for the day ahead, passing the time, and tearing down.
+
+You can benefit from a Night's Rest or a Safe Rest only once every **14 hours**, counted from the end of your last rest of either kind. A day of adventuring followed by a Night's Rest therefore makes a full 24-hour day.
+
+**Interruptions.** A Night's Rest can survive a brief disturbance, such as a short fight or a scramble to put out a fire. If the interruptions total **1 hour or less**, the rest still completes, but counts as interrupted (see Reduced Recovery). If they total more than 1 hour, the Night's Rest fails and grants none of its benefits.
+
+### Benefits
+
+When you complete a Night's Rest, you gain the following benefits:
+
+- You regain all expended cantrip casts.
+- You regain the use of any feature that recovers on a Night's Rest.
+- You recover Grit equal to **one quarter of your maximum Grit**, rounded down.
+
+### Reduced Recovery
+
+Each of the following is a **rest penalty**:
+
+- You are suffering from any [condition](/playersguide/07-adventuring/05-afflictions-and-conditions/) when the rest begins.
+- You did not eat enough food or drink enough water that day (see Provisions and Survival).
+- Your rest was interrupted, but still completed.
+
+<div class="green-table compact-table">
+
+| Rest Penalties | Grit Recovered |
+|:--|:--|
+| None | One quarter of your maximum Grit |
+| 1 | One fifth of your maximum Grit |
+| 2 | One tenth of your maximum Grit |
+| 3 | 1 Grit |
+
+</div>
+
+Always round down. You always recover at least 1 Grit from a completed Night's Rest.
+
+:::note[Example]{icon="information"}
+A Fighter with a maximum Grit of 43 recovers 10 Grit from a full Night's Rest. If she went to sleep Exhausted, she recovers 8 instead. If she was also short on water that day, she recovers only 4.
+:::
+
+## Safe Rest
+
+A **Safe Rest** is the deep, untroubled rest that only true comfort, safety, and shelter can provide. Adventurers most often find it at an inn, but any place that truly offers all three will serve.
+
+### Requirements
+
+A Safe Rest takes **10 hours**, the same as a Night's Rest. In addition, you must have:
+
+- **Comfort, safety, and shelter.** The place itself must provide all three. Your own precautions are not enough.
+- **Food and drink** enough for the day.
+
+A place counts only if it truly offers all three. Sleeping on the floor of a friendly host's barracks counts. So does the village baker's floor when the inn is full. Barring a dungeon door and sleeping behind it does not, and neither does a camp in the wilderness, however well hidden or guarded.
+
+### Benefits
+
+When you complete a Safe Rest, you gain all the benefits of a Night's Rest. You also regain the use of anything that recovers on a Safe Rest, including preparing your spells (see [Chapter 09: Spellcasting](/playersguide/09-spellcasting/)).
+
+### Falling Short of a Safe Rest
+
+A Safe Rest allows no rest penalties. If you would suffer any rest penalty, such as a condition, a missed meal, or an interruption, your rest is a Night's Rest instead, with its normal penalties.
+
+This means lasting conditions are especially costly. A spellcaster who is Exhausted can sleep in the finest inn in the city and still wake without fresh spells.
+
+:::note[Example]{icon="information"}
+A Magic-User with a maximum Grit of 20 spends the night at an inn after a hard delve, but she is Exhausted. Her rest counts as a Night's Rest with one rest penalty. She recovers 4 Grit and regains her cantrip casts, but cannot prepare her spells.
+:::
+
+## Recovering Hit Points
+
+Hit Points represent real wounds: cuts, broken bones, and torn muscle. Unlike Grit, they heal slowly, and only with true rest.
+
+### Recovery Tally
+
+Keep a **Recovery Tally** on your character sheet. Each time you complete a rest without having taken any Hit Point damage since your last rest, add to it:
+
+- **Safe Rest:** 2 marks.
+- **Night's Rest:** 1 mark.
+
+Rest penalties do not affect your tally; only Hit Point damage does. When your tally reaches **10 marks**, you recover 1 Hit Point and clear the tally. If you take any Hit Point damage, clear your tally.
+
+### Recovery as a Downtime Event
+
+A character who devotes a Downtime Week to nothing but healing can take the <DowntimeEventLink id="recovery" /> Downtime Event.
+
+<DowntimeEventCard id="recovery" anchor={false} />
+
+## Injuries
+
+Some wounds are worse than lost Hit Points. A broken bone, a deep tear, or a crushed hand is an **injury**, and it lingers long after the fight is over.
+
+:::caution[Placeholder]
+How injuries are gained.
+:::
+
+### Effects of an Injury
+
+Each injury lists:
+
+- **Maximum Hit Point Reduction.** Your maximum Hit Points are lowered by this amount until the injury heals.
+- **Effects.** What the injury prevents or hinders, such as being unable to use a broken arm.
+- **Mending.** How much recovery the injury needs before it heals.
+
+### Treating an Injury
+
+Some injuries must be treated before they begin to mend. A broken bone, for example, must first be set.
+
+:::caution[Placeholder]
+Treating an injury is an Attribute Test, made by a character Eligible to attempt it (attribute TBD). Rules for failed or botched treatment, such as a mis-set bone, are TBD.
+:::
+
+### Mending
+
+Each injury has its own **Mending track**, such as *Broken Arm: Mending 0/20*. Record it on your character sheet, separate from your Hit Points.
+
+Once an injury has been treated, every Hit Point you recover also adds 1 point to the Mending track of each injury you have. This happens even if you are already at your maximum Hit Points. Several injuries mend at the same time, each on its own track.
+
+When a Mending track is full, the injury heals: its effects end, and your maximum Hit Points return to normal.
+
+**Further harm.** Taking Hit Point damage pauses Mending but does not undo it. If the GM rules that the damage struck or strained the injury itself, such as falling on a broken leg, the injury loses Mending equal to half the Hit Point damage taken, rounded down.
+
+### System Shock
+
+A body can only bear so much. If your injuries reduce your maximum Hit Points to 0 or lower, you die.
+
+:::note[Example]{icon="information"}
+Tamsin has 5 maximum Hit Points and breaks her arm (−2 maximum Hit Points, Mending 20). Her maximum is now 3, and by the end of the fight she is down to 1. Once the bone is set, she spends a Downtime Week recovering. She regains 3 Hit Points: she is back to 3/3, and her arm is at Mending 3/20. She goes adventuring again and takes 1 Hit Point of damage from an arrow. Her arm is still at Mending 3/20.
+:::

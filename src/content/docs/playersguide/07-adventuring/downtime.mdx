@@ -1,7 +1,12 @@
 ---
 title: Downtime
 description: Activities characters pursue between adventures.
+sidebar:
+  order: 80
 ---
+import DowntimeEventList from '../../../../components/downtime/DowntimeEventList.astro';
+import DowntimeEventLink from '../../../../components/downtime/DowntimeEventLink.astro';
+
 
 # Downtime
 
@@ -24,6 +29,7 @@ Common downtime events include:
 - Training with a weapon group.
 - Researching a subject, crafting, repairing equipment, or replenishing supplies.
 - Caring for other characters, meditating, worshipping, or serving an organization.
+- Recovering from wounds and injuries (see <DowntimeEventLink id="recovery" />).
 - Pursuing a personal project, relationship, or reputation.
 
 Some class features and items refer to a named Downtime Event. When they do, follow the feature's specific rules. Unless that rule says otherwise, using the feature requires the character's primary activity for one Downtime Week. Otherwise, the GM determines the time, cost, requirements, and outcome appropriate to the goal and campaign.
@@ -64,6 +70,12 @@ The GM sets the required time and cost based on the language, the character's st
 ## Weapon Training and Advancement
 
 Weapon training and character advancement are long-term downtime goals. Their costs, training time, instructors, and requirements are defined in [Advancement](/playersguide/11-character_advancement/). Classes currently advance through 14th level. This game does not use tiers of play; do not treat 8th level or any other level as a separate tier with different downtime rules.
+
+## Downtime Event List
+
+Some Downtime Events have specific rules of their own. They are listed below.
+
+<DowntimeEventList toc />
 
 ## GM Guidance
 
