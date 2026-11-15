@@ -1,0 +1,45 @@
+---
+// Shows one lasting injury from src/content/data/injurydata/injuries.
+// Usage: <InjuryCard id="broken-arm" />
+// Add toc to list it in the page's table of contents: <InjuryCard id="broken-arm" toc />
+// Pass anchor={false} if the same injury is shown twice on one page.
+import { getEntry, render } from "astro:content";
+import GameplayCard from "../GameplayCard.astro";
+
+interface Props {
+  id?: string;
+  entry?: any;
+  anchor?: boolean | string;
+}
+
+const { id, entry: passedEntry, anchor = true } = Astro.props as Props;
+const showAnchor = anchor !== false && anchor !== "false";
+const entry = passedEntry ?? (id ? await getEntry("injuries", id) : undefined);
+
+if (!entry) {
+  throw new Error(`InjuryCard: no lasting injury found with id "${id}". Check src/content/data/injurydata/injuries.`);
+}
+
+const { Content } = await render(entry);
+const { maxHitPointReduction, mending, treatment } = entry.data;
+---
+
+<div class="injury-card" id={showAnchor ? entry.id : undefined}>
+  <GameplayCard colorSet="System" eyebrow="Lasting Injury" title={entry.data.title} headerOrder={["eyebrow", "title"]}>
+    <p class="injury-card__meta">
+      <strong>Maximum Hit Points:</strong> {maxHitPointReduction > 0 ? `−${maxHitPointReduction}` : "None"}
+      <br /><strong>Mending:</strong> {mending}
+      <br /><strong>Treatment:</strong> {treatment ?? "None required"}
+    </p>
+    <Content />
+  </GameplayCard>
+</div>
+
+<style>
+  .injury-card {
+    scroll-margin-top: 5rem;
+  }
+  .injury-card__meta {
+    font-size: var(--sl-text-sm);
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+// Shows every lasting injury, alphabetically, or only those with a given tag.
+// Usage: <InjuryList />  or  <InjuryList tag="bone" />
+// Add toc to list each injury in the page's table of contents: <InjuryList toc />
+// (The id prop shows a single injury; the table-of-contents plugin uses it.)
+import { getCollection } from "astro:content";
+import InjuryCard from "./InjuryCard.astro";
+
+interface Props {
+  tag?: string;
+  id?: string;
+  anchor?: boolean | string;
+}
+
+const { tag, id, anchor = true } = Astro.props as Props;
+const all = await getCollection("injuries");
+const entries = all
+  .filter((e) => !id || e.id === id)
+  .filter((e) => !tag || (e.data.tags ?? []).includes(tag))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+// A missing id is a mistake, so it stops the build. An empty tag just means
+// no injuries carry that tag yet, so it shows a short note instead.
+if (id && entries.length === 0) {
+  throw new Error(`InjuryList: no lasting injury found with id "${id}".`);
+}
+---
+
+{entries.length === 0 ? (
+  <p><em>No lasting injuries{tag ? ` tagged "${tag}"` : ""} yet.</em></p>
+) : (
+  entries.map((entry) => <InjuryCard entry={entry} anchor={anchor} />)
+)}

@@ -1,0 +1,66 @@
+---
+// Shows one lasting injury table (1-12) from src/content/data/injurydata/tables.
+// Usage: <InjuryTable id="slashing" />  or with a color: <InjuryTable id="slashing" colorTheme="crimson-table" />
+// Rows without an injury yet show as "To be decided".
+import { getEntry, getCollection } from "astro:content";
+import { INJURY_PAGE } from "./injuryPaths";
+
+interface Props {
+  id: string;
+  colorTheme?: string;
+}
+
+const { id, colorTheme = "green-table" } = Astro.props as Props;
+const table = await getEntry("injuryTables", id);
+
+if (!table) {
+  throw new Error(`InjuryTable: no injury table found with id "${id}". Check src/content/data/injurydata/tables.`);
+}
+
+const injuries = await getCollection("injuries");
+const byId = new Map(injuries.map((entry) => [entry.id, entry]));
+
+const rows = Array.from({ length: 12 }, (_, index) => {
+  const roll = index + 1;
+  const row = table.data.rows.find((r) => r.roll === roll);
+  if (row?.injury && !byId.has(row.injury)) {
+    throw new Error(`InjuryTable "${id}": row ${roll} names unknown injury "${row.injury}".`);
+  }
+  return { roll, injury: row?.injury ? byId.get(row.injury) : undefined };
+});
+---
+
+<p class="injury-table__applies"><strong>Applies to:</strong> {table.data.appliesTo}</p>
+<div class={`${colorTheme} compact-table`}>
+  <table>
+    <thead>
+      <tr><th>Roll</th><th>Lasting Injury</th><th>Max HP</th><th>Mending</th></tr>
+    </thead>
+    <tbody>
+      {rows.map(({ roll, injury }) => (
+        <tr>
+          <td style="text-align:center">{roll}{roll === 12 ? "+" : ""}</td>
+          {injury ? (
+            <>
+              <td><a href={`${INJURY_PAGE}#${injury.id}`} class="injury-link" title={injury.data.shortDescription}>{injury.data.title}</a></td>
+              <td style="text-align:center">{injury.data.maxHitPointReduction > 0 ? `−${injury.data.maxHitPointReduction}` : "—"}</td>
+              <td style="text-align:center">{injury.data.mending}</td>
+            </>
+          ) : (
+            <>
+              <td><em>To be decided</em></td>
+              <td style="text-align:center">—</td>
+              <td style="text-align:center">—</td>
+            </>
+          )}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .injury-link {
+    text-decoration-style: dashed;
+  }
+</style>

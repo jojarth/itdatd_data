@@ -224,6 +224,46 @@ const downtimeEvents = defineCollection({
   }),
 });
 
+const injuries = defineCollection({
+  schema: z.object({
+    datatype: z.literal("injury"),
+    title: z.string(),
+    shortDescription: z.string(),
+    // How much the injury lowers maximum Hit Points until it heals.
+    maxHitPointReduction: z.number(),
+    // How many points the injury's Mending Track needs before it heals.
+    mending: z.number(),
+    // What treatment the injury needs before it begins to mend, if any.
+    treatment: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+  loader: glob({
+    base: "./src/content/data/injurydata/injuries",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
+const injuryTables = defineCollection({
+  schema: z.object({
+    datatype: z.literal("injury_table"),
+    title: z.string(),
+    // Which kinds of damage roll on this table.
+    appliesTo: z.string(),
+    tags: z.array(z.string()).optional(),
+    rows: z.array(z.object({
+      roll: z.number().int().min(1).max(12),
+      // The id of an injury in injurydata/injuries. Leave out while undecided.
+      injury: z.string().optional(),
+    })),
+  }),
+  loader: glob({
+    base: "./src/content/data/injurydata/tables",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
 export const collections = {
   docs: defineCollection({
     loader: docsLoader(),
@@ -250,4 +290,6 @@ export const collections = {
   keywordFeatures,
   conditions,
   downtimeEvents,
+  injuries,
+  injuryTables,
 };

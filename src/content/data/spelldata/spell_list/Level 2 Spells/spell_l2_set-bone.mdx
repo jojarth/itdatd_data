@@ -1,0 +1,43 @@
+---
+datatype: spell
+title: Set Bone
+level: 2
+casting: 1 Minute Ritual
+range: Touch
+duration: Instantaneous
+shortDescription: Your touch sets a broken bone perfectly, no test required.
+classes:
+  - Cleric
+  - Theurge
+  - Paladin
+  - Bard
+  - Druid
+  - Skald
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Set Bone">
+
+    <FeatureSection title="Spell Effect">
+        Touch a creature suffering from a broken bone that has not yet been treated. The bone draws back into place and is set perfectly, as if it had been successfully treated. No Attribute Test is required.
+
+        This spell cannot correct a bone that set wrong. That bone must first be re-broken (see [Injuries That Set Wrong](/playersguide/07-adventuring/lasting-injuries/#injuries-that-set-wrong)), after which this spell can set it.
+
+        The bone begins to mend as normal (see [Lasting Injuries](/playersguide/07-adventuring/lasting-injuries/)). This spell does not restore Hit Points or fill the injury's Mending Track.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+
+        <FeatureSubsection title="Preparation">
+            Bind two short splints of ash wood together with a strip of clean linen and meditate upon the strength of the body's frame. The splints and linen are consumed when the spell is successfully prepared.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Grip the limb above and below the break, your Casting Hand over the injury, and recite a steady prayer or verse for the length of the ritual. On the final word, draw the limb straight.
+        </FeatureSubsection>
+
+    </FeatureSection>
+
+</SpellEntry>

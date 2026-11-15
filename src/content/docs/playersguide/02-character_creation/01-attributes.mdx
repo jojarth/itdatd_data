@@ -76,24 +76,24 @@ Brawn has the following gameplay effects.
 Stamina, endurance, and resistance to effects against the body. This attribute governs when your toughness is called upon. High Heartiness characters tend to be resilient, and thus have a higher capacity to receive damage, shrug off illness, and are not easily fatigued. Low Heartiness characters tend to be frail, sickly, or delicate. They often succumb to illness, and are quicker to tire.
 
 <div class="green-table">
-| **Heartiness Score** | **Maximum Hit Points** | **Grit Contribution** |
-|:--------------------:|:----------------------:|:---------------------:|
-| **1**                | 1                      | +0                    |
-| **2 - 3**            | 1                      | +0                    |
-| **4 - 5**            | 2                      | +1                    |
-| **6 - 7**            | 3                      | +2                    |
-| **8-10**             | 4                      | +3                    |
-| **11-12**            | 5                      | +3                    |
-| **13 - 15**          | 6                      | +4                    |
-| **16 - 17**          | 7                      | +5                    |
-| **18**               | 8                      | +6                    |
-| **19**               | 9                      | +6                    |
-| **20**               | 10                     | +7                    |
-| **21**               | 10                     | +8                    |
-| **22**               | 11                     | +8                    |
-| **23**               | 11                     | +9                    |
-| **24**               | 12                     | +9                    |
-| **25**               | 12                     | +10                   |
+| **Heartiness Score** | **Maximum Hit Points** | **Grit Contribution** | **Healing Rate** |
+|:--------------------:|:----------------------:|:---------------------:|:----------------:|
+| **1**                | 1                      | +0                    | 1                |
+| **2 - 3**            | 1                      | +0                    | 1                |
+| **4 - 5**            | 2                      | +1                    | 1                |
+| **6 - 7**            | 3                      | +2                    | 1                |
+| **8-10**             | 4                      | +3                    | 2                |
+| **11-12**            | 5                      | +3                    | 2                |
+| **13 - 15**          | 6                      | +4                    | 2                |
+| **16 - 17**          | 7                      | +5                    | 3                |
+| **18**               | 8                      | +6                    | 3                |
+| **19**               | 9                      | +6                    | 3                |
+| **20**               | 10                     | +7                    | 4                |
+| **21**               | 10                     | +8                    | 4                |
+| **22**               | 11                     | +8                    | 4                |
+| **23**               | 11                     | +9                    | 5                |
+| **24**               | 12                     | +9                    | 5                |
+| **25**               | 12                     | +10                   | 5                |
 </div>
 
 <GameplayCard
@@ -108,6 +108,10 @@ Heartiness has the following gameplay effects.
 
   <FeatureSection title="Grit Contribution">
   Your heartiness score contributes part to your maximum grit, and the contribution is listed in this column. For example, if you had a 13 heartiness, you increase your maximum grit by +4.
+  </FeatureSection>
+
+  <FeatureSection title="Healing Rate">
+  Your heartiness score sets how quickly your wounds heal. Your Healing Rate determines how many marks you add to your Healing Track when you rest, and how many hit points you recover from Convalescence. See [Rest and Recovery](/playersguide/07-adventuring/03-rest-and-recovery/) in Chapter 07: Adventuring. For example, if you had 13 heartiness, your Healing Rate is 2.
   </FeatureSection>
 </GameplayCard>
 

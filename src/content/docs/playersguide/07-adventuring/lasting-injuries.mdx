@@ -1,0 +1,151 @@
+---
+title: Lasting Injuries
+description: Broken bones, torn muscle, and other wounds that linger long after the fight.
+sidebar:
+  order: 45
+---
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import InjuryTable from '../../../../components/injuries/InjuryTable.astro';
+import InjuryList from '../../../../components/injuries/InjuryList.astro';
+
+Some wounds are worse than lost Hit Points. A broken bone, a torn muscle, or a crushed hand is a **lasting injury**, and it lingers long after the fight is over.
+
+## Cheating Death
+
+When your luck runs out, a lasting injury may be the price of your life.
+
+If a single blow reduces your Grit to 0 **and** would deal enough Hit Point damage to kill you, you may choose to suffer a lasting injury instead of dying. You must have had at least 1 Grit when the blow struck. If you were already out of Grit, you are out of luck, and the blow kills you.
+
+If you choose a lasting injury:
+
+1. The GM rolls **1d8** on the lasting injury table that matches the blow's damage type (see Damage Types, below).
+2. Add **+1 to the roll for every 2 points** of damage beyond what was needed to reduce you to 0 Hit Points. A result above 12 counts as 12.
+3. You gain the lasting injury rolled. Lower your maximum Hit Points by its amount, then set your current Hit Points to **1**.
+
+If the injury lowers your maximum Hit Points to 0 or lower, you die of system shock (see System Shock, below). You gambled, and lost.
+
+Player characters and henchmen may cheat death this way. The GM decides which other creatures can.
+
+:::note[Example]{icon="information"}
+Tamsin has 2 Grit and 5 Hit Points left when an orc's warhammer strikes her for 11 damage. The first 2 points exhaust her Grit, and the remaining 9 would kill her: 4 more than she needed to reach 0 Hit Points. She chooses a lasting injury. The GM rolls 1d8 on the Bludgeoning table and adds +2 for the excess damage.
+:::
+
+There is no limit to how many times you can cheat death, but every lasting injury lowers your maximum Hit Points and brings you closer to system shock. A hardy character might survive two or three lasting injuries at once. A frail one may not survive the first.
+
+### Damage Types
+
+Each lasting injury table covers one kind of harm to the body. Roll on the table that matches the blow's damage type:
+
+<div class="green-table compact-table">
+
+| Injury Table | Damage Types |
+|:--|:--|
+| Bludgeoning | Bludgeoning, Sonic |
+| Crushing | Force; Bludgeoning from a creature two or more sizes larger than you |
+| Piercing | Piercing |
+| Slashing | Slashing |
+| Burning | Acid, Cold, Electrical, Fire, Sacred |
+| Wasting | Poison, Profane |
+| Mind | Psychic |
+
+</div>
+
+A weapon that deals one damage type **or** another (such as *B or P*) uses the type the attacker chose for that attack. A weapon that deals both **and** (such as *B & P*) lets the GM choose which table to roll on.
+
+**Crushing blows.** Bludgeoning damage from a creature two or more [size categories](/playersguide/08-combat/#size) larger than you uses the Crushing table instead of the Bludgeoning table. A Medium human struck by a Huge giant's club is crushed. The same human struck by a Large ogre is not, but a Small halfling struck by that ogre is.
+
+## Horror
+
+Not every lasting injury comes from a blow. Some things should not be seen, read, or understood, and the mind does not always survive the encounter intact.
+
+:::caution[Placeholder]
+When the GM may call for a roll on the Mind table without a killing blow (forbidden lore, glimpses of things from beyond, hauntings), whether a saving throw can resist it, and how the roll is modified.
+:::
+
+Lasting injuries suited to horror carry the **horror** tag:
+
+<InjuryList tag="horror" anchor={false} />
+
+## Effects of Lasting Injuries
+
+### What an Injury Lists
+
+Each lasting injury lists:
+
+- **Maximum Hit Point Reduction.** Your maximum Hit Points are lowered by this amount until the injury heals.
+- **Effects.** What the injury prevents or hinders, such as being unable to use a broken arm.
+- **Mending.** How much recovery the injury needs before it heals.
+
+### Treating a Lasting Injury
+
+Some lasting injuries must be treated before they begin to mend. A broken bone, for example, must first be set.
+
+Treating a lasting injury is an Attribute Test, made by the character giving the treatment. The GM chooses which of three attributes is tested, based on how the healer approaches the work:
+
+- **Savvy:** intuiting the best way to treat the wound.
+- **Precision:** carrying out each step with a sure and steady hand.
+- **Logic:** understanding how the treatment should be done.
+
+Treatment uses the normal rules for [Eligibility](/playersguide/01-core_rules/#eligibility). Unlike most tests, an Ineligible character can still attempt treatment, but automatically fails.
+
+On a success, the injury is treated and begins to mend. On a failure, the injury **sets wrong**.
+
+#### Injuries That Set Wrong
+
+An injury that sets wrong still mends, but slowly and poorly. Increase its Mending by half, rounded up. A broken arm that would need Mending 20 needs Mending 30 instead.
+
+**Re-breaking.** A badly set injury can be deliberately reopened, such as by re-breaking a bone, so that it can be treated again. Doing so reduces your Grit to 0. Clear the injury's Mending Track. Once the injury is treated successfully, it mends at its normal Mending value.
+
+**Healing badly.** An injury that set wrong and is left to mend still heals fully. It carries no further rules penalty. Any lasting mark is a matter of description: a limp that never quite goes away, or a hand that grows stiff in the cold.
+
+:::tip[Is It Worth Re-Breaking?]
+Re-breaking only pays off early. A broken arm that set wrong needs 30 points of Mending, while a properly set one needs 20. Re-breaking is worth it only while the arm has 9 or fewer points of Mending, and only if the next treatment succeeds.
+:::
+
+### Mending
+
+Each lasting injury has its own **Mending Track**, such as *Broken Arm: Mending 0/20*. Record it on your character sheet, separate from your Hit Points.
+
+Once a lasting injury has been treated, every Hit Point you recover also adds 1 point to the Mending Track of each lasting injury you have. This happens even if you are already at your maximum Hit Points. Several lasting injuries mend at the same time, each on its own track.
+
+When a Mending Track is full, the injury heals: its effects end, and your maximum Hit Points return to normal.
+
+**Further harm.** Taking Hit Point damage pauses Mending but does not undo it. If the GM rules that the damage struck or strained the injury itself, such as falling on a broken leg, the injury loses Mending equal to half the Hit Point damage taken, rounded down.
+
+### System Shock
+
+A body can only bear so much. If your lasting injuries reduce your maximum Hit Points to 0 or lower, you die.
+
+:::note[Example]{icon="information"}
+Tamsin has 5 maximum Hit Points and breaks her arm (−2 maximum Hit Points, Mending 20). Her maximum is now 3, and by the end of the fight she is down to 1. Once the bone is set, she spends a Downtime Week in Convalescence. She regains 3 Hit Points: she is back to 3/3, and her arm is at Mending 3/20. She goes adventuring again and takes 1 Hit Point of damage from an arrow. Her arm is still at Mending 3/20.
+:::
+
+## Lasting Injury Tables
+
+<Tabs>
+  <TabItem label="Bludgeoning">
+    <InjuryTable id="bludgeoning" />
+  </TabItem>
+  <TabItem label="Crushing">
+    <InjuryTable id="crushing" />
+  </TabItem>
+  <TabItem label="Piercing">
+    <InjuryTable id="piercing" />
+  </TabItem>
+  <TabItem label="Slashing">
+    <InjuryTable id="slashing" />
+  </TabItem>
+  <TabItem label="Burning">
+    <InjuryTable id="burning" />
+  </TabItem>
+  <TabItem label="Wasting">
+    <InjuryTable id="wasting" />
+  </TabItem>
+  <TabItem label="Mind">
+    <InjuryTable id="mind" />
+  </TabItem>
+</Tabs>
+
+## Lasting Injury List
+
+<InjuryList toc tocDepth={3} />

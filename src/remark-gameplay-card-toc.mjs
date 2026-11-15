@@ -14,6 +14,11 @@ const DATA_CARDS = {
     card: 'DowntimeEventCard',
     list: 'DowntimeEventList',
   },
+  injuries: {
+    dir: path.resolve(process.cwd(), 'src/content/data/injurydata/injuries'),
+    card: 'InjuryCard',
+    list: 'InjuryList',
+  },
 };
 
 function dataCardFor(name) {

@@ -68,7 +68,7 @@ A Safe Rest takes **10 hours**, the same as a Night's Rest. In addition, you mus
 - **Comfort, safety, and shelter.** The place itself must provide all three. Your own precautions are not enough.
 - **Food and drink** enough for the day.
 
-A place counts only if it truly offers all three. Sleeping on the floor of a friendly host's barracks counts. So does the village baker's floor when the inn is full. Barring a dungeon door and sleeping behind it does not, and neither does a camp in the wilderness, however well hidden or guarded.
+A place counts only if it truly offers all three. **Comfort** assumes reasonable lodgings: a bed, or at least a good bedroll on a clean, dry floor. Sleeping in a friendly host's barracks with a good bedroll counts, and so does the village baker's floor when the inn is full. Bedding down in the dirt of a stable does not, even within the town walls. Neither does barring a dungeon door and sleeping behind it, or a camp in the wilderness, however well hidden or guarded.
 
 ### Benefits
 
@@ -86,61 +86,35 @@ A Magic-User with a maximum Grit of 20 spends the night at an inn after a hard d
 
 ## Recovering Hit Points
 
-Hit Points represent real wounds: cuts, broken bones, and torn muscle. Unlike Grit, they heal slowly, and only with true rest.
+Hit Points represent real wounds to the body: cuts, gashes, punctures, and deep bruising. Unlike Grit, they heal slowly, and only with true rest.
 
-### Recovery Tally
+### Healing Track
 
-Keep a **Recovery Tally** on your character sheet. Each time you complete a rest without having taken any Hit Point damage since your last rest, add to it:
+Keep a **Healing Track** on your character sheet. Each time you complete a rest without having taken any Hit Point damage since your last rest, add marks to it based on your **Healing Rate**, which is set by your Heartiness (see [Attributes](/playersguide/02-character_creation/01-attributes/)):
 
-- **Safe Rest:** 2 marks.
-- **Night's Rest:** 1 mark.
+- **Safe Rest:** marks equal to your Healing Rate.
+- **Night's Rest:** marks equal to half your Healing Rate, rounded down.
 
-Rest penalties do not affect your tally; only Hit Point damage does. When your tally reaches **10 marks**, you recover 1 Hit Point and clear the tally. If you take any Hit Point damage, clear your tally.
+<div class="green-table compact-table">
 
-### Recovery as a Downtime Event
+| Healing Rate | Safe Rest | Night's Rest |
+|:--:|:--:|:--:|
+| 1 | 1 mark | 0 marks |
+| 2 | 2 marks | 1 mark |
+| 3 | 3 marks | 1 mark |
+| 4 | 4 marks | 2 marks |
+| 5 | 5 marks | 2 marks |
 
-A character who devotes a Downtime Week to nothing but healing can take the <DowntimeEventLink id="recovery" /> Downtime Event.
+</div>
 
-<DowntimeEventCard id="recovery" anchor={false} />
+Rest penalties do not affect your Healing Track; only Hit Point damage does. When your Healing Track reaches **10 marks**, you recover 1 Hit Point and clear it. If you take any Hit Point damage, clear your Healing Track.
 
-## Injuries
+### Convalescence
 
-Some wounds are worse than lost Hit Points. A broken bone, a deep tear, or a crushed hand is an **injury**, and it lingers long after the fight is over.
+A character who devotes a Downtime Week to nothing but healing can take the <DowntimeEventLink id="convalescence" /> Downtime Event.
 
-:::caution[Placeholder]
-How injuries are gained.
-:::
+<DowntimeEventCard id="convalescence" anchor={false} />
 
-### Effects of an Injury
+## Lasting Injuries
 
-Each injury lists:
-
-- **Maximum Hit Point Reduction.** Your maximum Hit Points are lowered by this amount until the injury heals.
-- **Effects.** What the injury prevents or hinders, such as being unable to use a broken arm.
-- **Mending.** How much recovery the injury needs before it heals.
-
-### Treating an Injury
-
-Some injuries must be treated before they begin to mend. A broken bone, for example, must first be set.
-
-:::caution[Placeholder]
-Treating an injury is an Attribute Test, made by a character Eligible to attempt it (attribute TBD). Rules for failed or botched treatment, such as a mis-set bone, are TBD.
-:::
-
-### Mending
-
-Each injury has its own **Mending track**, such as *Broken Arm: Mending 0/20*. Record it on your character sheet, separate from your Hit Points.
-
-Once an injury has been treated, every Hit Point you recover also adds 1 point to the Mending track of each injury you have. This happens even if you are already at your maximum Hit Points. Several injuries mend at the same time, each on its own track.
-
-When a Mending track is full, the injury heals: its effects end, and your maximum Hit Points return to normal.
-
-**Further harm.** Taking Hit Point damage pauses Mending but does not undo it. If the GM rules that the damage struck or strained the injury itself, such as falling on a broken leg, the injury loses Mending equal to half the Hit Point damage taken, rounded down.
-
-### System Shock
-
-A body can only bear so much. If your injuries reduce your maximum Hit Points to 0 or lower, you die.
-
-:::note[Example]{icon="information"}
-Tamsin has 5 maximum Hit Points and breaks her arm (−2 maximum Hit Points, Mending 20). Her maximum is now 3, and by the end of the fight she is down to 1. Once the bone is set, she spends a Downtime Week recovering. She regains 3 Hit Points: she is back to 3/3, and her arm is at Mending 3/20. She goes adventuring again and takes 1 Hit Point of damage from an arrow. Her arm is still at Mending 3/20.
-:::
+Some wounds are worse than lost Hit Points. Broken bones, torn muscle, and similar harm are **lasting injuries**, covered in full in [Lasting Injuries](/playersguide/07-adventuring/lasting-injuries/).
