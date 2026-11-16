@@ -1,0 +1,27 @@
+---
+datatype: condition
+title: Unconscious
+shortDescription: You are senseless and helpless. You drop what you hold and fall prone.
+polarity: negative
+imposes:
+- id: incapacitated
+- id: immobile
+- id: mute
+- id: attribute-failure
+  parameter: Brawn, Agility, Precision
+- id: save-failure
+  parameter: Breath
+- id: exposed
+  parameter: all
+- id: defenseless
+- id: unaware
+- id: overmatched
+tags:
+- combat
+---
+
+import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+
+An **Unconscious** creature is senseless and helpless. When you become Unconscious, you drop whatever you are holding and become <ConditionLink id="prone" />. Prone is a separate condition: you are still Prone when you wake.
+
+The GM decides whether a creature in a natural sleep is Unconscious.

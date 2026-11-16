@@ -3,6 +3,8 @@ title: Combat
 description: Rules for rounds, phases, actions, reactions, and channeling in combat.
 ---
 import ConditionCard from '../../../../components/conditions/ConditionCard.astro';
+import ConditionLink from '../../../../components/conditions/ConditionLink.astro';
+import GameplayCard from '../../../../components/GameplayCard.astro';
 
 
 Combat is chaotic, fast-paced, and dangerous. Characters are in constant danger while fighting. A stray dagger can be the end of the line for your character.
@@ -73,6 +75,27 @@ The GM, and players describing their own characters, should narrate damage to ma
 
 </div>
 
+### Resistance, Immunity, and Vulnerability
+
+Some creatures shrug off certain kinds of harm, and others are especially vulnerable to it. Each of these defenses names the damage type it applies to, such as *resistance to fire* or *vulnerability to bludgeoning*.
+
+- **Immunity.** You take no damage of that type.
+- **Vulnerability.** You take double damage of that type.
+- **Resistance.** Halve the damage of that type (round down) before it reduces your Grit. If any of the halved damage carries past your Grit into your Hit Points, round that remainder to the nearest 10 and lose only the tens digit in Hit Points. A remainder of 4 or less costs no Hit Points at all; a remainder of 5 to 14 costs 1; 15 to 24 costs 2; and so on.
+
+Resistance reflects a body that the harm cannot truly reach. Your luck and stamina still suffer, but real wounds come slowly.
+
+**They don't stack.** You either have resistance, immunity, or vulnerability to a damage type or you don't. Gaining the same defense from a second source has no further effect. If you have both resistance and vulnerability to the same type, they cancel out and you take normal damage. Immunity overrides both.
+
+<GameplayCard
+  color="green"
+  title="Resistance Example"
+>
+A dwarf with 6 Grit and 4 Hit Points has resistance to fire. A fire spell deals 22 fire damage to him. His resistance halves it to 11. The first 6 points reduce his Grit to 0, and 5 points carry over into his Hit Points. Rounded to the nearest 10, that is 10, so he loses 1 Hit Point. He is left with 0 Grit and 3 Hit Points.
+
+Had the spell dealt 60 fire damage instead, his resistance would halve it to 30. After his 6 Grit, 24 points would carry over, rounding to 20, and he would lose 2 Hit Points.
+</GameplayCard>
+
 ## Adjudicating at the Same Time
 Adjudicating at the same time means that all activities in a phase happen at the same time, regardless of who rolls first. If you are attempting to act in a phase, you get to do so unless a ***Reaction*** stops you.
 
@@ -90,6 +113,15 @@ As movement is all handled at the same time, the GM should take everything into 
 Because of this open, and broad terms of movement, it is very possible that characters will move their characters, then shuffle them a bit as other creatures movements come to light. In the above example “I would like to intercept the goblins”, the player moves first and moves in a direct line 20 feet to the east. The GM moves the goblins south-west, instead of just west, which the player is no longer in line to intercept them. Since the player's intention was to intercept them, they should be allowed to “shuffle” where they moved to put their character in-line with their stated goal (so long as it stays within their character's initial move speed).
 
 Effectively, when performing actions, intent of the action should be known, and players and GMs should work together in understanding the intent of the action.
+
+
+### Struggle Forward
+
+**2 Actions · Phase 3**
+
+When mud, rubble, crawling, or a heavy load leaves you barely able to move, you can still fight your way forward. You move up to 5 feet, ignoring Hindered Movement. You cannot use this activity while you are Immobile or Held. It provokes Opportunity Attacks as normal movement does.
+
+*This activity will move to the Action Cards once they exist.*
 
 ## When can a character Act?
 Your character can announce their intention to act during a phase at any time before the GM moves to the next phase. For example, if a stalwart warrior was planning on moving and fighting in melee, but a goblin archer fires an arrow at him, he can announce that he is going to throw his axe at the goblin during the same phase. Throwing the axe spends 1 Action and uses his *Master Action* for the round, but he may still spend his remaining Actions in later phases.
@@ -113,11 +145,11 @@ You cannot both Act and React in the same phase, nor can you Act or React more t
 
 ### Conditions That Affect Your Round
 
-Some conditions change how and when you can use your Actions. They are shown here for convenience. The full list of conditions is in [Chapter 07: Adventuring](/playersguide/07-adventuring/05-afflictions-and-conditions/).
+Some conditions and hindrances change how and when you can use your Actions. They are shown here for convenience. The full lists of conditions and hindrances are in [Chapter 07: Adventuring](/playersguide/07-adventuring/05-afflictions-and-conditions/).
 
-<ConditionCard id="sluggish" toc tocDepth={4} />
+<ConditionCard kind="hindrance" id="sluggish" toc tocDepth={4} />
 
-<ConditionCard id="slow" toc tocDepth={4} />
+<ConditionCard kind="hindrance" id="slow" toc tocDepth={4} />
 
 <ConditionCard id="battle-trance" toc tocDepth={4} />
 
@@ -210,7 +242,9 @@ Combat Maneuvers are resolved as Opposed Attribute Tests rather than attacks aga
 
 ### Grapple
 
-The attacker tests Brawn. The defender tests either Brawn or Agility. If the attacker wins, the defender becomes Grappled.
+The attacker tests Brawn. The defender tests either Brawn or Agility. If the attacker wins, the defender becomes <ConditionLink id="grappled" />, and the attacker becomes <ConditionLink id="grappling" />.
+
+You cannot Grapple a creature that is 2 or more Size categories larger than you.
 
 ### Disarm
 

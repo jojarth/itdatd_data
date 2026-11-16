@@ -12,15 +12,16 @@ classes:
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
 
 <SpellEntry title="Charm Person">
 
     <FeatureSection title="Spell Effect">
-        Select a Valid Creature within range of this spell. The target of this spell must make a Save vs Spell. If they succeed, nothing happens. If they fail, they become charmed by you. This charm is permanent until dispelled or a successful saving throw is made. A creature may make repeated attempts at a Saving Throw, the time of which is determined by their attributes.
+        Select a Valid Creature within range of this spell. The target of this spell must make a Save vs Spell. If they succeed, nothing happens. If they fail, they become <ConditionLink id="charmed" /> by you. This charm is permanent until dispelled or a successful saving throw is made. A creature may make repeated attempts at a Saving Throw, the time of which is determined by their attributes.
     </FeatureSection>
 
     <FeatureSection title="Charmed by You">
-        While charmed by you, the target regards you and your allies as trusted friends and may even defend you. If you share a language, you can give the target commands. The target will likely follow commands that seem reasonable and aren’t contrary to their habits or nature, but will never obey a command that is suicidal or obviously harmful.
+        While the target is Charmed by you, it regards you and your allies as trusted friends and may follow your reasonable commands, as described in the <ConditionLink id="charmed" /> condition. Harming it in a way it recognizes as an attack breaks the charm.
     </FeatureSection>
 
     <FeatureSection title="Repeating the Saving Throw">

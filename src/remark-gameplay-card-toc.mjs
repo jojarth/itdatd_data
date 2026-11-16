@@ -8,6 +8,11 @@ const DATA_CARDS = {
     dir: path.resolve(process.cwd(), 'src/content/data/conditiondata'),
     card: 'ConditionCard',
     list: 'ConditionList',
+    // ConditionCard and ConditionList also show hindrances, chosen by their
+    // kind attribute. Those anchors get a prefix (matches conditionPaths.ts).
+    kinds: {
+      hindrance: { dir: path.resolve(process.cwd(), 'src/content/data/hindrancedata'), prefix: 'hindrance-' },
+    },
   },
   downtimeEvents: {
     dir: path.resolve(process.cwd(), 'src/content/data/downtimedata'),
@@ -63,31 +68,36 @@ function stringAttribute(name, value) {
 
 // <ConditionCard id="x" toc /> gets a hidden heading whose id is the entry id,
 // so Link anchors still work. The card itself then skips its own anchor.
-function expandDataCard(child, entries) {
+function expandDataCard(child, entries, prefix = '') {
   const id = getStringAttribute(child, 'id');
   const condition = entries.find((entry) => entry.id === id);
   if (!condition) return undefined;
   const depth = getNumericAttribute(child, 'tocDepth', 3);
   child.attributes = child.attributes.filter((a) => a.name !== 'anchor' && a.name !== 'toc');
   child.attributes.push(stringAttribute('anchor', 'false'));
-  return [tocHeading(condition.title, depth, condition.id), child];
+  return [tocHeading(condition.title, depth, prefix + condition.id), child];
 }
 
 // <ConditionList toc /> becomes one hidden heading plus one single-entry
 // list per entry, so each entry appears in the table of contents.
-function expandDataList(child, all) {
+function expandDataList(child, all, prefix = '') {
   const tag = getStringAttribute(child, 'tag');
+  const kind = getStringAttribute(child, 'kind');
   const depth = getNumericAttribute(child, 'tocDepth', 3);
   const entries = all
     .filter((entry) => !tag || entry.tags.includes(tag))
     .sort((a, b) => a.title.localeCompare(b.title));
   if (entries.length === 0) return undefined;
   return entries.flatMap((entry) => [
-    tocHeading(entry.title, depth, entry.id),
+    tocHeading(entry.title, depth, prefix + entry.id),
     {
       type: 'mdxJsxFlowElement',
       name: child.name,
-      attributes: [stringAttribute('id', entry.id), stringAttribute('anchor', 'false')],
+      attributes: [
+        stringAttribute('id', entry.id),
+        stringAttribute('anchor', 'false'),
+        ...(kind ? [stringAttribute('kind', kind)] : []),
+      ],
       children: [],
     },
   ]);
@@ -200,9 +210,13 @@ function visitChildren(parent) {
 
     const dataCard = child.type === 'mdxJsxFlowElement' ? dataCardFor(child.name) : undefined;
     if (dataCard && hasTruthyAttribute(child, 'toc')) {
-      const entries = readEntries(dataCard.dir);
+      const kindConfig = dataCard.kinds?.[getStringAttribute(child, 'kind')];
+      const entries = readEntries(kindConfig?.dir ?? dataCard.dir);
+      const prefix = kindConfig?.prefix ?? '';
       const replacement =
-        child.name === dataCard.card ? expandDataCard(child, entries) : expandDataList(child, entries);
+        child.name === dataCard.card
+          ? expandDataCard(child, entries, prefix)
+          : expandDataList(child, entries, prefix);
       if (replacement) {
         parent.children.splice(index, 1, ...replacement);
         index += replacement.length - 1;

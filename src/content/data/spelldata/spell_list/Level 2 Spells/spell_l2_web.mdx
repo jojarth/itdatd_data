@@ -10,11 +10,20 @@ shortDescription: Fill a 20-foot-square area within 60 feet with sticky webs
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
 
 <SpellEntry title="Web">
 
     <FeatureSection title="Spell Effect">
-        Fill a 20-foot-square area within 60 feet with sticky webs. Creatures that fail a Save vs Spell are Restrained; an Action and successful Brawn check against your spell difficulty frees a creature. Webs are flammable.
+        Fill a 20-foot-square area within 60 feet with sticky webs. The area is difficult terrain for the spell's duration.
+
+        Each creature inside the area when the spell takes effect makes a Save vs Spell. On a failure, it becomes <ConditionLink id="restrained" />. On a success, it becomes <ConditionLink id="entangled" />.
+
+        **Caught Again.** The first time each round that a creature moves within the web, it must make a Save vs Binding. On a failure, it becomes caught more tightly: a free creature becomes Entangled, and an Entangled creature becomes Restrained.
+
+        **Breaking Free.** A Restrained creature can spend 3 Actions, starting in Phase 1, to make a Save vs Binding. If it succeeds, it tears partly loose: it is no longer Restrained, but it becomes Entangled. An Entangled creature can spend 1 Action to make a Brawn or Agility test. If it succeeds, the Entangled condition ends. Both conditions end when the spell does.
+
+        Webs are flammable.
     </FeatureSection>
 
     <FeatureSection title="Components">

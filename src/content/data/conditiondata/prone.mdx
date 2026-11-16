@@ -1,0 +1,19 @@
+---
+datatype: condition
+title: Prone
+shortDescription: You are lying on the ground. You crawl, attack poorly, and are easy to strike up close but hard to hit from afar.
+polarity: negative
+imposes:
+- id: hindered-movement
+  value: 5
+- id: attack-penalty
+  value: 2
+- id: exposed
+  parameter: adjacent
+tags:
+- combat
+---
+
+A **Prone** creature is lying on the ground. Moving while Prone means crawling. Being low to the ground makes you a poor target from afar: ranged attacks against you suffer a -2 Condition penalty.
+
+**Standing Up.** You can end this condition by standing up. Standing up costs 1 Action and provokes Opportunity Attacks. Alternatively, you can rise carefully as a Master Action costing 1 Action, which does not provoke Opportunity Attacks.

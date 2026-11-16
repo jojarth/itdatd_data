@@ -1,0 +1,21 @@
+---
+datatype: condition
+title: Entangled
+shortDescription: Webs, nets, vines, or rope cling to you. You can still move and fight, but badly.
+polarity: negative
+imposes:
+- id: hindered-movement
+  value: 10
+- id: attack-penalty
+  value: 1
+- id: faltering
+tags:
+- combat
+- movement
+---
+
+import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+
+An **Entangled** creature is caught in webs, a net, grasping vines, or tangled rope. Unlike a <ConditionLink id="restrained" /> creature, it can still move and fight, but only slowly and clumsily.
+
+**Breaking Free.** The effect that entangles you describes how you can break free, such as an Attribute Test, cutting or burning the strands, or simply waiting for the effect to end.

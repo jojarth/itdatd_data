@@ -1,0 +1,23 @@
+---
+datatype: condition
+title: Grappled
+shortDescription: Another creature has hold of you. You struggle to move, act, or fight anyone but your grappler.
+polarity: negative
+imposes:
+- id: held
+- id: hindered-movement
+  value: 5
+- id: faltering
+- id: unfocused
+- id: close-quarters
+tags:
+- combat
+---
+
+import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+
+A **Grappled** creature is in another creature's grip. The creature holding you is <ConditionLink id="grappling" />. The two of you are locked together until the grapple ends.
+
+**Escaping.** You can spend 1 Action to try to break free, making the same opposed test as the Grapple maneuver. If you win, this condition ends.
+
+**Ending.** This condition also ends if the creature holding you lets go, becomes Incapacitated, or is moved out of reach of you.

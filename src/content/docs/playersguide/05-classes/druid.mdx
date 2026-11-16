@@ -21,6 +21,7 @@ import AshenCrossBrotherhood from '../../../../components/reusable/brotherhood_a
 import BlackLionKnights from '../../../../components/reusable/knights_black-lion.astro';
 import IronCrownConfraternity from '../../../../components/reusable/confraternity_iron-crown.astro';
 import Establishment from '../../../../components/reusable/Establishment.astro';
+import ConditionLink from '../../../../components/conditions/ConditionLink.astro';
 
 Druids are keepers of old mysteries: the hidden rhythms of the wild, the turning of fate, and the bonds between life, death, and memory. Their power grows through contemplation and personal journeys, each one revealing a new truth and a new way to shape the world around them.
 
@@ -329,7 +330,7 @@ To change your selected Inner Journey Contemplation, you must spend 21 consecuti
     While you are Contemplating the Hanged Man, when you make an Attribute Test, you can grant yourself a penalty between -1 and -5 to the test. If the test is successful, the next attribute test you make gains a bonus equal to the penalty you gave yourself +1.
 
     <FeatureSubsection title="Invocation">
-      If you are suffering from a temporary effect causing the Blinded, Dazed, Dazzled, or Deafend, you can invoke this feature and end the condition.
+      If you are <ConditionLink id="blinded" />, <ConditionLink id="dazed" />, <ConditionLink id="dazzled" />, or <ConditionLink id="deafened" /> because of a temporary effect, you can invoke this feature and end that condition.
     </FeatureSubsection>
   </FeatureSection>
 

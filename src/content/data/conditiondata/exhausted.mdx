@@ -1,0 +1,38 @@
+---
+datatype: condition
+title: Exhausted
+shortDescription: Fatigue wears you down in levels. Each level adds hindrances, and too many levels kill you.
+valued: true
+stacking: stacks
+polarity: negative
+impairsRest: true
+tags:
+- exploration
+- survival
+---
+
+import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+
+**Exhausted (X)** represents deep fatigue from forced marches, hunger, thirst, cold, and other hardships. Unlike most conditions, Exhausted values add together: if you are Exhausted (1) and gain 2 more levels of exhaustion, you become Exhausted (3).
+
+You suffer the hindrances listed for your current level and every level below it. When the same hindrance appears at more than one level, use the higher value.
+
+| **Exhausted** | **Hindrances Gained** |
+| --- | --- |
+| **1** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (physical, 1)" /> |
+| **2** | <ConditionLink kind="hindrance" id="move-penalty" text="Move Penalty (5)" /> |
+| **3** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 1)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (1)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 1)" /> |
+| **4** | <ConditionLink kind="hindrance" id="sluggish" text="Sluggish (1)" /> |
+| **5** | <ConditionLink kind="hindrance" id="worn" text="Worn (Half)" /> |
+| **6** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 2)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (2)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 2)" /> |
+| **7** | <ConditionLink kind="hindrance" id="move-penalty" text="Move Penalty (10)" />, <ConditionLink kind="hindrance" id="slow" text="Slow (1)" /> |
+| **8** | <ConditionLink kind="hindrance" id="worn" text="Worn (Quarter)" /> |
+| **9** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 3)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (3)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 3)" /> |
+| **10** | <ConditionLink kind="hindrance" id="sluggish" text="Sluggish (2)" />, <ConditionLink kind="hindrance" id="move-penalty" text="Move Penalty (15)" /> |
+| **11** | <ConditionLink kind="hindrance" id="slow" text="Slow (2)" /> |
+| **12** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 4)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (4)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 4)" /> |
+| **13** | However hardy your body, you die of exhaustion. |
+
+**Death from Exhaustion.** Your body can endure a number of levels of exhaustion equal to half your Heartiness score (rounded down) plus 2, to a minimum of 4. If your Exhausted value ever exceeds this limit, you die. For example, a character with a Heartiness of 15 can endure Exhausted (9), but dies at Exhausted (10). Regardless of Heartiness, every creature dies at Exhausted (13).
+
+**Recovering.** Each Night's Rest in which you eat and drink enough reduces your Exhausted value by 1. Other effects that reduce exhaustion state how many levels they remove. If your Exhausted value reaches 0, the condition ends.

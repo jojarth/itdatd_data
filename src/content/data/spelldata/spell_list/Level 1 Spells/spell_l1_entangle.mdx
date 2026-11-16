@@ -13,15 +13,16 @@ classes:
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
 
 <SpellEntry title="Entangle">
 
     <FeatureSection title="Spell Effect">
-        Magical, ghostly plants burst in a 20-foot radius from a point that you select in range of the spell. All creatures inside the area of effect are allowed to make a Save vs Spell. If they fail, they are entangled by the plants and cannot move. If they succeed, they can move through the area, but all movement inside the area is done at half speed.
+        Magical, ghostly plants burst in a 20-foot radius from a point that you select in range of the spell. The area is difficult terrain for the spell's duration.
 
-        Any creature who enters the area after the initial spell has taken effect are not subject to a Saving Throw, but can only move through the area at half speed.
+        Each creature inside the area when the spell takes effect makes a Save vs Spell. On a failure, it becomes <ConditionLink id="entangled" />. On a success, it is unaffected, although it must still contend with the difficult terrain. Creatures that enter the area later do not make a Saving Throw.
 
-        Any creature who failed their initial saving throw can use 3 Actions starting at Phase 1 to attempt a Save vs Binding. If they succeed, they are now able to move, but still are subject to moving at half speed through the affected area.
+        **Breaking Free.** An Entangled creature can spend 1 Action to make a Brawn or Agility test. If it succeeds, the Entangled condition ends. The condition also ends when the spell does.
     </FeatureSection>
 
     <FeatureSection title="Spell Improvements">

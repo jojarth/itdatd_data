@@ -1,0 +1,25 @@
+---
+datatype: condition
+title: Frightened
+shortDescription: Fear grips you in levels, from Shaken to Frightened to Panicked, each worse than the last.
+valued: true
+stacking: highest
+polarity: negative
+tags:
+- combat
+- mind
+---
+
+import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+
+**Frightened (X)** represents fear of a specific **source**: a creature, an object, or a place, named by the effect that frightens you. Fear has three levels. You suffer the effects of your current level and every level below it.
+
+| **Level** | **Name** | **Effects** |
+| --- | --- | --- |
+| **1** | Shaken | <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (1)" />, increased to Attack Penalty (2) while you are within 10 feet of the source. |
+| **2** | Frightened | <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (2)" />. The source holds Combat Supremacy against you, and you cannot willingly move closer to it. |
+| **3** | Panicked | <ConditionLink kind="hindrance" id="faltering" />, <ConditionLink kind="hindrance" id="unfocused" />. When you become Panicked, you drop everything you are wielding except a shield. You must spend your movement getting away from the source if you are able, and you can attack only if you are cornered. |
+
+**One Fear at a Time.** The effect that frightens you sets your level; fears never add together. If a new effect would frighten you at a higher level, it replaces your current fear entirely, including its source. A new fear of the same or a lower level has no effect, except that a new effect from your current source restarts the time it takes you to calm down.
+
+**Calming Down.** After each full minute in which you cannot see the source of your fear, reduce your level by 1. If it reaches 0, the condition ends. A Night's Rest ends the condition entirely. The effect that frightens you may set a different duration.

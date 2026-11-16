@@ -1,5 +1,5 @@
 ---
-datatype: condition
+datatype: hindrance
 title: Sluggish
 shortDescription: Delays the earliest phase in which you can Act by the Sluggish value.
 valued: true
@@ -13,3 +13,5 @@ tags:
 For example, if you are Sluggish (2), an activity normally available in Phase 3 becomes available in Phase 5. A Phase-Locked activity has its locked phase increased by the same amount and remains Phase Locked. If Sluggish would delay an activity beyond Phase 9, you perform the activity in Phase 9. 
 
 Sluggish does not delay Reactions unless a rule explicitly says otherwise. If multiple effects make you Sluggish, use only the highest Sluggish value.
+
+If another effect lets you Act earlier by a number of phases, subtract the smaller value from the larger and apply only the difference.

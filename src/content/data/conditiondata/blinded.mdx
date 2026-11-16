@@ -1,0 +1,19 @@
+---
+datatype: condition
+title: Blinded
+shortDescription: You cannot see. You stumble as you move, and every foe can take advantage of you.
+polarity: negative
+imposes:
+- id: sightless
+- id: hindered-movement
+  value: 5
+- id: exposed
+  parameter: all
+tags:
+- combat
+- senses
+---
+
+import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+
+A **Blinded** creature cannot see. If you are <ConditionLink id="dazzled" /> when you become Blinded, the Dazzled condition ends.

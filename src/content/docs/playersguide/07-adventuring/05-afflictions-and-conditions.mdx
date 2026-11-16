@@ -24,17 +24,36 @@ Afflictions can cause conditions, but conditions cannot cause afflictions.
 
 ### General Rules
 
-:::caution[Placeholder]
-How conditions are gained, how long they last, how they end, and how multiple instances of the same condition combine.
-:::
+A **condition** changes your state of being. An effect that gives you a condition tells you how long it lasts. When it ends, you stop suffering (or benefiting from) everything it does.
 
-:::note[Decision Needed: Stacking]
-Each condition card states how multiple effects combine: **highest value only** (Sluggish, Slow), **values add together**, or **only one at a time** (Battle Trance). Decide whether "add together" should exist at all, and whether the general rule should default to "highest value only" with exceptions noted on the condition.
-:::
+**Positive and Negative Conditions.** Every condition is either **positive**, such as a Battle Trance, or **negative**, such as being Dazed. Positive conditions help you, even if they carry some drawbacks; negative conditions harm you.
+
+**Hindrances.** Many conditions are built from hindrances, the building blocks described below. A condition card lists the hindrances it imposes, followed by any rules unique to that condition, including any benefits it grants.
+
+**Multiple Conditions.** Each condition states how multiple instances of it combine: use only the highest value, add the values together, or allow only one at a time.
+
+**Ending Conditions.** An effect that ends conditions always names the conditions it ends. There is no general effect that removes "a condition."
+
+**Conditions and Rest.** Some conditions impair rest. If a condition marked **Impairs Rest** lasts at least half of a rest, it imposes a rest penalty (see [Rest and Recovery](/playersguide/07-adventuring/03-rest-and-recovery/)).
 
 ### Condition List
 
 <ConditionList toc tocDepth={4} />
+
+## Hindrances
+
+Hindrances are the building blocks of conditions. A **hindrance** is a single drawback, such as being unable to React or suffering a penalty to attack rolls.
+
+* **Sources.** Hindrances are usually imposed by conditions, but a spell, feature, terrain, or other effect can impose one directly. For example, difficult terrain imposes Hindered Movement (5) while you move through it.
+* **They last as long as their source.** A hindrance ends when the condition or effect that imposed it ends. No effect can end a hindrance directly, and effects that end conditions do not affect a hindrance imposed by something else. To be rid of a hindrance, you must deal with its source.
+* **Each source is separate.** If you suffer the same hindrance from two sources, ending one source does not end the other. For example, if you are Paralyzed and a spell also makes you Incapacitated, ending the Paralyzed condition leaves you Incapacitated until the spell ends.
+* **Immunity.** If you are immune to a hindrance, ignore it, but you still suffer the rest of the condition that imposed it.
+* **Multiple sources.** While more than one source imposes the same hindrance, follow the stacking rule on its card.
+* **Condition modifiers.** Penalties from hindrances, and bonuses and penalties described on condition cards, are Condition modifiers unless the card says otherwise. Only the greatest Condition penalty and the highest Condition bonus apply to a roll, but they stack with modifiers of other types (see *Static Bonus Types* in [Chapter 01: Core Rules](/playersguide/01-core_rules/#static-bonus-types-d20-rolls)).
+
+### Hindrance List
+
+<ConditionList kind="hindrance" toc tocDepth={4} />
 
 ## Afflictions
 

@@ -188,20 +188,62 @@ const keywordFeatures = defineCollection({
   }),
 });
 
+// How multiple instances of a condition or hindrance combine.
+const stackingSchema = z
+  .enum(["highest", "stacks", "exclusive", "modifier", "widest", "worst"])
+  .optional();
+
+// One hindrance that a condition imposes, such as
+// { id: sluggish, value: 1 } or { id: attribute-penalty, parameter: physical, value: 1 }.
+// reference() makes the build fail if the id is not in the named collection,
+// so a condition can never point at another condition.
+const hindrancePart = z.object({
+    id: reference("hindrances"),
+    parameter: z.string().optional(),
+    value: z.number().optional(),
+});
+
 const conditions = defineCollection({
   schema: z.object({
     datatype: z.literal("condition"),
     title: z.string(),
     shortDescription: z.string(),
-    // Whether the condition takes a value, such as Sluggish (2).
+    // Whether the condition takes a value, such as Exhausted (3).
     valued: z.boolean().default(false),
-    // How multiple instances combine: highest value only, add together,
-    // or only one can apply at a time.
-    stacking: z.enum(["highest", "stacks", "exclusive"]),
+    stacking: stackingSchema,
+    // Positive conditions help you; negative conditions harm you.
+    polarity: z.enum(["positive", "negative"]),
+    // Whether this condition imposes a rest penalty (see Rest and Recovery).
+    impairsRest: z.boolean().default(false),
+    imposes: z.array(hindrancePart).optional(),
     tags: z.array(z.string()).optional(),
   }),
   loader: glob({
     base: "./src/content/data/conditiondata",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
+// Hindrances are the building blocks of conditions. They have no imposes
+// field, so they can never nest.
+const hindranceSchema = z.object({
+    datatype: z.literal("hindrance"),
+    title: z.string(),
+    shortDescription: z.string(),
+    // Whether it takes a value, such as Sluggish (2).
+    valued: z.boolean().default(false),
+    // The name of an extra parameter, such as "Attribute" for
+    // Attribute Penalty (Attribute, X) or "Save" for Save Failure (Save).
+    parameter: z.string().optional(),
+    stacking: stackingSchema,
+    tags: z.array(z.string()).optional(),
+});
+
+const hindrances = defineCollection({
+  schema: hindranceSchema,
+  loader: glob({
+    base: "./src/content/data/hindrancedata",
     pattern: "**/*.mdx",
     generateId: preserveMdxId,
   }),
@@ -289,6 +331,7 @@ export const collections = {
   items,
   keywordFeatures,
   conditions,
+  hindrances,
   downtimeEvents,
   injuries,
   injuryTables,
