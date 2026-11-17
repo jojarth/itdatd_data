@@ -1,0 +1,67 @@
+---
+// Shows one affliction (poison, disease, or curse) from src/content/data/afflictiondata.
+// Usage: <AfflictionCard id="ghouls-touch" />
+// Add toc to list it in the page's table of contents: <AfflictionCard id="ghouls-touch" toc />
+// Pass anchor={false} if the same affliction is shown twice on one page.
+import { getEntry, render } from "astro:content";
+import GameplayCard from "../GameplayCard.astro";
+
+interface Props {
+  id?: string;
+  entry?: any;
+  anchor?: boolean | string;
+}
+
+const { id, entry: passedEntry, anchor = true } = Astro.props as Props;
+const showAnchor = anchor !== false && anchor !== "false";
+const entry = passedEntry ?? (id ? await getEntry("afflictions", id) : undefined);
+
+if (!entry) {
+  throw new Error(`AfflictionCard: no affliction found with id "${id}". Check src/content/data/afflictiondata.`);
+}
+
+const { Content } = await render(entry);
+const data = entry.data;
+const typeLabel = { poison: "Poison", disease: "Disease", curse: "Curse" }[data.type];
+const save = `${data.save}${data.exposurePenalty ? `, -${data.exposurePenalty}` : ""}${data.virulent ? " (Virulent)" : ""}`;
+const progression =
+  data.type === "curse"
+    ? `At the end of each stage's interval, make a Save vs ${data.save}. On a failure, the curse advances one stage; on a success, it holds. A curse never moves down on its own.`
+    : `At the end of each stage's interval, make a Save vs ${data.save}. On a success, move down one stage; on a failure, move up one. At Stage 0, the ${data.type} ends.`;
+---
+
+<div class="affliction-card" id={showAnchor ? entry.id : undefined}>
+  <GameplayCard colorSet="System" eyebrow={typeLabel} title={data.title} headerOrder={["eyebrow", "title"]}>
+    <p class="affliction-card__flavor"><em>{data.shortDescription}</em></p>
+    <table class="affliction-card__header">
+      <thead>
+        <tr><th>Save</th><th>Exposure</th><th>Onset</th><th>{data.type === "curse" ? "Remedy" : "Max Duration"}</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{save}</td>
+          <td>{data.exposure.join(", ")}</td>
+          <td>{data.onset}</td>
+          <td>{data.type === "curse" ? (data.remedy ?? "Magic only") : (data.maxDuration ?? "None")}</td>
+        </tr>
+      </tbody>
+    </table>
+    {data.type !== "curse" && data.remedy && <p><strong>Remedy:</strong> {data.remedy}</p>}
+    <Content />
+    <p class="affliction-card__note"><strong>Progression:</strong> {progression}</p>
+  </GameplayCard>
+</div>
+
+<style>
+  .affliction-card {
+    scroll-margin-top: 5rem;
+  }
+  .affliction-card__note {
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+  .affliction-card__header {
+    width: 100%;
+    font-size: var(--sl-text-sm);
+  }
+</style>

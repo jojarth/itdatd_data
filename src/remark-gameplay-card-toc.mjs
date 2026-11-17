@@ -14,6 +14,11 @@ const DATA_CARDS = {
       hindrance: { dir: path.resolve(process.cwd(), 'src/content/data/hindrancedata'), prefix: 'hindrance-' },
     },
   },
+  afflictions: {
+    dir: path.resolve(process.cwd(), 'src/content/data/afflictiondata'),
+    card: 'AfflictionCard',
+    list: 'AfflictionList',
+  },
   downtimeEvents: {
     dir: path.resolve(process.cwd(), 'src/content/data/downtimedata'),
     card: 'DowntimeEventCard',

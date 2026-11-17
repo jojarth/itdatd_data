@@ -266,6 +266,33 @@ const downtimeEvents = defineCollection({
   }),
 });
 
+const afflictions = defineCollection({
+  schema: z.object({
+    datatype: z.literal("affliction"),
+    title: z.string(),
+    shortDescription: z.string(),
+    // Poisons and diseases move up and down by saves; curses never regress.
+    type: z.enum(["poison", "disease", "curse"]),
+    save: z.enum(["Doom", "Device", "Binding", "Breath", "Spell"]),
+    // Penalty to the exposure save only, for a potent dose (e.g. 2 means -2).
+    exposurePenalty: z.number().optional(),
+    // Virulent: roll every stage save twice; both must succeed.
+    virulent: z.boolean().default(false),
+    // How the affliction is caught, e.g. ["Injury", "Ingested"].
+    exposure: z.array(z.string()),
+    onset: z.string(),
+    maxDuration: z.string().optional(),
+    // How the affliction can be ended besides its stages (mainly curses).
+    remedy: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+  loader: glob({
+    base: "./src/content/data/afflictiondata",
+    pattern: "**/*.mdx",
+    generateId: preserveMdxId,
+  }),
+});
+
 const injuries = defineCollection({
   schema: z.object({
     datatype: z.literal("injury"),
@@ -332,6 +359,7 @@ export const collections = {
   keywordFeatures,
   conditions,
   hindrances,
+  afflictions,
   downtimeEvents,
   injuries,
   injuryTables,
