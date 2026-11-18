@@ -76,7 +76,7 @@ Wrap the spell's rules in a `<SpellEntry title="...">` block. Inside it, use `<F
 
 Always use `FeatureSubsection` rather than a raw `###### heading` for these nested bits — it keeps the colored sidebar and spacing consistent with every other spell on the site.
 
-## Adding a reversible spell (like Bless / Curse)
+## Adding a reversible spell (like Bless / Bane)
 
 A reversible spell lives in **one file**, with two `<SpellEntry>` blocks — a primary and a reverse. The reverse form automatically gets its own list card, its own anchor link, and inherits the primary's level/casting/range/duration unless you override them.
 
@@ -85,7 +85,7 @@ A reversible spell lives in **one file**, with two `<SpellEntry>` blocks — a p
 datatype: spell
 title: Bless
 shortDescription: Bolsters allies with divine favor.
-reverseTitle: Curse
+reverseTitle: Bane
 reverseShortDescription: Afflicts foes with divine condemnation.
 level: 1
 casting: 1 Master Action; Phase 4
@@ -105,12 +105,12 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 </SpellEntry>
 
 <SpellEntry
-  title="Curse"
+  title="Bane"
   variant="reverse"
   metadata={props.reverseMetadata}
 >
   <FeatureSection title="Spell Effect">
-    Write the Curse effect here.
+    Write the Bane effect here.
   </FeatureSection>
 </SpellEntry>
 ```

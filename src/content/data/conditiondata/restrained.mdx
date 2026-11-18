@@ -3,18 +3,15 @@ datatype: condition
 title: Restrained
 shortDescription: You are bound or held fast. You cannot move and can barely defend yourself.
 polarity: negative
-imposes:
-- id: immobile
-- id: save-penalty
-  parameter: Breath
-  value: 2
-- id: exposed
-  parameter: all
-- id: overmatched
 tags:
 - combat
 ---
 
-A **Restrained** creature is bound, entangled, or held fast. It cannot move from its place, and it can barely twist away from blows or blasts.
+A **Restrained** creature is bound, entangled, or held fast.
+
+* **Pinned.** You cannot move, and effects that would increase your Move Speed do nothing.
+* **Bound.** You suffer a -2 Condition penalty to Saving Throws vs Breath.
+* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
+* **Overmatched.** You cannot hold Combat Supremacy against any creature.
 
 **Breaking Free.** The effect that restrains you describes how you can break free.

@@ -3,11 +3,6 @@ datatype: condition
 title: Dazzled
 shortDescription: Bright light has overwhelmed your eyes. You see only through glare and spots.
 polarity: negative
-imposes:
-- id: sight-penalty
-  value: 2
-- id: exposed
-  parameter: adjacent
 tags:
 - combat
 - senses
@@ -15,6 +10,9 @@ tags:
 
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
 
-A **Dazzled** creature's eyes are overwhelmed by bright light. It can still see, but only through glare and spots, and foes close at hand can slip past its guard. A brighter or longer exposure makes the condition last longer, not hit harder.
+A **Dazzled** creature's eyes are overwhelmed by bright light. It can still see, but only through glare and spots.
 
-If you become <ConditionLink id="blinded" />, the Dazzled condition ends.
+* **Glare.** You suffer a -2 Condition penalty to attack rolls and Attribute Tests that rely on sight.
+* [**Exposed.**](/playersguide/08-combat/#exposed) Foes adjacent to you hold Combat Supremacy against you.
+
+A brighter or longer exposure makes the condition last longer, not hit harder. If you become <ConditionLink id="blinded" />, the Dazzled condition ends.

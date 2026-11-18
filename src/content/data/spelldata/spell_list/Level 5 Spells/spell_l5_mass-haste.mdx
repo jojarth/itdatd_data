@@ -1,0 +1,74 @@
+---
+datatype: spell
+title: Mass Haste
+level: 5
+casting: 1 Master Action; Phase 4
+range: 120 feet
+duration: 1 minute
+shortDescription: Willing creatures you choose in a 20-foot radius become Hasted, at a cost.
+reverseTitle: Mass Slow
+reverseShortDescription: Every creature in a 20-foot radius that fails a Save vs Spell becomes Slow.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
+import ConditionCard from '../../../../../components/conditions/ConditionCard.astro';
+
+<SpellEntry title="Mass Haste">
+
+    <FeatureSection title="Spell Effect">
+        Choose a point you can see within range. Any number of willing creatures you choose within a 20-foot radius of that point become <ConditionLink id="hasted" /> for the duration.
+
+        <FeatureSubsection title="Countering Slow">
+            A chosen creature that is Slow instead has its Slow condition ended, and does not become Hasted.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="The Cost of Speed">
+            Unnatural speed takes its toll. Each time a creature becomes Hasted by means of this spell, it ages 1 year.
+
+            A body also needs rest between such bursts of speed. If a creature becomes Hasted by means of this spell again before it has completed a Night's Rest, it also gains 1 level of <ConditionLink id="exhausted" />.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while letting sand run through a wide-mouthed hourglass, turning it the moment the last grain falls.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Touch your Casting Hand to your lips, then sweep it outward in a quick, wide arc toward the chosen point as you speak the spell in a single, rapid breath.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <ConditionCard id="hasted" anchor={false} />
+
+</SpellEntry>
+
+<SpellEntry title="Mass Slow" variant="reverse" metadata={props.reverseMetadata}>
+
+    <FeatureSection title="Spell Effect">
+        Choose a point you can see within range. Each creature within a 20-foot radius of that point must make a Save vs Spell. On a failure, a creature becomes <ConditionLink id="slow" /> for the duration. On a success, the spell has no effect on that creature.
+
+        Creatures that enter the area after the spell is cast are not affected.
+
+        <FeatureSubsection title="Countering Haste">
+            A Hasted creature that fails its save instead has its Hasted condition ended, and does not become Slow.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while slowly pouring a thread of honey into a shallow bowl, until the pool spreads to the bowl's edges.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Sweep your Casting Hand in a wide, slow circle toward the chosen point, palm down, as if pressing the air flat, while speaking the spell in a long, drawn-out breath.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <ConditionCard id="slow" anchor={false} />
+
+</SpellEntry>

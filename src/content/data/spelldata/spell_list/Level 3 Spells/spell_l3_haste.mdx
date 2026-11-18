@@ -1,0 +1,72 @@
+---
+datatype: spell
+title: Haste
+level: 3
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: 1 minute
+shortDescription: One willing creature becomes Hasted, at a cost.
+reverseTitle: Slow
+reverseShortDescription: One creature that fails a Save vs Spell becomes Slow.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
+import ConditionCard from '../../../../../components/conditions/ConditionCard.astro';
+
+<SpellEntry title="Haste">
+
+    <FeatureSection title="Spell Effect">
+        Choose one willing creature you can see within range, which can be you. It becomes <ConditionLink id="hasted" /> for the duration.
+
+        <FeatureSubsection title="Countering Slow">
+            If the creature is Slow, this spell instead ends its Slow condition, and the creature does not become Hasted.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="The Cost of Speed">
+            Unnatural speed takes its toll. Each time a creature becomes Hasted by means of this spell, it ages 1 year.
+
+            A body also needs rest between such bursts of speed. If a creature becomes Hasted by means of this spell again before it has completed a Night's Rest, it also gains 1 level of <ConditionLink id="exhausted" />.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while letting a pinch of fine sand run through an hourglass, turning it the moment the last grain falls.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Touch your Casting Hand to your lips, then flick it toward the target as you speak the spell in a single, rapid breath.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <ConditionCard id="hasted" anchor={false} />
+
+</SpellEntry>
+
+<SpellEntry title="Slow" variant="reverse" metadata={props.reverseMetadata}>
+
+    <FeatureSection title="Spell Effect">
+        Choose one creature you can see within range. It must make a Save vs Spell. On a failure, it becomes <ConditionLink id="slow" /> for the duration. On a success, the spell has no effect.
+
+        <FeatureSubsection title="Countering Haste">
+            If the creature is Hasted and fails its save, this spell instead ends its Hasted condition, and the creature does not become Slow.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while slowly pouring a thread of honey from one hand into the other, watching it fall until the last drop lets go.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Point your Casting Hand at the target and draw it slowly back toward your chest, as if pulling against deep water, while speaking the spell in a long, drawn-out breath.
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <ConditionCard id="slow" anchor={false} />
+
+</SpellEntry>

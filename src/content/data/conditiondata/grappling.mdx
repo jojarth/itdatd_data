@@ -3,18 +3,16 @@ datatype: condition
 title: Grappling
 shortDescription: You have hold of another creature. You can drag it, but you fight only it, and only with light weapons.
 polarity: positive
-imposes:
-- id: hindered-movement
-  value: 5
-- id: close-quarters
 tags:
 - combat
 ---
 
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
 
-A creature that is **Grappling** has hold of another creature, which is <ConditionLink id="grappled" />. One of your hands is occupied holding it for as long as this condition lasts.
+A creature that is **Grappling** has hold of another creature, which is <ConditionLink id="grappled" />. One of your hands is occupied holding it.
 
-**Moving.** You can move only by bringing the Grappled creature along. Once per round, either of you can make an opposed test to move, as described under the Held hindrance on the Grappled creature. The winner moves and drags the other along.
+* **Dragging.** You can move only by bringing the Grappled creature along, using the opposed test described on the Grappled condition.
+* [**Hindered.**](/playersguide/08-combat/#hindered) Your movement costs are doubled while you drag it.
+* **Close Quarters.** You can attack only the creature you are holding, and only with a Brawling weapon or a weapon with the Light property.
 
 **Ending.** You can let go at any time (no Action required). This condition also ends when the other creature is no longer Grappled.

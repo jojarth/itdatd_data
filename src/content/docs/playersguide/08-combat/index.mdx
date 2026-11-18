@@ -125,7 +125,7 @@ Effectively, when performing actions, intent of the action should be known, and 
 
 **2 Actions · Phase 3**
 
-When mud, rubble, crawling, or a heavy load leaves you barely able to move, you can still fight your way forward. You move up to 5 feet, ignoring Hindered Movement. You cannot use this activity while you are Immobile or Held. It provokes Opportunity Attacks as normal movement does.
+When mud, rubble, crawling, or a heavy load leaves you barely able to move, you can still fight your way forward. You move up to 5 feet, ignoring anything that hinders your movement. You cannot use this activity while an effect says you cannot move, such as being Paralyzed, Restrained, or Grappled. It provokes Opportunity Attacks as normal movement does.
 
 *This activity will move to the Action Cards once they exist.*
 
@@ -149,13 +149,45 @@ During each round, you have **3 Actions** and **1 Reaction** to use across the r
 
 You cannot both Act and React in the same phase, nor can you Act or React more than once in that phase. This limit applies regardless of how many Actions an activity costs or how many movements, attacks, or other effects it includes.
 
-### Conditions That Affect Your Round
+### Combat Effects
 
-Some conditions and hindrances change how and when you can use your Actions. They are shown here for convenience. The full lists of conditions and hindrances are in [Chapter 07: Adventuring](/playersguide/07-adventuring/05-afflictions-and-conditions/).
+A few effects come up again and again, on condition cards, in spells, in class features, and from encumbrance and terrain. Each card or rule that uses one names it in a bold title and says how strongly it applies, such as "**Action Delay.** You act 1 phase later than normal." The full rules for each are here.
 
-<ConditionCard kind="hindrance" id="sluggish" toc tocDepth={4} />
+An effect lasts as long as the condition, spell, or other thing that caused it. If two sources cause the same effect, ending one does not end the other; while both apply, follow the stacking rule below.
 
-<ConditionCard kind="hindrance" id="slow" toc tocDepth={4} />
+#### Action Delay
+
+When an effect delays your actions, the earliest phase in which you can perform any activity is that many phases later. An activity with no phase listed starts from Phase 1, and one listed as *Weapon* starts from the weapon's Speed Factor. A Phase-Locked activity stays locked, at the later phase. You never act later than Phase 9, and Reactions are never delayed.
+
+If more than one effect delays you, use only the longest delay. If an effect lets you act earlier, subtract it from the delay.
+
+#### Fewer Actions
+
+When an effect gives you fewer Actions, you have that many fewer Actions each round, but never fewer than 1. Your Reaction, and the number of Master Actions you can perform, are unaffected.
+
+If more than one effect reduces your Actions, use only the largest reduction. If an effect grants you extra Actions, subtract one from the other. Extra Actions never total more than 2, and they never grant additional Master Actions or Reactions.
+
+#### Faltering
+
+While you are Faltering, each Master Action you perform costs 1 additional Action, so a Master Action that normally costs 3 Actions cannot be performed at all. Master Reactions cost you 1 Action; with no Actions left, you cannot use them. Most weapon attacks and spells are Master Actions, so a Faltering creature can still attack and cast, but more slowly.
+
+Faltering from more than one source has no further effect. If another effect makes your Master Actions cost 1 fewer Action, the two cancel out.
+
+#### Reduced Speed
+
+When an effect reduces your speed, subtract that many feet from your Move Speed. Reductions from different sources add together, but they never take your speed below 5 feet. Only an effect that says you cannot move stops you completely.
+
+#### Hindered
+
+When your movement is hindered, every 5 feet you move costs 10 feet of movement. Difficult terrain hinders your movement while you move through it, as does crawling.
+
+Being hindered by more than one source has no further effect: your movement costs are doubled only once. If being hindered would leave you unable to move at all, you can still [Struggle Forward](#struggle-forward).
+
+#### Exposed
+
+A creature that is **Exposed** lets foes hold [Combat Supremacy](#combat-supremacy) against it, as its condition describes: every foe, or only adjacent ones. An effect that prevents creatures from holding Combat Supremacy against you overrides being Exposed.
+
+Battle Trances also change how you use your round. The full rules for conditions are in [Chapter 07: Adventuring](/playersguide/07-adventuring/05-afflictions-and-conditions/).
 
 <ConditionCard id="battle-trance" toc tocDepth={4} />
 

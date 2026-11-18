@@ -24,7 +24,9 @@ A **condition** changes your state of being. An effect that gives you a conditio
 
 **Positive and Negative Conditions.** Every condition is either **positive**, such as a Battle Trance, or **negative**, such as being Dazed. Positive conditions help you, even if they carry some drawbacks; negative conditions harm you.
 
-**Hindrances.** Many conditions are built from hindrances, the building blocks described below. A condition card lists the hindrances it imposes, followed by any rules unique to that condition, including any benefits it grants.
+**Effects.** A condition card lists everything the condition does, each effect under its own title. When a condition ends, all of its effects end with it. A few effects, such as Action Delay or Hindered, appear on many cards and in spells; their full rules are under *Combat Effects* in [Chapter 08: Combat](/playersguide/08-combat/#combat-effects), and each card's title links there.
+
+**Condition Modifiers.** Bonuses and penalties described on a condition card are Condition modifiers unless the card says otherwise. Only the greatest Condition penalty and the highest Condition bonus apply to a roll, but they stack with modifiers of other types (see *Static Bonus Types* in [Chapter 01: Core Rules](/playersguide/01-core_rules/#static-bonus-types-d20-rolls)).
 
 **Multiple Conditions.** Each condition states how multiple instances of it combine: use only the highest value, add the values together, or allow only one at a time.
 
@@ -35,21 +37,6 @@ A **condition** changes your state of being. An effect that gives you a conditio
 ### Condition List
 
 <ConditionList toc tocDepth={4} />
-
-## Hindrances
-
-Hindrances are the building blocks of conditions. A **hindrance** is a single drawback, such as being unable to React or suffering a penalty to attack rolls.
-
-* **Sources.** Hindrances are usually imposed by conditions, but a spell, feature, terrain, or other effect can impose one directly. For example, difficult terrain imposes Hindered Movement (5) while you move through it.
-* **They last as long as their source.** A hindrance ends when the condition or effect that imposed it ends. No effect can end a hindrance directly, and effects that end conditions do not affect a hindrance imposed by something else. To be rid of a hindrance, you must deal with its source.
-* **Each source is separate.** If you suffer the same hindrance from two sources, ending one source does not end the other. For example, if you are Paralyzed and a spell also makes you Incapacitated, ending the Paralyzed condition leaves you Incapacitated until the spell ends.
-* **Immunity.** If you are immune to a hindrance, ignore it, but you still suffer the rest of the condition that imposed it.
-* **Multiple sources.** While more than one source imposes the same hindrance, follow the stacking rule on its card.
-* **Condition modifiers.** Penalties from hindrances, and bonuses and penalties described on condition cards, are Condition modifiers unless the card says otherwise. Only the greatest Condition penalty and the highest Condition bonus apply to a roll, but they stack with modifiers of other types (see *Static Bonus Types* in [Chapter 01: Core Rules](/playersguide/01-core_rules/#static-bonus-types-d20-rolls)).
-
-### Hindrance List
-
-<ConditionList kind="hindrance" toc tocDepth={4} />
 
 ## Afflictions
 
@@ -82,7 +69,7 @@ At the end of each interval, you make another Saving Throw against the afflictio
 
 ### Repeated Exposure
 
-You can suffer several different afflictions at once; track each separately. If two afflictions impose the same condition or hindrance, follow its normal stacking rules.
+You can suffer several different afflictions at once; track each separately. If two afflictions impose the same condition or effect, follow its normal stacking rules.
 
 Being exposed to a disease or curse you already have does nothing more. Poisons are different: each additional exposure calls for a new save, and each failure moves you up one stage, even during the onset. The onset does not restart. For example, if a second poisoned arrow strikes you during a poison's onset and you fail your save, you enter Stage 2 instead of Stage 1 when the onset ends.
 
@@ -107,9 +94,9 @@ Some afflictions leave marks that outlast them, most often Attribute Drain (see 
   color="green"
   title="Ghoul's Touch Example"
 >
-A thief's dagger, coated in Ghoul's Touch, strikes your fighter in Phase 5. You make a Save vs Doom with a -2 penalty and fail. The poison has no onset, so at the end of Phase 5 your fighter is at Stage 1: Sluggish (1), and stiff in tests of Agility and Precision.
+A thief's dagger, coated in Ghoul's Touch, strikes your fighter in Phase 5. You make a Save vs Doom with a -2 penalty and fail. The poison has no onset, so at the end of Phase 5 your fighter is at Stage 1: acting a phase late, and stiff in tests of Agility and Precision.
 
-At the end of the round, you save again and fail, moving to Stage 2. Next round, your fighter is Sluggish (2), suffers Attack Penalty (1), and cannot make Master Actions. At the end of that round you fail again: Stage 3. Now your fighter has only 2 Actions, every foe holds Combat Supremacy against them, and their attacks suffer Attack Penalty (2).
+At the end of the round, you save again and fail, moving to Stage 2. Next round, your fighter acts 2 phases late and suffers a -2 penalty to attack rolls. At the end of that round you fail again: Stage 3. Now your fighter has only 2 Actions, each attack costs 2 of them, and every foe holds Combat Supremacy against them.
 
 One more failure brings Stage 4, and your fighter is Paralyzed. Stage 4's interval is 10 minutes, so you now save every 10 minutes instead of every round. Once you succeed, you drop to Stage 3 and are no longer Paralyzed, though you are still badly stiffened and back to saving at the end of each round. When the poison finally ends, by reaching Stage 0 or after 1 hour, your fighter suffers 1 point of Agility drain for having reached Stage 4.
 </GameplayCard>

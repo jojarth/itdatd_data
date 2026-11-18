@@ -3,16 +3,14 @@ datatype: condition
 title: Stunned
 shortDescription: A blow or shock leaves you reeling, unable to act for a moment.
 polarity: negative
-imposes:
-- id: incapacitated
-- id: exposed
-  parameter: all
-- id: save-failure
-  parameter: Breath
 tags:
 - combat
 ---
 
-A **Stunned** creature is reeling from a heavy blow, a thunderclap, or a sudden shock. It cannot act and cannot guard itself, but its body is not yet beyond its control: it does not fall, and its foes cannot simply finish it off.
+A **Stunned** creature is reeling from a heavy blow, a thunderclap, or a sudden shock. Its body is not yet beyond its control: it does not fall, and foes cannot simply finish it off.
+
+* **Reeling.** You cannot Act or React.
+* **Off Balance.** You automatically fail Saving Throws vs Breath.
+* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
 
 Unless its source says otherwise, being Stunned lasts until the end of the next round.

@@ -3,19 +3,15 @@ datatype: condition
 title: Paralyzed
 shortDescription: You are frozen in place, aware but unable to move, speak, or defend yourself.
 polarity: negative
-imposes:
-- id: incapacitated
-- id: immobile
-- id: mute
-- id: attribute-failure
-  parameter: Brawn, Agility, Precision
-- id: save-failure
-  parameter: Breath
-- id: exposed
-  parameter: all
-- id: defenseless
 tags:
 - combat
 ---
 
-A **Paralyzed** creature is frozen in place. It remains aware of its surroundings, but it cannot move, speak, or defend itself, and its foes can strike it down with ease.
+A **Paralyzed** creature is frozen in place. It remains aware of its surroundings, but it cannot move, speak, or defend itself.
+
+* **Frozen.** You cannot Act, React, move, or speak.
+* **Limp.** You automatically fail Brawn, Agility, and Precision tests, and Saving Throws vs Breath.
+* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
+* **Defenseless.** A foe adjacent to you deals its weapon attack damage directly to your Hit Points instead of your Grit, and you cannot choose a Lasting Injury to survive it. This has no effect while an ally who can act is adjacent to you, guarding you.
+
+**GM Warning:** Being Defenseless is deadly. A 14th-level hero can be slain by a single blow from a 1st-level foe. Make sure players understand the danger, and give them a chance to stand guard over a fallen ally.

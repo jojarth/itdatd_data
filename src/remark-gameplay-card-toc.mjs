@@ -8,11 +8,6 @@ const DATA_CARDS = {
     dir: path.resolve(process.cwd(), 'src/content/data/conditiondata'),
     card: 'ConditionCard',
     list: 'ConditionList',
-    // ConditionCard and ConditionList also show hindrances, chosen by their
-    // kind attribute. Those anchors get a prefix (matches conditionPaths.ts).
-    kinds: {
-      hindrance: { dir: path.resolve(process.cwd(), 'src/content/data/hindrancedata'), prefix: 'hindrance-' },
-    },
   },
   afflictions: {
     dir: path.resolve(process.cwd(), 'src/content/data/afflictiondata'),
@@ -215,9 +210,8 @@ function visitChildren(parent) {
 
     const dataCard = child.type === 'mdxJsxFlowElement' ? dataCardFor(child.name) : undefined;
     if (dataCard && hasTruthyAttribute(child, 'toc')) {
-      const kindConfig = dataCard.kinds?.[getStringAttribute(child, 'kind')];
-      const entries = readEntries(kindConfig?.dir ?? dataCard.dir);
-      const prefix = kindConfig?.prefix ?? '';
+      const entries = readEntries(dataCard.dir);
+      const prefix = '';
       const replacement =
         child.name === dataCard.card
           ? expandDataCard(child, entries, prefix)

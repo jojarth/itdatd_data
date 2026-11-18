@@ -1,7 +1,7 @@
 ---
 datatype: condition
 title: Exhausted
-shortDescription: Fatigue wears you down in levels. Each level adds hindrances, and too many levels kill you.
+shortDescription: Fatigue wears you down in levels. Each level adds penalties, and too many levels kill you.
 valued: true
 stacking: stacks
 polarity: negative
@@ -11,26 +11,24 @@ tags:
 - survival
 ---
 
-import ConditionLink from '../../../components/conditions/ConditionLink.astro';
-
 **Exhausted (X)** represents deep fatigue from forced marches, hunger, thirst, cold, and other hardships. Unlike most conditions, Exhausted values add together: if you are Exhausted (1) and gain 2 more levels of exhaustion, you become Exhausted (3).
 
-You suffer the hindrances listed for your current level and every level below it. When the same hindrance appears at more than one level, use the higher value.
+You suffer the effects listed for your current level and every level below it. When the same effect appears at more than one level, use the higher value.
 
-| **Exhausted** | **Hindrances Gained** |
+| **Exhausted** | **Effects Gained** |
 | --- | --- |
-| **1** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (physical, 1)" /> |
-| **2** | <ConditionLink kind="hindrance" id="move-penalty" text="Move Penalty (5)" /> |
-| **3** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 1)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (1)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 1)" /> |
-| **4** | <ConditionLink kind="hindrance" id="sluggish" text="Sluggish (1)" /> |
-| **5** | <ConditionLink kind="hindrance" id="worn" text="Worn (Half)" /> |
-| **6** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 2)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (2)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 2)" /> |
-| **7** | <ConditionLink kind="hindrance" id="move-penalty" text="Move Penalty (10)" />, <ConditionLink kind="hindrance" id="slow" text="Slow (1)" /> |
-| **8** | <ConditionLink kind="hindrance" id="worn" text="Worn (Quarter)" /> |
-| **9** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 3)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (3)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 3)" /> |
-| **10** | <ConditionLink kind="hindrance" id="sluggish" text="Sluggish (2)" />, <ConditionLink kind="hindrance" id="move-penalty" text="Move Penalty (15)" /> |
-| **11** | <ConditionLink kind="hindrance" id="slow" text="Slow (2)" /> |
-| **12** | <ConditionLink kind="hindrance" id="attribute-penalty" text="Attribute Penalty (all, 4)" />, <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (4)" />, <ConditionLink kind="hindrance" id="save-penalty" text="Save Penalty (all, 4)" /> |
+| **1** | -1 Condition penalty to physical Attribute Tests (Brawn, Heartiness, Agility, and Precision) |
+| **2** | [**Reduced Speed.**](/playersguide/08-combat/#reduced-speed) Your speed is reduced by 5 feet. |
+| **3** | -1 Condition penalty to all Attribute Tests, attack rolls, and Saving Throws |
+| **4** | [**Action Delay.**](/playersguide/08-combat/#action-delay) You act 1 phase later than normal. |
+| **5** | Your maximum Grit is halved (round down). If your current Grit is higher, it drops to match; when this ends, recover Grit normally. |
+| **6** | The penalty from level 3 becomes -2 |
+| **7** | [**Reduced Speed.**](/playersguide/08-combat/#reduced-speed) Your speed is reduced by 10 feet. [**Fewer Actions.**](/playersguide/08-combat/#fewer-actions) You have 1 fewer Action each round. |
+| **8** | Your maximum Grit is reduced to one quarter (round down) instead of half |
+| **9** | The penalty from level 3 becomes -3 |
+| **10** | [**Action Delay.**](/playersguide/08-combat/#action-delay) You act 2 phases later than normal. [**Reduced Speed.**](/playersguide/08-combat/#reduced-speed) Your speed is reduced by 15 feet. |
+| **11** | [**Fewer Actions.**](/playersguide/08-combat/#fewer-actions) You have 2 fewer Actions each round. |
+| **12** | The penalty from level 3 becomes -4 |
 | **13** | However hardy your body, you die of exhaustion. |
 
 **Death from Exhaustion.** Your body can endure a number of levels of exhaustion equal to half your Heartiness score (rounded down) plus 2, to a minimum of 4. If your Exhausted value ever exceeds this limit, you die. For example, a character with a Heartiness of 15 can endure Exhausted (9), but dies at Exhausted (10). Regardless of Heartiness, every creature dies at Exhausted (13).

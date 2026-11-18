@@ -1,28 +1,26 @@
 ---
-// Inline link to a condition or hindrance, with its short description as a tooltip.
+// Inline link to a condition, with its short description as a tooltip.
 // Usage: <ConditionLink id="dazed" />
-//        <ConditionLink kind="hindrance" id="sluggish" text="Sluggish (1)" />
+//        <ConditionLink id="frightened" text="Frightened (2)" />
 import { getEntry } from "astro:content";
-import { CONDITIONS_PAGE, kindFor } from "./conditionPaths";
+import { CONDITIONS_PAGE } from "./conditionPaths";
 
 interface Props {
   id: string;
-  kind?: "condition" | "hindrance";
   text?: string;
 }
 
-const { id, kind, text } = Astro.props as Props;
-const config = kindFor(kind);
-const entry = await getEntry(config.collection, id);
+const { id, text } = Astro.props as Props;
+const entry = await getEntry("conditions", id);
 
 if (!entry) {
-  throw new Error(`ConditionLink: no ${kind ?? "condition"} found with id "${id}". Check src/content/data/${config.folder}.`);
+  throw new Error(`ConditionLink: no condition found with id "${id}". Check src/content/data/conditiondata.`);
 }
 
 const label = text ?? entry.data.title;
 ---
 
-<a href={`${CONDITIONS_PAGE}#${config.anchorPrefix}${entry.id}`} class="condition-link" title={entry.data.shortDescription}>{label}</a>
+<a href={`${CONDITIONS_PAGE}#${entry.id}`} class="condition-link" title={entry.data.shortDescription}>{label}</a>
 
 <style>
   .condition-link {

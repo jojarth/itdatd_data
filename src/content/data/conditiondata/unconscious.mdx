@@ -3,19 +3,6 @@ datatype: condition
 title: Unconscious
 shortDescription: You are senseless and helpless. You drop what you hold and fall prone.
 polarity: negative
-imposes:
-- id: incapacitated
-- id: immobile
-- id: mute
-- id: attribute-failure
-  parameter: Brawn, Agility, Precision
-- id: save-failure
-  parameter: Breath
-- id: exposed
-  parameter: all
-- id: defenseless
-- id: unaware
-- id: overmatched
 tags:
 - combat
 ---
@@ -23,5 +10,13 @@ tags:
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
 
 An **Unconscious** creature is senseless and helpless. When you become Unconscious, you drop whatever you are holding and become <ConditionLink id="prone" />. Prone is a separate condition: you are still Prone when you wake.
+
+* **Senseless.** You cannot Act, React, move, or speak, and you are unaware of your surroundings.
+* **Limp.** You automatically fail Brawn, Agility, and Precision tests, and Saving Throws vs Breath.
+* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
+* **Overmatched.** You cannot hold Combat Supremacy against any creature.
+* **Defenseless.** A foe adjacent to you deals its weapon attack damage directly to your Hit Points instead of your Grit, and you cannot choose a Lasting Injury to survive it. This has no effect while an ally who can act is adjacent to you, guarding you.
+
+**GM Warning:** Being Defenseless is deadly. A 14th-level hero can be slain by a single blow from a 1st-level foe. Make sure players understand the danger, and give them a chance to stand guard over a fallen ally.
 
 The GM decides whether a creature in a natural sleep is Unconscious.

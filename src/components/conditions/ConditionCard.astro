@@ -1,30 +1,24 @@
 ---
-// Shows one condition or hindrance.
-// Usage: <ConditionCard id="battle-trance" />  <ConditionCard kind="hindrance" id="slow" />
+// Shows one condition.
+// Usage: <ConditionCard id="battle-trance" />  <ConditionCard id="slow" />
 // Add toc to list it in the page's table of contents: <ConditionCard id="dazed" toc />
 // Pass anchor={false} if the same entry is shown twice on one page.
-//
-// A condition's card lists the hindrances it imposes (from its frontmatter),
-// linked to their own cards.
 import { getEntry, render } from "astro:content";
 import GameplayCard from "../GameplayCard.astro";
-import ConditionLink from "./ConditionLink.astro";
-import { kindFor, partLabel, stackingLabels } from "./conditionPaths";
+import { stackingLabels } from "./conditionPaths";
 
 interface Props {
   id?: string;
-  kind?: "condition" | "hindrance";
   entry?: any;
   anchor?: boolean | string;
 }
 
-const { id, kind, entry: passedEntry, anchor = true } = Astro.props as Props;
-const config = kindFor(kind);
+const { id, entry: passedEntry, anchor = true } = Astro.props as Props;
 const showAnchor = anchor !== false && anchor !== "false";
-const entry = passedEntry ?? (id ? await getEntry(config.collection, id) : undefined);
+const entry = passedEntry ?? (id ? await getEntry("conditions", id) : undefined);
 
 if (!entry) {
-  throw new Error(`ConditionCard: no ${kind ?? "condition"} found with id "${id}". Check src/content/data/${config.folder}.`);
+  throw new Error(`ConditionCard: no condition found with id "${id}". Check src/content/data/conditiondata.`);
 }
 
 const { Content } = await render(entry);
@@ -33,35 +27,10 @@ const nameBits = [data.parameter, data.valued ? "X" : undefined].filter(Boolean)
 const title = nameBits.length ? `${data.title} (${nameBits.join(", ")})` : data.title;
 const stacking = data.stacking ? stackingLabels[data.stacking] : undefined;
 
-// Resolve the hindrances a condition is built from. Throws if a
-// valued part has no value, or a part with a parameter has none.
-async function resolveParts(list: any[] | undefined, partKind: "hindrance") {
-  const partConfig = kindFor(partKind);
-  return Promise.all(
-    (list ?? []).map(async (part) => {
-      const partEntry = await getEntry(partConfig.collection, part.id.id);
-      if (!partEntry) throw new Error(`ConditionCard: "${entry.id}" lists unknown ${partKind} "${part.id.id}".`);
-      if (partEntry.data.valued && part.value === undefined) {
-        throw new Error(`ConditionCard: "${entry.id}" lists ${partEntry.data.title} without a value.`);
-      }
-      if (partEntry.data.parameter && !part.parameter) {
-        throw new Error(`ConditionCard: "${entry.id}" lists ${partEntry.data.title} without its ${partEntry.data.parameter}.`);
-      }
-      return { id: partEntry.id, kind: partKind, label: partLabel(partEntry.data.title, part.parameter, part.value) };
-    }),
-  );
-}
-
-const imposes = await resolveParts(data.imposes, "hindrance");
 ---
 
-<div class="condition-card" id={showAnchor ? `${config.anchorPrefix}${entry.id}` : undefined}>
-  <GameplayCard colorSet="System" eyebrow={config.eyebrow} title={title} headerOrder={["eyebrow", "title"]}>
-    {imposes.length > 0 && (
-      <p class="condition-card__parts"><strong>Hindrances:</strong>{" "}
-        {imposes.map((part, i) => <>{i > 0 && ", "}<ConditionLink kind="hindrance" id={part.id} text={part.label} /></>)}
-      </p>
-    )}
+<div class="condition-card" id={showAnchor ? entry.id : undefined}>
+  <GameplayCard colorSet="System" eyebrow="Condition" title={title} headerOrder={["eyebrow", "title"]}>
     <Content />
     {data.impairsRest && (
       <p class="condition-card__note"><strong>Impairs Rest:</strong> This condition imposes a rest penalty if it lasts at least half of a rest.</p>
@@ -75,6 +44,12 @@ const imposes = await resolveParts(data.imposes, "hindrance");
 <style>
   .condition-card {
     scroll-margin-top: 5rem;
+  }
+  /* Linked effect titles (e.g. Action Delay) look like plain bold titles. */
+  .condition-card :global(a:has(> strong)) {
+    color: inherit;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
   }
   .condition-card__note {
     font-size: var(--sl-text-sm);

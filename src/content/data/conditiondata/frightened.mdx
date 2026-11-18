@@ -10,15 +10,13 @@ tags:
 - mind
 ---
 
-import ConditionLink from '../../../components/conditions/ConditionLink.astro';
-
 **Frightened (X)** represents fear of a specific **source**: a creature, an object, or a place, named by the effect that frightens you. Fear has three levels. You suffer the effects of your current level and every level below it.
 
 | **Level** | **Name** | **Effects** |
 | --- | --- | --- |
-| **1** | Shaken | <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (1)" />, increased to Attack Penalty (2) while you are within 10 feet of the source. |
-| **2** | Frightened | <ConditionLink kind="hindrance" id="attack-penalty" text="Attack Penalty (2)" />. The source holds Combat Supremacy against you, and you cannot willingly move closer to it. |
-| **3** | Panicked | <ConditionLink kind="hindrance" id="faltering" />, <ConditionLink kind="hindrance" id="unfocused" />. When you become Panicked, you drop everything you are wielding except a shield. You must spend your movement getting away from the source if you are able, and you can attack only if you are cornered. |
+| **1** | Shaken | -1 Condition penalty to attack rolls, or -2 while you are within 10 feet of the source. |
+| **2** | Frightened | -2 Condition penalty to attack rolls. The source holds Combat Supremacy against you, and you cannot willingly move closer to it. |
+| **3** | Panicked | You are [Faltering](/playersguide/08-combat/#faltering), and you cannot cast spells or perform delicate tasks. When you become Panicked, you drop everything you are wielding except a shield. You must spend your movement getting away from the source if you are able, and you can attack only if you are cornered. |
 
 **One Fear at a Time.** The effect that frightens you sets your level; fears never add together. If a new effect would frighten you at a higher level, it replaces your current fear entirely, including its source. A new fear of the same or a lower level has no effect, except that a new effect from your current source restarts the time it takes you to calm down.
 
