@@ -7,8 +7,13 @@ tags:
 - combat
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Slow** creature moves and acts as if wading through deep water.
 
-* [**Action Delay.**](/playersguide/08-combat/#action-delay) You act 2 phases later than normal.
-* [**Faltering.**](/playersguide/08-combat/#faltering) Your Master Actions cost 1 additional Action, and Master Reactions cost 1 Action.
-* [**Reduced Speed.**](/playersguide/08-combat/#reduced-speed) Your speed is reduced by 10 feet.
+<EffectTable>
+<EffectRow title="Action Delay" href="/playersguide/08-combat/#action-delay">You act 2 phases later than normal.</EffectRow>
+<EffectRow title="Faltering" href="/playersguide/08-combat/#faltering">Your Master Actions cost 1 additional Action, and Master Reactions cost 1 Action.</EffectRow>
+<EffectRow title="Reduced Speed" href="/playersguide/08-combat/#reduced-speed">Your speed is reduced by 10 feet.</EffectRow>
+</EffectTable>

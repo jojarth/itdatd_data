@@ -9,11 +9,15 @@ tags:
 ---
 
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
 
 A **Blinded** creature cannot see.
 
-* **Sightless.** You automatically fail Attribute Tests that rely on sight, and you are immune to effects that require you to see them.
-* [**Hindered.**](/playersguide/08-combat/#hindered) Your movement costs are doubled.
-* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
+<EffectTable>
+<EffectRow title="Sightless">You automatically fail Attribute Tests that rely on sight, and you are immune to effects that require you to see them.</EffectRow>
+<EffectRow title="Hindered" href="/playersguide/08-combat/#hindered">Your movement costs are doubled.</EffectRow>
+<EffectRow title="Exposed" href="/playersguide/08-combat/#exposed">Every foe holds Combat Supremacy against you.</EffectRow>
+</EffectTable>
 
 If you are <ConditionLink id="dazzled" /> when you become Blinded, the Dazzled condition ends.

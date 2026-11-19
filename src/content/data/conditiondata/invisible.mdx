@@ -8,8 +8,13 @@ tags:
 - senses
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 An **Invisible** creature cannot be seen without the aid of magic or special senses.
 
-* **Unseen.** You hold Combat Supremacy against any creature that cannot see you, and a creature that cannot see you cannot hold Combat Supremacy against you.
+<EffectTable>
+<EffectRow title="Unseen">You hold Combat Supremacy against any creature that cannot see you, and a creature that cannot see you cannot hold Combat Supremacy against you.</EffectRow>
+</EffectTable>
 
 The effect that makes you Invisible states how long it lasts and what ends it.

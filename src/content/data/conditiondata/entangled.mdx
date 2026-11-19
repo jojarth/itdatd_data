@@ -9,11 +9,15 @@ tags:
 ---
 
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
 
 An **Entangled** creature is caught in webs, a net, grasping vines, or tangled rope. Unlike a <ConditionLink id="restrained" /> creature, it can still move and fight, but only slowly and clumsily.
 
-* [**Hindered.**](/playersguide/08-combat/#hindered) Your movement costs are doubled.
-* **Clumsy.** You suffer a -1 Condition penalty to attack rolls.
-* [**Faltering.**](/playersguide/08-combat/#faltering) Your Master Actions cost 1 additional Action, and Master Reactions cost 1 Action.
+<EffectTable>
+<EffectRow title="Hindered" href="/playersguide/08-combat/#hindered">Your movement costs are doubled.</EffectRow>
+<EffectRow title="Clumsy">You suffer a -1 Condition penalty to attack rolls.</EffectRow>
+<EffectRow title="Faltering" href="/playersguide/08-combat/#faltering">Your Master Actions cost 1 additional Action, and Master Reactions cost 1 Action.</EffectRow>
+</EffectTable>
 
 **Breaking Free.** The effect that entangles you describes how you can break free, such as an Attribute Test, cutting or burning the strands, or simply waiting for the effect to end.

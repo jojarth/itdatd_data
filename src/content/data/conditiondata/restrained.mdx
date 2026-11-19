@@ -7,11 +7,16 @@ tags:
 - combat
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Restrained** creature is bound, entangled, or held fast.
 
-* **Pinned.** You cannot move, and effects that would increase your Move Speed do nothing.
-* **Bound.** You suffer a -2 Condition penalty to Saving Throws vs Breath.
-* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
-* **Overmatched.** You cannot hold Combat Supremacy against any creature.
+<EffectTable>
+<EffectRow title="Pinned">You cannot move, and effects that would increase your Move Speed do nothing.</EffectRow>
+<EffectRow title="Bound">You suffer a -2 Condition penalty to Saving Throws vs Breath.</EffectRow>
+<EffectRow title="Exposed" href="/playersguide/08-combat/#exposed">Every foe holds Combat Supremacy against you.</EffectRow>
+<EffectRow title="Overmatched">You cannot hold Combat Supremacy against any creature.</EffectRow>
+</EffectTable>
 
 **Breaking Free.** The effect that restrains you describes how you can break free.

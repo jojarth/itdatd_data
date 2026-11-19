@@ -56,19 +56,23 @@ const legacyTypeMap: Record<string, string> = {
 
 type ColorSet = {
   color: string;
-  sectionColor: string;
-  subsectionColor: string;
+  sectionColor?: string;
+  subsectionColor?: string;
 };
 
+// One color per card type. The card's header, sections, and sub-sections all
+// use it. Colors are defined as --itdatd-card-* in styles/custom.css.
 const colorSets: Record<string, ColorSet> = {
-  system: { color: 'system-h2', sectionColor: 'system-h3', subsectionColor: 'system-h4' },
-  gameplayfeature: { color: 'cobalt', sectionColor: 'mint', subsectionColor: 'coral' },
-  proficiencies: { color: 'forest-green', sectionColor: 'royal-blue', subsectionColor: 'crimson' },
-  spellcasting: { color: 'feature-spellcasting', sectionColor: 'system-h3', subsectionColor: 'system-h4' },
-  choicefeature: { color: 'feature-choice', sectionColor: 'system-h3', subsectionColor: 'system-h4' },
-  fixedfeature: { color: 'feature-fixed', sectionColor: 'system-h3', subsectionColor: 'system-h4' },
-  characterfeature: { color: 'feature-character', sectionColor: 'system-h3', subsectionColor: 'system-h4' },
-  featureimprovement: { color: 'feature-improvement', sectionColor: 'system-h3', subsectionColor: 'system-h4' },
+  system: { color: 'card-rules' },
+  gameplayfeature: { color: 'card-rules' },
+  proficiencies: { color: 'card-rules' },
+  spellcasting: { color: 'card-spellcasting' },
+  choicefeature: { color: 'card-choice' },
+  fixedfeature: { color: 'card-class' },
+  characterfeature: { color: 'card-character' },
+  featureimprovement: { color: 'card-class' },
+  ancestry: { color: 'card-ancestry' },
+  example: { color: 'card-example' },
 };
 
 const colorSetAliases: Record<string, string> = {
@@ -88,7 +92,7 @@ const selectedColorSet = colorSetKey ? colorSets[colorSetKey] : undefined;
 
 if (colorSet && !selectedColorSet) {
   throw new Error(
-    `GameplayCard: unknown colorSet "${colorSet}". Use System, gameplayfeature, proficiencies, spellcasting, choicefeature, fixedfeature, characterfeature, or featureimprovement.`,
+    `GameplayCard: unknown colorSet "${colorSet}". Use System, gameplayfeature, proficiencies, spellcasting, choicefeature, fixedfeature, characterfeature, featureimprovement, ancestry, or example.`,
   );
 }
 

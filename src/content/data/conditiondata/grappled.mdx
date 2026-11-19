@@ -8,14 +8,18 @@ tags:
 ---
 
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
 
 A **Grappled** creature is in another creature's grip. The creature holding you is <ConditionLink id="grappling" />.
 
-* **Held.** You cannot move on your own. Once per round, you or the creature holding you can make an opposed test to move: the creature trying to move tests Brawn, and the other tests Brawn or Agility, applying the Common Combat Maneuver Modifiers. The winner moves and drags the other along; the loser cannot move that round. No test is needed if the other creature cannot act.
-* [**Hindered.**](/playersguide/08-combat/#hindered) Whoever moves has their movement costs doubled.
-* **No Room for Spells.** You cannot cast spells, read spell scrolls, use magical rods, staves, or wands, or perform delicate tasks.
-* **Close Quarters.** You can attack only the creature holding you, and only with a Brawling weapon or a weapon with the Light property.
-* **Shield Hampered.** You cannot use Shield Block or benefit from your shield's Critical Protection, and its AC bonus is reduced by 1 (to a minimum of +0). Its bonus to Saving Throws vs Breath still applies.
+<EffectTable>
+<EffectRow title="Held">You cannot move on your own. Once per round, you or the creature holding you can make an opposed test to move: the creature trying to move tests Brawn, and the other tests Brawn or Agility, applying the Common Combat Maneuver Modifiers. The winner moves and drags the other along; the loser cannot move that round. No test is needed if the other creature cannot act.</EffectRow>
+<EffectRow title="Hindered" href="/playersguide/08-combat/#hindered">Whoever moves has their movement costs doubled.</EffectRow>
+<EffectRow title="No Room for Spells">You cannot cast spells, read spell scrolls, use magical rods, staves, or wands, or perform delicate tasks.</EffectRow>
+<EffectRow title="Close Quarters">You can attack only the creature holding you, and only with a Brawling weapon or a weapon with the Light property.</EffectRow>
+<EffectRow title="Shield Hampered">You cannot use Shield Block or benefit from your shield's Critical Protection, and its AC bonus is reduced by 1 (to a minimum of +0). Its bonus to Saving Throws vs Breath still applies.</EffectRow>
+</EffectTable>
 
 **Escaping.** You can spend 1 Action to try to break free, making the same opposed test as the Grapple maneuver. If you win, this condition ends.
 

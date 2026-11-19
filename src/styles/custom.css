@@ -73,11 +73,22 @@
   --itdatd-feature-improvement: var(--itdatd-color-mint);
   --itdatd-feature-character: var(--itdatd-color-coral);
 
-  /* Spell hierarchy colors: edit these four values to retheme spell entries. */
-  --itdatd-spell-primary-section: var(--itdatd-color-muted-crimson);
-  --itdatd-spell-primary-subsection: var(--itdatd-color-mint);
-  --itdatd-spell-reverse-section: var(--itdatd-color-deep-blue);
-  --itdatd-spell-reverse-subsection: var(--itdatd-color-brown);
+  /* Spell card colors: edit these two values to retheme spell cards. */
+  --itdatd-spell-primary: #725717; /* old gold */
+  --itdatd-spell-reverse: #4f5660; /* iron grey */
+  /* Gameplay card colors, one per card type (see GameplayCard colorSets). */
+  --itdatd-card-rules: #3e5068; /* slate */
+  --itdatd-card-class: #1d6464; /* deep teal */
+  --itdatd-card-choice: #9a4719; /* copper */
+  --itdatd-card-spellcasting: var(--itdatd-spell-primary); /* old gold */
+  --itdatd-card-character: #7d2b55; /* wine */
+  --itdatd-card-ancestry: #3c4294; /* indigo */
+  --itdatd-card-example: #5a4636; /* walnut */
+  /* Older names, kept for anything still using them. */
+  --itdatd-spell-primary-section: var(--itdatd-spell-primary);
+  --itdatd-spell-primary-subsection: var(--itdatd-spell-primary);
+  --itdatd-spell-reverse-section: var(--itdatd-spell-reverse);
+  --itdatd-spell-reverse-subsection: var(--itdatd-spell-reverse);
   --itdatd-table-border: #b8c0cc;
   --itdatd-table-header: #eef1f5;
   --itdatd-table-header-text: #1f2937;
@@ -88,6 +99,14 @@
 
 :root[data-theme="dark"] {
   --itdatd-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  --itdatd-spell-primary: #d6b55e;
+  --itdatd-spell-reverse: #b4c4d6; /* moonstone */
+  --itdatd-card-rules: #a3b6cf;
+  --itdatd-card-class: #6ec4c0;
+  --itdatd-card-choice: #e8996a;
+  --itdatd-card-character: #e48bb8;
+  --itdatd-card-ancestry: #a7acf0;
+  --itdatd-card-example: #c9ab90;
   --itdatd-feature-subsection-tint: 10%;
   --itdatd-color-red: #f87171;
   --itdatd-color-green: #4ade80;
@@ -753,8 +772,8 @@
 
 .gameplay-card {
   --gameplay-card-accent: var(--itdatd-color-purple);
-  --feature-section-accent: var(--gameplay-card-accent, var(--itdatd-feature-section));
-  --feature-subsection-accent: var(--itdatd-feature-subsection);
+  --feature-section-accent: var(--gameplay-card-accent);
+  --feature-subsection-accent: var(--gameplay-card-accent);
   position: relative;
   margin: 1.25rem 0;
   overflow: hidden;
@@ -881,6 +900,13 @@
 .gameplay-card--feature-spellcasting { --gameplay-card-accent: var(--itdatd-feature-spellcasting); }
 .gameplay-card--feature-improvement { --gameplay-card-accent: var(--itdatd-feature-improvement); }
 .gameplay-card--feature-character { --gameplay-card-accent: var(--itdatd-feature-character); }
+.gameplay-card--card-rules { --gameplay-card-accent: var(--itdatd-card-rules); }
+.gameplay-card--card-class { --gameplay-card-accent: var(--itdatd-card-class); }
+.gameplay-card--card-choice { --gameplay-card-accent: var(--itdatd-card-choice); }
+.gameplay-card--card-spellcasting { --gameplay-card-accent: var(--itdatd-card-spellcasting); }
+.gameplay-card--card-character { --gameplay-card-accent: var(--itdatd-card-character); }
+.gameplay-card--card-ancestry { --gameplay-card-accent: var(--itdatd-card-ancestry); }
+.gameplay-card--card-example { --gameplay-card-accent: var(--itdatd-card-example); }
 
 .gameplay-card__header {
   padding: 0.45rem 1rem 0.45rem 1.25rem;
@@ -1383,4 +1409,235 @@
 
 [data-wide-layout="true"] .content-panel {
   padding-right: 0 !important; /* Removes trailing page padding tracks */
+}
+
+
+/* ------------------------------------------------------------------ */
+/* Spell cards (SpellEntry). Global so they style on every page.       */
+/* ------------------------------------------------------------------ */
+.spell-card {
+  --spell-accent: var(--itdatd-spell-primary);
+  --feature-section-accent: var(--spell-accent);
+  --feature-subsection-accent: var(--spell-accent);
+  margin: 0 0 1.75rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-top: 6px solid var(--spell-accent);
+  border-radius: 6px;
+  background: var(--sl-color-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  scroll-margin-top: 5rem;
+}
+.spell-card--reverse { --spell-accent: var(--itdatd-spell-reverse); }
+.spell-card > * { margin-top: 0; }
+
+.spell-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 0.55rem 1rem 0.6rem;
+  background: color-mix(in srgb, var(--spell-accent) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--spell-accent) 28%, transparent);
+}
+.spell-card__label,
+.spell-card__level {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--spell-accent);
+}
+.spell-card__level { font-weight: 500; padding-bottom: 0.35rem; }
+.spell-card__head .spell-card__title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  color: var(--spell-accent);
+}
+
+/* Stat strip and footer strip share one look. */
+.spell-card__strip {
+  display: grid;
+  background: color-mix(in srgb, var(--spell-accent) 4%, transparent);
+}
+.spell-card .spell-card__strip > div {
+  margin: 0;
+  min-width: 0;
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  white-space: nowrap;
+}
+.spell-card__strip > div + div { border-left: 1px solid var(--sl-color-gray-5); }
+.spell-card__strip-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--spell-accent);
+}
+.spell-card__stats {
+  grid-template-columns: 2fr 1fr 1.5fr;
+  border-bottom: 1px solid var(--sl-color-gray-5);
+}
+.spell-card__foot {
+  grid-template-columns: 3fr 1fr;
+  border-top: 1px solid var(--sl-color-gray-5);
+  font-size: var(--sl-text-sm);
+}
+.spell-card__foot--single { grid-template-columns: 1fr; }
+.spell-card__foot a {
+  color: var(--spell-accent);
+  font-weight: 600;
+  text-decoration: underline dashed 1px;
+  text-underline-offset: 3px;
+}
+/* Long values step down a size to stay on one line (chosen at build time). */
+.spell-card .fit-s { font-size: 0.85em; }
+.spell-card .fit-xs { font-size: 0.75em; }
+@media (max-width: 40rem) {
+  .spell-card__strip > div { white-space: normal; }
+}
+
+/* Body: sections become inset blocks with a tinted title bar. */
+.spell-card__body {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem 1rem;
+}
+.spell-card__body > * { margin: 0; }
+.spell-card .feature-section {
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--spell-accent) 22%, transparent);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.spell-card .feature-section + .feature-section { padding-top: 0; border-top: 1px solid color-mix(in srgb, var(--spell-accent) 22%, transparent); }
+.spell-card .feature-section__header {
+  padding: 0.25rem 0.75rem;
+  border-bottom: none;
+  background: color-mix(in srgb, var(--spell-accent) 13%, transparent);
+}
+.spell-card .feature-section__title {
+  margin: 0;
+  font-size: var(--sl-text-sm);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--spell-accent);
+}
+.spell-card .feature-section__body {
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.65rem;
+}
+/* Sub-sections: thin border, thicker left rule, small-caps title. */
+.spell-card .feature-subsection {
+  margin: 0.15rem 0 0;
+  padding: 0.3rem 0.65rem 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--spell-accent) 30%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--spell-accent) 60%, transparent);
+  border-radius: 3px;
+  background: transparent;
+}
+:root[data-theme="dark"] .spell-card .feature-subsection {
+  border-color: color-mix(in srgb, var(--spell-accent) 18%, transparent);
+  border-left-color: color-mix(in srgb, var(--spell-accent) 45%, transparent);
+}
+.spell-card .feature-subsection + .feature-subsection { margin-top: 0.45rem; }
+.spell-card .feature-subsection__title {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--spell-accent);
+}
+.spell-card .feature-section__body > h6 {
+  color: var(--spell-accent);
+  border-left-color: color-mix(in srgb, var(--spell-accent) 50%, transparent);
+}
+.spell-card .condition-card { margin: 0; }
+
+
+/* ------------------------------------------------------------------ */
+/* Gameplay card layout (matches spell and condition cards).           */
+/* Header: colored top bar, tinted band, serif title in the card color.*/
+/* Sections: boxed blocks with tinted title bars.                      */
+/* Sub-sections: thin border, thicker left rule, small-caps title.     */
+/* ------------------------------------------------------------------ */
+.gameplay-card {
+  border-top: 6px solid var(--gameplay-card-accent);
+  border-radius: 6px;
+}
+.gameplay-card::before { display: none; }
+.gameplay-card > .gameplay-card__header,
+.gameplay-card--compact > .gameplay-card__header {
+  padding: 0.5rem 1rem 0.55rem;
+  background: color-mix(in srgb, var(--gameplay-card-accent) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--gameplay-card-accent) 28%, transparent);
+}
+.gameplay-card__header h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  color: var(--gameplay-card-accent);
+}
+.gameplay-card__eyebrow,
+.gameplay-card__subeyebrow {
+  color: var(--gameplay-card-accent);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+.gameplay-card > .gameplay-card__body { padding-left: 1rem; padding-right: 1rem; }
+
+.gameplay-card .feature-section,
+.gameplay-card .feature-section + .feature-section,
+.gameplay-card .gameplay-card__body > .feature-section {
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--feature-section-accent) 22%, transparent);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.gameplay-card .feature-section__header,
+.gameplay-card .feature-section--compact > .feature-section__header {
+  padding: 0.25rem 0.75rem;
+  border-bottom: none;
+  background: color-mix(in srgb, var(--feature-section-accent) 13%, transparent);
+}
+.gameplay-card .feature-section__label { margin-bottom: 0; }
+.gameplay-card .feature-section__title {
+  margin: 0;
+  font-size: var(--sl-text-sm);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--feature-section-accent);
+}
+.gameplay-card .feature-section__body,
+.gameplay-card .feature-section--compact > .feature-section__body {
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.65rem;
+}
+.gameplay-card .feature-subsection {
+  margin: 0.15rem 0 0;
+  padding: 0.3rem 0.65rem 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--feature-subsection-accent) 30%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--feature-subsection-accent) 60%, transparent);
+  border-radius: 3px;
+  background: transparent;
+}
+.gameplay-card .feature-subsection + .feature-subsection { margin-top: 0.45rem; }
+.gameplay-card .feature-subsection__title {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--feature-subsection-accent);
+}
+.gameplay-card .feature-section__body > h6 {
+  margin-left: 0;
+  color: var(--feature-subsection-accent);
+}
+.gameplay-card .feature-section__body > h6 ~ * { margin-left: 0; }
+:root[data-theme="dark"] .gameplay-card .feature-subsection {
+  border-color: color-mix(in srgb, var(--feature-subsection-accent) 18%, transparent);
+  border-left-color: color-mix(in srgb, var(--feature-subsection-accent) 45%, transparent);
+}
+@media (max-width: 38rem) {
+  .gameplay-card .feature-subsection { margin-left: 0; }
 }

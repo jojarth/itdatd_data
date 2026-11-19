@@ -1,0 +1,13 @@
+---
+// One effect in an EffectTable: a tinted title bar above the rule.
+// Pass href to link the title to its general rule (shown with a dashed underline).
+// Usage: <EffectRow title="Action Delay" href="/playersguide/08-combat/#action-delay">You act 1 phase later than normal.</EffectRow>
+interface Props { title: string; href?: string; }
+const { title, href } = Astro.props as Props;
+// Styles live in ConditionCard.astro so they load wherever a card appears.
+---
+<div class="effect">
+  <div class="effect__title">{href ? <a href={href}>{title}</a> : title}</div>
+  <div class="effect__body"><slot /></div>
+</div>
+

@@ -8,11 +8,16 @@ tags:
 - mind
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Confused** creature's mind is scrambled.
 
-* **Friendless.** You cannot treat any creature as an ally.
-* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
-* **Erratic.** You do not fully control what you do. The effect that makes you Confused normally describes how you behave, often with its own table. If it does not, roll a d6 at the start of each round and behave as follows for that round:
+<EffectTable>
+<EffectRow title="Friendless">You cannot treat any creature as an ally.</EffectRow>
+<EffectRow title="Exposed" href="/playersguide/08-combat/#exposed">Every foe holds Combat Supremacy against you.</EffectRow>
+<EffectRow title="Erratic">You do not fully control what you do. The effect that makes you Confused normally describes how you behave, often with its own table. If it does not, roll a d6 at the start of each round and behave as follows for that round:</EffectRow>
+</EffectTable>
 
 | **d6** | **Behavior This Round** |
 | --- | --- |

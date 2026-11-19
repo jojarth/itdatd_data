@@ -1,7 +1,10 @@
 ---
+// One form of a spell (the spell itself, or its reverse) as a card:
+// header (label, name, level), stat strip, the spell's sections, and a footer
+// strip (spell lists and the link to the other form).
+// The data page fills Astro.locals.spellCard with the spell's level, classes,
+// titles, and primary casting/range/duration, so spell files stay unchanged.
 import { spellAnchor } from "../lib/spellAnchor";
-import SpellHeader from "./SpellHeader.astro";
-import SpellMetadata from "./SpellMetadata.astro";
 
 interface Props {
   title: string;
@@ -19,58 +22,65 @@ interface Props {
 
 const {
   title,
-  reverseSummary,
   variant = "primary",
   label = variant === "reverse" ? "Reverse Spell" : "Spell",
   id,
   metadata,
 } = Astro.props as Props;
-const entryId = id ?? spellAnchor(title);
+const info = (Astro.locals as any).spellCard ?? {};
 const isReverse = variant === "reverse";
+const entryId = id ?? spellAnchor(title);
+const meta = metadata ?? (isReverse ? undefined : info.primaryMetadata);
+const level = meta?.level ?? info.level;
+const levelLabel = level === undefined || level === "" ? undefined : Number(level) === 0 ? "Cantrip" : `Level ${level}`;
+const otherTitle: string | undefined = isReverse ? info.primaryTitle : info.reverseTitle;
+const classes: string[] = info.classes ?? [];
+const classText = classes.join(", ");
+
+// Pick a smaller text size for long values so they stay on one line.
+// Thresholds are character counts tuned to each cell's share of the card.
+const fit = (text: string | undefined, small: number, smaller: number) => {
+  const n = (text ?? "").length;
+  return n > smaller ? "fit-xs" : n > small ? "fit-s" : undefined;
+};
+const stats = meta
+  ? [
+      { label: "Casting", value: meta.casting || "—", fit: fit(meta.casting, 38, 45) },
+      { label: "Range", value: meta.range || "—", fit: fit(meta.range, 18, 21) },
+      { label: "Duration", value: meta.duration || "—", fit: fit(meta.duration, 28, 33) },
+    ]
+  : [];
 ---
 
-<section id={entryId} class={`spell-entry spell-entry--${variant}`}>
-  {isReverse ? (
-    <SpellHeader
-      title={title}
-      level={metadata?.level}
-      summary={reverseSummary}
-      variant={variant}
-      label={label}
-    />
-  ) : null}
-  {metadata ? <SpellMetadata metadata={metadata} /> : null}
-  <div class="spell-entry__body">
+<section id={entryId} class:list={["spell-card", `spell-card--${variant}`]}>
+  <header class="spell-card__head">
+    <div>
+      <span class="spell-card__label">{label}</span>
+      {isReverse ? <h2 class="spell-card__title">{title}</h2> : <h1 class="spell-card__title">{title}</h1>}
+    </div>
+    {levelLabel && <span class="spell-card__level">{levelLabel}</span>}
+  </header>
+
+  {stats.length > 0 && (
+    <div class="spell-card__strip spell-card__stats">
+      {stats.map((s) => (
+        <div><span class="spell-card__strip-label">{s.label}</span><span class={s.fit}>{s.value}</span></div>
+      ))}
+    </div>
+  )}
+
+  <div class="spell-card__body">
     <slot />
   </div>
+
+  {(classes.length > 0 || otherTitle) && (
+    <div class:list={["spell-card__strip", "spell-card__foot", { "spell-card__foot--single": !(classes.length > 0 && otherTitle) }]}>
+      {classes.length > 0 && (
+        <div><span class="spell-card__strip-label">Spell Lists</span><span class={fit(classText, 74, 84)}>{classText}</span></div>
+      )}
+      {otherTitle && (
+        <div><span class="spell-card__strip-label">{isReverse ? "Reverse Of" : "Reverse Form"}</span><a href={`#${spellAnchor(otherTitle)}`}>{otherTitle}</a></div>
+      )}
+    </div>
+  )}
 </section>
-
-<style>
-  .spell-entry {
-    --spell-entry-accent: var(--itdatd-spell-primary-section);
-    --spell-subsection-accent: var(--itdatd-spell-primary-subsection);
-    --feature-section-accent: var(--spell-entry-accent);
-    --feature-subsection-accent: var(--spell-subsection-accent);
-    display: grid;
-    gap: 1.15rem;
-    scroll-margin-top: 5rem;
-  }
-
-  .spell-entry--reverse {
-    --spell-entry-accent: var(--itdatd-spell-reverse-section);
-    --spell-subsection-accent: var(--itdatd-spell-reverse-subsection);
-    margin-top: 2.5rem;
-  }
-
-  .spell-entry__body {
-    display: grid;
-    gap: 1rem;
-  }
-
-  /* Every major spell section receives the same top divider, including Spell Effect. */
-  .spell-entry__body > :global(.feature-section) {
-    padding-top: 1rem;
-    border-top: 1px solid var(--sl-color-gray-5);
-  }
-
-</style>

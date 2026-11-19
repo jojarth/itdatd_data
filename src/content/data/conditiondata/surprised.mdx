@@ -7,10 +7,15 @@ tags:
 - combat
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Surprised** creature is caught off guard as a fight begins. Whether you are Surprised is determined when combat starts (see Exploration).
 
-* [**Fewer Actions.**](/playersguide/08-combat/#fewer-actions) You have 2 fewer Actions each round.
-* **Flat-Footed.** You cannot React, and you cannot take Master Actions.
-* **Caught Unaware.** You cannot Act until you become aware of a creature that is surprising you. You become aware when such a creature attacks you or an ally you can see, comes into plain view, or otherwise reveals itself, as the GM decides. Once you are aware, you can Act in any later phase that round, within the limits of this condition.
+<EffectTable>
+<EffectRow title="Fewer Actions" href="/playersguide/08-combat/#fewer-actions">You have 2 fewer Actions each round.</EffectRow>
+<EffectRow title="Flat-Footed">You cannot React, and you cannot take Master Actions.</EffectRow>
+<EffectRow title="Caught Unaware">You cannot Act until you become aware of a creature that is surprising you. You become aware when such a creature attacks you or an ally you can see, comes into plain view, or otherwise reveals itself, as the GM decides. Once you are aware, you can Act in any later phase that round, within the limits of this condition.</EffectRow>
+</EffectTable>
 
 **Duration.** Surprised ends at the end of the first round of combat.

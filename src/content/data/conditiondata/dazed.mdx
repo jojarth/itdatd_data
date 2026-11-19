@@ -7,7 +7,12 @@ tags:
 - combat
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Dazed** creature's head is ringing.
 
-* [**Action Delay.**](/playersguide/08-combat/#action-delay) You act 1 phase later than normal.
-* **Strained.** Any effect you maintain by spending Actions, such as a Battle Trance or a Spellsong, costs 1 additional Action to maintain.
+<EffectTable>
+<EffectRow title="Action Delay" href="/playersguide/08-combat/#action-delay">You act 1 phase later than normal.</EffectRow>
+<EffectRow title="Strained">Any effect you maintain by spending Actions, such as a Battle Trance or a Spellsong, costs 1 additional Action to maintain.</EffectRow>
+</EffectTable>

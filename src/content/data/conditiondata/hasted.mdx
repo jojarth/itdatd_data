@@ -7,9 +7,14 @@ tags:
 - combat
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Hasted** creature moves and acts with unnatural speed.
 
-* [**Quick.**](/playersguide/08-combat/#action-delay) You act 2 phases earlier than normal, but never before Phase 1.
-* [**Extra Action.**](/playersguide/08-combat/#fewer-actions) You have 1 additional Action each round. This never grants additional Master Actions or Reactions.
-* [**Effortless.**](/playersguide/08-combat/#faltering) Your Master Actions cost 1 fewer Action, to a minimum of 1 Action.
-* **Fleet.** Your speed increases by 10 feet.
+<EffectTable>
+<EffectRow title="Quick" href="/playersguide/08-combat/#action-delay">You act 2 phases earlier than normal, but never before Phase 1.</EffectRow>
+<EffectRow title="Extra Action" href="/playersguide/08-combat/#fewer-actions">You have 1 additional Action each round. This never grants additional Master Actions or Reactions.</EffectRow>
+<EffectRow title="Effortless" href="/playersguide/08-combat/#faltering">Your Master Actions cost 1 fewer Action, to a minimum of 1 Action.</EffectRow>
+<EffectRow title="Fleet">Your speed increases by 10 feet.</EffectRow>
+</EffectTable>

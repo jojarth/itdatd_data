@@ -1,10 +1,10 @@
 ---
-// Shows one condition.
-// Usage: <ConditionCard id="battle-trance" />  <ConditionCard id="slow" />
+// Shows one condition as a rule card: title and polarity, an intro line,
+// a two-column table of effects, then any further rules and notes.
+// Usage: <ConditionCard id="paralyzed" />
 // Add toc to list it in the page's table of contents: <ConditionCard id="dazed" toc />
-// Pass anchor={false} if the same entry is shown twice on one page.
+// Pass anchor={false} if the same entry is shown twice on one page (e.g. in a spell).
 import { getEntry, render } from "astro:content";
-import GameplayCard from "../GameplayCard.astro";
 import { stackingLabels } from "./conditionPaths";
 
 interface Props {
@@ -23,36 +23,151 @@ if (!entry) {
 
 const { Content } = await render(entry);
 const data = entry.data;
-const nameBits = [data.parameter, data.valued ? "X" : undefined].filter(Boolean);
-const title = nameBits.length ? `${data.title} (${nameBits.join(", ")})` : data.title;
+const title = data.valued ? `${data.title} (X)` : data.title;
 const stacking = data.stacking ? stackingLabels[data.stacking] : undefined;
-
+const polarityLabel = data.polarity === "positive" ? "Positive condition" : "Negative condition";
 ---
 
-<div class="condition-card" id={showAnchor ? entry.id : undefined}>
-  <GameplayCard colorSet="System" eyebrow="Condition" title={title} headerOrder={["eyebrow", "title"]}>
+<div class:list={["condition-card", `condition-card--${data.polarity}`]} id={showAnchor ? entry.id : undefined}>
+  <div class="condition-card__head">
+    <span class="condition-card__title">{title}</span>
+    <span class="condition-card__tag">{polarityLabel}</span>
+  </div>
+  <div class="condition-card__body">
     <Content />
-    {data.impairsRest && (
-      <p class="condition-card__note"><strong>Impairs Rest:</strong> This condition imposes a rest penalty if it lasts at least half of a rest.</p>
-    )}
-    {stacking && (
-      <p class="condition-card__note"><strong>Multiple Effects:</strong> {stacking}.</p>
-    )}
-  </GameplayCard>
+  </div>
+  {(data.impairsRest || stacking) && (
+    <div class="condition-card__foot">
+      {data.impairsRest && <span><strong>Impairs Rest</strong> if it lasts at least half of a rest.</span>}
+      {stacking && <span><strong>Multiple Effects:</strong> {stacking}.</span>}
+    </div>
+  )}
 </div>
 
 <style>
   .condition-card {
+    --condition-accent: #7a2323;
     scroll-margin-top: 5rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--sl-color-gray-5);
+    border-top: 6px solid var(--condition-accent);
+    border-radius: 6px;
+    background: var(--sl-color-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
   }
-  /* Linked effect titles (e.g. Action Delay) look like plain bold titles. */
+  .condition-card--positive {
+    --condition-accent: #2a5e40;
+  }
+  :global([data-theme="dark"]) .condition-card { --condition-accent: #d77a7a; }
+  :global([data-theme="dark"]) .condition-card--positive { --condition-accent: #7cc49a; }
+  .condition-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.6rem 1rem 0.5rem;
+    margin-bottom: 0.6rem;
+    background: color-mix(in srgb, var(--condition-accent) 11%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--condition-accent) 30%, transparent);
+  }
+  .condition-card__title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--condition-accent);
+  }
+  .condition-card__tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--condition-accent);
+    white-space: nowrap;
+  }
+  .condition-card__body {
+    padding: 0 0 0.25rem;
+  }
+  .condition-card__body > :global(*) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .condition-card__body > :global(.effect-list) {
+    margin-top: 0.6rem;
+    margin-bottom: 0.9rem;
+  }
+  .condition-card__body > :global(p:first-child) {
+    font-style: italic;
+    color: var(--sl-color-gray-2);
+    margin-top: 0;
+  }
+  .condition-card__body > :global(* + p),
+  .condition-card__body > :global(* + table) {
+    margin-top: 0.75rem;
+  }
+  /* Tables inside the card wrap normally and use the full width. */
+  .condition-card :global(table) {
+    display: table;
+    width: 100%;
+    min-width: 0;
+  }
+  .condition-card__body > :global(table) {
+    width: calc(100% - 2rem);
+  }
+  .condition-card :global(th),
+  .condition-card :global(td) {
+    white-space: normal;
+  }
+  /* Linked effect titles inside text (e.g. Action Delay) look like plain bold titles. */
   .condition-card :global(a:has(> strong)) {
     color: inherit;
     text-decoration-style: dashed;
     text-decoration-thickness: 1px;
   }
-  .condition-card__note {
+  /* Effect blocks (EffectTable / EffectRow). Kept here, rather than in those
+     components, so the styles load on every page that shows a card. */
+  .condition-card :global(.effect-list) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .condition-card :global(.effect) {
+    border: 1px solid color-mix(in srgb, var(--condition-accent) 22%, transparent);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .condition-card :global(.effect__title) {
+    padding: 0.25rem 0.75rem;
     font-size: var(--sl-text-sm);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--condition-accent);
+    background: color-mix(in srgb, var(--condition-accent) 14%, transparent);
+  }
+  .condition-card :global(.effect__title a) {
+    color: inherit;
+    text-decoration: underline dashed 1px;
+    text-underline-offset: 3px;
+  }
+  .condition-card :global(.effect__body) {
+    padding: 0.45rem 0.75rem 0.55rem;
+    line-height: 1.5;
+  }
+  .condition-card :global(.effect__body p) { margin: 0; }
+  .condition-card :global(.effect__body p + p) { margin-top: 0.5rem; }
+  /* Starlight adds space between every pair of siblings; effects manage their own. */
+  .condition-card :global(.effect-list > *),
+  .condition-card :global(.effect > *) {
+    margin-top: 0;
+  }
+  .condition-card__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.45rem 1rem;
+    font-size: var(--sl-text-xs);
     color: var(--sl-color-gray-2);
+    border-top: 1px solid var(--sl-color-gray-5);
+    background: color-mix(in srgb, var(--condition-accent) 5%, transparent);
   }
 </style>

@@ -8,11 +8,15 @@ tags:
 ---
 
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
 
 A creature that is **Grappling** has hold of another creature, which is <ConditionLink id="grappled" />. One of your hands is occupied holding it.
 
-* **Dragging.** You can move only by bringing the Grappled creature along, using the opposed test described on the Grappled condition.
-* [**Hindered.**](/playersguide/08-combat/#hindered) Your movement costs are doubled while you drag it.
-* **Close Quarters.** You can attack only the creature you are holding, and only with a Brawling weapon or a weapon with the Light property.
+<EffectTable>
+<EffectRow title="Dragging">You can move only by bringing the Grappled creature along, using the opposed test described on the Grappled condition.</EffectRow>
+<EffectRow title="Hindered" href="/playersguide/08-combat/#hindered">Your movement costs are doubled while you drag it.</EffectRow>
+<EffectRow title="Close Quarters">You can attack only the creature you are holding, and only with a Brawling weapon or a weapon with the Light property.</EffectRow>
+</EffectTable>
 
 **Ending.** You can let go at any time (no Action required). This condition also ends when the other creature is no longer Grappled.

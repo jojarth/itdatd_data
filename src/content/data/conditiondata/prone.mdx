@@ -7,11 +7,16 @@ tags:
 - combat
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Prone** creature is lying on the ground.
 
-* [**Crawling.**](/playersguide/08-combat/#hindered) Your movement costs are doubled.
-* **Low Stance.** You suffer a -2 Condition penalty to attack rolls.
-* [**Exposed.**](/playersguide/08-combat/#exposed) Foes adjacent to you hold Combat Supremacy against you.
-* **Low Profile.** Ranged attacks against you suffer a -2 Condition penalty.
+<EffectTable>
+<EffectRow title="Crawling" href="/playersguide/08-combat/#hindered">Your movement costs are doubled.</EffectRow>
+<EffectRow title="Low Stance">You suffer a -2 Condition penalty to attack rolls.</EffectRow>
+<EffectRow title="Exposed" href="/playersguide/08-combat/#exposed">Foes adjacent to you hold Combat Supremacy against you.</EffectRow>
+<EffectRow title="Low Profile">Ranged attacks against you suffer a -2 Condition penalty.</EffectRow>
+</EffectTable>
 
 **Standing Up.** You can end this condition by standing up. Standing up costs 1 Action and provokes Opportunity Attacks. Alternatively, you can rise carefully as a Master Action costing 1 Action, which does not provoke Opportunity Attacks.

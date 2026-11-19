@@ -7,10 +7,15 @@ tags:
 - combat
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Stunned** creature is reeling from a heavy blow, a thunderclap, or a sudden shock. Its body is not yet beyond its control: it does not fall, and foes cannot simply finish it off.
 
-* **Reeling.** You cannot Act or React.
-* **Off Balance.** You automatically fail Saving Throws vs Breath.
-* [**Exposed.**](/playersguide/08-combat/#exposed) Every foe holds Combat Supremacy against you.
+<EffectTable>
+<EffectRow title="Reeling">You cannot Act or React.</EffectRow>
+<EffectRow title="Off Balance">You automatically fail Saving Throws vs Breath.</EffectRow>
+<EffectRow title="Exposed" href="/playersguide/08-combat/#exposed">Every foe holds Combat Supremacy against you.</EffectRow>
+</EffectTable>
 
 Unless its source says otherwise, being Stunned lasts until the end of the next round.

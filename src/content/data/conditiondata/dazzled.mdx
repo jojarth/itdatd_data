@@ -9,10 +9,14 @@ tags:
 ---
 
 import ConditionLink from '../../../components/conditions/ConditionLink.astro';
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
 
 A **Dazzled** creature's eyes are overwhelmed by bright light. It can still see, but only through glare and spots.
 
-* **Glare.** You suffer a -2 Condition penalty to attack rolls and Attribute Tests that rely on sight.
-* [**Exposed.**](/playersguide/08-combat/#exposed) Foes adjacent to you hold Combat Supremacy against you.
+<EffectTable>
+<EffectRow title="Glare">You suffer a -2 Condition penalty to attack rolls and Attribute Tests that rely on sight.</EffectRow>
+<EffectRow title="Exposed" href="/playersguide/08-combat/#exposed">Foes adjacent to you hold Combat Supremacy against you.</EffectRow>
+</EffectTable>
 
 A brighter or longer exposure makes the condition last longer, not hit harder. If you become <ConditionLink id="blinded" />, the Dazzled condition ends.

@@ -7,7 +7,12 @@ tags:
 - senses
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 A **Deafened** creature cannot hear.
 
-* **Unhearing.** You automatically fail Attribute Tests that rely on hearing, and you are immune to effects that require you to hear them.
-* **Unwary.** You automatically fail any roll or test to avoid being caught by Surprise, unless you start the fight.
+<EffectTable>
+<EffectRow title="Unhearing">You automatically fail Attribute Tests that rely on hearing, and you are immune to effects that require you to hear them.</EffectRow>
+<EffectRow title="Unwary">You automatically fail any roll or test to avoid being caught by Surprise, unless you start the fight.</EffectRow>
+</EffectTable>

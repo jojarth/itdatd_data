@@ -8,10 +8,15 @@ tags:
 - movement
 ---
 
+import EffectTable from '../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../components/conditions/EffectRow.astro';
+
 You are **Heavily Encumbered** while the weight you carry places you in that encumbrance category (see [Encumbrance](/playersguide/06-equipment/02-encumbrance/)). The condition ends as soon as your load drops below that category, such as when you drop your pack.
 
-* [**Reduced Speed.**](/playersguide/08-combat/#reduced-speed) Your speed is reduced by 10 feet.
-* [**Action Delay.**](/playersguide/08-combat/#action-delay) You act 1 phase later than normal.
-* **Laden.** You suffer a -1 Situation penalty to physical Attribute Tests that your load could reasonably interfere with.
+<EffectTable>
+<EffectRow title="Reduced Speed" href="/playersguide/08-combat/#reduced-speed">Your speed is reduced by 10 feet.</EffectRow>
+<EffectRow title="Action Delay" href="/playersguide/08-combat/#action-delay">You act 1 phase later than normal.</EffectRow>
+<EffectRow title="Laden">You suffer a -1 Situation penalty to physical Attribute Tests that your load could reasonably interfere with.</EffectRow>
+</EffectTable>
 
 **Encumbrance Penalties.** Unlike other conditions, the Laden penalty is a Situation penalty, so it stacks with Condition penalties such as those from being Exhausted. It applies to tests such as climbing, jumping, swimming, balancing, tumbling, crawling, or moving stealthily, but never to Attack Rolls or Damage Rolls. Your Move Speed can never be reduced below 5 feet.
