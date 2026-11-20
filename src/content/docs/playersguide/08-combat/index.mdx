@@ -65,6 +65,8 @@ Hit Points are few, they heal slowly (see [Rest and Recovery](/playersguide/07-a
 
 Unless an effect says otherwise, damage you take is subtracted from your Grit first. Once your Grit reaches 0, any remaining damage is subtracted from your Hit Points. For example, if you have 7 Grit and 4 Hit Points and take 9 damage, you are left with 0 Grit and 2 Hit Points.
 
+If you have [Fervor](#fervor), it takes damage before your Grit does.
+
 Some effects deal **Hit Point damage** instead. Hit Point damage ignores your Grit entirely and is subtracted directly from your Hit Points. These effects are rare and deadly, and they always say so.
 
 ### Describing Damage
@@ -81,7 +83,106 @@ The GM, and players describing their own characters, should narrate damage to ma
 
 </div>
 
-### Resistance, Immunity, and Vulnerability
+## Damage
+
+When an attack hits or a spell strikes home, roll its damage and apply it to the target. Most of the time that is all there is to it. This section covers the rest: what kind of harm you deal, what makes it worse or lessens it, and what to do when you'd rather not kill.
+
+### Damage Rolls
+
+A weapon attack deals **weapon damage**: your weapon's damage dice plus your damage roll bonus. How many dice you roll depends on your Combat Bonus (see [Weapon Damage and Damage Dice](/playersguide/02-character_creation/04-math/#weapon-damage-and-damage-dice)). Spells and other effects state their damage in their own text.
+
+Some attacks deal more than their weapon damage. All damage falls into one of three categories:
+
+- **Weapon damage.** The weapon's damage dice and your damage roll bonus. It deals the weapon's damage type.
+- **Ambush damage.** Extra dice from features that reward catching a foe off guard, such as the Thief's Ambush. Ambush damage is part of the attack that delivers it and deals the same damage type. A dagger in the kidney is still piercing.
+- **Added damage.** Extra damage with its own type, such as the 1d6 fire of a flaming sword or the cold of a frost-touched arrow. Added damage is rolled once, deals its own type, and is never changed by rules that change weapon damage.
+
+### Damage Dice Steps
+
+Many features and weapon properties increase or reduce a weapon's damage dice by a number of **steps**. Each step moves every weapon damage die one place along this line:
+
+**1 → d2 → d4 → d6 → d8 → d10 → d12**
+
+A d8 reduced by 1 step becomes a d6. A d4 reduced by 2 steps deals a flat 1 per die. Add all step changes together before moving along the line, so a weapon that gains 1 step and loses 2 loses 1 overall. A die can never rise above d12 or fall below 1; any steps beyond either end are lost.
+
+Steps change weapon damage dice only. They never change Ambush dice or added damage unless an effect says so.
+
+### Damage Types
+
+Every point of damage has a type. Types matter in three places: resistance, immunity, and vulnerability; which [lasting injury table](/playersguide/07-adventuring/lasting-injuries/) the GM rolls on; and the effects that call for a particular type.
+
+<div class="green-table wrap-table">
+
+| Type | Harm from |
+|:--|:--|
+| Acid | Corrosive liquids, digestive juices, caustic vapors |
+| Bludgeoning | Clubs, hammers, fists, falls, and other blunt force |
+| Cold | Freezing air, ice, and unnatural chill |
+| Electrical | Lightning and other crackling energy |
+| Fire | Flames and searing heat |
+| Force | Raw magical energy that strikes like a physical blow |
+| Piercing | Arrows, spears, bites, and other punctures |
+| Poison | Venoms and toxins that harm the body directly |
+| Profane | Unholy power that withers living flesh |
+| Psychic | Assaults on the mind |
+| Sacred | Holy power that sears the unclean |
+| Slashing | Blades, claws, and other cutting edges |
+| Sonic | Thunderous sound and shattering vibration |
+
+</div>
+
+Weapons list their type as **B** (bludgeoning), **P** (piercing), or **S** (slashing). A weapon that lists two types with **or**, such as *P or S*, deals whichever one you choose for each attack. Choose before you roll.
+
+**Two types at once.** A weapon or effect that deals one amount of damage of two types, such as a morning star's *B & P*, deals both types with every blow. A creature's immunity, resistance, or Soak against a type applies only if it covers both types. Its vulnerability to either type applies.
+
+<GameplayCard
+  colorSet="example"
+  title="Two Types Example"
+>
+A skeleton resists piercing damage but is vulnerable to bludgeoning damage. A morning star's spiked ball strikes it for 7. Its resistance doesn't cover bludgeoning, so it doesn't apply, but its vulnerability does: the skeleton takes 14.
+</GameplayCard>
+
+**Separate amounts.** When an attack or effect deals separate amounts of different types, such as a flaming sword's weapon damage plus 1d6 fire, apply each creature's defenses to each amount separately, then add them together. A Soak against all damage applies to the total only once. Apply any resisted amount last.
+
+### Critical Hits
+
+A natural 20 on an attack roll is a **critical hit**. Some weapon features widen this range, such as one that makes a natural 19 or 20 a critical hit.
+
+On a critical hit, roll your **weapon damage dice and Ambush dice twice** and add them all together. Add your damage roll bonus only once. Added damage is never doubled: a flaming sword's 1d6 fire is rolled once, critical hit or not.
+
+<GameplayCard
+  colorSet="example"
+  title="Critical Hit Example"
+>
+Brannoc has a Combat Bonus of +4 and swings a flaming arming sword (d6 S, plus 1d6 fire). He rolls a natural 20. He rolls 4d6 slashing (his two weapon dice, twice) and adds +4, then rolls 1d6 fire once.
+</GameplayCard>
+
+#### Critical Protection and Critical Threats
+
+Some defenders are hard to catch with a clean blow. A creature with **Critical Protection**, such as one wielding a shield it is proficient with, turns a would-be critical hit into a **Critical Threat**.
+
+When you score a Critical Threat, make a **confirmation roll**: roll the attack again, with the same bonuses and penalties, against the same Armor Class. If the confirmation roll hits, the attack is a critical hit. If it misses, the attack is a normal hit. Either way, the original attack hits.
+
+Critical Protection from more than one source has no further effect.
+
+### Reducing Damage
+
+When something lessens or worsens damage, apply it in this order:
+
+1. **Immunity.** A creature immune to the damage's type takes none of it.
+2. **Soak.** Subtract your [Soak](#soak).
+3. **Resistance or vulnerability.** Halve or double what remains.
+
+Then apply what's left as described in [Taking Damage](#taking-damage).
+
+<GameplayCard
+  colorSet="example"
+  title="Damage Order Example"
+>
+A dwarf with resistance to fire raises his shield against a fire-blooded hound's bite: 13 fire damage. His Shield Block soaks 5, leaving 8. His resistance halves that to 4.
+</GameplayCard>
+
+#### Resistance, Immunity, and Vulnerability
 
 Some creatures shrug off certain kinds of harm, and others are especially vulnerable to it. Each of these defenses names the damage type it applies to, such as *resistance to fire* or *vulnerability to bludgeoning*.
 
@@ -101,6 +202,71 @@ A dwarf with 6 Grit and 4 Hit Points has resistance to fire. A fire spell deals 
 
 Had the spell dealt 60 fire damage instead, his resistance would halve it to 30. After his 6 Grit, 24 points would carry over, rounding to 20, and he would lose 2 Hit Points.
 </GameplayCard>
+
+#### Soak
+
+Some things blunt every blow you take. A raised shield, a ring that guards against flame, or a hide like old leather each grant **Soak**: a set amount subtracted from damage each time you are hit.
+
+Soak always says how much it reduces, what kind of damage it applies to, and its type, just like a modifier. Most Soak is Magic or Situation. For example, [Shield Block](#shield-block) grants Situation Soak against all damage except psychic, and a ring of fire protection might grant 5 Magic Soak against fire damage.
+
+- **Soak stacks like modifiers.** Soak of different types adds together. If two Soaks of the same type apply to the same hit, use only the higher, even if one guards against a single damage type and the other against all damage.
+- **Soak applies to each hit separately,** and can reduce a hit's damage to 0.
+
+<GameplayCard
+  colorSet="example"
+  title="Soak Example"
+>
+A knight wears a ring that grants 5 Magic Soak against fire damage and a blessing that grants 2 Magic Soak against all damage. A dragon's flame deals 20 fire damage. Both Soaks are Magic, so only the higher, 5, applies. She also Shield Blocks for 4 Situation Soak, which is a different type and adds. She takes 11.
+</GameplayCard>
+
+### Riders
+
+Many attacks carry an extra effect, such as poison on a blade, a shove, or a trip. These **riders** say when they happen:
+
+- **On a hit.** The effect happens whenever the attack hits, even if Shield Block or another effect reduces its damage to 0.
+- **If it deals damage.** The effect happens only if at least 1 point of damage reduces the target's Fervor, Grit, or Hit Points.
+
+### Fervor
+
+In the heat of battle, fury, faith, or a captain's rallying cry can carry you past your limits. **Fervor** is a reserve of strength beyond your normal Grit. An effect that grants Fervor says how much, such as "you gain 6 Fervor."
+
+- Damage reduces your Fervor before your Grit. Once your Fervor is gone, any remaining damage carries over to your Grit as normal.
+- Fervor doesn't stack. If you gain Fervor while you already have some, keep whichever amount is higher.
+- Healing does not restore Fervor, and rest does not recover it.
+- Fervor lasts until it is used up or the effect that granted it ends.
+- Hit Point damage ignores Fervor, just as it ignores Grit.
+
+### Subduing
+
+Sometimes you'd rather take a foe alive. A **subduing attack** is meant to knock a creature senseless rather than kill it.
+
+**Fighting to subdue.** You can subdue only with bludgeoning damage. A weapon that deals only bludgeoning damage can make a subduing attack at a −2 Situation penalty to the attack roll. Weapons with the Non-Lethal property suffer no penalty.
+
+**Hilt-strikes.** Any other weapon, including one that deals bludgeoning and another type at once, can subdue only with a **hilt-strike**: a blow with the pommel, haft, or flat. A hilt-strike suffers a −3 Situation penalty to the attack roll, and the weapon's damage dice are reduced by 2 steps. A hilt-strike deals bludgeoning damage.
+
+**Subduing damage.** A subduing attack that hits deals subduing damage. Its weapon damage and any Ambush damage are subduing damage. Added damage is not: a flaming club still burns, and that fire is as deadly as ever. Apply the added damage first. If the creature survives it, then apply the subduing damage.
+
+Subduing damage reduces Grit as normal. If it would carry past the target's Grit, the target takes no Hit Point damage from it and is **knocked out** instead.
+
+**Pulling your punches.** When you deal subduing damage, you can choose to deal any amount less than the total you rolled, to a minimum of 1. You can't reduce added damage this way.
+
+**Unaware targets.** A creature that doesn't know the blow is coming is far easier to drop. Against an unaware creature, ignore its Grit: if the subduing damage is greater than its current Hit Points, it is knocked out. If not, the damage reduces its Grit as normal, and it is no longer unaware.
+
+#### Knocked Out
+
+A creature that is knocked out becomes <ConditionLink id="unconscious" /> for 1 hour and loses 1 Hit Point. A creature with only 1 Hit Point left doesn't lose it; it suffers a **Concussion** lasting injury instead. A creature that can't survive the Concussion's loss of maximum Hit Points dies from the blow.
+
+If the blow would have killed the creature had it been lethal, it also suffers a **Concussion** lasting injury. A single blow never causes more than one Concussion. A blow would have killed if the damage carried past Grit is greater than the creature's current Hit Points, or, against an unaware creature, if the subduing damage is more than twice its current Hit Points.
+
+<GameplayCard
+  colorSet="example"
+  title="Subduing Example"
+>
+Wenna wants the smuggler alive. He has 4 Grit and 3 Hit Points left. She swings her club, which deals only bludgeoning damage, and makes a subduing attack at −2. She hits for 6. The first 4 points take his Grit, and the remaining 2 would carry into his Hit Points, so he is knocked out instead. He drops, Unconscious for an hour, and loses 1 Hit Point.
+
+Had she hit for 9, the 5 points past his Grit would have been more than his 3 Hit Points, and he'd wake with a Concussion as well. She could have pulled her punch to avoid it.
+</GameplayCard>
+
 
 ## Adjudicating at the Same Time
 Adjudicating at the same time means that all activities in a phase happen at the same time, regardless of who rolls first. If you are attempting to act in a phase, you get to do so unless a ***Reaction*** stops you.
@@ -239,19 +405,30 @@ Using a Master Action does not prevent you from using your Reaction later in the
 
 ### Shield Block
 
-**Trigger:** You are hit by an attack you can perceive while wielding a shield with which you are proficient.
+**Trigger:** You are hit by an attack you can perceive, or take damage from an effect that calls for a Saving Throw vs Breath, while wielding a shield with which you are proficient.
 
-After the attack's damage is rolled but before it is applied, use your Reaction to reduce that damage by your shield's **Block Value + your Combat Bonus**, to a minimum of 0. Shield Block can be used against a melee, or ranged attacks. It reduces the damage of the triggering hit only, including the increased damage of a critical hit.
+Use your Reaction to gain Situation [Soak](#soak) equal to your shield's **Block Value + your Combat Bonus** against all damage except psychic, for the triggering hit or effect only. This includes the increased damage of a critical hit.
 
-After reducing the damage, make the shield's **Break Roll**, even if the damage was reduced to 0. Roll its Break Die. If the result is equal to or below its Break Chance, its condition worsens by one step: Good becomes Damaged, Damaged becomes Broken, and Broken becomes Destroyed. A Break Roll cannot worsen a shield by more than one step unless an effect explicitly says otherwise.
+After soaking the damage, make the shield's **Break Roll**, even if the damage was reduced to 0. Roll its Break Die. If the result is equal to or below its Break Chance, its condition worsens by one step: Good becomes Damaged, Damaged becomes Broken, and Broken becomes Destroyed. A Break Roll cannot worsen a shield by more than one step unless an effect explicitly says otherwise.
 
 Effects can modify a shield's Break Chance. If its final Break Chance is 0 or lower, roll the Break Die twice; its condition worsens only if both dice roll a 1.
 
 Shield statistics, condition effects, materials, and repair rules appear in Chapter 06: Equipment.
 
-#### Shield Block Example
+<GameplayCard
+  colorSet="example"
+  title="Shield Block Example"
+>
+A character with Combat Bonus +2 uses a shield with Block Value 3 and is hit for 9 damage. They use Shield Block and soak 5, taking 4 damage. They then roll the shield's Break Die and compare the result to its current Break Chance.
+</GameplayCard>
 
-A character with Combat Bonus +2 uses a shield with Block Value 3 and is hit for 9 damage. They use Shield Block and reduce the damage by 5, taking 4 damage. They then roll the shield's Break Die and compare the result to its current Break Chance.
+### Cinematic Shield Block
+
+**Trigger:** The same as [Shield Block](#shield-block).
+
+You throw your shield fully into harm's way. Use your Reaction to gain Situation Soak equal to **twice your Shield Block Soak** (your shield's Block Value + your Combat Bonus, doubled) against all damage except psychic, for the triggering hit or effect only. You do not make a Break Roll. Instead, your shield's condition automatically worsens by one step. If the attacking weapon would increase your shield's Break Chance, such as an axe against a wooden shield, it worsens by two steps instead.
+
+You can use this even with a Broken shield. The shield is Destroyed, but it takes the blow first.
 
 ### Master Reactions
 
@@ -308,6 +485,32 @@ The attacker tests either Brawn or Precision. The defender tests either Brawn or
 The GM may apply other modifiers for unstable ground, unusual anatomy, restraints, leverage, or similarly important circumstances. If a creature cannot meaningfully resist, the maneuver succeeds without a roll. If the maneuver is physically impossible, it fails without a roll.
 
 Save vs Binding remains appropriate for magical bindings, animated restraints, environmental entanglements, and other effects that do not involve an active contest between creatures.
+
+## Size
+
+Creatures come in nine size categories. A creature's size determines how much space it takes up on a grid, and many rules compare the sizes of two creatures.
+
+Tiny and smaller creatures take up less room, so several can share a square. The table assumes a grid of 5-foot squares and creatures that are trying to fight. You could fit a whole litter of cats in a 5-foot square, but no more than two imps can crowd in to claw at the same warrior.
+
+<div class="green-table compact-table">
+
+| Size | Space on a Grid |
+|:--|:--|
+| Fine | 8 creatures per square |
+| Diminutive | 4 creatures per square |
+| Tiny | 2 creatures per square |
+| Small | 1 square (5 by 5 feet) |
+| Medium | 1 square (5 by 5 feet) |
+| Large | 4 squares (10 by 10 feet) |
+| Huge | 9 squares (15 by 15 feet) |
+| Gargantuan | 16 squares (20 by 20 feet) |
+| Colossal | 36 squares (30 by 30 feet) |
+
+</div>
+
+**Comparing sizes.** When a rule refers to a creature being one or more sizes larger or smaller, count the categories between them on this table. A Medium human is one size smaller than a Large ogre and two sizes smaller than a Huge giant.
+
+Rules that use size include [Combat Maneuvers](#combat-maneuvers), [crushing blows](/playersguide/07-adventuring/lasting-injuries/#damage-types), and [encumbrance](/playersguide/06-equipment/02-encumbrance/#size-adjustments).
 
 ## Tracking Durations
 

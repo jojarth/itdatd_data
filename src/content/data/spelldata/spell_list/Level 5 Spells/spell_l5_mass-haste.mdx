@@ -5,32 +5,47 @@ level: 5
 casting: 1 Master Action; Phase 4
 range: 120 feet
 duration: 1 minute
-shortDescription: Willing creatures you choose in a 20-foot radius become Hasted, at a cost.
+shortDescription: Willing creatures you choose in a 20-foot radius move and act with unnatural speed, at a cost.
 reverseTitle: Mass Slow
-reverseShortDescription: Every creature in a 20-foot radius that fails a Save vs Spell becomes Slow.
+reverseShortDescription: Every creature in a 20-foot radius that fails a Save vs Spell moves and acts as if wading through deep water.
 classes:
   - Magic-User
+counters: [Slow, Mass Slow]
+dispels: [Slow, Mass Slow]
+reverseCounters: [Haste, Mass Haste]
+reverseDispels: [Haste, Mass Haste]
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import EffectTable from '../../../../../components/conditions/EffectTable.astro';
+import EffectRow from '../../../../../components/conditions/EffectRow.astro';
+import SpellOpposition from '../../../../../components/SpellOpposition.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 import ConditionLink from '../../../../../components/conditions/ConditionLink.astro';
-import ConditionCard from '../../../../../components/conditions/ConditionCard.astro';
 
 <SpellEntry title="Mass Haste">
 
     <FeatureSection title="Spell Effect">
-        Choose a point you can see within range. Any number of willing creatures you choose within a 20-foot radius of that point become <ConditionLink id="hasted" /> for the duration.
+        Choose a point you can see within range. Any number of willing creatures you choose within a 20-foot radius of that point are affected. For the duration, each moves and acts with unnatural speed.
 
-        <FeatureSubsection title="Countering Slow">
-            A chosen creature that is Slow instead has its Slow condition ended, and does not become Hasted.
+        <EffectTable title="Mass Haste Spell Effects">
+            <EffectRow title="Quick" href="/playersguide/08-combat/#action-delay">It acts 2 phases earlier than normal, but never before Phase 1.</EffectRow>
+            <EffectRow title="Extra Action" href="/playersguide/08-combat/#fewer-actions">It has 1 additional Action each round. This never grants additional Master Actions or Reactions.</EffectRow>
+            <EffectRow title="Effortless" href="/playersguide/08-combat/#faltering">Its Master Actions cost 1 fewer Action, to a minimum of 1 Action.</EffectRow>
+            <EffectRow title="Fleet">Its speed increases by 10 feet.</EffectRow>
+        </EffectTable>
+
+        <FeatureSubsection title="Counts as Haste">
+            This spell counts as Haste for [overlapping spells](/playersguide/09-spellcasting/#overlapping-spells).
         </FeatureSubsection>
 
         <FeatureSubsection title="The Cost of Speed">
-            Unnatural speed takes its toll. Each time a creature becomes Hasted by means of this spell, it ages 1 year.
+            Unnatural speed takes its toll. Each time this spell affects a creature, it ages 1 year.
 
-            A body also needs rest between such bursts of speed. If a creature becomes Hasted by means of this spell again before it has completed a Night's Rest, it also gains 1 level of <ConditionLink id="exhausted" />.
+            A body also needs rest between such bursts of speed. If Haste or this spell affects a creature again before it has completed a Night's Rest, it also gains 1 level of <ConditionLink id="exhausted" />.
         </FeatureSubsection>
+
+        <SpellOpposition />
     </FeatureSection>
 
     <FeatureSection title="Components">
@@ -43,20 +58,26 @@ import ConditionCard from '../../../../../components/conditions/ConditionCard.as
         </FeatureSubsection>
     </FeatureSection>
 
-    <ConditionCard id="hasted" anchor={false} />
-
 </SpellEntry>
 
 <SpellEntry title="Mass Slow" variant="reverse" metadata={props.reverseMetadata}>
 
     <FeatureSection title="Spell Effect">
-        Choose a point you can see within range. Each creature within a 20-foot radius of that point must make a Save vs Spell. On a failure, a creature becomes <ConditionLink id="slow" /> for the duration. On a success, the spell has no effect on that creature.
+        Choose a point you can see within range. Each creature within a 20-foot radius of that point must make a Save vs Spell. On a success, the spell has no effect on that creature. On a failure, for the duration, the creature moves and acts as if wading through deep water.
+
+        <EffectTable title="Mass Slow Spell Effects">
+            <EffectRow title="Action Delay" href="/playersguide/08-combat/#action-delay">It acts 2 phases later than normal.</EffectRow>
+            <EffectRow title="Faltering" href="/playersguide/08-combat/#faltering">Its Master Actions cost 1 additional Action, and its Master Reactions cost 1 Action.</EffectRow>
+            <EffectRow title="Reduced Speed" href="/playersguide/08-combat/#reduced-speed">Its speed is reduced by 10 feet.</EffectRow>
+        </EffectTable>
 
         Creatures that enter the area after the spell is cast are not affected.
 
-        <FeatureSubsection title="Countering Haste">
-            A Hasted creature that fails its save instead has its Hasted condition ended, and does not become Slow.
+        <FeatureSubsection title="Counts as Slow">
+            This spell counts as Slow for [overlapping spells](/playersguide/09-spellcasting/#overlapping-spells).
         </FeatureSubsection>
+
+        <SpellOpposition reverse />
     </FeatureSection>
 
     <FeatureSection title="Components">
@@ -68,7 +89,5 @@ import ConditionCard from '../../../../../components/conditions/ConditionCard.as
             Sweep your Casting Hand in a wide, slow circle toward the chosen point, palm down, as if pressing the air flat, while speaking the spell in a long, drawn-out breath.
         </FeatureSubsection>
     </FeatureSection>
-
-    <ConditionCard id="slow" anchor={false} />
 
 </SpellEntry>

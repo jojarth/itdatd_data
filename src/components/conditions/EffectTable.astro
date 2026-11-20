@@ -1,7 +1,65 @@
 ---
-// A condition's effects, shown as a list of inset blocks, each with a tinted title bar.
+// A list of effects, shown as inset blocks, each with a tinted title bar.
 // Usage: <EffectTable> <EffectRow title="Frozen">You cannot Act.</EffectRow> ... </EffectTable>
-// Styles live in ConditionCard.astro so they load wherever a card appears.
+// Inside a condition card, styles come from ConditionCard.astro.
+// Elsewhere (such as in a spell), pass a title for a self-contained pink box:
+//   <EffectTable title="Haste Spell Effects"> ... </EffectTable>
+interface Props { title?: string; }
+const { title } = Astro.props as Props;
 ---
-<div class="effect-list"><slot /></div>
+{title ? (
+  <div class="effect-box">
+    <div class="effect-box__title">{title}</div>
+    <div class="effect-list"><slot /></div>
+  </div>
+) : (
+  <div class="effect-list"><slot /></div>
+)}
 
+<style is:global>
+  .effect-box {
+    --effect-accent: var(--itdatd-color-pink);
+    --effect-title: var(--effect-accent);
+    --effect-tint: 5%;
+    border: 1px solid color-mix(in srgb, var(--effect-accent) 45%, transparent);
+    border-left: 4px solid var(--effect-accent);
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem 0.75rem;
+    margin: 0.9rem 0;
+    background: color-mix(in srgb, var(--effect-accent) var(--effect-tint), transparent);
+  }
+  /* Softer rose in dark mode; full pink there glares against the dark background. */
+  :root[data-theme="dark"] .effect-box {
+    --effect-accent: #c9677d;
+    --effect-title: #eaa0b1;
+    --effect-tint: 4%;
+  }
+  .effect-box > * { margin-top: 0 !important; }
+  .effect-box__title {
+    font-weight: 700;
+    font-size: var(--sl-text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--effect-title);
+    margin-bottom: 0.5rem;
+  }
+  .effect-box .effect-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .effect-box .effect-list > *, .effect-box .effect > * { margin-top: 0 !important; }
+  .effect-box .effect {
+    border: 1px solid color-mix(in srgb, var(--effect-accent) 22%, transparent);
+    border-radius: 5px;
+    overflow: hidden;
+    background: var(--sl-color-bg);
+  }
+  .effect-box .effect__title {
+    padding: 0.25rem 0.75rem;
+    font-size: var(--sl-text-sm);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--effect-title);
+    background: color-mix(in srgb, var(--effect-accent) 14%, transparent);
+  }
+  .effect-box .effect__title a { color: inherit; text-decoration: underline dashed 1px; text-underline-offset: 3px; }
+  .effect-box .effect__body { padding: 0.45rem 0.75rem 0.55rem; line-height: 1.5; }
+  .effect-box .effect__body p { margin: 0; }
+</style>

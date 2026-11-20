@@ -1,0 +1,44 @@
+---
+datatype: spell
+title: Greater Dispel Magic
+level: 5
+casting: 1 Master Action; Phase 4
+range: 120 feet
+duration: Instant
+shortDescription: You unravel magic that has taken hold, sparing those you choose.
+classes:
+  - Cleric
+  - Theurge
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Greater Dispel Magic">
+
+    <FeatureSection title="Spell Effect">
+        You unravel magic that has taken hold. Choose one of the following when you cast the spell:
+
+        * **Dispel an area.** Choose a point within range. Every spell affecting a creature, object, or place within a 20-foot radius of that point is tested. You can choose any number of creatures and objects in the area to leave untouched.
+        * **Dispel a spell.** Choose one spell within range that you know is in effect. Only that spell is tested, and its caster suffers a −2 Situation penalty to the save.
+
+        For each spell tested, its caster makes a Saving Throw vs Spell, gaining a +1 Situation bonus for each level that spell is above 5th, and suffering a −1 Situation penalty for each level it is below 5th. On a failure, the spell ends. Your own spells end automatically, without a save.
+
+        Only spells with a duration can be dispelled. Magic items are not affected.
+
+        <FeatureSubsection title="Counts as Dispel Magic">
+            This spell counts as Dispel Magic for [overlapping spells](/playersguide/09-spellcasting/#overlapping-spells).
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while washing a stained cloth in running water, then wringing it out over the earth.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Sweep your Casting Hand in a wide circle toward the chosen point while speaking the prayer of undoing in full.
+        </FeatureSubsection>
+    </FeatureSection>
+
+</SpellEntry>

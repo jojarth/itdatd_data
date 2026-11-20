@@ -12,15 +12,20 @@ classes:
   - Cleric
   - Theurge
   - Paladin
+counters: [Inflict Light Wounds]
+reverseCounters: [Cure Light Wounds]
 ---
 import FeatureSection from '../../../../../components/FeatureSection.astro';
 import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellOpposition from '../../../../../components/SpellOpposition.astro';
 import SpellEntry from '../../../../../components/SpellEntry.astro';
 
 <SpellEntry title="Cure Light Wounds">
 
     <FeatureSection title="Spell Effect">
         Touch a nearby Valid Creature. The target regains 1d8 + 3 Grit.
+
+        <SpellOpposition />
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">
@@ -62,6 +67,8 @@ import SpellEntry from '../../../../../components/SpellEntry.astro';
 
     <FeatureSection title="Spell Effect">
         Touch a nearby Valid Creature. The target suffers 1d8 + 3 points of Profane damage. The target is entitled to a Save vs Spell. On a success, it takes no damage.
+
+        <SpellOpposition reverse />
     </FeatureSection>
 
     <FeatureSection title="Creature Interactions">

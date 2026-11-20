@@ -1,0 +1,40 @@
+---
+datatype: spell
+title: Dispel Magic
+level: 3
+casting: 1 Master Action; Phase 4
+range: 60 feet
+duration: Instant
+shortDescription: You unravel magic that has already taken hold.
+classes:
+  - Cleric
+  - Theurge
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Dispel Magic">
+
+    <FeatureSection title="Spell Effect">
+        You unravel magic that has taken hold. Choose one of the following when you cast the spell:
+
+        * **Dispel an area.** Choose a point within range. Every spell affecting a creature, object, or place within a 20-foot radius of that point is tested, whether it belongs to friend or foe.
+        * **Dispel a spell.** Choose one spell within range that you know is in effect, such as the Slow on your ally or the Darkness filling a hall. Only that spell is tested, and its caster suffers a −2 Situation penalty to the save.
+
+        For each spell tested, its caster makes a Saving Throw vs Spell, gaining a +1 Situation bonus for each level that spell is above 3rd. On a failure, the spell ends. Your own spells end automatically, without a save.
+
+        Only spells with a duration can be dispelled. Magic items are not affected.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while washing a stained cloth in running water until it comes clean.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Sweep your Casting Hand across the target as if wiping a slate clean, while speaking a short, plain prayer of undoing.
+        </FeatureSubsection>
+    </FeatureSection>
+
+</SpellEntry>

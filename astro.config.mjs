@@ -7,6 +7,7 @@ import remarkGameplayCardToc from "./src/remark-gameplay-card-toc.mjs";
 export default defineConfig({
   site: "https://itdatd.azureknights.net",
   compressHTML: true,
+  scopedStyleStrategy: "where",
   markdown: {
     processor: unified({
       remarkPlugins: [remarkGameplayCardToc],

@@ -1,0 +1,22 @@
+---
+// The "This spell counters and dispels ..." line at the end of a Spell Effect.
+// Reads the spell's counters/dispels (or reverseCounters/reverseDispels) frontmatter,
+// which the data page passes in Astro.locals.spellCard.opposition.
+// Usage: <SpellOpposition /> in the primary form, <SpellOpposition reverse /> in the reverse form.
+interface Props { reverse?: boolean; }
+const { reverse = false } = Astro.props as Props;
+const opp = (Astro.locals as any).spellCard?.opposition?.[reverse ? "reverse" : "primary"] ?? {};
+const counters: string[] = opp.counters ?? [];
+const dispels: string[] = opp.dispels ?? [];
+
+const list = (names: string[]) =>
+  names.length <= 1 ? names.join("") : names.length === 2 ? `${names[0]} and ${names[1]}` : `${names.slice(0, -1).join(", ")}, and ${names.at(-1)}`;
+const same = counters.length === dispels.length && counters.every((n) => dispels.includes(n));
+
+let sentence = "";
+if (same && counters.length) sentence = `This spell counters and dispels ${list(counters)}.`;
+else if (counters.length && dispels.length) sentence = `This spell counters ${list(counters)}, and dispels ${list(dispels)}.`;
+else if (counters.length) sentence = `This spell counters ${list(counters)}.`;
+else if (dispels.length) sentence = `This spell dispels ${list(dispels)}.`;
+---
+{sentence && <p class="spell-opposition"><em>{sentence}</em></p>}

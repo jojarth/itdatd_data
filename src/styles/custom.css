@@ -1641,3 +1641,23 @@
 @media (max-width: 38rem) {
   .gameplay-card .feature-subsection { margin-left: 0; }
 }
+
+/* Example cards: same style as other gameplay cards, but lighter so they sit inline with the rules. */
+.gameplay-card.gameplay-card--card-example {
+  border-top-width: 3px;
+  margin: 0.9rem 0;
+  box-shadow: none;
+}
+.gameplay-card.gameplay-card--card-example > .gameplay-card__header {
+  padding: 0.25rem 0.85rem 0.3rem;
+}
+.gameplay-card.gameplay-card--card-example .gameplay-card__header h3 {
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+.gameplay-card.gameplay-card--card-example > .gameplay-card__body {
+  gap: 0.4rem;
+  margin-top: 0;
+  padding: 0.45rem 0.85rem 0.55rem;
+  font-size: 0.95em;
+}

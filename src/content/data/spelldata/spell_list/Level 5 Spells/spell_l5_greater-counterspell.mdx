@@ -1,0 +1,38 @@
+---
+datatype: spell
+title: Greater Counterspell
+level: 5
+casting: 1 Master Reaction
+range: 120 feet
+duration: Instant
+shortDescription: You tear apart a spell as it is being cast, and lesser magic barely resists.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Greater Counterspell">
+
+    <FeatureSection title="Spell Effect">
+        You can cast this spell when you see or hear a creature within range casting a spell. You tear the threads of that spell before they can be tied.
+
+        The caster must make a Saving Throw vs Spell. They gain a +1 Situation bonus for each level their spell is above 5th, and suffer a −1 Situation penalty for each level it is below 5th. A cantrip counts as level 0, so its caster suffers a −5 penalty. On a failure, their spell is countered: it takes no effect, and their Actions, Master Action, and spell slot are spent. On a success, their spell is cast normally.
+
+        <FeatureSubsection title="Counts as Counterspell">
+            This spell counts as Counterspell for [overlapping spells](/playersguide/09-spellcasting/#overlapping-spells).
+        </FeatureSubsection>
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while unraveling a length of knotted cord, finishing before the last knot comes loose by itself.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Close your Casting Hand into a fist toward the caster and draw it back sharply, speaking a single word that cuts across theirs.
+        </FeatureSubsection>
+    </FeatureSection>
+
+</SpellEntry>

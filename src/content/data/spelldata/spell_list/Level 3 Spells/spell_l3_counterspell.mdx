@@ -1,0 +1,34 @@
+---
+datatype: spell
+title: Counterspell
+level: 3
+casting: 1 Master Reaction
+range: 60 feet
+duration: Instant
+shortDescription: You tear apart a spell as it is being cast.
+classes:
+  - Magic-User
+---
+import FeatureSection from '../../../../../components/FeatureSection.astro';
+import FeatureSubsection from '../../../../../components/FeatureSubsection.astro';
+import SpellEntry from '../../../../../components/SpellEntry.astro';
+
+<SpellEntry title="Counterspell">
+
+    <FeatureSection title="Spell Effect">
+        You can cast this spell when you see or hear a creature within range casting a spell. You tear the threads of that spell before they can be tied.
+
+        The caster must make a Saving Throw vs Spell. They gain a +1 Situation bonus for each level their spell is above 3rd. On a failure, their spell is countered: it takes no effect, and their Actions, Master Action, and spell slot are spent. On a success, their spell is cast normally.
+    </FeatureSection>
+
+    <FeatureSection title="Components">
+        <FeatureSubsection title="Preparation">
+            Study the spell while tying a cord into a knot and pulling it free, again and again, until it unties at a touch.
+        </FeatureSubsection>
+
+        <FeatureSubsection title="Casting">
+            Snap your Casting Hand closed toward the caster, as if catching something thrown, and speak a single sharp word.
+        </FeatureSubsection>
+    </FeatureSection>
+
+</SpellEntry>

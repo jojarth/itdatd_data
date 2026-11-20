@@ -149,6 +149,10 @@ if (isSpell) {
     primaryTitle: displayTitle,
     reverseTitle: entry.data.reverseTitle,
     primaryMetadata: { level: entry.data.level, ...primarySpellMetadata },
+    opposition: {
+      primary: { counters: entry.data.counters ?? [], dispels: entry.data.dispels ?? [] },
+      reverse: { counters: entry.data.reverseCounters ?? [], dispels: entry.data.reverseDispels ?? [] },
+    },
   };
 }
 const weaponProperties = isWeapon ? entry.data.properties : [];
