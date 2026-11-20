@@ -8,7 +8,7 @@ interface Props {
 const { colorTheme = "blue-table" } = Astro.props;
 const armors = await getCollection("armors");
 
-armors.sort((a, b) => a.data.ac - b.data.ac);
+armors.sort((a, b) => a.data.ac - b.data.ac || a.data.title.localeCompare(b.data.title));
 const formatEp = (worn: number | string, carried: number | string) =>
   worn === "-" && carried === "-" ? "-" : `${worn} / ${carried}`;
 ---
@@ -18,6 +18,7 @@ const formatEp = (worn: number | string, carried: number | string) =>
     <thead>
       <tr>
         <th>Type</th>
+        <th>Grade</th>
         <th>AC</th>
         <th>EP Equipped/Packed</th>
         <th>Cost</th>
@@ -26,7 +27,8 @@ const formatEp = (worn: number | string, carried: number | string) =>
     <tbody>
       {armors.map((entry) => (
         <tr>
-          <td><strong><a href={`/data/armors/${entry.id}`}>{entry.data.title}</a></strong></td>
+          <td><strong><a href={`/data/armors/${entry.id}`} title={entry.data.title}>{entry.data.type}</a></strong></td>
+          <td>{entry.data.grade ?? "-"}</td>
           <td>{entry.data.ac}</td>
           <td>{formatEp(entry.data.epEquipped, entry.data.epPacked)}</td>
           <td>{entry.data.cost}</td>

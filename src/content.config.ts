@@ -92,6 +92,8 @@ const armors = defineCollection({
   schema: z.object({
     datatype: z.literal("armor"),
     title: z.string(),
+    type: z.enum(["None", "Light", "Medium", "Heavy", "Plate"]),
+    grade: z.enum(["Fitted", "Munition"]).optional(),
     ac: z.number(),
     epEquipped: z.union([z.number(), z.string()]),
     epPacked: z.union([z.number(), z.string()]),

@@ -97,6 +97,8 @@ const detailFields = isWeapon
       ]
     : isArmor
       ? [
+          { key: "type", label: "Type", value: entry.data.type },
+          ...(entry.data.grade ? [{ key: "grade", label: "Grade", value: entry.data.grade }] : []),
           { key: "ac", label: "AC", value: `${entry.data.ac}` },
           { key: "epEquipped", label: "EP Equipped", value: `${entry.data.epEquipped}` },
           { key: "epPacked", label: "EP Packed", value: `${entry.data.epPacked}` },
